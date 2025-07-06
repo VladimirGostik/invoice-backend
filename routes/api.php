@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ResidentialCompanyController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 
@@ -45,20 +47,28 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
 
         // Check if a user with specified email exists
         Route::post('email-exists', [UserController::class, 'emailExists'])->name('email-exists');
-
         // Change the password of the specified user
         Route::post('{user}/change-password', [UserController::class, 'changePassword'])->name('change-password');
-
-//        Route::prefix('{user}')->group(function () {
-//
-//            // User entities resource
-//            Route::apiResource('entities', UserEntityController::class)->except('show');
-//
-//        });
-
     });
 
     Route::apiResource('users', UserController::class);
     Route::apiResource('roles', RoleController::class)->only('index');
+
+    // Companies resource
+    Route::prefix('companies')->name('companies.')->group(function () {
+        Route::get('/',            [CompanyController::class, 'index'])->name('index');
+        Route::post('/',           [CompanyController::class, 'store'])->name('store');
+        Route::get('/{company}',   [CompanyController::class, 'show'])->name('show');
+        Route::put('/{company}',   [CompanyController::class, 'update'])->name('update');
+        Route::delete('/{company}',[CompanyController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('residential-companies')->name('residential-companies.')->group(function () {
+        Route::get('/',            [ResidentialCompanyController::class, 'index'])->name('index');
+        Route::post('/',           [ResidentialCompanyController::class, 'store'])->name('store');
+        Route::get('/{residentialCompany}', [ResidentialCompanyController::class, 'show'])->name('show');
+        Route::put('/{residentialCompany}', [ResidentialCompanyController::class, 'update'])->name('update');
+        Route::delete('/{residentialCompany}', [ResidentialCompanyController::class, 'destroy'])->name('destroy');
+    });
 
 });
