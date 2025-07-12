@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ResidentialCompanyController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StreetController;
 use App\Http\Controllers\UserController;
 
 use Illuminate\Support\Facades\Route;
@@ -69,6 +70,14 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
         Route::get('/{residentialCompany}', [ResidentialCompanyController::class, 'show'])->name('show');
         Route::put('/{residentialCompany}', [ResidentialCompanyController::class, 'update'])->name('update');
         Route::delete('/{residentialCompany}', [ResidentialCompanyController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('streets')->name('streets.')->group(function () {
+        Route::get('/',            [StreetController::class, 'index'])->name('index');
+        Route::post('/',           [StreetController::class, 'store'])->name('store');
+        Route::get('/{street}',    [StreetController::class, 'show'])->name('show');
+        Route::put('/{street}',    [StreetController::class, 'update'])->name('update');
+        Route::delete('/{street}', [StreetController::class, 'destroy'])->name('destroy');
     });
 
 });

@@ -15,4 +15,8 @@ class Company extends Model
         'company_type' => CompanyTypeEnum::class,
     ];
 
+    public function streets()
+    {
+        return $this->hasMany(Street::class, 'company_id');
+    }
 }

@@ -9,7 +9,7 @@ class ResidentialCompany extends Company
 
     protected $table = 'companies';
     protected $guarded = ['id'];
-    
+
     /**
      * Scope a query to only include residential companies.
      *
@@ -26,5 +26,4 @@ class ResidentialCompany extends Company
             $model->company_type = CompanyTypeEnum::RESIDENTIAL->value;
         });
     }
-
 }

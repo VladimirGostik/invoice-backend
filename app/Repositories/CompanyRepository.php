@@ -15,14 +15,13 @@ class CompanyRepository implements CompanyRepositoryInterface
     public function search(array $filter): Collection|LengthAwarePaginator|array
     {
         request()->merge($filter);
-        
-        \Log::debug('Searching companies with filters:', $filter);
+
         $query = QueryBuilder::for(Company::class)
             ->allowedFilters([
                 'company_name',
                 AllowedFilter::exact('company_type'), 
             ]);
-        \Log::debug('Query built:', ['query' => $query->toSql()]);
+            
         // Get pagination
         $paginate = (int)($filter['per_page'] ?? config('system.paginate'));
 
