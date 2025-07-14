@@ -61,6 +61,7 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
         Route::post('/',           [CompanyController::class, 'store'])->name('store');
         Route::get('/{company}',   [CompanyController::class, 'show'])->name('show');
         Route::put('/{company}',   [CompanyController::class, 'update'])->name('update');
+        Route::put('/{company}/customization', [CompanyController::class, 'updateCustomization'])->name('update-customization');
         Route::delete('/{company}',[CompanyController::class, 'destroy'])->name('destroy');
     });
 

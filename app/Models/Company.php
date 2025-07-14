@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\CompanyTypeEnum;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Company extends Model
 {
@@ -18,5 +19,15 @@ class Company extends Model
     public function streets()
     {
         return $this->hasMany(Street::class, 'company_id');
+    }
+
+    public function companyCustomization(): HasOne
+    {
+        return $this->hasOne(CompanyCustomization::class);
+    }
+
+    public function signatures()
+    {
+        return $this->morphMany(File::class, 'fileable')->where('collection', 'signatures');
     }
 }

@@ -15,7 +15,11 @@ class CompanyResource extends JsonResource
     public function toArray(Request $request): array
     {
        return array_merge(parent::toArray($request), [
-            'streets' => $this->streets,
+            //'streets' => $this->streets,
+            'invoice_issuer_name'  => $this->companyCustomization->invoice_issuer_name ?? null,
+            'invoice_issuer_email' => $this->companyCustomization->invoice_issuer_email ?? null,
+            'invoice_issuer_phone' => $this->companyCustomization->invoice_issuer_phone ?? null,
+            'signatures'           => $this->signatures,
         ]);
     }
 }

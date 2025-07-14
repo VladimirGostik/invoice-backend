@@ -45,4 +45,9 @@ class CompanyRepository implements CompanyRepositoryInterface
     {
         $company->delete();
     }
+
+    public function updateCustomization(Company $company, array $data): void
+    {
+        $company->companyCustomization()->updateOrCreate([], $data);
+    }
 }
