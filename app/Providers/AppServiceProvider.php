@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Models\Order;
+use App\Models\OneTimeInvoice;
+use App\Observers\InvoiceObserver;
 use App\Models\User;
-use App\Observers\OrderObserver;
 use Illuminate\Support\ServiceProvider;
 use Knuckles\Camel\Extraction\ExtractedEndpointData;
 use Knuckles\Scribe\Scribe;
@@ -41,5 +41,6 @@ class AppServiceProvider extends ServiceProvider
                 $request->headers->add(["Authorization" => "Bearer $token"]);
             });
         }
+        OneTimeInvoice::observe(InvoiceObserver::class);
     }
 }

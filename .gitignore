@@ -23,3 +23,8 @@ yarn-error.log
 /.zed
 /.scribe/*
 /public/docs/*
+docker-compose.yml
+.gitignore
+Dockerfile
+entrypoint.sh
+docker/nginx/default.conf

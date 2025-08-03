@@ -2,13 +2,13 @@
 
 namespace App\Policies;
 
-use App\Enums\UserRoleEnum;
-use App\Models\ResidentialCompany;
+use App\Models\Invoice;
 use App\Models\User;
+use App\Enums\UserRoleEnum;
 
-class ResidentialCompanyPolicy
+class InvoicePolicy
 {
-     public function viewAny(User $user): bool
+    public function viewAny(User $user): bool
     {
         return $user->hasAnyRole([
             UserRoleEnum::SUPER_ADMIN,
@@ -16,12 +16,12 @@ class ResidentialCompanyPolicy
         ]);
     }
 
-    public function view(User $user, ResidentialCompany $residentialCompany): bool
+    public function view(User $user, Invoice $invoice): bool
     {
         return $user->hasAnyRole([
             UserRoleEnum::SUPER_ADMIN,
             UserRoleEnum::ADMIN,
-        ]) && $residentialCompany->company_type === 'residential';
+        ]);
     }
 
     public function create(User $user): bool
@@ -31,17 +31,17 @@ class ResidentialCompanyPolicy
         ]);
     }
 
-    public function update(User $user, ResidentialCompany $residentialCompany): bool
+    public function update(User $user, Invoice $invoice): bool
     {
         return $user->hasAnyRole([
             UserRoleEnum::SUPER_ADMIN,
-        ]) && $residentialCompany->company_type === 'residential';
+        ]);
     }
 
-    public function delete(User $user, ResidentialCompany $residentialCompany): bool
+    public function delete(User $user, Invoice $invoice): bool
     {
         return $user->hasAnyRole([
             UserRoleEnum::SUPER_ADMIN,
-        ]) && $residentialCompany->company_type === 'residential';
+        ]);
     }
 }

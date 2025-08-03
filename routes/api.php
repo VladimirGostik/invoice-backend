@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\ResidentialCompanyController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StreetController;
 use App\Http\Controllers\UserController;
@@ -56,21 +56,20 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
     Route::apiResource('roles', RoleController::class)->only('index');
 
     // Companies resource
-    Route::prefix('companies')->name('companies.')->group(function () {
-        Route::get('/',            [CompanyController::class, 'index'])->name('index');
-        Route::post('/',           [CompanyController::class, 'store'])->name('store');
-        Route::get('/{company}',   [CompanyController::class, 'show'])->name('show');
-        Route::put('/{company}',   [CompanyController::class, 'update'])->name('update');
-        Route::put('/{company}/customization', [CompanyController::class, 'updateCustomization'])->name('update-customization');
-        Route::delete('/{company}',[CompanyController::class, 'destroy'])->name('destroy');
-    });
+    Route::prefix('companies')->group(function () {
+        // endpoints for MAIN companies
+        Route::get('/main', [CompanyController::class, 'indexMain'])->name('companies.indexMain');
+        Route::post('/main', [CompanyController::class, 'storeMain'])->name('companies.storeMain');
 
-    Route::prefix('residential-companies')->name('residential-companies.')->group(function () {
-        Route::get('/',            [ResidentialCompanyController::class, 'index'])->name('index');
-        Route::post('/',           [ResidentialCompanyController::class, 'store'])->name('store');
-        Route::get('/{residentialCompany}', [ResidentialCompanyController::class, 'show'])->name('show');
-        Route::put('/{residentialCompany}', [ResidentialCompanyController::class, 'update'])->name('update');
-        Route::delete('/{residentialCompany}', [ResidentialCompanyController::class, 'destroy'])->name('destroy');
+        // endpoints for RESIDENTIAL companies
+        Route::get('/residential', [CompanyController::class, 'indexResidential'])->name('companies.indexResidential');
+        Route::post('/residential', [CompanyController::class, 'storeResidential'])->name('companies.storeResidential');
+
+        // Shared endpoints
+        Route::get('/{company}', [CompanyController::class, 'show'])->name('companies.show');
+        Route::put('/{company}', [CompanyController::class, 'update'])->name('companies.update');
+        Route::delete('/{company}', [CompanyController::class, 'destroy'])->name('companies.destroy');
+        Route::put('/{company}/customization', [CompanyController::class, 'updateCustomization'])->name('companies.customization.update');
     });
 
     Route::prefix('streets')->name('streets.')->group(function () {
@@ -81,4 +80,19 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
         Route::delete('/{street}', [StreetController::class, 'destroy'])->name('destroy');
     });
 
+    Route::prefix('invoices')->group(function () {
+        // Route::get('/', [InvoiceController::class, 'index'])->name('invoices.index');
+        // Route::get('/{invoice}', [InvoiceController::class, 'show'])->name('invoices.show');
+        // Route::put('/{invoice}', [InvoiceController::class, 'update'])->name('invoices.update');
+        // Route::delete('/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
+        // Route::post('/', [InvoiceController::class, 'store'])->name('invoices.store');
+        // Route::post('/monthly', [InvoiceController::class, 'storeMonthly'])->name('invoices.storeMonthly');
+        // 
+        Route::get('/', [InvoiceController::class, 'view'])->name('invoices.view');
+        Route::get('/one-time', [InvoiceController::class, 'searchOneTime'])->name('invoices.searchOneTime');
+        Route::get('/monthly', [InvoiceController::class, 'searchMonthly'])->name('invoices.searchMonthly');
+        Route::get('/{company_id}/last-number/{billing_year}', [InvoiceController::class, 'getLastInvoiceNumber'])->name('invoices.last-number');
+        Route::post('/one-time', [InvoiceController::class, 'storeOneTime'])->name('invoices.storeOneTime');
+        Route::delete('/{invoice}', [InvoiceController::class, 'delete'])->name('invoices.delete');
+    });
 });

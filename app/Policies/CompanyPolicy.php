@@ -23,7 +23,7 @@ class CompanyPolicy
         return $user->hasAnyRole([
             UserRoleEnum::SUPER_ADMIN,
             UserRoleEnum::ADMIN,
-        ]) && $company->company_type === CompanyTypeEnum::MAIN;
+        ]);
     }
 
     public function create(User $user): bool
@@ -37,20 +37,20 @@ class CompanyPolicy
     {
         return $user->hasAnyRole([
             UserRoleEnum::SUPER_ADMIN,
-        ]) && $company->company_type === CompanyTypeEnum::MAIN;
+        ]);
     }
 
     public function updateCustomization(User $user, Company $company): bool
     {
         return $user->hasAnyRole([
             UserRoleEnum::SUPER_ADMIN,
-        ]) && $company->company_type === CompanyTypeEnum::MAIN;
+        ]) && $company->company_type === CompanyTypeEnum::MAIN; 
     }
 
     public function delete(User $user, Company $company): bool
     {
         return $user->hasAnyRole([
             UserRoleEnum::SUPER_ADMIN,
-        ]) && $company->company_type === CompanyTypeEnum::MAIN;
+        ]);
     }
 }

@@ -10,8 +10,10 @@ use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Services\FileService;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Knuckles\Scribe\Attributes\BodyParam;
 use Knuckles\Scribe\Attributes\Group;
@@ -38,28 +40,44 @@ class CompanyController extends Controller
     #[QueryParam('page', 'int', 'Set the page number for pagination. Default: 1', example: 1)]
     #[QueryParam('per_page', 'int', 'Set the number of records per page. Default: 10', example: 10)]
     #[QueryParam('filter[company_name]', 'string', 'Filter records by company_name.', example: 'Kegos s.r.o.')]
-    public function index(Request $request)
-    {
+    public function indexMain(Request $request): AnonymousResourceCollection   {
         $this->authorize('viewAny', Company::class);
         $filters = $request->all();
-        $filters['filter'] = array_merge(
-            $request->input('filter', []),
-            ['company_type' => CompanyTypeEnum::MAIN->value]
-        );
-        $collection = $this->companyRepo->search($filters);
+        $collection = $this->companyRepo->searchMain($filters);
+        return CompanyResource::collection($collection);
+    }
+
+    /**
+     * Zoznam všetkých rezidencných firiem.
+     */
+    #[QueryParam('page', 'int', 'Set the page number for pagination. Default: 1', example: 1)]
+    #[QueryParam('per_page', 'int', 'Set the number of records per page. Default: 10', example: 10)]
+    #[QueryParam('filter[company_name]', 'string', 'Filter records by company_name.', example: 'Kegos s.r.o.')]
+    public function indexResidential(Request $request): AnonymousResourceCollection   {
+        $this->authorize('viewAny', Company::class);
+        $filters = $request->all();
+        $collection = $this->companyRepo->searchResidential($filters);
         return CompanyResource::collection($collection);
     }
 
     /**
      * Vytvorenie novej firmy.
      */
-    public function store(StoreRequest $request): JsonResponse
-    {
-        $this->authorize('create', Company::class);
+    public function storeMain(StoreRequest $request): JsonResponse    {
 
+        $this->authorize('create', Company::class);
         $data = $request->validated();
-        $data['company_type'] = CompanyTypeEnum::MAIN->value;
-        $company = $this->companyRepo->create($data);
+        $company = $this->companyRepo->create($data, 'main');
+        return response()->json(['id' => $company->id], 201);
+    }
+
+    /**
+     * Vytvorenie novej rezidencnej firmy.
+     */
+    public function storeResidential(StoreRequest $request): JsonResponse    {
+        $this->authorize('create', Company::class);
+        $data = $request->validated();
+        $company = $this->companyRepo->create($data, 'residential');
         return response()->json(['id' => $company->id], 201);
     }
 
@@ -113,7 +131,7 @@ class CompanyController extends Controller
     /**
      * Odstránenie firmy.
      */
-    public function destroy(Company $company): JsonResponse
+    public function destroy(Company $company): Response
     {
         $this->authorize('delete', $company);
         $this->companyRepo->delete($company);

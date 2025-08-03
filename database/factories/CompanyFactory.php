@@ -24,8 +24,8 @@ class CompanyFactory extends Factory
         'company_ico'          => $this->faker->numerify('########'),
         'company_dic'          => $this->faker->numerify('##########'),
         'company_ic_dph'       => null,
-        'company_bank_account' => 'SK' . $this->faker->numerify(str_repeat('#', 26)),
-        'company_bank_swift'   => strtoupper($this->faker->lexify('????????')),
+        'company_bank_account' => 'SK0202000000005047157358',
+        'company_bank_swift'     => "VUB"
     ];
 }
 

@@ -13,9 +13,11 @@ interface CompanyRepositoryInterface
      *
      * @return LengthAwarePaginator|Collection|QueryBuilder[]
      */
-    public function search(array $filter): Collection|LengthAwarePaginator|array;
+    public function searchMain(array $filter): Collection|LengthAwarePaginator|array;
 
-    public function create(array $data): Company;
+    public function searchResidential(array $filter): Collection|LengthAwarePaginator|array;
+
+    public function create(array $data, string $type): Company;
 
     public function update(Company $company, array $data): Company;
 

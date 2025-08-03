@@ -10,18 +10,17 @@ use Illuminate\Http\Request;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
+use function Psy\debug;
+
 class CompanyRepository implements CompanyRepositoryInterface
 {
-    public function search(array $filter): Collection|LengthAwarePaginator|array
+    public function searchResidential(array $filter): Collection|LengthAwarePaginator|array
     {
-        request()->merge($filter);
-
-        $query = QueryBuilder::for(Company::class)
+        // Log the $type value
+        $query = QueryBuilder::for(Company::where('company_type', 'residential'))
             ->allowedFilters([
-                'company_name',
-                AllowedFilter::exact('company_type'), 
+            'company_name',
             ]);
-            
         // Get pagination
         $paginate = (int)($filter['per_page'] ?? config('system.paginate'));
 
@@ -30,8 +29,24 @@ class CompanyRepository implements CompanyRepositoryInterface
             $query->get();
     }
 
-    public function create(array $data): Company
+    public function searchMain(array $filter): Collection|LengthAwarePaginator|array
     {
+        $companies = Company::where('company_type', 'main');
+        $query = QueryBuilder::for($companies)
+                    ->allowedFilters([
+                    'company_name',
+                    ]);
+                // Get pagination
+                $paginate = (int)($filter['per_page'] ?? config('system.paginate'));
+
+                return $paginate ?
+                    $query->paginate($paginate) :
+                    $query->get();
+    }
+
+    public function create(array $data, string $type): Company
+    {
+        $data['company_type'] = $type;
         return Company::create($data);
     }
 
