@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 # invoice-backend
 Fakturacny plus manazment system pre Upratovaciu firmu...
+=======
+  Nefunguje mi worker ako si predstavujem... a treba pozriet este cisla faktur ako sa generuju, ked tam nie je ziadna faktura predtym... 
+>>>>>>> develop
