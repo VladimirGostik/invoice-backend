@@ -21,7 +21,7 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-/public/docs/*
+/public/docs/*.tmp
 docker-compose.yml
 .gitignore
 Dockerfile
@@ -42,7 +42,5 @@ docker/mysql/my.cnf
 /tests/_support/Helpers/Acceptance
 /tests/_support/Helpers/Functional
 /tests/_support/Helpers/Unit
-.env
 composer.lock
 yarn.lock
-composer.json

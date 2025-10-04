@@ -1,0 +1,3473 @@
+openapi: 3.0.3
+info:
+  title: 'Invoice Backend API API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+tags:
+  -
+    name: Authentication
+    description: ''
+  -
+    name: Faktúry
+    description: ''
+  -
+    name: Firmy
+    description: ''
+  -
+    name: Role
+    description: ''
+  -
+    name: Ulice
+    description: ''
+  -
+    name: 'Zoznam používateľov'
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []
+paths:
+  /api/auth/login:
+    post:
+      summary: Login
+      operationId: login
+      description: 'Get a JWT via given credentials.'
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTU3MTIwNTEsImV4cCI6MTY5NTcxNTY1MSwibmJmIjoxNjk1NzEyMDUxLCJqdGkiOiJJeWVpVmFHSWoyZFZyRG5YIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJlbnRpdHlfaWQiOm51bGx9.f-mRC92U2zhjPI1pUCFRfFYnwQI3jgyLMCnznIHoxk4
+                  token_type: bearer
+                  expires_in: '3600'
+                properties:
+                  access_token:
+                    type: string
+                    example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTU3MTIwNTEsImV4cCI6MTY5NTcxNTY1MSwibmJmIjoxNjk1NzEyMDUxLCJqdGkiOiJJeWVpVmFHSWoyZFZyRG5YIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJlbnRpdHlfaWQiOm51bGx9.f-mRC92U2zhjPI1pUCFRfFYnwQI3jgyLMCnznIHoxk4
+                  token_type:
+                    type: string
+                    example: bearer
+                  expires_in:
+                    type: string
+                    example: '3600'
+        401:
+          description: unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: messages.unauthorized_access
+                properties:
+                  message:
+                    type: string
+                    example: messages.unauthorized_access
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: admin@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: password
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/forgot-password:
+    post:
+      summary: 'Forgot password'
+      operationId: forgotPassword
+      description: "Send a password reset link to user's email"
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 'Status message'
+                properties:
+                  status:
+                    type: string
+                    example: 'Status message'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: admin@example.com
+                  nullable: false
+              required:
+                - email
+      security: []
+  /api/auth/reset-password:
+    post:
+      summary: 'Reset password'
+      operationId: resetPassword
+      description: "Reset user's password"
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 'Status message'
+                properties:
+                  status:
+                    type: string
+                    example: 'Status message'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: 'The password reset token.'
+                  example: dd37ed6ef02e80ea8ced619f8bfbd5604568404a58b77cc0572575ccf0c8a159
+                  nullable: false
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: qkunze@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The new password.'
+                  example: 'e@#L_EW>Vn'
+                  nullable: false
+                password_confirmation:
+                  type: string
+                  description: 'Confirm the new password.'
+                  example: 'e@#L_EW>Vn'
+                  nullable: false
+              required:
+                - token
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/auth/refresh:
+    post:
+      summary: 'Refresh token'
+      operationId: refreshToken
+      description: 'Refresh a token.'
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  access_token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTU3MTIwNTEsImV4cCI6MTY5NTcxNTY1MSwibmJmIjoxNjk1NzEyMDUxLCJqdGkiOiJJeWVpVmFHSWoyZFZyRG5YIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJlbnRpdHlfaWQiOm51bGx9.f-mRC92U2zhjPI1pUCFRfFYnwQI3jgyLMCnznIHoxk4
+                  token_type: bearer
+                  expires_in: '3600'
+                properties:
+                  access_token:
+                    type: string
+                    example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTU3MTIwNTEsImV4cCI6MTY5NTcxNTY1MSwibmJmIjoxNjk1NzEyMDUxLCJqdGkiOiJJeWVpVmFHSWoyZFZyRG5YIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJlbnRpdHlfaWQiOm51bGx9.f-mRC92U2zhjPI1pUCFRfFYnwQI3jgyLMCnznIHoxk4
+                  token_type:
+                    type: string
+                    example: bearer
+                  expires_in:
+                    type: string
+                    example: '3600'
+      tags:
+        - Authentication
+  /api/auth/user:
+    post:
+      summary: 'Get user'
+      operationId: getUser
+      description: 'Get the authenticated User.'
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  email: admin@example.com
+                  first_name: Test
+                  last_name: Admin
+                  phone: +1.646.261.0356
+                  email_verified_at: '2023-09-21T10 =>27 =>09.000000Z'
+                  state: ACTIVE
+                  created_at: '2023-09-21T10 =>27 =>09.000000Z'
+                  updated_at: '2023-09-21T10 =>27 =>09.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  email:
+                    type: string
+                    example: admin@example.com
+                  first_name:
+                    type: string
+                    example: Test
+                  last_name:
+                    type: string
+                    example: Admin
+                  phone:
+                    type: string
+                    example: +1.646.261.0356
+                  email_verified_at:
+                    type: string
+                    example: '2023-09-21T10 =>27 =>09.000000Z'
+                  state:
+                    type: string
+                    example: ACTIVE
+                  created_at:
+                    type: string
+                    example: '2023-09-21T10 =>27 =>09.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2023-09-21T10 =>27 =>09.000000Z'
+      tags:
+        - Authentication
+  /api/auth/logout:
+    post:
+      summary: Logout
+      operationId: logout
+      description: 'Log the user out (Invalidate the token).'
+      parameters: []
+      responses: {  }
+      tags:
+        - Authentication
+  /api/invoices/monthly:
+    get:
+      summary: 'Zoznam mesačných faktúr.'
+      operationId: zoznamMesanchFaktr
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'http://localhost:8000/api/invoices/monthly?page=1'
+                    last: 'http://localhost:8000/api/invoices/monthly?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost:8000/api/invoices/monthly?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost:8000/api/invoices/monthly'
+                    per_page: 10
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost:8000/api/invoices/monthly?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost:8000/api/invoices/monthly?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost:8000/api/invoices/monthly?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost:8000/api/invoices/monthly'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Faktúry
+    post:
+      summary: 'Vytvorenie novej mesacnej faktúry.'
+      operationId: vytvorenieNovejMesacnejFaktry
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Faktúry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the companies table.'
+                  example: consequatur
+                  nullable: false
+                residential_company_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the companies table.'
+                  example: null
+                  nullable: true
+                street_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the streets table.'
+                  example: null
+                  nullable: true
+                invoice_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mqeopfuudtdsufvyvddqa
+                  nullable: false
+                items:
+                  type: array
+                  description: 'Must have at least 1 items.'
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        description: 'Must not be greater than 255 characters.'
+                        example: 'Dolorum amet iste laborum eius est dolor.'
+                        nullable: false
+                      quantity:
+                        type: integer
+                        description: 'Must be at least 1.'
+                        example: 13
+                        nullable: false
+                      unit_price:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 66
+                        nullable: false
+                      line_total:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 13
+                        nullable: false
+                    required:
+                      - description
+                      - quantity
+                      - unit_price
+                      - line_total
+                subtotal:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 73
+                  nullable: false
+                tax:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 45
+                  nullable: false
+                total:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 56
+                  nullable: false
+                company_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: eopfuudtdsufvyvddqamn
+                  nullable: true
+                company_city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: iihfqcoynlazghdtqtqxb
+                  nullable: true
+                company_state:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ajwbpilpmufinllwloauy
+                  nullable: true
+                company_address:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: dlsmsjuryvojcybzvrbyi
+                  nullable: true
+                company_zip:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: ckznkygloigmkwxph
+                  nullable: true
+                company_ico:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: lvazjrcnfbaqywuxhgjjm
+                  nullable: true
+                company_dic:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: zuxjubqouzswiwxtrkimf
+                  nullable: true
+                company_ic_dph:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: catbxspzmrazsroyjpxmq
+                  nullable: true
+                company_bank_account:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: esedyghenqcopwvownkba
+                  nullable: true
+                company_bank_swift:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: mlnfngefbeilfzsyuxoez
+                  nullable: true
+                invoice_text:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: true
+                custom_field_name1:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mqeopfuudtdsufvyvddqa
+                  nullable: true
+                custom_field_name2:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mniihfqcoynlazghdtqtq
+                  nullable: true
+                custom_field_name3:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xbajwbpilpmufinllwloa
+                  nullable: true
+                custom_field_name4:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: uydlsmsjuryvojcybzvrb
+                  nullable: true
+                custom_field_name5:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yickznkygloigmkwxphlv
+                  nullable: true
+                invoice_above_table_text:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: true
+              required:
+                - company_id
+                - invoice_name
+                - items
+                - subtotal
+                - tax
+                - total
+  '/api/invoices/monthly/{invoice_id}':
+    put:
+      summary: 'Aktualizácia existujúcej mesačnej faktúry.'
+      operationId: aktualizciaExistujcejMesanejFaktry
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Faktúry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the companies table.'
+                  example: consequatur
+                  nullable: false
+                residential_company_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the companies table.'
+                  example: null
+                  nullable: true
+                street_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the streets table.'
+                  example: null
+                  nullable: true
+                invoice_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mqeopfuudtdsufvyvddqa
+                  nullable: false
+                items:
+                  type: array
+                  description: 'Must have at least 1 items.'
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        description: 'Must not be greater than 255 characters.'
+                        example: 'Dolorum amet iste laborum eius est dolor.'
+                        nullable: false
+                      quantity:
+                        type: integer
+                        description: 'Must be at least 1.'
+                        example: 13
+                        nullable: false
+                      unit_price:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 66
+                        nullable: false
+                      line_total:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 13
+                        nullable: false
+                    required:
+                      - description
+                      - quantity
+                      - unit_price
+                      - line_total
+                subtotal:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 73
+                  nullable: false
+                tax:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 45
+                  nullable: false
+                total:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 56
+                  nullable: false
+                company_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: eopfuudtdsufvyvddqamn
+                  nullable: false
+                company_city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: iihfqcoynlazghdtqtqxb
+                  nullable: false
+                company_state:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ajwbpilpmufinllwloauy
+                  nullable: false
+                company_address:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: dlsmsjuryvojcybzvrbyi
+                  nullable: false
+                company_zip:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: ckznkygloigmkwxph
+                  nullable: false
+                company_ico:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: lvazjrcnfbaqywuxhgjjm
+                  nullable: false
+                company_dic:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: zuxjubqouzswiwxtrkimf
+                  nullable: false
+                company_ic_dph:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: catbxspzmrazsroyjpxmq
+                  nullable: false
+                company_bank_account:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: esedyghenqcopwvownkba
+                  nullable: false
+                company_bank_swift:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: mlnfngefbeilfzsyuxoez
+                  nullable: false
+                invoice_text:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: false
+                custom_field_name1:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mqeopfuudtdsufvyvddqa
+                  nullable: false
+                custom_field_name2:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mniihfqcoynlazghdtqtq
+                  nullable: false
+                custom_field_name3:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xbajwbpilpmufinllwloa
+                  nullable: false
+                custom_field_name4:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: uydlsmsjuryvojcybzvrb
+                  nullable: false
+                custom_field_name5:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yickznkygloigmkwxphlv
+                  nullable: false
+                invoice_above_table_text:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: false
+              required:
+                - company_id
+                - invoice_name
+                - items
+                - subtotal
+                - tax
+                - total
+    get:
+      summary: 'Zobrazenie jednej mesacnej faktúry.'
+      operationId: zobrazenieJednejMesacnejFaktry
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Invoice] 17'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Invoice] 17'
+      tags:
+        - Faktúry
+    parameters:
+      -
+        in: path
+        name: invoice_id
+        description: 'The ID of the invoice.'
+        example: 17
+        required: true
+        schema:
+          type: integer
+  /api/invoices/one-time:
+    get:
+      summary: 'Zoznam jednorazovych faktúr.'
+      operationId: zoznamJednorazovychFaktr
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'http://localhost:8000/api/invoices/one-time?page=1'
+                    last: 'http://localhost:8000/api/invoices/one-time?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost:8000/api/invoices/one-time?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost:8000/api/invoices/one-time'
+                    per_page: 10
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost:8000/api/invoices/one-time?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost:8000/api/invoices/one-time?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost:8000/api/invoices/one-time?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost:8000/api/invoices/one-time'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Faktúry
+    post:
+      summary: 'Vytvorenie novej faktúry.'
+      operationId: vytvorenieNovejFaktry
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Faktúry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the companies table.'
+                  example: consequatur
+                  nullable: false
+                residential_company_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the companies table.'
+                  example: null
+                  nullable: true
+                street_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the streets table.'
+                  example: null
+                  nullable: true
+                invoice_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mqeopfuudtdsufvyvddqa
+                  nullable: false
+                invoice_number:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: mniihfqcoynlazghdtqtq
+                  nullable: true
+                items:
+                  type: array
+                  description: 'Must have at least 1 items.'
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        description: 'Must not be greater than 255 characters.'
+                        example: 'Dolorum amet iste laborum eius est dolor.'
+                        nullable: false
+                      quantity:
+                        type: integer
+                        description: 'Must be at least 1.'
+                        example: 13
+                        nullable: false
+                      unit_price:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 66
+                        nullable: false
+                      line_total:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 13
+                        nullable: false
+                    required:
+                      - description
+                      - quantity
+                      - unit_price
+                      - line_total
+                subtotal:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 73
+                  nullable: false
+                tax:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 45
+                  nullable: false
+                total:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 56
+                  nullable: false
+                issued_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-10-04T23:16:09'
+                  nullable: false
+                due_at:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
+                  example: '2106-11-03'
+                  nullable: false
+                payment_date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-10-04T23:16:09'
+                  nullable: true
+                billing_year:
+                  type: integer
+                  description: 'Must be at least 2000. Must not be greater than 2100.'
+                  example: 13
+                  nullable: false
+                billing_month:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 12.'
+                  example: 8
+                  nullable: false
+                company_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: eopfuudtdsufvyvddqamn
+                  nullable: true
+                company_city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: iihfqcoynlazghdtqtqxb
+                  nullable: true
+                company_state:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ajwbpilpmufinllwloauy
+                  nullable: true
+                company_address:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: dlsmsjuryvojcybzvrbyi
+                  nullable: true
+                company_zip:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: ckznkygloigmkwxph
+                  nullable: true
+                company_ico:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: lvazjrcnfbaqywuxhgjjm
+                  nullable: true
+                company_dic:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: zuxjubqouzswiwxtrkimf
+                  nullable: true
+                company_ic_dph:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: catbxspzmrazsroyjpxmq
+                  nullable: true
+                company_bank_account:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: esedyghenqcopwvownkba
+                  nullable: true
+                company_bank_swift:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: mlnfngefbeilfzsyuxoez
+                  nullable: true
+                invoice_text:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: true
+                custom_field_name1:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mqeopfuudtdsufvyvddqa
+                  nullable: true
+                custom_field_name2:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mniihfqcoynlazghdtqtq
+                  nullable: true
+                custom_field_name3:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xbajwbpilpmufinllwloa
+                  nullable: true
+                custom_field_name4:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: uydlsmsjuryvojcybzvrb
+                  nullable: true
+                custom_field_name5:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yickznkygloigmkwxphlv
+                  nullable: true
+                invoice_above_table_text:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: true
+              required:
+                - company_id
+                - invoice_name
+                - items
+                - subtotal
+                - tax
+                - total
+                - issued_at
+                - due_at
+                - billing_year
+                - billing_month
+  '/api/invoices/one-time/{invoice_id}':
+    put:
+      summary: 'Aktualizácia existujúcej faktúry.'
+      operationId: aktualizciaExistujcejFaktry
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Faktúry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the companies table.'
+                  example: consequatur
+                  nullable: false
+                residential_company_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the companies table.'
+                  example: null
+                  nullable: true
+                street_id:
+                  type: string
+                  description: 'The <code>id</code> of an existing record in the streets table.'
+                  example: null
+                  nullable: true
+                invoice_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mqeopfuudtdsufvyvddqa
+                  nullable: false
+                invoice_number:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: mniihfqcoynlazghdtqtq
+                  nullable: true
+                items:
+                  type: array
+                  description: 'Must have at least 1 items.'
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      description:
+                        type: string
+                        description: 'Must not be greater than 255 characters.'
+                        example: 'Dolorum amet iste laborum eius est dolor.'
+                        nullable: false
+                      quantity:
+                        type: integer
+                        description: 'Must be at least 1.'
+                        example: 13
+                        nullable: false
+                      unit_price:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 66
+                        nullable: false
+                      line_total:
+                        type: number
+                        description: 'Must be at least 0.'
+                        example: 13
+                        nullable: false
+                    required:
+                      - description
+                      - quantity
+                      - unit_price
+                      - line_total
+                subtotal:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 73
+                  nullable: false
+                tax:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 45
+                  nullable: false
+                total:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 56
+                  nullable: false
+                issued_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-10-04T23:16:09'
+                  nullable: false
+                due_at:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
+                  example: '2106-11-03'
+                  nullable: false
+                payment_date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-10-04T23:16:09'
+                  nullable: true
+                billing_year:
+                  type: integer
+                  description: 'Must be at least 2000. Must not be greater than 2100.'
+                  example: 13
+                  nullable: false
+                billing_month:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 12.'
+                  example: 8
+                  nullable: false
+                company_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: eopfuudtdsufvyvddqamn
+                  nullable: true
+                company_city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: iihfqcoynlazghdtqtqxb
+                  nullable: true
+                company_state:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: ajwbpilpmufinllwloauy
+                  nullable: true
+                company_address:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: dlsmsjuryvojcybzvrbyi
+                  nullable: true
+                company_zip:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: ckznkygloigmkwxph
+                  nullable: true
+                company_ico:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: lvazjrcnfbaqywuxhgjjm
+                  nullable: true
+                company_dic:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: zuxjubqouzswiwxtrkimf
+                  nullable: true
+                company_ic_dph:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: catbxspzmrazsroyjpxmq
+                  nullable: true
+                company_bank_account:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: esedyghenqcopwvownkba
+                  nullable: true
+                company_bank_swift:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: mlnfngefbeilfzsyuxoez
+                  nullable: true
+                invoice_text:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: true
+                custom_field_name1:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mqeopfuudtdsufvyvddqa
+                  nullable: true
+                custom_field_name2:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mniihfqcoynlazghdtqtq
+                  nullable: true
+                custom_field_name3:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xbajwbpilpmufinllwloa
+                  nullable: true
+                custom_field_name4:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: uydlsmsjuryvojcybzvrb
+                  nullable: true
+                custom_field_name5:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yickznkygloigmkwxphlv
+                  nullable: true
+                invoice_above_table_text:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: true
+              required:
+                - company_id
+                - invoice_name
+                - items
+                - subtotal
+                - tax
+                - total
+                - issued_at
+                - due_at
+                - billing_year
+                - billing_month
+    parameters:
+      -
+        in: path
+        name: invoice_id
+        description: 'The ID of the invoice.'
+        example: 17
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: invoice
+        description: ''
+        example: 1
+        required: true
+        schema:
+          type: 'ID of the invoice to update'
+  /api/invoices/one-time/from-monthly:
+    post:
+      summary: 'Vytvorenie novej faktúry z mesačnej faktúry.'
+      operationId: vytvorenieNovejFaktryZMesanejFaktry
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Faktúry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                monthly_invoice_ids:
+                  type: array
+                  description: 'The <code>id</code> of an existing record in the invoices table.'
+                  example:
+                    - consequatur
+                  items:
+                    type: string
+                issued_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-10-04T23:16:09'
+                  nullable: false
+                due_at:
+                  type: string
+                  description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
+                  example: '2106-11-03'
+                  nullable: false
+                billing_year:
+                  type: integer
+                  description: 'Must be at least 2000. Must not be greater than 2100.'
+                  example: 13
+                  nullable: false
+                billing_month:
+                  type: integer
+                  description: 'Must be at least 1. Must not be greater than 12.'
+                  example: 8
+                  nullable: false
+              required:
+                - monthly_invoice_ids
+                - issued_at
+                - due_at
+                - billing_year
+                - billing_month
+  '/api/invoices/last-number/{company_id}/{billing_year}':
+    get:
+      summary: 'Získa posledné číslo faktúry pre firmu.'
+      operationId: zskaPoslednsloFaktryPreFirmu
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Server Error'
+                properties:
+                  message:
+                    type: string
+                    example: 'Server Error'
+      tags:
+        - Faktúry
+    parameters:
+      -
+        in: path
+        name: company_id
+        description: ''
+        example: 1
+        required: true
+        schema:
+          type: 'ID of the company'
+      -
+        in: path
+        name: billing_year
+        description: ''
+        example: consequatur
+        required: true
+        schema:
+          type: string
+  '/api/invoices/{invoice_id}':
+    get:
+      summary: 'Zobrazenie jednej faktúry.'
+      operationId: zobrazenieJednejFaktry
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Invoice] 17'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Invoice] 17'
+      tags:
+        - Faktúry
+    delete:
+      summary: 'Vymazanie faktúry.'
+      operationId: vymazanieFaktry
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Faktúry
+    parameters:
+      -
+        in: path
+        name: invoice_id
+        description: 'The ID of the invoice.'
+        example: 17
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: invoice
+        description: ''
+        example: 1
+        required: true
+        schema:
+          type: 'ID of the invoice'
+  /api/companies/main:
+    get:
+      summary: 'Zoznam všetkých firiem.'
+      operationId: zoznamVetkchFiriem
+      description: ''
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Set the page number for pagination. Default: 1'
+          example: 1
+          required: true
+          schema:
+            type: integer
+            description: 'Set the page number for pagination. Default: 1'
+            example: 1
+            nullable: false
+        -
+          in: query
+          name: per_page
+          description: 'Set the number of records per page. Default: 10'
+          example: 10
+          required: true
+          schema:
+            type: integer
+            description: 'Set the number of records per page. Default: 10'
+            example: 10
+            nullable: false
+        -
+          in: query
+          name: 'filter[company_name]'
+          description: 'Filter records by company_name.'
+          example: 'Kegos s.r.o.'
+          required: true
+          schema:
+            type: string
+            description: 'Filter records by company_name.'
+            example: 'Kegos s.r.o.'
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      company_name: Frami-Gleichner
+                      company_city: Kozeyport
+                      company_state: Macedonia
+                      company_address: '779 Carmen Burgs Suite 159'
+                      company_zip: '23124'
+                      company_ico: '75850003'
+                      company_dic: '4106722829'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: main
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      company_customization: null
+                      signatures: null
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                    -
+                      id: 2
+                      company_name: 'Ullrich LLC'
+                      company_city: 'East Crawford'
+                      company_state: Norway
+                      company_address: '8877 Spencer Skyway'
+                      company_zip: '64569'
+                      company_ico: '38518273'
+                      company_dic: '8326318890'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: main
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      company_customization: null
+                      signatures: null
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                    -
+                      id: 5
+                      company_name: Boyer-Marquardt
+                      company_city: 'South Cicerofurt'
+                      company_state: Gabon
+                      company_address: '448 Aniyah Overpass'
+                      company_zip: '10825'
+                      company_ico: '88931550'
+                      company_dic: '5823018245'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: main
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      company_customization: null
+                      signatures: null
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                    -
+                      id: 6
+                      company_name: Cole-Bogan
+                      company_city: 'East Laurelmouth'
+                      company_state: Maldives
+                      company_address: '85373 Marvin Circle'
+                      company_zip: '35756'
+                      company_ico: '76164661'
+                      company_dic: '3249648828'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: main
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      company_customization: null
+                      signatures: null
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                    -
+                      id: 10
+                      company_name: 'Walker LLC'
+                      company_city: Garfieldburgh
+                      company_state: Martinique
+                      company_address: '31773 Gleichner Turnpike Suite 676'
+                      company_zip: '91026'
+                      company_ico: '98149219'
+                      company_dic: '4747012494'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: main
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      company_customization: null
+                      signatures: null
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                  links:
+                    first: 'http://localhost:8000/api/companies/main?page=1'
+                    last: 'http://localhost:8000/api/companies/main?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost:8000/api/companies/main?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost:8000/api/companies/main'
+                    per_page: 10
+                    to: 5
+                    total: 5
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        company_name: Frami-Gleichner
+                        company_city: Kozeyport
+                        company_state: Macedonia
+                        company_address: '779 Carmen Burgs Suite 159'
+                        company_zip: '23124'
+                        company_ico: '75850003'
+                        company_dic: '4106722829'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: main
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        company_customization: null
+                        signatures: null
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                      -
+                        id: 2
+                        company_name: 'Ullrich LLC'
+                        company_city: 'East Crawford'
+                        company_state: Norway
+                        company_address: '8877 Spencer Skyway'
+                        company_zip: '64569'
+                        company_ico: '38518273'
+                        company_dic: '8326318890'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: main
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        company_customization: null
+                        signatures: null
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                      -
+                        id: 5
+                        company_name: Boyer-Marquardt
+                        company_city: 'South Cicerofurt'
+                        company_state: Gabon
+                        company_address: '448 Aniyah Overpass'
+                        company_zip: '10825'
+                        company_ico: '88931550'
+                        company_dic: '5823018245'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: main
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        company_customization: null
+                        signatures: null
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                      -
+                        id: 6
+                        company_name: Cole-Bogan
+                        company_city: 'East Laurelmouth'
+                        company_state: Maldives
+                        company_address: '85373 Marvin Circle'
+                        company_zip: '35756'
+                        company_ico: '76164661'
+                        company_dic: '3249648828'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: main
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        company_customization: null
+                        signatures: null
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                      -
+                        id: 10
+                        company_name: 'Walker LLC'
+                        company_city: Garfieldburgh
+                        company_state: Martinique
+                        company_address: '31773 Gleichner Turnpike Suite 676'
+                        company_zip: '91026'
+                        company_ico: '98149219'
+                        company_dic: '4747012494'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: main
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        company_customization: null
+                        signatures: null
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        company_name:
+                          type: string
+                          example: Frami-Gleichner
+                        company_city:
+                          type: string
+                          example: Kozeyport
+                        company_state:
+                          type: string
+                          example: Macedonia
+                        company_address:
+                          type: string
+                          example: '779 Carmen Burgs Suite 159'
+                        company_zip:
+                          type: string
+                          example: '23124'
+                        company_ico:
+                          type: string
+                          example: '75850003'
+                        company_dic:
+                          type: string
+                          example: '4106722829'
+                        company_ic_dph:
+                          type: string
+                          example: null
+                        company_bank_account:
+                          type: string
+                          example: SK0202000000005047157358
+                        company_bank_swift:
+                          type: string
+                          example: VUB
+                        company_type:
+                          type: string
+                          example: main
+                        created_at:
+                          type: string
+                          example: '2025-10-04T20:34:33.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-10-04T20:34:33.000000Z'
+                        company_customization:
+                          type: string
+                          example: null
+                        signatures:
+                          type: string
+                          example: null
+                        invoice_issuer_name:
+                          type: string
+                          example: null
+                        invoice_issuer_email:
+                          type: string
+                          example: null
+                        invoice_issuer_phone:
+                          type: string
+                          example: null
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost:8000/api/companies/main?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost:8000/api/companies/main?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost:8000/api/companies/main?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost:8000/api/companies/main'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: integer
+                        example: 5
+                      total:
+                        type: integer
+                        example: 5
+      tags:
+        - Firmy
+    post:
+      summary: 'Vytvorenie novej firmy.'
+      operationId: vytvorenieNovejFirmy
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Firmy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vmqeopfuudtdsufvyvddq
+                  nullable: false
+                company_city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: amniihfqcoynlazghdtqt
+                  nullable: false
+                company_state:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: qxbajwbpilpmufinllwlo
+                  nullable: false
+                company_address:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: auydlsmsjuryvojcybzvr
+                  nullable: false
+                company_zip:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: byickznkygloigmkw
+                  nullable: false
+                company_ico:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: xphlvazjrcnfbaqywuxhg
+                  nullable: true
+                company_dic:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: jjmzuxjubqouzswiwxtrk
+                  nullable: true
+                company_ic_dph:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: imfcatbxspzmrazsroyjp
+                  nullable: true
+                company_bank_account:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: xmqesedyghenqcopwvown
+                  nullable: true
+                company_bank_swift:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: kbamlnfngefbeilfzsyux
+                  nullable: true
+              required:
+                - company_name
+                - company_city
+                - company_state
+                - company_address
+                - company_zip
+  /api/companies/residential:
+    get:
+      summary: 'Zoznam všetkých rezidencných firiem.'
+      operationId: zoznamVetkchRezidencnchFiriem
+      description: ''
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Set the page number for pagination. Default: 1'
+          example: 1
+          required: true
+          schema:
+            type: integer
+            description: 'Set the page number for pagination. Default: 1'
+            example: 1
+            nullable: false
+        -
+          in: query
+          name: per_page
+          description: 'Set the number of records per page. Default: 10'
+          example: 10
+          required: true
+          schema:
+            type: integer
+            description: 'Set the number of records per page. Default: 10'
+            example: 10
+            nullable: false
+        -
+          in: query
+          name: 'filter[company_name]'
+          description: 'Filter records by company_name.'
+          example: 'Kegos s.r.o.'
+          required: true
+          schema:
+            type: string
+            description: 'Filter records by company_name.'
+            example: 'Kegos s.r.o.'
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 3
+                      company_name: "O'Hara and Sons"
+                      company_city: Cheyenneburgh
+                      company_state: Mongolia
+                      company_address: '9278 Arlo Points Suite 851'
+                      company_zip: 38744-5732
+                      company_ico: '51285760'
+                      company_dic: '5555215476'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: residential
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                      signatures: null
+                    -
+                      id: 4
+                      company_name: Wunsch-Gerhold
+                      company_city: Lauramouth
+                      company_state: 'United States Minor Outlying Islands'
+                      company_address: '27183 Laury Bypass'
+                      company_zip: 54283-5754
+                      company_ico: '28948279'
+                      company_dic: '2184953323'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: residential
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                      signatures: null
+                    -
+                      id: 7
+                      company_name: Torphy-Koelpin
+                      company_city: 'West Abbey'
+                      company_state: China
+                      company_address: '16550 Alysha Prairie Suite 189'
+                      company_zip: 16547-2187
+                      company_ico: '33846384'
+                      company_dic: '3414031919'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: residential
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                      signatures: null
+                    -
+                      id: 8
+                      company_name: Hoeger-Mann
+                      company_city: Barrowschester
+                      company_state: Paraguay
+                      company_address: '57718 Kuhlman Drive'
+                      company_zip: '65090'
+                      company_ico: '09089667'
+                      company_dic: '4373119291'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: residential
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                      signatures: null
+                    -
+                      id: 9
+                      company_name: 'Berge, Schmidt and Pagac'
+                      company_city: Mohammedstad
+                      company_state: 'French Southern Territories'
+                      company_address: '820 Russel Tunnel'
+                      company_zip: '01070'
+                      company_ico: '64718170'
+                      company_dic: '8807315955'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: residential
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                      signatures: null
+                  links:
+                    first: 'http://localhost:8000/api/companies/residential?page=1'
+                    last: 'http://localhost:8000/api/companies/residential?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost:8000/api/companies/residential?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost:8000/api/companies/residential'
+                    per_page: 10
+                    to: 5
+                    total: 5
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 3
+                        company_name: "O'Hara and Sons"
+                        company_city: Cheyenneburgh
+                        company_state: Mongolia
+                        company_address: '9278 Arlo Points Suite 851'
+                        company_zip: 38744-5732
+                        company_ico: '51285760'
+                        company_dic: '5555215476'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: residential
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                        signatures: null
+                      -
+                        id: 4
+                        company_name: Wunsch-Gerhold
+                        company_city: Lauramouth
+                        company_state: 'United States Minor Outlying Islands'
+                        company_address: '27183 Laury Bypass'
+                        company_zip: 54283-5754
+                        company_ico: '28948279'
+                        company_dic: '2184953323'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: residential
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                        signatures: null
+                      -
+                        id: 7
+                        company_name: Torphy-Koelpin
+                        company_city: 'West Abbey'
+                        company_state: China
+                        company_address: '16550 Alysha Prairie Suite 189'
+                        company_zip: 16547-2187
+                        company_ico: '33846384'
+                        company_dic: '3414031919'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: residential
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                        signatures: null
+                      -
+                        id: 8
+                        company_name: Hoeger-Mann
+                        company_city: Barrowschester
+                        company_state: Paraguay
+                        company_address: '57718 Kuhlman Drive'
+                        company_zip: '65090'
+                        company_ico: '09089667'
+                        company_dic: '4373119291'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: residential
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                        signatures: null
+                      -
+                        id: 9
+                        company_name: 'Berge, Schmidt and Pagac'
+                        company_city: Mohammedstad
+                        company_state: 'French Southern Territories'
+                        company_address: '820 Russel Tunnel'
+                        company_zip: '01070'
+                        company_ico: '64718170'
+                        company_dic: '8807315955'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: residential
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                        signatures: null
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 3
+                        company_name:
+                          type: string
+                          example: "O'Hara and Sons"
+                        company_city:
+                          type: string
+                          example: Cheyenneburgh
+                        company_state:
+                          type: string
+                          example: Mongolia
+                        company_address:
+                          type: string
+                          example: '9278 Arlo Points Suite 851'
+                        company_zip:
+                          type: string
+                          example: 38744-5732
+                        company_ico:
+                          type: string
+                          example: '51285760'
+                        company_dic:
+                          type: string
+                          example: '5555215476'
+                        company_ic_dph:
+                          type: string
+                          example: null
+                        company_bank_account:
+                          type: string
+                          example: SK0202000000005047157358
+                        company_bank_swift:
+                          type: string
+                          example: VUB
+                        company_type:
+                          type: string
+                          example: residential
+                        created_at:
+                          type: string
+                          example: '2025-10-04T20:34:33.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-10-04T20:34:33.000000Z'
+                        invoice_issuer_name:
+                          type: string
+                          example: null
+                        invoice_issuer_email:
+                          type: string
+                          example: null
+                        invoice_issuer_phone:
+                          type: string
+                          example: null
+                        signatures:
+                          type: string
+                          example: null
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost:8000/api/companies/residential?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost:8000/api/companies/residential?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost:8000/api/companies/residential?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost:8000/api/companies/residential'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: integer
+                        example: 5
+                      total:
+                        type: integer
+                        example: 5
+      tags:
+        - Firmy
+    post:
+      summary: 'Vytvorenie novej rezidencnej firmy.'
+      operationId: vytvorenieNovejRezidencnejFirmy
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Firmy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vmqeopfuudtdsufvyvddq
+                  nullable: false
+                company_city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: amniihfqcoynlazghdtqt
+                  nullable: false
+                company_state:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: qxbajwbpilpmufinllwlo
+                  nullable: false
+                company_address:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: auydlsmsjuryvojcybzvr
+                  nullable: false
+                company_zip:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: byickznkygloigmkw
+                  nullable: false
+                company_ico:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: xphlvazjrcnfbaqywuxhg
+                  nullable: true
+                company_dic:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: jjmzuxjubqouzswiwxtrk
+                  nullable: true
+                company_ic_dph:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: imfcatbxspzmrazsroyjp
+                  nullable: true
+                company_bank_account:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: xmqesedyghenqcopwvown
+                  nullable: true
+                company_bank_swift:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: kbamlnfngefbeilfzsyux
+                  nullable: true
+              required:
+                - company_name
+                - company_city
+                - company_state
+                - company_address
+                - company_zip
+  '/api/companies/{id}':
+    get:
+      summary: 'Zobrazenie firmy.'
+      operationId: zobrazenieFirmy
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    company_name: Frami-Gleichner
+                    company_city: Kozeyport
+                    company_state: Macedonia
+                    company_address: '779 Carmen Burgs Suite 159'
+                    company_zip: '23124'
+                    company_ico: '75850003'
+                    company_dic: '4106722829'
+                    company_ic_dph: null
+                    company_bank_account: SK0202000000005047157358
+                    company_bank_swift: VUB
+                    company_type: main
+                    created_at: '2025-10-04T20:34:33.000000Z'
+                    updated_at: '2025-10-04T20:34:33.000000Z'
+                    invoice_issuer_name: null
+                    invoice_issuer_email: null
+                    invoice_issuer_phone: null
+                    signatures: null
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      company_name:
+                        type: string
+                        example: Frami-Gleichner
+                      company_city:
+                        type: string
+                        example: Kozeyport
+                      company_state:
+                        type: string
+                        example: Macedonia
+                      company_address:
+                        type: string
+                        example: '779 Carmen Burgs Suite 159'
+                      company_zip:
+                        type: string
+                        example: '23124'
+                      company_ico:
+                        type: string
+                        example: '75850003'
+                      company_dic:
+                        type: string
+                        example: '4106722829'
+                      company_ic_dph:
+                        type: string
+                        example: null
+                      company_bank_account:
+                        type: string
+                        example: SK0202000000005047157358
+                      company_bank_swift:
+                        type: string
+                        example: VUB
+                      company_type:
+                        type: string
+                        example: main
+                      created_at:
+                        type: string
+                        example: '2025-10-04T20:34:33.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-10-04T20:34:33.000000Z'
+                      invoice_issuer_name:
+                        type: string
+                        example: null
+                      invoice_issuer_email:
+                        type: string
+                        example: null
+                      invoice_issuer_phone:
+                        type: string
+                        example: null
+                      signatures:
+                        type: string
+                        example: null
+      tags:
+        - Firmy
+    put:
+      summary: 'Aktualizácia firmy.'
+      operationId: aktualizciaFirmy
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Firmy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                company_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vmqeopfuudtdsufvyvddq
+                  nullable: false
+                company_city:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: amniihfqcoynlazghdtqt
+                  nullable: false
+                company_state:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: qxbajwbpilpmufinllwlo
+                  nullable: false
+                company_address:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: auydlsmsjuryvojcybzvr
+                  nullable: false
+                company_zip:
+                  type: string
+                  description: 'Must not be greater than 20 characters.'
+                  example: byickznkygloigmkw
+                  nullable: false
+                company_ico:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: xphlvazjrcnfbaqywuxhg
+                  nullable: false
+                company_dic:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: jjmzuxjubqouzswiwxtrk
+                  nullable: true
+                company_ic_dph:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: imfcatbxspzmrazsroyjp
+                  nullable: true
+                company_bank_account:
+                  type: string
+                  description: 'Must not be greater than 100 characters.'
+                  example: xmqesedyghenqcopwvown
+                  nullable: false
+                company_bank_swift:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: kbamlnfngefbeilfzsyux
+                  nullable: false
+              required:
+                - company_name
+                - company_city
+                - company_state
+                - company_address
+                - company_zip
+                - company_ico
+                - company_bank_account
+                - company_bank_swift
+    delete:
+      summary: 'Odstránenie firmy.'
+      operationId: odstrnenieFirmy
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Firmy
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the company.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/companies/{company_id}/customization':
+    put:
+      summary: 'Aktualizácia interfacu firmy.'
+      operationId: aktualizciaInterfacuFirmy
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Firmy
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                invoice_issuer_name:
+                  type: string
+                  description: 'Name of the invoice issuer'
+                  example: 'John Doe'
+                  nullable: false
+                invoice_issuer_email:
+                  type: string
+                  description: 'Email of the invoice issuer'
+                  example: john.doe@example.com
+                  nullable: false
+                invoice_issuer_phone:
+                  type: string
+                  description: 'Phone number of the invoice issuer'
+                  example: '+123456789'
+                  nullable: false
+                signatures:
+                  type: string
+                  format: binary
+                  description: 'Signature file of the invoice issuer'
+                  nullable: false
+              required:
+                - invoice_issuer_name
+                - invoice_issuer_email
+                - invoice_issuer_phone
+                - signatures
+    parameters:
+      -
+        in: path
+        name: company_id
+        description: 'The ID of the company.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: company
+        description: ''
+        example: 1
+        required: true
+        schema:
+          type: 'ID of the company to update customization'
+  /api/roles:
+    get:
+      summary: ''
+      operationId: getApiRoles
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: superadmin
+                      guard_name: api
+                      created_at: '2025-10-04T20:34:32.000000Z'
+                      updated_at: '2025-10-04T20:34:32.000000Z'
+                    -
+                      id: 2
+                      name: admin
+                      guard_name: api
+                      created_at: '2025-10-04T20:34:32.000000Z'
+                      updated_at: '2025-10-04T20:34:32.000000Z'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: superadmin
+                        guard_name: api
+                        created_at: '2025-10-04T20:34:32.000000Z'
+                        updated_at: '2025-10-04T20:34:32.000000Z'
+                      -
+                        id: 2
+                        name: admin
+                        guard_name: api
+                        created_at: '2025-10-04T20:34:32.000000Z'
+                        updated_at: '2025-10-04T20:34:32.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: superadmin
+                        guard_name:
+                          type: string
+                          example: api
+                        created_at:
+                          type: string
+                          example: '2025-10-04T20:34:32.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-10-04T20:34:32.000000Z'
+      tags:
+        - Role
+  /api/streets:
+    get:
+      summary: ''
+      operationId: getApiStreets
+      description: ''
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Set the page number for pagination. Default: 1'
+          example: 1
+          required: true
+          schema:
+            type: integer
+            description: 'Set the page number for pagination. Default: 1'
+            example: 1
+            nullable: false
+        -
+          in: query
+          name: per_page
+          description: 'Set the number of records per page. Default: 10'
+          example: 10
+          required: true
+          schema:
+            type: integer
+            description: 'Set the number of records per page. Default: 10'
+            example: 10
+            nullable: false
+        -
+          in: query
+          name: 'filter[street_name]'
+          description: 'Filter records by street_name.'
+          example: 'Bebravska 39'
+          required: true
+          schema:
+            type: string
+            description: 'Filter records by street_name.'
+            example: 'Bebravska 39'
+            nullable: false
+        -
+          in: query
+          name: 'filter[company_id]'
+          description: 'Filter records by company_id.'
+          example: '1'
+          required: true
+          schema:
+            type: string
+            description: 'Filter records by company_id.'
+            example: '1'
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'http://localhost:8000/api/streets?page=1'
+                    last: 'http://localhost:8000/api/streets?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost:8000/api/streets?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost:8000/api/streets'
+                    per_page: 15
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost:8000/api/streets?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost:8000/api/streets?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost:8000/api/streets?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost:8000/api/streets'
+                      per_page:
+                        type: integer
+                        example: 15
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Ulice
+    post:
+      summary: ''
+      operationId: postApiStreets
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Ulice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                street_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vmqeopfuudtdsufvyvddq
+                  nullable: false
+                company_id:
+                  type: integer
+                  description: ''
+                  example: 17
+                  nullable: false
+              required:
+                - street_name
+                - company_id
+  '/api/streets/{id}':
+    get:
+      summary: ''
+      operationId: getApiStreetsId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Street] 17'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Street] 17'
+      tags:
+        - Ulice
+    put:
+      summary: ''
+      operationId: putApiStreetsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Ulice
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                street_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: vmqeopfuudtdsufvyvddq
+                  nullable: false
+                company_id:
+                  type: integer
+                  description: ''
+                  example: 17
+                  nullable: false
+    delete:
+      summary: ''
+      operationId: deleteApiStreetsId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Ulice
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the street.'
+        example: 17
+        required: true
+        schema:
+          type: integer
+  /api/users/email-exists:
+    post:
+      summary: 'Email validation'
+      operationId: emailValidation
+      description: 'Check if a user with specified email exists'
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Zoznam používateľov'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: admin@example.com
+                  nullable: false
+              required:
+                - email
+  '/api/users/{user_id}/change-password':
+    post:
+      summary: 'Change password'
+      operationId: changePassword
+      description: 'Change the password of the specified user.'
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Zoznam používateľov'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                old_password:
+                  type: string
+                  description: 'The old password of the user.'
+                  example: consequatur
+                  nullable: false
+                password_confirmation:
+                  type: string
+                  description: 'The new password confirmation.'
+                  example: 'lbyjEi&DQ^*]aL'
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The new password of the user.'
+                  example: 'lbyjEi&DQ^*]aL'
+                  nullable: false
+              required:
+                - old_password
+                - password_confirmation
+                - password
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/users:
+    get:
+      summary: 'List users'
+      operationId: listUsers
+      description: 'Display a filtered listing of users.'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'Set the page number for pagination. Default: 1'
+          example: 1
+          required: true
+          schema:
+            type: integer
+            description: 'Set the page number for pagination. Default: 1'
+            example: 1
+            nullable: false
+        -
+          in: query
+          name: per_page
+          description: 'Set the number of records per page. Default: 10'
+          example: 10
+          required: true
+          schema:
+            type: integer
+            description: 'Set the number of records per page. Default: 10'
+            example: 10
+            nullable: false
+        -
+          in: query
+          name: sort
+          description: 'Set sorting column, use "-" prefix for descending sorting. Default: -created_at'
+          example: '-created_at'
+          required: true
+          schema:
+            type: string
+            description: 'Set sorting column, use "-" prefix for descending sorting. Default: -created_at'
+            example: '-created_at'
+            nullable: false
+        -
+          in: query
+          name: 'filter[email]'
+          description: 'Filter records by email.'
+          example: test@test.sk
+          required: true
+          schema:
+            type: string
+            description: 'Filter records by email.'
+            example: test@test.sk
+            nullable: false
+        -
+          in: query
+          name: 'filter[first_name]'
+          description: 'Filter records by first name.'
+          example: John
+          required: true
+          schema:
+            type: string
+            description: 'Filter records by first name.'
+            example: John
+            nullable: false
+        -
+          in: query
+          name: 'filter[last_name]'
+          description: 'Filter records by last name.'
+          example: Doe
+          required: true
+          schema:
+            type: string
+            description: 'Filter records by last name.'
+            example: Doe
+            nullable: false
+        -
+          in: query
+          name: 'filter[phone]'
+          description: 'Filter records by phone number.'
+          example: '+420123456789'
+          required: true
+          schema:
+            type: string
+            description: 'Filter records by phone number.'
+            example: '+420123456789'
+            nullable: false
+        -
+          in: query
+          name: 'filter[state]'
+          description: 'Filter records by state.'
+          example: ACTIVE
+          required: true
+          schema:
+            type: string
+            description: 'Filter records by state.'
+            example: ACTIVE
+            nullable: false
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      email: superadmin@example.com
+                      first_name: Super
+                      last_name: Admin
+                      phone: '1234567890'
+                      email_verified_at: null
+                      state: ACTIVE
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      role: superadmin
+                    -
+                      id: 2
+                      email: admin@example.com
+                      first_name: Admin
+                      last_name: Clovek
+                      phone: '1234567890'
+                      email_verified_at: null
+                      state: ACTIVE
+                      created_at: '2025-10-04T20:34:33.000000Z'
+                      updated_at: '2025-10-04T20:34:33.000000Z'
+                      role: admin
+                  links:
+                    first: 'http://localhost:8000/api/users?page=1'
+                    last: 'http://localhost:8000/api/users?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost:8000/api/users?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost:8000/api/users'
+                    per_page: 10
+                    to: 2
+                    total: 2
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        email: superadmin@example.com
+                        first_name: Super
+                        last_name: Admin
+                        phone: '1234567890'
+                        email_verified_at: null
+                        state: ACTIVE
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        role: superadmin
+                      -
+                        id: 2
+                        email: admin@example.com
+                        first_name: Admin
+                        last_name: Clovek
+                        phone: '1234567890'
+                        email_verified_at: null
+                        state: ACTIVE
+                        created_at: '2025-10-04T20:34:33.000000Z'
+                        updated_at: '2025-10-04T20:34:33.000000Z'
+                        role: admin
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        email:
+                          type: string
+                          example: superadmin@example.com
+                        first_name:
+                          type: string
+                          example: Super
+                        last_name:
+                          type: string
+                          example: Admin
+                        phone:
+                          type: string
+                          example: '1234567890'
+                        email_verified_at:
+                          type: string
+                          example: null
+                        state:
+                          type: string
+                          example: ACTIVE
+                        created_at:
+                          type: string
+                          example: '2025-10-04T20:34:33.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-10-04T20:34:33.000000Z'
+                        role:
+                          type: string
+                          example: superadmin
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost:8000/api/users?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost:8000/api/users?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost:8000/api/users?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost:8000/api/users'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: integer
+                        example: 2
+                      total:
+                        type: integer
+                        example: 2
+      tags:
+        - 'Zoznam používateľov'
+    post:
+      summary: 'Create a user'
+      operationId: createAUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Zoznam používateľov'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: qkunze@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: 'Z5ij-e/dl4m{o,'
+                  nullable: false
+                first_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: dqamniihfqcoynlazghdt
+                  nullable: false
+                last_name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: qtqxbajwbpilpmufinllw
+                  nullable: false
+                phone:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: false
+              required:
+                - email
+                - password
+                - first_name
+                - last_name
+                - phone
+  '/api/users/{id}':
+    get:
+      summary: 'Get user'
+      operationId: getUser
+      description: 'Get the specified user detail.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    email: superadmin@example.com
+                    first_name: Super
+                    last_name: Admin
+                    phone: '1234567890'
+                    email_verified_at: null
+                    state: ACTIVE
+                    created_at: '2025-10-04T20:34:33.000000Z'
+                    updated_at: '2025-10-04T20:34:33.000000Z'
+                    role: superadmin
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      email:
+                        type: string
+                        example: superadmin@example.com
+                      first_name:
+                        type: string
+                        example: Super
+                      last_name:
+                        type: string
+                        example: Admin
+                      phone:
+                        type: string
+                        example: '1234567890'
+                      email_verified_at:
+                        type: string
+                        example: null
+                      state:
+                        type: string
+                        example: ACTIVE
+                      created_at:
+                        type: string
+                        example: '2025-10-04T20:34:33.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-10-04T20:34:33.000000Z'
+                      role:
+                        type: string
+                        example: superadmin
+      tags:
+        - 'Zoznam používateľov'
+    put:
+      summary: 'Update user'
+      operationId: updateUser
+      description: 'Update the specified user in storage.'
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Zoznam používateľov'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: admin@example.com
+                  nullable: false
+                first_name:
+                  type: string
+                  description: 'The first name of the user.'
+                  example: John
+                  nullable: false
+                last_name:
+                  type: string
+                  description: 'The last name of the user.'
+                  example: Doe
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'The phone number of the user.'
+                  example: '+420123456789'
+                  nullable: false
+                state:
+                  type: string
+                  description: 'The state of the user.'
+                  example: ACTIVE
+                  nullable: false
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: 'lbyjEi&DQ^*]aL'
+                  nullable: false
+                password_confirmation:
+                  type: string
+                  description: 'The password confirmation.'
+                  example: 'lbyjEi&DQ^*]aL'
+                  nullable: false
+              required:
+                - email
+                - first_name
+                - last_name
+                - phone
+    delete:
+      summary: 'Delete user'
+      operationId: deleteUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Zoznam používateľov'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
