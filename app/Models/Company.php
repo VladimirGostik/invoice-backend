@@ -32,6 +32,16 @@ class Company extends Model
         return $this->morphOne(File::class, 'fileable')->where('collection', 'signatures');
     }
 
+    public function scopeMainCompany($query)
+    {
+        return $query->where('company_type', CompanyTypeEnum::MAIN->value);
+    }
+
+    public function scopeResidentialCompany($query)
+    {
+        return $query->where('company_type', CompanyTypeEnum::RESIDENTIAL->value);
+    }
+
     public function snapshot(): array
     {
         return [
@@ -45,7 +55,6 @@ class Company extends Model
             'company_ic_dph' => $this->company_ic_dph,
             'company_bank_account' => $this->company_bank_account,
             'company_bank_swift' => $this->company_bank_swift,
-            'signatures' => $this->signatures?->path,
         ];
     }
 }

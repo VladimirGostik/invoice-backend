@@ -18,9 +18,10 @@ class CompanyCustomization extends Model
      public function snapshot(): array
      {
         return [
-            'invoice_issuer_name' => $this->invoice_issuer_name,
-            'invoice_issuer_email' => $this->invoice_issuer_email,
-            'invoice_issuer_phone' => $this->invoice_issuer_phone,
+            'invoice_issuer_name'    => $this->invoice_issuer_name,
+            'invoice_issuer_email'   => $this->invoice_issuer_email,
+            'invoice_issuer_phone'   => $this->invoice_issuer_phone,
+            'signatures'             => $this->company->signatures?->path,
         ];
      }
 

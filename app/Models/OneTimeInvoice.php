@@ -7,7 +7,7 @@ use App\Enums\InvoiceStatusEnum;
 
 class OneTimeInvoice extends Invoice
 {
-    protected $type = 'ONE_TIME';
+    protected $type = InvoiceTypeEnum::ONE_TIME->value;
     protected $table = 'invoices';
 
     protected $attributes = [
@@ -22,5 +22,10 @@ class OneTimeInvoice extends Invoice
             $model->type = InvoiceTypeEnum::ONE_TIME->value;
             $model->status = InvoiceStatusEnum::DRAFT->value;
         });
+    }
+
+    public function scopeOneTime($query)
+    {
+        return $query->where('type', InvoiceTypeEnum::ONE_TIME->value);
     }
 }

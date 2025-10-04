@@ -81,18 +81,27 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
     });
 
     Route::prefix('invoices')->group(function () {
-        // Route::get('/', [InvoiceController::class, 'index'])->name('invoices.index');
-        // Route::get('/{invoice}', [InvoiceController::class, 'show'])->name('invoices.show');
-        // Route::put('/{invoice}', [InvoiceController::class, 'update'])->name('invoices.update');
-        // Route::delete('/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
-        // Route::post('/', [InvoiceController::class, 'store'])->name('invoices.store');
-        // Route::post('/monthly', [InvoiceController::class, 'storeMonthly'])->name('invoices.storeMonthly');
-        // 
-        Route::get('/', [InvoiceController::class, 'view'])->name('invoices.view');
-        Route::get('/one-time', [InvoiceController::class, 'searchOneTime'])->name('invoices.searchOneTime');
-        Route::get('/monthly', [InvoiceController::class, 'searchMonthly'])->name('invoices.searchMonthly');
-        Route::get('/{company_id}/last-number/{billing_year}', [InvoiceController::class, 'getLastInvoiceNumber'])->name('invoices.last-number');
-        Route::post('/one-time', [InvoiceController::class, 'storeOneTime'])->name('invoices.storeOneTime');
+
+        // Mesačné faktúry
+        Route::prefix('monthly')->group(function () {
+            Route::get('/', [InvoiceController::class, 'searchMonthly'])->name('invoices.searchMonthly');
+            Route::post('/', [InvoiceController::class, 'storeMonthly'])->name('invoices.storeMonthly');
+            Route::put('/{invoice}', [InvoiceController::class, 'updateMonthly'])->name('invoices.updateMonthly');
+            Route::get('/{invoice}', [InvoiceController::class, 'viewMonthly'])->name('invoices.viewMonthly');
+        });
+
+        // Jednorazové faktúry
+        Route::prefix('one-time')->group(function () {
+            Route::get('/', [InvoiceController::class, 'searchOneTime'])->name('invoices.searchOneTime');
+            Route::post('/', [InvoiceController::class, 'storeOneTime'])->name('invoices.storeOneTime');
+            Route::put('/{invoice}', [InvoiceController::class, 'updateOneTime'])->name('invoices.updateOneTime');
+            Route::post('/from-monthly', [InvoiceController::class, 'createOneTimeFromMonthly'])->name('invoices.createOneTimeFromMonthly');
+        });
+        
+        // Všeobecné endpointy pre faktúry
+        Route::get('/last-number/{company_id}/{billing_year}', [InvoiceController::class, 'getLastInvoiceNumber'])->name('invoices.last-number');
+        Route::get('/{invoice}', [InvoiceController::class, 'view'])->name('invoices.view');
         Route::delete('/{invoice}', [InvoiceController::class, 'delete'])->name('invoices.delete');
     });
+
 });

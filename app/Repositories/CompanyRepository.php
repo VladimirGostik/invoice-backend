@@ -6,18 +6,16 @@ use App\Models\Company;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
-use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
-use function Psy\debug;
 
 class CompanyRepository implements CompanyRepositoryInterface
 {
     public function searchResidential(array $filter): Collection|LengthAwarePaginator|array
     {
         // Log the $type value
-        $query = QueryBuilder::for(Company::where('company_type', 'residential'))
+        $query = QueryBuilder::for(Company::class)
+            ->ResidentialCompany()
             ->allowedFilters([
             'company_name',
             ]);
@@ -31,10 +29,13 @@ class CompanyRepository implements CompanyRepositoryInterface
 
     public function searchMain(array $filter): Collection|LengthAwarePaginator|array
     {
-        $companies = Company::where('company_type', 'main');
-        $query = QueryBuilder::for($companies)
-                    ->allowedFilters([
-                    'company_name',
+        $query = QueryBuilder::for(Company::class)
+            ->MainCompany()
+            ->with(['companyCustomization', 'signatures'])
+            ->allowedFilters([
+                'company_name',
+            ])->allowedSorts([
+                'company_name',
                     ]);
                 // Get pagination
                 $paginate = (int)($filter['per_page'] ?? config('system.paginate'));

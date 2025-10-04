@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Invoice;
 use App\Models\User;
 use App\Enums\UserRoleEnum;
+use App\Models\OneTimeInvoice;
 
 class InvoicePolicy
 {
@@ -31,7 +32,7 @@ class InvoicePolicy
         ]);
     }
 
-    public function update(User $user, Invoice $invoice): bool
+    public function update(User $user): bool
     {
         return $user->hasAnyRole([
             UserRoleEnum::SUPER_ADMIN,

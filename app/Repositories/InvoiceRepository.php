@@ -8,21 +8,32 @@ use App\Models\MonthlyInvoice;
 use App\Repositories\Interfaces\InvoiceRepositoryInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
-use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceRepository implements InvoiceRepositoryInterface
 {
     public function searchOneTime(array $filter): Collection|LengthAwarePaginator|array
     {
-        //$invoices = OneTimeInvoice::collection();
-
         $query = QueryBuilder::for(OneTimeInvoice::class)
+            ->OneTime()
+            ->with(['items'])
             ->allowedFilters([
                 'invoice_number',
-                'company_id.company_name',
-                'residential_company_id.company_name',
-                'street_id.street_name',
+                'invoice_name',
+                'company_id',
+                'company_name',
+                'residential_company_id',
+                'residential_company_name',
+                'street_id',
+                'status',
+                'issued_at',
+                'due_at',
+                'total',
+            ])->allowedSorts([
+                'invoice_number',
+                'company_id',
+                'residential_company_id',
                 'status',
                 'issued_at',
                 'due_at',
@@ -40,13 +51,25 @@ class InvoiceRepository implements InvoiceRepositoryInterface
     public function searchMonthly(array $filter): Collection|LengthAwarePaginator|array
     {
         $query = QueryBuilder::for(MonthlyInvoice::class)
+            ->Monthly()
+            ->with(['items'])
             ->allowedFilters([
                 'invoice_name',
-                'company_id.company_name',
-                'residential_company_id.company_name',
-                'street_id.street_name',
-                'issued_at',
-                'due_at',
+                'invoice_name',
+                'company_id',
+                'company_name',
+                'residential_company_id',
+                'residential_company_name',
+                'street_id',
+                'total',
+            ])->allowedSorts([
+                'invoice_name',
+                'invoice_name',
+                'company_id',
+                'company_name',
+                'residential_company_id',
+                'residential_company_name',
+                'street_id',
                 'total',
             ]);
             
@@ -58,14 +81,24 @@ class InvoiceRepository implements InvoiceRepositoryInterface
             $query->get();
     }
 
-    public function createOneTime(array $data): Invoice
+    public function createOneTime(array $data): OneTimeInvoice
     {
         return $this->create(new OneTimeInvoice(), $data);
     }
 
-    public function createMonthly(array $data): Invoice
+    public function updateOneTime(OneTimeInvoice $invoice, array $data): OneTimeInvoice
+    {
+        return $this->update($invoice, $data);
+    }
+
+    public function createMonthly(array $data): MonthlyInvoice
     {
         return $this->create(new MonthlyInvoice(), $data);
+    }
+
+    public function updateMonthly(MonthlyInvoice $invoice, array $data): MonthlyInvoice
+    {
+        return $this->update($invoice, $data);
     }
 
     private function create(Invoice $invoice, array $data): Invoice
@@ -73,19 +106,29 @@ class InvoiceRepository implements InvoiceRepositoryInterface
         $items = $data['items'] ?? [];
         unset($data['items']);
 
-        $invoice->fill($data);
-        $invoice->save();
+        return DB::transaction(function () use ($invoice, $data, $items) {
+            $invoice->fill($data);
+            $invoice->save();
 
-        foreach ($items as $item) {
-            $invoice->items()->create($item);
-        }
+            foreach ($items as $item) {
+                $invoice->items()->create($item);
+            }
 
-        return $invoice;
+            return $invoice;
+        });
     }
 
     public function update(Invoice $invoice, array $data): Invoice
     {
+        $items = $data['items'] ?? [];
+        unset($data['items']);
+
         $invoice->update($data);
+
+        foreach ($items as $item) {
+            $invoice->items()->update($item);
+        }
+
         return $invoice;
     }
 

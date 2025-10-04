@@ -40,8 +40,8 @@ return new class extends Migration
             $table->enum('type', array_column(InvoiceTypeEnum::cases(), 'value'));
             $table->enum('status', array_column(InvoiceStatusEnum::cases(), 'value'))->default(InvoiceStatusEnum::DRAFT->value);
 
-            $table->unsignedSmallInteger('billing_year');
-            $table->unsignedTinyInteger('billing_month');
+            $table->unsignedSmallInteger('billing_year')->nullable();
+            $table->unsignedTinyInteger('billing_month')->nullable();
             $table->date('issued_at')->nullable();
             $table->date('due_at')->nullable();
             $table->date('payment_date')->nullable();
