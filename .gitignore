@@ -21,7 +21,6 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-/.scribe/*
 /public/docs/*
 docker-compose.yml
 .gitignore

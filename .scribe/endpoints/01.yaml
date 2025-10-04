@@ -1,0 +1,568 @@
+name: 'Zoznam používateľov'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/users/email-exists
+    metadata:
+      groupName: 'Zoznam používateľov'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Email validation'
+      description: 'Check if a user with specified email exists'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: admin@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: admin@example.com
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/users/{user_id}/change-password'
+    metadata:
+      groupName: 'Zoznam používateľov'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Change password'
+      description: 'Change the password of the specified user.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      user_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      old_password:
+        name: old_password
+        description: 'The old password of the user.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The new password confirmation.'
+        required: true
+        example: 'lbyjEi&DQ^*]aL'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'The new password of the user.'
+        required: true
+        example: 'lbyjEi&DQ^*]aL'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      old_password: consequatur
+      password_confirmation: 'lbyjEi&DQ^*]aL'
+      password: 'lbyjEi&DQ^*]aL'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      groupName: 'Zoznam používateľov'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List users'
+      description: 'Display a filtered listing of users.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'Set the page number for pagination. Default: 1'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      per_page:
+        name: per_page
+        description: 'Set the number of records per page. Default: 10'
+        required: true
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      sort:
+        name: sort
+        description: 'Set sorting column, use "-" prefix for descending sorting. Default: -created_at'
+        required: true
+        example: '-created_at'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'filter[email]':
+        name: 'filter[email]'
+        description: 'Filter records by email.'
+        required: true
+        example: test@test.sk
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'filter[first_name]':
+        name: 'filter[first_name]'
+        description: 'Filter records by first name.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'filter[last_name]':
+        name: 'filter[last_name]'
+        description: 'Filter records by last name.'
+        required: true
+        example: Doe
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'filter[phone]':
+        name: 'filter[phone]'
+        description: 'Filter records by phone number.'
+        required: true
+        example: '+420123456789'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      'filter[state]':
+        name: 'filter[state]'
+        description: 'Filter records by state.'
+        required: true
+        example: ACTIVE
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      page: 1
+      per_page: 10
+      sort: '-created_at'
+      'filter[email]': test@test.sk
+      'filter[first_name]': John
+      'filter[last_name]': Doe
+      'filter[phone]': '+420123456789'
+      'filter[state]': ACTIVE
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"id":1,"email":"superadmin@example.com","first_name":"Super","last_name":"Admin","phone":"1234567890","email_verified_at":null,"state":"ACTIVE","created_at":"2025-10-04T20:34:33.000000Z","updated_at":"2025-10-04T20:34:33.000000Z","role":"superadmin"},{"id":2,"email":"admin@example.com","first_name":"Admin","last_name":"Clovek","phone":"1234567890","email_verified_at":null,"state":"ACTIVE","created_at":"2025-10-04T20:34:33.000000Z","updated_at":"2025-10-04T20:34:33.000000Z","role":"admin"}],"links":{"first":"http:\/\/localhost:8000\/api\/users?page=1","last":"http:\/\/localhost:8000\/api\/users?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost:8000\/api\/users?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost:8000\/api\/users","per_page":10,"to":2,"total":2}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/users
+    metadata:
+      groupName: 'Zoznam používateľov'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a user'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: qkunze@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: 'Z5ij-e/dl4m{o,'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      first_name:
+        name: first_name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: dqamniihfqcoynlazghdt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      last_name:
+        name: last_name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: qtqxbajwbpilpmufinllw
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: qkunze@example.com
+      password: 'Z5ij-e/dl4m{o,'
+      first_name: dqamniihfqcoynlazghdt
+      last_name: qtqxbajwbpilpmufinllw
+      phone: consequatur
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}'
+    metadata:
+      groupName: 'Zoznam používateľov'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get user'
+      description: 'Get the specified user detail.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":1,"email":"superadmin@example.com","first_name":"Super","last_name":"Admin","phone":"1234567890","email_verified_at":null,"state":"ACTIVE","created_at":"2025-10-04T20:34:33.000000Z","updated_at":"2025-10-04T20:34:33.000000Z","role":"superadmin"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/users/{id}'
+    metadata:
+      groupName: 'Zoznam používateľov'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update user'
+      description: 'Update the specified user in storage.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: admin@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      first_name:
+        name: first_name
+        description: 'The first name of the user.'
+        required: true
+        example: John
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The last name of the user.'
+        required: true
+        example: Doe
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: 'The phone number of the user.'
+        required: true
+        example: '+420123456789'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      state:
+        name: state
+        description: 'The state of the user.'
+        required: false
+        example: ACTIVE
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user.'
+        required: false
+        example: 'lbyjEi&DQ^*]aL'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The password confirmation.'
+        required: false
+        example: 'lbyjEi&DQ^*]aL'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: admin@example.com
+      first_name: John
+      last_name: Doe
+      phone: '+420123456789'
+      state: ACTIVE
+      password: 'lbyjEi&DQ^*]aL'
+      password_confirmation: 'lbyjEi&DQ^*]aL'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/users/{id}'
+    metadata:
+      groupName: 'Zoznam používateľov'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete user'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
