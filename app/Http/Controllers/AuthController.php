@@ -22,6 +22,8 @@ use Knuckles\Scribe\Attributes\BodyParam;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\Response as ScribeResponse;
 use Knuckles\Scribe\Attributes\Unauthenticated;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Validation\ValidationException;
 
 #[Group('Authentication')]
 
@@ -59,8 +61,33 @@ class AuthController extends Controller implements HasMiddleware
             ['state' => UserStateEnum::ACTIVE]
         );
 
-        if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['message' => __('messages.unauthorized_access')], 401);
+                $user = User::withTrashed()->where('email', $credentials['email'])->first();
+
+        if (!$user) {
+            throw ValidationException::withMessages([
+                'email' => [trans('auth.user_not_found')],
+            ]);
+        }
+
+        if (!Hash::check($credentials['password'], $user->password)) {
+            throw ValidationException::withMessages([
+                'password' => [trans('auth.wrong_password')],
+            ]);
+        }
+
+        $token = auth()->attempt($credentials);
+
+        // Správne vytvorenie refresh tokenu s dlhším TTL
+        $refreshTokenTTL = config('jwt.refresh_ttl', 20160); // 2 týždne v minútach
+        $refreshToken = JWTAuth::customClaims([
+            'type' => 'refresh',
+            'exp' => now()->addMinutes($refreshTokenTTL)->timestamp
+        ])->fromUser($user);
+
+        if (!$token) {
+            throw ValidationException::withMessages([
+                'email' => [trans('auth.invalid_credentials')],
+            ]);
         }
 
         return new TokenResource([

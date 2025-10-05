@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Language Lines
@@ -17,4 +16,16 @@ return [
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+    // Custom messages for AuthController
+    'user_not_found' => 'User with this email does not exist.',
+    'wrong_password' => 'The provided password is incorrect.',
+    'invalid_credentials' => 'Invalid credentials.',
+    'unauthorized_access' => 'Unauthorized access.',
+
+    // Password reset messages
+    'reset' => 'Your password has been reset.',
+    'sent' => 'We have emailed your password reset link.',
+    'throttled' => 'Please wait before retrying.',
+    'token' => 'This password reset token is invalid.',
+    'user' => 'We can\'t find a user with that email address.',
 ];
