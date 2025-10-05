@@ -61,7 +61,7 @@ class AuthController extends Controller implements HasMiddleware
             ['state' => UserStateEnum::ACTIVE]
         );
 
-                $user = User::withTrashed()->where('email', $credentials['email'])->first();
+        $user = User::where('email', $credentials['email'])->first();
 
         if (!$user) {
             throw ValidationException::withMessages([
@@ -77,12 +77,12 @@ class AuthController extends Controller implements HasMiddleware
 
         $token = auth()->attempt($credentials);
 
-        // Správne vytvorenie refresh tokenu s dlhším TTL
-        $refreshTokenTTL = config('jwt.refresh_ttl', 20160); // 2 týždne v minútach
-        $refreshToken = JWTAuth::customClaims([
-            'type' => 'refresh',
-            'exp' => now()->addMinutes($refreshTokenTTL)->timestamp
-        ])->fromUser($user);
+        // $refreshTokenTTL = config('jwt.refresh_ttl', 20160); // 2 týždne v minútach
+
+        // $refreshToken = JWTAuth::customClaims([
+        //     'type' => 'refresh',
+        //     'exp' => now()->addMinutes($refreshTokenTTL)->timestamp
+        // ])->fromUser($user);
 
         if (!$token) {
             throw ValidationException::withMessages([
