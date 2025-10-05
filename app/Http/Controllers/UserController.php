@@ -10,6 +10,7 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Container\Attributes\Auth;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -79,6 +80,7 @@ class UserController extends Controller
      */
     public function show(User $user): UserResource
     {
+        $user = auth()->user();
         $this->authorize('view', $user);
         return new UserResource($user);
     }

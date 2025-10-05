@@ -276,6 +276,46 @@ endpoints:
     custom: []
   -
     httpMethods:
+      - GET
+    uri: api/auth/user
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get user'
+      description: 'Get the authenticated User.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"email":"admin@example.com","first_name":"Test","last_name":"Admin","phone":"+1.646.261.0356","email_verified_at":"2023-09-21T10 =>27 =>09.000000Z","state":"ACTIVE","created_at":"2023-09-21T10 =>27 =>09.000000Z","updated_at":"2023-09-21T10 =>27 =>09.000000Z"}'
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
     uri: api/auth/logout
     metadata:

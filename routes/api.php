@@ -33,11 +33,9 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
         // Refresh a token
         Route::post('refresh', [AuthController::class, 'refresh'])->name('refresh');
 
-        // Set entity for the token
-        //    Route::post('set-entity', [AuthController::class, 'setEntity'])->name('set-entity');
+        // Get the authenticated user - podporuje GET aj POST
+        Route::match(['get', 'post'], 'user', [AuthController::class, 'user'])->name('user');
 
-        // Get the authenticated user
-        Route::post('user', [AuthController::class, 'user'])->name('user');
 
         // Log the user out (Invalidate the token)
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
@@ -97,7 +95,7 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
             Route::put('/{invoice}', [InvoiceController::class, 'updateOneTime'])->name('invoices.updateOneTime');
             Route::post('/from-monthly', [InvoiceController::class, 'createOneTimeFromMonthly'])->name('invoices.createOneTimeFromMonthly');
         });
-        
+
         // Všeobecné endpointy pre faktúry
         Route::get('/last-number/{company_id}/{billing_year}', [InvoiceController::class, 'getLastInvoiceNumber'])->name('invoices.last-number');
         Route::get('/{invoice}', [InvoiceController::class, 'view'])->name('invoices.view');
