@@ -65,7 +65,7 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
 
         // Shared endpoints
         Route::get('/{company}', [CompanyController::class, 'show'])->name('companies.show');
-        Route::put('/{company}', [CompanyController::class, 'update'])->name('companies.update');
+        Route::match(['post', 'put'], '/{company}', [CompanyController::class, 'update'])->name('companies.update');
         Route::delete('/{company}', [CompanyController::class, 'destroy'])->name('companies.destroy');
         Route::put('/{company}/customization', [CompanyController::class, 'updateCustomization'])->name('companies.customization.update');
     });
