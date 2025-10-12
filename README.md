@@ -1,1 +1,4 @@
   Nefunguje mi worker ako si predstavujem... a treba pozriet este cisla faktur ako sa generuju, ked tam nie je ziadna faktura predtym... 
+
+
+  toto je hacik: exporty pre slovenske uctovnictvo ISDOC

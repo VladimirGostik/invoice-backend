@@ -83,9 +83,6 @@
                                                                                 <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-refresh">
                                 <a href="#authentication-POSTapi-auth-refresh">Refresh token</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-user">
-                                <a href="#authentication-POSTapi-auth-user">Get user</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="authentication-GETapi-auth-user">
                                 <a href="#authentication-GETapi-auth-user">Get user</a>
                             </li>
@@ -234,7 +231,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: October 5, 2025</li>
+        <li>Last updated: October 12, 2025</li>
     </ul>
 </div>
 
@@ -869,145 +866,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="authentication-POSTapi-auth-user">Get user</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-<p>Get the authenticated User.</p>
-
-<span id="example-requests-POSTapi-auth-user">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/auth/user" \
-    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/auth/user"
-);
-
-const headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-auth-user">
-            <blockquote>
-            <p>Example response (200, success):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;id&quot;: 1,
-    &quot;email&quot;: &quot;admin@example.com&quot;,
-    &quot;first_name&quot;: &quot;Test&quot;,
-    &quot;last_name&quot;: &quot;Admin&quot;,
-    &quot;phone&quot;: &quot;+1.646.261.0356&quot;,
-    &quot;email_verified_at&quot;: &quot;2023-09-21T10 =&gt;27 =&gt;09.000000Z&quot;,
-    &quot;state&quot;: &quot;ACTIVE&quot;,
-    &quot;created_at&quot;: &quot;2023-09-21T10 =&gt;27 =&gt;09.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2023-09-21T10 =&gt;27 =&gt;09.000000Z&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-POSTapi-auth-user" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-auth-user"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-auth-user"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-auth-user" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-auth-user">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-auth-user" data-method="POST"
-      data-path="api/auth/user"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-user', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-auth-user"
-                    onclick="tryItOut('POSTapi-auth-user');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-auth-user"
-                    onclick="cancelTryOut('POSTapi-auth-user');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-auth-user"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/auth/user</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-auth-user"
-               value="Bearer {YOUR_AUTH_KEY}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-auth-user"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-auth-user"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
                     <h2 id="authentication-GETapi-auth-user">Get user</h2>
 
 <p>
@@ -1109,6 +967,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
+            <b><code>api/auth/user</code></b>
+        </p>
+            <p>
+            <small class="badge badge-black">POST</small>
             <b><code>api/auth/user</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
@@ -2837,9 +2699,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"subtotal\": 73,
     \"tax\": 45,
     \"total\": 56,
-    \"issued_at\": \"2025-10-05T18:40:05\",
-    \"due_at\": \"2106-11-04\",
-    \"payment_date\": \"2025-10-05T18:40:05\",
+    \"issued_at\": \"2025-10-12T08:48:16\",
+    \"due_at\": \"2106-11-10\",
+    \"payment_date\": \"2025-10-12T08:48:16\",
     \"billing_year\": 13,
     \"billing_month\": 8,
     \"company_name\": \"eopfuudtdsufvyvddqamn\",
@@ -2889,9 +2751,9 @@ let body = {
     "subtotal": 73,
     "tax": 45,
     "total": 56,
-    "issued_at": "2025-10-05T18:40:05",
-    "due_at": "2106-11-04",
-    "payment_date": "2025-10-05T18:40:05",
+    "issued_at": "2025-10-12T08:48:16",
+    "due_at": "2106-11-10",
+    "payment_date": "2025-10-12T08:48:16",
     "billing_year": 13,
     "billing_month": 8,
     "company_name": "eopfuudtdsufvyvddqamn",
@@ -3153,10 +3015,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="issued_at"                data-endpoint="POSTapi-invoices-one-time"
-               value="2025-10-05T18:40:05"
+               value="2025-10-12T08:48:16"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-05T18:40:05</code></p>
+<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
@@ -3164,10 +3026,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="due_at"                data-endpoint="POSTapi-invoices-one-time"
-               value="2106-11-04"
+               value="2106-11-10"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-04</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-10</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>payment_date</code></b>&nbsp;&nbsp;
@@ -3175,10 +3037,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="payment_date"                data-endpoint="POSTapi-invoices-one-time"
-               value="2025-10-05T18:40:05"
+               value="2025-10-12T08:48:16"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-05T18:40:05</code></p>
+<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>billing_year</code></b>&nbsp;&nbsp;
@@ -3424,9 +3286,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"subtotal\": 73,
     \"tax\": 45,
     \"total\": 56,
-    \"issued_at\": \"2025-10-05T18:40:05\",
-    \"due_at\": \"2106-11-04\",
-    \"payment_date\": \"2025-10-05T18:40:05\",
+    \"issued_at\": \"2025-10-12T08:48:16\",
+    \"due_at\": \"2106-11-10\",
+    \"payment_date\": \"2025-10-12T08:48:16\",
     \"billing_year\": 13,
     \"billing_month\": 8,
     \"company_name\": \"eopfuudtdsufvyvddqamn\",
@@ -3476,9 +3338,9 @@ let body = {
     "subtotal": 73,
     "tax": 45,
     "total": 56,
-    "issued_at": "2025-10-05T18:40:05",
-    "due_at": "2106-11-04",
-    "payment_date": "2025-10-05T18:40:05",
+    "issued_at": "2025-10-12T08:48:16",
+    "due_at": "2106-11-10",
+    "payment_date": "2025-10-12T08:48:16",
     "billing_year": 13,
     "billing_month": 8,
     "company_name": "eopfuudtdsufvyvddqamn",
@@ -3763,10 +3625,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="issued_at"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="2025-10-05T18:40:05"
+               value="2025-10-12T08:48:16"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-05T18:40:05</code></p>
+<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
@@ -3774,10 +3636,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="due_at"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="2106-11-04"
+               value="2106-11-10"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-04</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-10</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>payment_date</code></b>&nbsp;&nbsp;
@@ -3785,10 +3647,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="payment_date"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="2025-10-05T18:40:05"
+               value="2025-10-12T08:48:16"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-05T18:40:05</code></p>
+<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>billing_year</code></b>&nbsp;&nbsp;
@@ -4023,8 +3885,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"monthly_invoice_ids\": [
         \"consequatur\"
     ],
-    \"issued_at\": \"2025-10-05T18:40:05\",
-    \"due_at\": \"2106-11-04\",
+    \"issued_at\": \"2025-10-12T08:48:16\",
+    \"due_at\": \"2106-11-10\",
     \"billing_year\": 13,
     \"billing_month\": 8
 }"
@@ -4046,8 +3908,8 @@ let body = {
     "monthly_invoice_ids": [
         "consequatur"
     ],
-    "issued_at": "2025-10-05T18:40:05",
-    "due_at": "2106-11-04",
+    "issued_at": "2025-10-12T08:48:16",
+    "due_at": "2106-11-10",
     "billing_year": 13,
     "billing_month": 8
 };
@@ -4162,10 +4024,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="issued_at"                data-endpoint="POSTapi-invoices-one-time-from-monthly"
-               value="2025-10-05T18:40:05"
+               value="2025-10-12T08:48:16"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-05T18:40:05</code></p>
+<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
@@ -4173,10 +4035,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="due_at"                data-endpoint="POSTapi-invoices-one-time-from-monthly"
-               value="2106-11-04"
+               value="2106-11-10"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-04</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-10</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>billing_year</code></b>&nbsp;&nbsp;
@@ -4736,19 +4598,19 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 1,
-            &quot;company_name&quot;: &quot;Rowe-Hansen&quot;,
-            &quot;company_city&quot;: &quot;Lorenzview&quot;,
-            &quot;company_state&quot;: &quot;Philippines&quot;,
-            &quot;company_address&quot;: &quot;536 Tressa Pass&quot;,
-            &quot;company_zip&quot;: &quot;58747-1597&quot;,
-            &quot;company_ico&quot;: &quot;26659099&quot;,
-            &quot;company_dic&quot;: &quot;4852636163&quot;,
+            &quot;company_name&quot;: &quot;Heaney, Nicolas and Paucek&quot;,
+            &quot;company_city&quot;: &quot;East Roslynton&quot;,
+            &quot;company_state&quot;: &quot;Uruguay&quot;,
+            &quot;company_address&quot;: &quot;46294 Renner Camp Apt. 916&quot;,
+            &quot;company_zip&quot;: &quot;23706&quot;,
+            &quot;company_ico&quot;: &quot;04163301&quot;,
+            &quot;company_dic&quot;: &quot;3606848855&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -4757,19 +4619,40 @@ access-control-allow-origin: *
         },
         {
             &quot;id&quot;: 2,
-            &quot;company_name&quot;: &quot;Hyatt and Sons&quot;,
-            &quot;company_city&quot;: &quot;Spencerchester&quot;,
-            &quot;company_state&quot;: &quot;Costa Rica&quot;,
-            &quot;company_address&quot;: &quot;9513 Dejah Mountain Apt. 593&quot;,
-            &quot;company_zip&quot;: &quot;80144&quot;,
-            &quot;company_ico&quot;: &quot;27723918&quot;,
-            &quot;company_dic&quot;: &quot;1742551916&quot;,
+            &quot;company_name&quot;: &quot;Weissnat-Haag&quot;,
+            &quot;company_city&quot;: &quot;Manleyberg&quot;,
+            &quot;company_state&quot;: &quot;Cambodia&quot;,
+            &quot;company_address&quot;: &quot;185 Sanford Inlet Apt. 239&quot;,
+            &quot;company_zip&quot;: &quot;84705&quot;,
+            &quot;company_ico&quot;: &quot;94049129&quot;,
+            &quot;company_dic&quot;: &quot;5581534291&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;company_customization&quot;: null,
+            &quot;signatures&quot;: null,
+            &quot;invoice_issuer_name&quot;: null,
+            &quot;invoice_issuer_email&quot;: null,
+            &quot;invoice_issuer_phone&quot;: null
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;company_name&quot;: &quot;Mosciski-Muller&quot;,
+            &quot;company_city&quot;: &quot;East Hayden&quot;,
+            &quot;company_state&quot;: &quot;Pakistan&quot;,
+            &quot;company_address&quot;: &quot;30721 Legros Street Apt. 674&quot;,
+            &quot;company_zip&quot;: &quot;04824-5722&quot;,
+            &quot;company_ico&quot;: &quot;05353184&quot;,
+            &quot;company_dic&quot;: &quot;6884911448&quot;,
+            &quot;company_ic_dph&quot;: null,
+            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
+            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
+            &quot;company_type&quot;: &quot;main&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -4778,19 +4661,19 @@ access-control-allow-origin: *
         },
         {
             &quot;id&quot;: 5,
-            &quot;company_name&quot;: &quot;Schaden and Sons&quot;,
-            &quot;company_city&quot;: &quot;East Randalview&quot;,
-            &quot;company_state&quot;: &quot;Barbados&quot;,
-            &quot;company_address&quot;: &quot;2179 Pfannerstill Summit&quot;,
-            &quot;company_zip&quot;: &quot;39122-3123&quot;,
-            &quot;company_ico&quot;: &quot;70883561&quot;,
-            &quot;company_dic&quot;: &quot;9885134284&quot;,
+            &quot;company_name&quot;: &quot;McDermott Group&quot;,
+            &quot;company_city&quot;: &quot;South Sadyetown&quot;,
+            &quot;company_state&quot;: &quot;Sweden&quot;,
+            &quot;company_address&quot;: &quot;79719 Francesco Land Apt. 134&quot;,
+            &quot;company_zip&quot;: &quot;49979-6795&quot;,
+            &quot;company_ico&quot;: &quot;70716146&quot;,
+            &quot;company_dic&quot;: &quot;4947079215&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -4798,41 +4681,20 @@ access-control-allow-origin: *
             &quot;invoice_issuer_phone&quot;: null
         },
         {
-            &quot;id&quot;: 6,
-            &quot;company_name&quot;: &quot;Jakubowski-Aufderhar&quot;,
-            &quot;company_city&quot;: &quot;Lake Fabiolabury&quot;,
-            &quot;company_state&quot;: &quot;Kazakhstan&quot;,
-            &quot;company_address&quot;: &quot;544 Maurice Green Apt. 978&quot;,
-            &quot;company_zip&quot;: &quot;93886-4177&quot;,
-            &quot;company_ico&quot;: &quot;02327327&quot;,
-            &quot;company_dic&quot;: &quot;6157687303&quot;,
+            &quot;id&quot;: 7,
+            &quot;company_name&quot;: &quot;Becker and Sons&quot;,
+            &quot;company_city&quot;: &quot;New Gloria&quot;,
+            &quot;company_state&quot;: &quot;Central African Republic&quot;,
+            &quot;company_address&quot;: &quot;258 Providenci Square Apt. 977&quot;,
+            &quot;company_zip&quot;: &quot;19660&quot;,
+            &quot;company_ico&quot;: &quot;31717109&quot;,
+            &quot;company_dic&quot;: &quot;1249415927&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;company_customization&quot;: null,
-            &quot;signatures&quot;: null,
-            &quot;invoice_issuer_name&quot;: null,
-            &quot;invoice_issuer_email&quot;: null,
-            &quot;invoice_issuer_phone&quot;: null
-        },
-        {
-            &quot;id&quot;: 8,
-            &quot;company_name&quot;: &quot;Zemlak, King and Nolan&quot;,
-            &quot;company_city&quot;: &quot;Connstad&quot;,
-            &quot;company_state&quot;: &quot;Guam&quot;,
-            &quot;company_address&quot;: &quot;835 Junior Roads Apt. 920&quot;,
-            &quot;company_zip&quot;: &quot;59781-6026&quot;,
-            &quot;company_ico&quot;: &quot;19545451&quot;,
-            &quot;company_dic&quot;: &quot;6240819776&quot;,
-            &quot;company_ic_dph&quot;: null,
-            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
-            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
-            &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -4841,19 +4703,40 @@ access-control-allow-origin: *
         },
         {
             &quot;id&quot;: 9,
-            &quot;company_name&quot;: &quot;Zulauf LLC&quot;,
-            &quot;company_city&quot;: &quot;East Amymouth&quot;,
-            &quot;company_state&quot;: &quot;Somalia&quot;,
-            &quot;company_address&quot;: &quot;13427 Breanna Ridge Apt. 327&quot;,
-            &quot;company_zip&quot;: &quot;44804-4031&quot;,
-            &quot;company_ico&quot;: &quot;94587518&quot;,
-            &quot;company_dic&quot;: &quot;9233732111&quot;,
+            &quot;company_name&quot;: &quot;Lind Group&quot;,
+            &quot;company_city&quot;: &quot;Marcelfurt&quot;,
+            &quot;company_state&quot;: &quot;Turkey&quot;,
+            &quot;company_address&quot;: &quot;2771 Rau Parkway&quot;,
+            &quot;company_zip&quot;: &quot;93179-1234&quot;,
+            &quot;company_ico&quot;: &quot;45561233&quot;,
+            &quot;company_dic&quot;: &quot;4716717352&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;company_customization&quot;: null,
+            &quot;signatures&quot;: null,
+            &quot;invoice_issuer_name&quot;: null,
+            &quot;invoice_issuer_email&quot;: null,
+            &quot;invoice_issuer_phone&quot;: null
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;company_name&quot;: &quot;Kozey-Bins&quot;,
+            &quot;company_city&quot;: &quot;Lulamouth&quot;,
+            &quot;company_state&quot;: &quot;Chad&quot;,
+            &quot;company_address&quot;: &quot;282 Kayli Motorway Apt. 070&quot;,
+            &quot;company_zip&quot;: &quot;98147&quot;,
+            &quot;company_ico&quot;: &quot;74387718&quot;,
+            &quot;company_dic&quot;: &quot;8147847868&quot;,
+            &quot;company_ic_dph&quot;: null,
+            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
+            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
+            &quot;company_type&quot;: &quot;main&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -4890,8 +4773,8 @@ access-control-allow-origin: *
         ],
         &quot;path&quot;: &quot;http://localhost:8000/api/companies/main&quot;,
         &quot;per_page&quot;: 10,
-        &quot;to&quot;: 6,
-        &quot;total&quot;: 6
+        &quot;to&quot;: 7,
+        &quot;total&quot;: 7
     }
 }</code>
  </pre>
@@ -5334,80 +5217,60 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 3,
-            &quot;company_name&quot;: &quot;VonRueden-Gibson&quot;,
-            &quot;company_city&quot;: &quot;Richardview&quot;,
-            &quot;company_state&quot;: &quot;Bhutan&quot;,
-            &quot;company_address&quot;: &quot;12182 Marisa Ports&quot;,
-            &quot;company_zip&quot;: &quot;59884-0702&quot;,
-            &quot;company_ico&quot;: &quot;71106645&quot;,
-            &quot;company_dic&quot;: &quot;4179761275&quot;,
-            &quot;company_ic_dph&quot;: null,
-            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
-            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
-            &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;invoice_issuer_name&quot;: null,
-            &quot;invoice_issuer_email&quot;: null,
-            &quot;invoice_issuer_phone&quot;: null,
-            &quot;signatures&quot;: null
-        },
-        {
             &quot;id&quot;: 4,
-            &quot;company_name&quot;: &quot;Mraz PLC&quot;,
-            &quot;company_city&quot;: &quot;New Marina&quot;,
-            &quot;company_state&quot;: &quot;Bermuda&quot;,
-            &quot;company_address&quot;: &quot;97253 Uriah Pass&quot;,
-            &quot;company_zip&quot;: &quot;21632&quot;,
-            &quot;company_ico&quot;: &quot;46598070&quot;,
-            &quot;company_dic&quot;: &quot;5118133228&quot;,
+            &quot;company_name&quot;: &quot;Jast-Kuhic&quot;,
+            &quot;company_city&quot;: &quot;Vickychester&quot;,
+            &quot;company_state&quot;: &quot;French Southern Territories&quot;,
+            &quot;company_address&quot;: &quot;974 Predovic Pines Apt. 822&quot;,
+            &quot;company_zip&quot;: &quot;09363&quot;,
+            &quot;company_ico&quot;: &quot;22869329&quot;,
+            &quot;company_dic&quot;: &quot;2109284488&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
             &quot;invoice_issuer_name&quot;: null,
             &quot;invoice_issuer_email&quot;: null,
             &quot;invoice_issuer_phone&quot;: null,
             &quot;signatures&quot;: null
         },
         {
-            &quot;id&quot;: 7,
-            &quot;company_name&quot;: &quot;Schinner-Dibbert&quot;,
-            &quot;company_city&quot;: &quot;Crooksstad&quot;,
-            &quot;company_state&quot;: &quot;Norfolk Island&quot;,
-            &quot;company_address&quot;: &quot;75094 Troy Extension&quot;,
-            &quot;company_zip&quot;: &quot;15801-4966&quot;,
-            &quot;company_ico&quot;: &quot;76934469&quot;,
-            &quot;company_dic&quot;: &quot;6415185560&quot;,
+            &quot;id&quot;: 6,
+            &quot;company_name&quot;: &quot;Schaefer-Rath&quot;,
+            &quot;company_city&quot;: &quot;South Robert&quot;,
+            &quot;company_state&quot;: &quot;Namibia&quot;,
+            &quot;company_address&quot;: &quot;30369 Kuvalis Motorway&quot;,
+            &quot;company_zip&quot;: &quot;58656-4451&quot;,
+            &quot;company_ico&quot;: &quot;39389995&quot;,
+            &quot;company_dic&quot;: &quot;5882763620&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
             &quot;invoice_issuer_name&quot;: null,
             &quot;invoice_issuer_email&quot;: null,
             &quot;invoice_issuer_phone&quot;: null,
             &quot;signatures&quot;: null
         },
         {
-            &quot;id&quot;: 10,
-            &quot;company_name&quot;: &quot;Toy-Swift&quot;,
-            &quot;company_city&quot;: &quot;Port Linda&quot;,
-            &quot;company_state&quot;: &quot;Netherlands&quot;,
-            &quot;company_address&quot;: &quot;77982 Jaskolski Trace Suite 074&quot;,
-            &quot;company_zip&quot;: &quot;16313&quot;,
-            &quot;company_ico&quot;: &quot;35839929&quot;,
-            &quot;company_dic&quot;: &quot;4098352906&quot;,
+            &quot;id&quot;: 8,
+            &quot;company_name&quot;: &quot;Lehner, Collier and Bergnaum&quot;,
+            &quot;company_city&quot;: &quot;North Ayana&quot;,
+            &quot;company_state&quot;: &quot;Guernsey&quot;,
+            &quot;company_address&quot;: &quot;3121 O&#039;Hara Via&quot;,
+            &quot;company_zip&quot;: &quot;26830-8769&quot;,
+            &quot;company_ico&quot;: &quot;39099168&quot;,
+            &quot;company_dic&quot;: &quot;1198364875&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
             &quot;invoice_issuer_name&quot;: null,
             &quot;invoice_issuer_email&quot;: null,
             &quot;invoice_issuer_phone&quot;: null,
@@ -5443,8 +5306,8 @@ access-control-allow-origin: *
         ],
         &quot;path&quot;: &quot;http://localhost:8000/api/companies/residential&quot;,
         &quot;per_page&quot;: 10,
-        &quot;to&quot;: 4,
-        &quot;total&quot;: 4
+        &quot;to&quot;: 3,
+        &quot;total&quot;: 3
     }
 }</code>
  </pre>
@@ -5879,19 +5742,19 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
         &quot;id&quot;: 1,
-        &quot;company_name&quot;: &quot;Rowe-Hansen&quot;,
-        &quot;company_city&quot;: &quot;Lorenzview&quot;,
-        &quot;company_state&quot;: &quot;Philippines&quot;,
-        &quot;company_address&quot;: &quot;536 Tressa Pass&quot;,
-        &quot;company_zip&quot;: &quot;58747-1597&quot;,
-        &quot;company_ico&quot;: &quot;26659099&quot;,
-        &quot;company_dic&quot;: &quot;4852636163&quot;,
+        &quot;company_name&quot;: &quot;Heaney, Nicolas and Paucek&quot;,
+        &quot;company_city&quot;: &quot;East Roslynton&quot;,
+        &quot;company_state&quot;: &quot;Uruguay&quot;,
+        &quot;company_address&quot;: &quot;46294 Renner Camp Apt. 916&quot;,
+        &quot;company_zip&quot;: &quot;23706&quot;,
+        &quot;company_ico&quot;: &quot;04163301&quot;,
+        &quot;company_dic&quot;: &quot;3606848855&quot;,
         &quot;company_ic_dph&quot;: null,
         &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
         &quot;company_bank_swift&quot;: &quot;VUB&quot;,
         &quot;company_type&quot;: &quot;main&quot;,
-        &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
         &quot;invoice_issuer_name&quot;: null,
         &quot;invoice_issuer_email&quot;: null,
         &quot;invoice_issuer_phone&quot;: null,
@@ -6432,7 +6295,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "invoice_issuer_name=John Doe"\
     --form "invoice_issuer_email=john.doe@example.com"\
     --form "invoice_issuer_phone=+123456789"\
-    --form "signatures=@/tmp/phpmiOU3S" </code></pre></div>
+    --form "signatures=@/tmp/phpl2C2CG" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6608,7 +6471,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Signature file of the invoice issuer Example: <code>/tmp/phpmiOU3S</code></p>
+<p>Signature file of the invoice issuer Example: <code>/tmp/phpl2C2CG</code></p>
         </div>
         </form>
 
@@ -6673,15 +6536,15 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;superadmin&quot;,
             &quot;guard_name&quot;: &quot;api&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;name&quot;: &quot;admin&quot;,
             &quot;guard_name&quot;: &quot;api&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;
         }
     ]
 }</code>
@@ -8000,18 +7863,6 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 1,
-            &quot;email&quot;: &quot;superadmin@example.com&quot;,
-            &quot;first_name&quot;: &quot;Super&quot;,
-            &quot;last_name&quot;: &quot;Admin&quot;,
-            &quot;phone&quot;: &quot;1234567890&quot;,
-            &quot;email_verified_at&quot;: null,
-            &quot;state&quot;: &quot;ACTIVE&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;role&quot;: &quot;superadmin&quot;
-        },
-        {
             &quot;id&quot;: 2,
             &quot;email&quot;: &quot;admin@example.com&quot;,
             &quot;first_name&quot;: &quot;Admin&quot;,
@@ -8019,9 +7870,21 @@ access-control-allow-origin: *
             &quot;phone&quot;: &quot;1234567890&quot;,
             &quot;email_verified_at&quot;: null,
             &quot;state&quot;: &quot;ACTIVE&quot;,
-            &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
             &quot;role&quot;: &quot;admin&quot;
+        },
+        {
+            &quot;id&quot;: 1,
+            &quot;email&quot;: &quot;superadmin@example.com&quot;,
+            &quot;first_name&quot;: &quot;Super&quot;,
+            &quot;last_name&quot;: &quot;Admin&quot;,
+            &quot;phone&quot;: &quot;1234567890&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;state&quot;: &quot;ACTIVE&quot;,
+            &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
+            &quot;role&quot;: &quot;superadmin&quot;
         }
     ],
     &quot;links&quot;: {
@@ -8485,15 +8348,15 @@ access-control-allow-origin: *
         &quot;phone&quot;: &quot;1234567890&quot;,
         &quot;email_verified_at&quot;: null,
         &quot;state&quot;: &quot;ACTIVE&quot;,
-        &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
         &quot;roles&quot;: [
             {
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;superadmin&quot;,
                 &quot;guard_name&quot;: &quot;api&quot;,
-                &quot;created_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-10-05T18:40:04.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
                 &quot;pivot&quot;: {
                     &quot;model_type&quot;: &quot;App\\Models\\User&quot;,
                     &quot;model_id&quot;: 1,
