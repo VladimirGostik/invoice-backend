@@ -27,6 +27,6 @@ class File extends Model
 
     public function getPath(): string
     {
-        return Storage::disk($this->disk)->url($this->filename);
+        return Storage::disk($this->disk)->url($this->path);
     }
 }
