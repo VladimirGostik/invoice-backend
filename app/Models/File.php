@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Facades\Storage;
 
 class File extends Model
 {
@@ -24,4 +25,8 @@ class File extends Model
         return $this->morphTo();
     }
 
+    public function getPath(): string
+    {
+        return Storage::disk($this->disk)->url($this->filename);
+    }
 }
