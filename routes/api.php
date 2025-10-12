@@ -62,8 +62,9 @@ Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
         // endpoints for RESIDENTIAL companies
         Route::get('/residential', [CompanyController::class, 'indexResidential'])->name('companies.indexResidential');
         Route::post('/residential', [CompanyController::class, 'storeResidential'])->name('companies.storeResidential');
+        Route::get('residential/{company}', [CompanyController::class, 'showResidential'])->name('companies.showResidential');
 
-        // Shared endpoints
+        // Shared endpointss
         Route::get('/{company}', [CompanyController::class, 'show'])->name('companies.show');
         Route::match(['post', 'put'], '/{company}', [CompanyController::class, 'update'])->name('companies.update');
         Route::delete('/{company}', [CompanyController::class, 'destroy'])->name('companies.destroy');

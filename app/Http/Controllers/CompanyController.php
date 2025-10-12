@@ -92,6 +92,16 @@ class CompanyController extends Controller
     }
 
     /**
+     * Zobrazenie rezidencnej firmy.
+     */
+    public function showResidential(Company $company): ResidentialCompanyResource
+    {
+        $this->authorize('view', $company);
+        $company->load('streets');
+        return new ResidentialCompanyResource($company);
+    }
+
+    /**
      * Aktualizácia firmy.
      */
     #[UrlParam('company', 'ID of the company to update', example: 1)]
