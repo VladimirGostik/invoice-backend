@@ -15,6 +15,7 @@ class CompanyRepository implements CompanyRepositoryInterface
     {
         // Log the $type value
         $query = QueryBuilder::for(Company::class)
+            ->with(['streets'])
             ->ResidentialCompany()
             ->allowedFilters([
             'company_name',

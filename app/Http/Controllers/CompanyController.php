@@ -7,6 +7,7 @@ use App\Http\Requests\Company\StoreRequest;
 use App\Http\Requests\Company\UpdateCustomizationRequest;
 use App\Http\Requests\Company\UpdateRequest;
 use App\Http\Resources\CompanyResource;
+use App\Http\Resources\ResidentialCompanyResource;
 use App\Models\Company;
 use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use App\Services\FileService;
@@ -57,7 +58,7 @@ class CompanyController extends Controller
         $this->authorize('viewAny', Company::class);
         $filters = $request->all();
         $collection = $this->companyRepo->searchResidential($filters);
-        return CompanyResource::collection($collection);
+        return ResidentialCompanyResource::collection($collection);
     }
 
     /**
