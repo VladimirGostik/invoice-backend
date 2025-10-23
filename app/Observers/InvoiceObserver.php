@@ -18,6 +18,11 @@ class InvoiceObserver
         } else {
             Log::info('Skipping QR code generation for invoice: ' . $invoice->id . ' - missing required data');
         }
+
+        if ($invoice->is_complex_billing === false) {
+            $invoice->additional_info_1 = null;
+            $invoice->additional_info_2 = null;
+        }
     }
 
     public function updated(OneTimeInvoice $invoice): void
@@ -26,6 +31,11 @@ class InvoiceObserver
         if ($this->shouldRegenerateQr($invoice)) {
             Log::info('Dispatching QR code generation job for updated invoice: ' . $invoice->id);
             GenerateQrCodeJob::dispatch($invoice);
+        }
+
+         if ($invoice->isDirty('is_complex_billing') && $invoice->is_complex_billing === false) {
+            $invoice->additional_info_1 = null;
+            $invoice->additional_info_2 = null;
         }
     }
 

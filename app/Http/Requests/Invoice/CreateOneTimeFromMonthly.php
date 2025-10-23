@@ -21,6 +21,7 @@ class CreateOneTimeFromMonthly extends FormRequest
             'monthly_invoice_ids.*' => ['required', 'exists:invoices,id'],
             'issued_at' => ['required', 'date'],
             'due_at' => ['required', 'date', 'after_or_equal:issued_at'],
+            'delivered_at' => ['required', 'date'],
             'billing_year' => ['required', 'integer', 'min:2000', 'max:2100'],
             'billing_month' => ['required', 'integer', 'min:1', 'max:12'],
         ];

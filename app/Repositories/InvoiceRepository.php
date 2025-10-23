@@ -10,6 +10,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Spatie\QueryBuilder\QueryBuilder;
 use Illuminate\Support\Facades\DB;
+use Spatie\QueryBuilder\AllowedFilter;
 
 class InvoiceRepository implements InvoiceRepositoryInterface
 {
@@ -39,7 +40,7 @@ class InvoiceRepository implements InvoiceRepositoryInterface
                 'due_at',
                 'total',
             ]);
-            
+
         // Get pagination
         $paginate = (int)($filter['per_page'] ?? config('system.paginate'));
 
@@ -52,14 +53,11 @@ class InvoiceRepository implements InvoiceRepositoryInterface
     {
         $query = QueryBuilder::for(MonthlyInvoice::class)
             ->Monthly()
-            ->with(['items'])
+            ->with(['items', 'company', 'residentialCompany', 'street'])
             ->allowedFilters([
-                'invoice_name',
-                'invoice_name',
+                AllowedFilter::scope('invoice_name'),
                 'company_id',
-                'company_name',
                 'residential_company_id',
-                'residential_company_name',
                 'street_id',
                 'total',
             ])->allowedSorts([
@@ -72,7 +70,7 @@ class InvoiceRepository implements InvoiceRepositoryInterface
                 'street_id',
                 'total',
             ]);
-            
+
         // Get pagination
         $paginate = (int)($filter['per_page'] ?? config('system.paginate'));
 

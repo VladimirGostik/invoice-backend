@@ -50,14 +50,12 @@ class MonthlyInvoice extends Invoice
             'company_bank_swift',
             // custom fields
             'invoice_text',
-            'residential_company_name',
-            'custom_field_name1',
-            'custom_field_name2',
-            'custom_field_name3',
-            'custom_field_name4',
-            'custom_field_name5',
+            'is_complex_billing',
+            'additional_info_1',
+            'additional_info_2',
+            'info_dph',
             'invoice_above_table_text',
-            //totals 
+            //totals
             'subtotal',
             'tax',
             'total',

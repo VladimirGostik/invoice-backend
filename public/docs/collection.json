@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Invoice Backend API API Documentation",
-        "_postman_id": "3f1c7f55-fe11-456c-b623-f2821dc32618",
+        "_postman_id": "239dfda2-12fe-4ced-a00d-1660449dadca",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -301,7 +301,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"company_id\":\"consequatur\",\"invoice_name\":\"mqeopfuudtdsufvyvddqa\",\"items\":[{\"description\":\"Dolorum amet iste laborum eius est dolor.\",\"quantity\":13,\"unit_price\":66,\"line_total\":13}],\"subtotal\":73,\"tax\":45,\"total\":56,\"company_name\":\"eopfuudtdsufvyvddqamn\",\"company_city\":\"iihfqcoynlazghdtqtqxb\",\"company_state\":\"ajwbpilpmufinllwloauy\",\"company_address\":\"dlsmsjuryvojcybzvrbyi\",\"company_zip\":\"ckznkygloigmkwxph\",\"company_ico\":\"lvazjrcnfbaqywuxhgjjm\",\"company_dic\":\"zuxjubqouzswiwxtrkimf\",\"company_ic_dph\":\"catbxspzmrazsroyjpxmq\",\"company_bank_account\":\"esedyghenqcopwvownkba\",\"company_bank_swift\":\"mlnfngefbeilfzsyuxoez\",\"invoice_text\":\"consequatur\",\"custom_field_name1\":\"mqeopfuudtdsufvyvddqa\",\"custom_field_name2\":\"mniihfqcoynlazghdtqtq\",\"custom_field_name3\":\"xbajwbpilpmufinllwloa\",\"custom_field_name4\":\"uydlsmsjuryvojcybzvrb\",\"custom_field_name5\":\"yickznkygloigmkwxphlv\",\"invoice_above_table_text\":\"consequatur\"}"
+                            "raw": "{\"company_id\":\"consequatur\",\"invoice_name\":\"mqeopfuudtdsufvyvddqa\",\"items\":[{\"description\":\"Dolorum amet iste laborum eius est dolor.\",\"unit\":\"dtdsufvyvddqamniihfqc\",\"quantity\":51,\"unit_price\":85,\"line_total\":45}],\"subtotal\":73,\"tax\":45,\"total\":56,\"company_name\":\"eopfuudtdsufvyvddqamn\",\"company_city\":\"iihfqcoynlazghdtqtqxb\",\"company_state\":\"ajwbpilpmufinllwloauy\",\"company_address\":\"dlsmsjuryvojcybzvrbyi\",\"company_zip\":\"ckznkygloigmkwxph\",\"company_ico\":\"lvazjrcnfbaqywuxhgjjm\",\"company_dic\":\"zuxjubqouzswiwxtrkimf\",\"company_ic_dph\":\"catbxspzmrazsroyjpxmq\",\"invoice_text\":\"consequatur\",\"invoice_above_table_text\":\"consequatur\",\"is_complex_billing\":false,\"additional_info_1\":\"mqeopfuudtdsufvyvddqa\",\"additional_info_2\":\"mniihfqcoynlazghdtqtq\",\"info_dph\":\"consequatur\"}"
                         },
                         "description": ""
                     },
@@ -337,7 +337,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"company_id\":\"consequatur\",\"invoice_name\":\"mqeopfuudtdsufvyvddqa\",\"items\":[{\"description\":\"Dolorum amet iste laborum eius est dolor.\",\"quantity\":13,\"unit_price\":66,\"line_total\":13}],\"subtotal\":73,\"tax\":45,\"total\":56,\"company_name\":\"eopfuudtdsufvyvddqamn\",\"company_city\":\"iihfqcoynlazghdtqtqxb\",\"company_state\":\"ajwbpilpmufinllwloauy\",\"company_address\":\"dlsmsjuryvojcybzvrbyi\",\"company_zip\":\"ckznkygloigmkwxph\",\"company_ico\":\"lvazjrcnfbaqywuxhgjjm\",\"company_dic\":\"zuxjubqouzswiwxtrkimf\",\"company_ic_dph\":\"catbxspzmrazsroyjpxmq\",\"company_bank_account\":\"esedyghenqcopwvownkba\",\"company_bank_swift\":\"mlnfngefbeilfzsyuxoez\",\"invoice_text\":\"consequatur\",\"custom_field_name1\":\"mqeopfuudtdsufvyvddqa\",\"custom_field_name2\":\"mniihfqcoynlazghdtqtq\",\"custom_field_name3\":\"xbajwbpilpmufinllwloa\",\"custom_field_name4\":\"uydlsmsjuryvojcybzvrb\",\"custom_field_name5\":\"yickznkygloigmkwxphlv\",\"invoice_above_table_text\":\"consequatur\"}"
+                            "raw": "{\"company_id\":\"consequatur\",\"invoice_name\":\"mqeopfuudtdsufvyvddqa\",\"items\":[{\"description\":\"Dolorum amet iste laborum eius est dolor.\",\"unit\":\"dtdsufvyvddqamniihfqc\",\"quantity\":51,\"unit_price\":85,\"line_total\":45}],\"subtotal\":73,\"tax\":45,\"total\":56,\"company_name\":\"eopfuudtdsufvyvddqamn\",\"company_city\":\"iihfqcoynlazghdtqtqxb\",\"company_state\":\"ajwbpilpmufinllwloauy\",\"company_address\":\"dlsmsjuryvojcybzvrbyi\",\"company_zip\":\"ckznkygloigmkwxph\",\"company_ico\":\"lvazjrcnfbaqywuxhgjjm\",\"company_dic\":\"zuxjubqouzswiwxtrkimf\",\"company_ic_dph\":\"catbxspzmrazsroyjpxmq\",\"invoice_text\":\"consequatur\",\"invoice_above_table_text\":\"consequatur\",\"is_complex_billing\":true,\"additional_info_1\":\"mqeopfuudtdsufvyvddqa\",\"additional_info_2\":\"mniihfqcoynlazghdtqtq\",\"info_dph\":\"consequatur\"}"
                         },
                         "description": ""
                     },
@@ -469,7 +469,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"company_id\":\"consequatur\",\"invoice_name\":\"mqeopfuudtdsufvyvddqa\",\"invoice_number\":\"mniihfqcoynlazghdtqtq\",\"items\":[{\"description\":\"Dolorum amet iste laborum eius est dolor.\",\"quantity\":13,\"unit_price\":66,\"line_total\":13}],\"subtotal\":73,\"tax\":45,\"total\":56,\"issued_at\":\"2025-10-12T08:48:16\",\"due_at\":\"2106-11-10\",\"payment_date\":\"2025-10-12T08:48:16\",\"billing_year\":13,\"billing_month\":8,\"company_name\":\"eopfuudtdsufvyvddqamn\",\"company_city\":\"iihfqcoynlazghdtqtqxb\",\"company_state\":\"ajwbpilpmufinllwloauy\",\"company_address\":\"dlsmsjuryvojcybzvrbyi\",\"company_zip\":\"ckznkygloigmkwxph\",\"company_ico\":\"lvazjrcnfbaqywuxhgjjm\",\"company_dic\":\"zuxjubqouzswiwxtrkimf\",\"company_ic_dph\":\"catbxspzmrazsroyjpxmq\",\"company_bank_account\":\"esedyghenqcopwvownkba\",\"company_bank_swift\":\"mlnfngefbeilfzsyuxoez\",\"invoice_text\":\"consequatur\",\"custom_field_name1\":\"mqeopfuudtdsufvyvddqa\",\"custom_field_name2\":\"mniihfqcoynlazghdtqtq\",\"custom_field_name3\":\"xbajwbpilpmufinllwloa\",\"custom_field_name4\":\"uydlsmsjuryvojcybzvrb\",\"custom_field_name5\":\"yickznkygloigmkwxphlv\",\"invoice_above_table_text\":\"consequatur\"}"
+                            "raw": "{\"company_id\":\"consequatur\",\"invoice_name\":\"mqeopfuudtdsufvyvddqa\",\"invoice_number\":\"mniihfqcoynlazghdtqtq\",\"items\":[{\"description\":\"Dolorum amet iste laborum eius est dolor.\",\"unit\":\"dtdsufvyvddqamniihfqc\",\"quantity\":51,\"unit_price\":85,\"line_total\":45}],\"subtotal\":73,\"tax\":45,\"total\":56,\"issued_at\":\"2025-10-18T18:21:40\",\"due_at\":\"2106-11-17\",\"delivered_at\":\"2025-10-18T18:21:40\",\"payment_date\":\"2025-10-18T18:21:40\",\"billing_year\":13,\"billing_month\":8,\"company_name\":\"eopfuudtdsufvyvddqamn\",\"company_city\":\"iihfqcoynlazghdtqtqxb\",\"company_state\":\"ajwbpilpmufinllwloauy\",\"company_address\":\"dlsmsjuryvojcybzvrbyi\",\"company_zip\":\"ckznkygloigmkwxph\",\"company_ico\":\"lvazjrcnfbaqywuxhgjjm\",\"company_dic\":\"zuxjubqouzswiwxtrkimf\",\"company_ic_dph\":\"catbxspzmrazsroyjpxmq\",\"invoice_text\":\"consequatur\",\"is_complex_billing\":true,\"additional_info_1\":\"mqeopfuudtdsufvyvddqa\",\"additional_info_2\":\"mniihfqcoynlazghdtqtq\",\"info_dph\":\"consequatur\",\"invoice_above_table_text\":\"consequatur\"}"
                         },
                         "description": ""
                     },
@@ -511,7 +511,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"company_id\":\"consequatur\",\"invoice_name\":\"mqeopfuudtdsufvyvddqa\",\"invoice_number\":\"mniihfqcoynlazghdtqtq\",\"items\":[{\"description\":\"Dolorum amet iste laborum eius est dolor.\",\"quantity\":13,\"unit_price\":66,\"line_total\":13}],\"subtotal\":73,\"tax\":45,\"total\":56,\"issued_at\":\"2025-10-12T08:48:16\",\"due_at\":\"2106-11-10\",\"payment_date\":\"2025-10-12T08:48:16\",\"billing_year\":13,\"billing_month\":8,\"company_name\":\"eopfuudtdsufvyvddqamn\",\"company_city\":\"iihfqcoynlazghdtqtqxb\",\"company_state\":\"ajwbpilpmufinllwloauy\",\"company_address\":\"dlsmsjuryvojcybzvrbyi\",\"company_zip\":\"ckznkygloigmkwxph\",\"company_ico\":\"lvazjrcnfbaqywuxhgjjm\",\"company_dic\":\"zuxjubqouzswiwxtrkimf\",\"company_ic_dph\":\"catbxspzmrazsroyjpxmq\",\"company_bank_account\":\"esedyghenqcopwvownkba\",\"company_bank_swift\":\"mlnfngefbeilfzsyuxoez\",\"invoice_text\":\"consequatur\",\"custom_field_name1\":\"mqeopfuudtdsufvyvddqa\",\"custom_field_name2\":\"mniihfqcoynlazghdtqtq\",\"custom_field_name3\":\"xbajwbpilpmufinllwloa\",\"custom_field_name4\":\"uydlsmsjuryvojcybzvrb\",\"custom_field_name5\":\"yickznkygloigmkwxphlv\",\"invoice_above_table_text\":\"consequatur\"}"
+                            "raw": "{\"company_id\":\"consequatur\",\"invoice_name\":\"mqeopfuudtdsufvyvddqa\",\"invoice_number\":\"mniihfqcoynlazghdtqtq\",\"items\":[{\"description\":\"Dolorum amet iste laborum eius est dolor.\",\"unit\":\"dtdsufvyvddqamniihfqc\",\"quantity\":51,\"unit_price\":85,\"line_total\":45}],\"subtotal\":73,\"tax\":45,\"total\":56,\"issued_at\":\"2025-10-18T18:21:40\",\"due_at\":\"2106-11-17\",\"delivered_at\":\"2025-10-18T18:21:40\",\"payment_date\":\"2025-10-18T18:21:40\",\"billing_year\":13,\"billing_month\":8,\"company_name\":\"eopfuudtdsufvyvddqamn\",\"company_city\":\"iihfqcoynlazghdtqtqxb\",\"company_state\":\"ajwbpilpmufinllwloauy\",\"company_address\":\"dlsmsjuryvojcybzvrbyi\",\"company_zip\":\"ckznkygloigmkwxph\",\"company_ico\":\"lvazjrcnfbaqywuxhgjjm\",\"company_dic\":\"zuxjubqouzswiwxtrkimf\",\"company_ic_dph\":\"catbxspzmrazsroyjpxmq\",\"invoice_text\":\"consequatur\",\"is_complex_billing\":true,\"additional_info_1\":\"mqeopfuudtdsufvyvddqa\",\"additional_info_2\":\"mniihfqcoynlazghdtqtq\",\"info_dph\":\"consequatur\",\"invoice_above_table_text\":\"consequatur\"}"
                         },
                         "description": ""
                     },
@@ -539,7 +539,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"monthly_invoice_ids\":[\"consequatur\"],\"issued_at\":\"2025-10-12T08:48:16\",\"due_at\":\"2106-11-10\",\"billing_year\":13,\"billing_month\":8}"
+                            "raw": "{\"monthly_invoice_ids\":[\"consequatur\"],\"issued_at\":\"2025-10-18T18:21:40\",\"due_at\":\"2106-11-17\",\"delivered_at\":\"2025-10-18T18:21:40\",\"billing_year\":13,\"billing_month\":8}"
                         },
                         "description": ""
                     },
@@ -767,7 +767,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":1,\"company_name\":\"Heaney, Nicolas and Paucek\",\"company_city\":\"East Roslynton\",\"company_state\":\"Uruguay\",\"company_address\":\"46294 Renner Camp Apt. 916\",\"company_zip\":\"23706\",\"company_ico\":\"04163301\",\"company_dic\":\"3606848855\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":2,\"company_name\":\"Weissnat-Haag\",\"company_city\":\"Manleyberg\",\"company_state\":\"Cambodia\",\"company_address\":\"185 Sanford Inlet Apt. 239\",\"company_zip\":\"84705\",\"company_ico\":\"94049129\",\"company_dic\":\"5581534291\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":3,\"company_name\":\"Mosciski-Muller\",\"company_city\":\"East Hayden\",\"company_state\":\"Pakistan\",\"company_address\":\"30721 Legros Street Apt. 674\",\"company_zip\":\"04824-5722\",\"company_ico\":\"05353184\",\"company_dic\":\"6884911448\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":5,\"company_name\":\"McDermott Group\",\"company_city\":\"South Sadyetown\",\"company_state\":\"Sweden\",\"company_address\":\"79719 Francesco Land Apt. 134\",\"company_zip\":\"49979-6795\",\"company_ico\":\"70716146\",\"company_dic\":\"4947079215\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":7,\"company_name\":\"Becker and Sons\",\"company_city\":\"New Gloria\",\"company_state\":\"Central African Republic\",\"company_address\":\"258 Providenci Square Apt. 977\",\"company_zip\":\"19660\",\"company_ico\":\"31717109\",\"company_dic\":\"1249415927\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":9,\"company_name\":\"Lind Group\",\"company_city\":\"Marcelfurt\",\"company_state\":\"Turkey\",\"company_address\":\"2771 Rau Parkway\",\"company_zip\":\"93179-1234\",\"company_ico\":\"45561233\",\"company_dic\":\"4716717352\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":10,\"company_name\":\"Kozey-Bins\",\"company_city\":\"Lulamouth\",\"company_state\":\"Chad\",\"company_address\":\"282 Kayli Motorway Apt. 070\",\"company_zip\":\"98147\",\"company_ico\":\"74387718\",\"company_dic\":\"8147847868\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null}],\"links\":{\"first\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/main?page=1\",\"last\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/main?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/main?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/main\",\"per_page\":10,\"to\":7,\"total\":7}}",
+                            "body": "{\"data\":[{\"id\":3,\"company_name\":\"Dooley Inc\",\"company_city\":\"East Evelineville\",\"company_state\":\"Brazil\",\"company_address\":\"9455 Anderson Roads\",\"company_zip\":\"12982-1891\",\"company_ico\":\"68499716\",\"company_dic\":\"0571104548\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":5,\"company_name\":\"Schinner-Feest\",\"company_city\":\"Alethatown\",\"company_state\":\"Philippines\",\"company_address\":\"85010 Jakayla Harbors\",\"company_zip\":\"29744\",\"company_ico\":\"15966061\",\"company_dic\":\"5794828703\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":6,\"company_name\":\"Streich Group\",\"company_city\":\"New Molly\",\"company_state\":\"French Polynesia\",\"company_address\":\"4129 Morissette Green Apt. 570\",\"company_zip\":\"29731-6607\",\"company_ico\":\"27765924\",\"company_dic\":\"2688921800\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":8,\"company_name\":\"Cartwright Ltd\",\"company_city\":\"New Ollieton\",\"company_state\":\"Saint Barthelemy\",\"company_address\":\"59475 Sauer Squares Suite 141\",\"company_zip\":\"78690-5194\",\"company_ico\":\"76865904\",\"company_dic\":\"0516289283\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null},{\"id\":9,\"company_name\":\"Kshlerin-Maggio\",\"company_city\":\"Lake Shyann\",\"company_state\":\"Brunei Darussalam\",\"company_address\":\"54994 Douglas Mill Apt. 048\",\"company_zip\":\"80596-2612\",\"company_ico\":\"92721424\",\"company_dic\":\"1850225215\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"company_customization\":null,\"signatures\":null,\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null}],\"links\":{\"first\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/main?page=1\",\"last\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/main?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/main?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/main\",\"per_page\":10,\"to\":5,\"total\":5}}",
                             "name": ""
                         }
                     ]
@@ -859,7 +859,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":4,\"company_name\":\"Jast-Kuhic\",\"company_city\":\"Vickychester\",\"company_state\":\"French Southern Territories\",\"company_address\":\"974 Predovic Pines Apt. 822\",\"company_zip\":\"09363\",\"company_ico\":\"22869329\",\"company_dic\":\"2109284488\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null,\"signatures\":null},{\"id\":6,\"company_name\":\"Schaefer-Rath\",\"company_city\":\"South Robert\",\"company_state\":\"Namibia\",\"company_address\":\"30369 Kuvalis Motorway\",\"company_zip\":\"58656-4451\",\"company_ico\":\"39389995\",\"company_dic\":\"5882763620\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null,\"signatures\":null},{\"id\":8,\"company_name\":\"Lehner, Collier and Bergnaum\",\"company_city\":\"North Ayana\",\"company_state\":\"Guernsey\",\"company_address\":\"3121 O'Hara Via\",\"company_zip\":\"26830-8769\",\"company_ico\":\"39099168\",\"company_dic\":\"1198364875\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null,\"signatures\":null}],\"links\":{\"first\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/residential?page=1\",\"last\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/residential?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/residential?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/residential\",\"per_page\":10,\"to\":3,\"total\":3}}",
+                            "body": "{\"data\":[{\"id\":1,\"company_name\":\"Kuphal PLC\",\"company_city\":\"Hansentown\",\"company_state\":\"Gibraltar\",\"company_address\":\"978 Dion Route\",\"company_zip\":\"83697\",\"company_ico\":\"01773889\",\"company_dic\":\"1147178579\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"streets\":[]},{\"id\":2,\"company_name\":\"Schinner, Bins and Auer\",\"company_city\":\"New Kassandra\",\"company_state\":\"El Salvador\",\"company_address\":\"692 O'Kon Roads\",\"company_zip\":\"34255-8879\",\"company_ico\":\"22330277\",\"company_dic\":\"4829681191\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"streets\":[]},{\"id\":4,\"company_name\":\"West-Armstrong\",\"company_city\":\"South Deangelohaven\",\"company_state\":\"Zambia\",\"company_address\":\"954 Ferry Mission Apt. 957\",\"company_zip\":\"91236-0777\",\"company_ico\":\"48023180\",\"company_dic\":\"4193080858\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"streets\":[]},{\"id\":7,\"company_name\":\"Bahringer-Senger\",\"company_city\":\"Kobefort\",\"company_state\":\"Mexico\",\"company_address\":\"49263 Kunze Streets\",\"company_zip\":\"52221\",\"company_ico\":\"43257542\",\"company_dic\":\"8698292039\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"streets\":[]},{\"id\":10,\"company_name\":\"Hackett Ltd\",\"company_city\":\"Verlaville\",\"company_state\":\"Myanmar\",\"company_address\":\"3501 Alexandra Park Suite 930\",\"company_zip\":\"52640\",\"company_ico\":\"92919708\",\"company_dic\":\"7807790963\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"streets\":[]}],\"links\":{\"first\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/residential?page=1\",\"last\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/residential?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/residential?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost:8000\\\/api\\\/companies\\\/residential\",\"per_page\":10,\"to\":5,\"total\":5}}",
                             "name": ""
                         }
                     ]
@@ -891,6 +891,59 @@
                         "description": ""
                     },
                     "response": []
+                },
+                {
+                    "name": "Zobrazenie rezidencnej firmy.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/companies\/residential\/:company_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/companies\/residential\/:company_id",
+                            "variable": [
+                                {
+                                    "id": "company_id",
+                                    "key": "company_id",
+                                    "value": "1",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"company_name\":\"Kuphal PLC\",\"company_city\":\"Hansentown\",\"company_state\":\"Gibraltar\",\"company_address\":\"978 Dion Route\",\"company_zip\":\"83697\",\"company_ico\":\"01773889\",\"company_dic\":\"1147178579\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"streets\":[]}}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "Zobrazenie firmy.",
@@ -940,7 +993,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":1,\"company_name\":\"Heaney, Nicolas and Paucek\",\"company_city\":\"East Roslynton\",\"company_state\":\"Uruguay\",\"company_address\":\"46294 Renner Camp Apt. 916\",\"company_zip\":\"23706\",\"company_ico\":\"04163301\",\"company_dic\":\"3606848855\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"main\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null,\"signatures\":null}}",
+                            "body": "{\"data\":{\"id\":1,\"company_name\":\"Kuphal PLC\",\"company_city\":\"Hansentown\",\"company_state\":\"Gibraltar\",\"company_address\":\"978 Dion Route\",\"company_zip\":\"83697\",\"company_ico\":\"01773889\",\"company_dic\":\"1147178579\",\"company_ic_dph\":null,\"company_bank_account\":\"SK0202000000005047157358\",\"company_bank_swift\":\"VUB\",\"company_type\":\"residential\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"invoice_issuer_name\":null,\"invoice_issuer_email\":null,\"invoice_issuer_phone\":null,\"signatures\":null}}",
                             "name": ""
                         }
                     ]
@@ -968,7 +1021,7 @@
                                 }
                             ]
                         },
-                        "method": "PUT",
+                        "method": "POST",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -1137,7 +1190,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":1,\"name\":\"superadmin\",\"guard_name\":\"api\",\"created_at\":\"2025-10-12T08:48:15.000000Z\",\"updated_at\":\"2025-10-12T08:48:15.000000Z\"},{\"id\":2,\"name\":\"admin\",\"guard_name\":\"api\",\"created_at\":\"2025-10-12T08:48:15.000000Z\",\"updated_at\":\"2025-10-12T08:48:15.000000Z\"}]}",
+                            "body": "{\"data\":[{\"id\":1,\"name\":\"superadmin\",\"guard_name\":\"api\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\"},{\"id\":2,\"name\":\"admin\",\"guard_name\":\"api\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\"}]}",
                             "name": ""
                         }
                     ]
@@ -1527,7 +1580,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[{\"id\":2,\"email\":\"admin@example.com\",\"first_name\":\"Admin\",\"last_name\":\"Clovek\",\"phone\":\"1234567890\",\"email_verified_at\":null,\"state\":\"ACTIVE\",\"created_at\":\"2025-10-12T08:48:16.000000Z\",\"updated_at\":\"2025-10-12T08:48:16.000000Z\",\"role\":\"admin\"},{\"id\":1,\"email\":\"superadmin@example.com\",\"first_name\":\"Super\",\"last_name\":\"Admin\",\"phone\":\"1234567890\",\"email_verified_at\":null,\"state\":\"ACTIVE\",\"created_at\":\"2025-10-12T08:48:15.000000Z\",\"updated_at\":\"2025-10-12T08:48:15.000000Z\",\"role\":\"superadmin\"}],\"links\":{\"first\":\"http:\\\/\\\/localhost:8000\\\/api\\\/users?page=1\",\"last\":\"http:\\\/\\\/localhost:8000\\\/api\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost:8000\\\/api\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost:8000\\\/api\\\/users\",\"per_page\":10,\"to\":2,\"total\":2}}",
+                            "body": "{\"data\":[{\"id\":1,\"email\":\"superadmin@example.com\",\"first_name\":\"Super\",\"last_name\":\"Admin\",\"phone\":\"1234567890\",\"email_verified_at\":null,\"state\":\"ACTIVE\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"role\":\"superadmin\"},{\"id\":2,\"email\":\"admin@example.com\",\"first_name\":\"Admin\",\"last_name\":\"Clovek\",\"phone\":\"1234567890\",\"email_verified_at\":null,\"state\":\"ACTIVE\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"role\":\"admin\"}],\"links\":{\"first\":\"http:\\\/\\\/localhost:8000\\\/api\\\/users?page=1\",\"last\":\"http:\\\/\\\/localhost:8000\\\/api\\\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":1,\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost:8000\\\/api\\\/users?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"path\":\"http:\\\/\\\/localhost:8000\\\/api\\\/users\",\"per_page\":10,\"to\":2,\"total\":2}}",
                             "name": ""
                         }
                     ]
@@ -1608,7 +1661,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":{\"id\":1,\"email\":\"superadmin@example.com\",\"first_name\":\"Super\",\"last_name\":\"Admin\",\"phone\":\"1234567890\",\"email_verified_at\":null,\"state\":\"ACTIVE\",\"created_at\":\"2025-10-12T08:48:15.000000Z\",\"updated_at\":\"2025-10-12T08:48:15.000000Z\",\"roles\":[{\"id\":1,\"name\":\"superadmin\",\"guard_name\":\"api\",\"created_at\":\"2025-10-12T08:48:15.000000Z\",\"updated_at\":\"2025-10-12T08:48:15.000000Z\",\"pivot\":{\"model_type\":\"App\\\\Models\\\\User\",\"model_id\":1,\"role_id\":1}}],\"role\":\"superadmin\"}}",
+                            "body": "{\"id\":1,\"email\":\"superadmin@example.com\",\"first_name\":\"Super\",\"last_name\":\"Admin\",\"phone\":\"1234567890\",\"email_verified_at\":null,\"state\":\"ACTIVE\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"roles\":[{\"id\":1,\"name\":\"superadmin\",\"guard_name\":\"api\",\"created_at\":\"2025-10-18T18:21:40.000000Z\",\"updated_at\":\"2025-10-18T18:21:40.000000Z\",\"pivot\":{\"model_type\":\"App\\\\Models\\\\User\",\"model_id\":1,\"role_id\":1}}],\"role\":\"superadmin\"}",
                             "name": ""
                         }
                     ]

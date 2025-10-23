@@ -2,9 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\OneTimeInvoice;
+use App\Models\Invoice;
 use App\Observers\InvoiceObserver;
-use App\Models\User;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Knuckles\Camel\Extraction\ExtractedEndpointData;
@@ -62,7 +61,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         // Observer pre faktúry
-        OneTimeInvoice::observe(InvoiceObserver::class);
+        Invoice::observe(InvoiceObserver::class);
     }
 
     /**

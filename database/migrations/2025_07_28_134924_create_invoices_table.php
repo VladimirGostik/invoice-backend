@@ -43,7 +43,8 @@ return new class extends Migration
             $table->unsignedSmallInteger('billing_year')->nullable();
             $table->unsignedTinyInteger('billing_month')->nullable();
             $table->date('issued_at')->nullable();
-            $table->date('due_at')->nullable();
+            $table->date('due_at')->nullable(); // new field
+            $table->date('delivered_at')->nullable();
             $table->date('payment_date')->nullable();
 
             // Company fields
@@ -55,23 +56,20 @@ return new class extends Migration
             $table->string('company_ico')->nullable();
             $table->string('company_dic')->nullable();
             $table->string('company_ic_dph')->nullable();
-            $table->string('company_bank_account')->nullable();
-            $table->string('company_bank_swift')->nullable();
 
             // Customization options
-            $table->text('invoice_text')->nullable();
-            $table->string('residential_company_name')->nullable();
-            $table->string('custom_field_name1')->nullable();
-            $table->string('custom_field_name2')->nullable();
-            $table->string('custom_field_name3')->nullable();
-            $table->string('custom_field_name4')->nullable();
-            $table->string('custom_field_name5')->nullable();
+            $table->string('invoice_text')->nullable();
+            $table->boolean('is_complex_billing')->default(false); // new field
+            $table->string('additional_info_1')->nullable(); // new field
+            $table->string('additional_info_2')->nullable(); // new field
             $table->text('invoice_above_table_text')->nullable();
 
             // Totals
             $table->decimal('subtotal',12,2)->default(0);
             $table->decimal('tax',12,2)->default(0);
             $table->decimal('total',12,2)->default(0);
+
+            $table->text('info_dph')->nullable(); // new field
 
             $table->string('invoice_issuer_name')->nullable();
             $table->string('invoice_issuer_email')->nullable();

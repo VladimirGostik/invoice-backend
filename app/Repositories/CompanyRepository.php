@@ -7,6 +7,7 @@ use App\Repositories\Interfaces\CompanyRepositoryInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedFilter;
 
 
 class CompanyRepository implements CompanyRepositoryInterface
@@ -15,7 +16,7 @@ class CompanyRepository implements CompanyRepositoryInterface
     {
         // Log the $type value
         $query = QueryBuilder::for(Company::class)
-            ->with(['streets'])
+            ->with(['company','streets'])
             ->ResidentialCompany()
             ->allowedFilters([
             'company_name',
@@ -34,8 +35,9 @@ class CompanyRepository implements CompanyRepositoryInterface
             ->MainCompany()
             ->with(['companyCustomization', 'signatures'])
             ->allowedFilters([
-                'company_name',
-            ])->allowedSorts([
+                AllowedFilter::scope('company_name'),
+            ])
+            ->allowedSorts([
                 'company_name',
                     ]);
                 // Get pagination

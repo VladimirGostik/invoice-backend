@@ -229,26 +229,6 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      company_bank_account:
-        name: company_bank_account
-        description: 'Must not be greater than 100 characters.'
-        required: false
-        example: esedyghenqcopwvownkba
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      company_bank_swift:
-        name: company_bank_swift
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: mlnfngefbeilfzsyuxoez
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
       invoice_text:
         name: invoice_text
         description: ''
@@ -259,8 +239,28 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      custom_field_name1:
-        name: custom_field_name1
+      invoice_above_table_text:
+        name: invoice_above_table_text
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      is_complex_billing:
+        name: is_complex_billing
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      additional_info_1:
+        name: additional_info_1
         description: 'Must not be greater than 255 characters.'
         required: false
         example: mqeopfuudtdsufvyvddqa
@@ -269,8 +269,8 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      custom_field_name2:
-        name: custom_field_name2
+      additional_info_2:
+        name: additional_info_2
         description: 'Must not be greater than 255 characters.'
         required: false
         example: mniihfqcoynlazghdtqtq
@@ -279,38 +279,8 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      custom_field_name3:
-        name: custom_field_name3
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: xbajwbpilpmufinllwloa
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      custom_field_name4:
-        name: custom_field_name4
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: uydlsmsjuryvojcybzvrb
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      custom_field_name5:
-        name: custom_field_name5
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: yickznkygloigmkwxphlv
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      invoice_above_table_text:
-        name: invoice_above_table_text
+      info_dph:
+        name: info_dph
         description: ''
         required: false
         example: consequatur
@@ -329,11 +299,21 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      'items[].unit':
+        name: 'items[].unit'
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: dtdsufvyvddqamniihfqc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
       'items[].quantity':
         name: 'items[].quantity'
         description: 'Must be at least 1.'
         required: true
-        example: 13
+        example: 51
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -343,7 +323,7 @@ endpoints:
         name: 'items[].unit_price'
         description: 'Must be at least 0.'
         required: true
-        example: 66
+        example: 85
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -353,7 +333,7 @@ endpoints:
         name: 'items[].line_total'
         description: 'Must be at least 0.'
         required: true
-        example: 13
+        example: 45
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -365,9 +345,10 @@ endpoints:
       items:
         -
           description: 'Dolorum amet iste laborum eius est dolor.'
-          quantity: 13
-          unit_price: 66
-          line_total: 13
+          unit: dtdsufvyvddqamniihfqc
+          quantity: 51
+          unit_price: 85
+          line_total: 45
       subtotal: 73
       tax: 45
       total: 56
@@ -379,15 +360,12 @@ endpoints:
       company_ico: lvazjrcnfbaqywuxhgjjm
       company_dic: zuxjubqouzswiwxtrkimf
       company_ic_dph: catbxspzmrazsroyjpxmq
-      company_bank_account: esedyghenqcopwvownkba
-      company_bank_swift: mlnfngefbeilfzsyuxoez
       invoice_text: consequatur
-      custom_field_name1: mqeopfuudtdsufvyvddqa
-      custom_field_name2: mniihfqcoynlazghdtqtq
-      custom_field_name3: xbajwbpilpmufinllwloa
-      custom_field_name4: uydlsmsjuryvojcybzvrb
-      custom_field_name5: yickznkygloigmkwxphlv
       invoice_above_table_text: consequatur
+      is_complex_billing: false
+      additional_info_1: mqeopfuudtdsufvyvddqa
+      additional_info_2: mniihfqcoynlazghdtqtq
+      info_dph: consequatur
     fileParameters: []
     responses: []
     responseFields: []
@@ -593,26 +571,6 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
-      company_bank_account:
-        name: company_bank_account
-        description: 'Must not be greater than 100 characters.'
-        required: false
-        example: esedyghenqcopwvownkba
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      company_bank_swift:
-        name: company_bank_swift
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: mlnfngefbeilfzsyuxoez
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
       invoice_text:
         name: invoice_text
         description: ''
@@ -621,57 +579,7 @@ endpoints:
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
-        custom: []
-      custom_field_name1:
-        name: custom_field_name1
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: mqeopfuudtdsufvyvddqa
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      custom_field_name2:
-        name: custom_field_name2
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: mniihfqcoynlazghdtqtq
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      custom_field_name3:
-        name: custom_field_name3
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: xbajwbpilpmufinllwloa
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      custom_field_name4:
-        name: custom_field_name4
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: uydlsmsjuryvojcybzvrb
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      custom_field_name5:
-        name: custom_field_name5
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: yickznkygloigmkwxphlv
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
       invoice_above_table_text:
         name: invoice_above_table_text
@@ -683,6 +591,46 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      is_complex_billing:
+        name: is_complex_billing
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      additional_info_1:
+        name: additional_info_1
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: mqeopfuudtdsufvyvddqa
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      additional_info_2:
+        name: additional_info_2
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: mniihfqcoynlazghdtqtq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      info_dph:
+        name: info_dph
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
       'items[].description':
         name: 'items[].description'
         description: 'Must not be greater than 255 characters.'
@@ -693,11 +641,21 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      'items[].unit':
+        name: 'items[].unit'
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: dtdsufvyvddqamniihfqc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
       'items[].quantity':
         name: 'items[].quantity'
         description: 'Must be at least 1.'
         required: true
-        example: 13
+        example: 51
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -707,7 +665,7 @@ endpoints:
         name: 'items[].unit_price'
         description: 'Must be at least 0.'
         required: true
-        example: 66
+        example: 85
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -717,7 +675,7 @@ endpoints:
         name: 'items[].line_total'
         description: 'Must be at least 0.'
         required: true
-        example: 13
+        example: 45
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -729,9 +687,10 @@ endpoints:
       items:
         -
           description: 'Dolorum amet iste laborum eius est dolor.'
-          quantity: 13
-          unit_price: 66
-          line_total: 13
+          unit: dtdsufvyvddqamniihfqc
+          quantity: 51
+          unit_price: 85
+          line_total: 45
       subtotal: 73
       tax: 45
       total: 56
@@ -743,15 +702,12 @@ endpoints:
       company_ico: lvazjrcnfbaqywuxhgjjm
       company_dic: zuxjubqouzswiwxtrkimf
       company_ic_dph: catbxspzmrazsroyjpxmq
-      company_bank_account: esedyghenqcopwvownkba
-      company_bank_swift: mlnfngefbeilfzsyuxoez
       invoice_text: consequatur
-      custom_field_name1: mqeopfuudtdsufvyvddqa
-      custom_field_name2: mniihfqcoynlazghdtqtq
-      custom_field_name3: xbajwbpilpmufinllwloa
-      custom_field_name4: uydlsmsjuryvojcybzvrb
-      custom_field_name5: yickznkygloigmkwxphlv
       invoice_above_table_text: consequatur
+      is_complex_billing: true
+      additional_info_1: mqeopfuudtdsufvyvddqa
+      additional_info_2: mniihfqcoynlazghdtqtq
+      info_dph: consequatur
     fileParameters: []
     responses: []
     responseFields: []
@@ -991,7 +947,7 @@ endpoints:
         name: issued_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-10-12T08:48:16'
+        example: '2025-10-18T18:21:40'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1001,17 +957,27 @@ endpoints:
         name: due_at
         description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
         required: true
-        example: '2106-11-10'
+        example: '2106-11-17'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
+      delivered_at:
+        name: delivered_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-10-18T18:21:40'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
       payment_date:
         name: payment_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-10-12T08:48:16'
+        example: '2025-10-18T18:21:40'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1117,26 +1083,6 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      company_bank_account:
-        name: company_bank_account
-        description: 'Must not be greater than 100 characters.'
-        required: false
-        example: esedyghenqcopwvownkba
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      company_bank_swift:
-        name: company_bank_swift
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: mlnfngefbeilfzsyuxoez
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
       invoice_text:
         name: invoice_text
         description: ''
@@ -1147,8 +1093,18 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      custom_field_name1:
-        name: custom_field_name1
+      is_complex_billing:
+        name: is_complex_billing
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      additional_info_1:
+        name: additional_info_1
         description: 'Must not be greater than 255 characters.'
         required: false
         example: mqeopfuudtdsufvyvddqa
@@ -1157,8 +1113,8 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      custom_field_name2:
-        name: custom_field_name2
+      additional_info_2:
+        name: additional_info_2
         description: 'Must not be greater than 255 characters.'
         required: false
         example: mniihfqcoynlazghdtqtq
@@ -1167,31 +1123,11 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      custom_field_name3:
-        name: custom_field_name3
-        description: 'Must not be greater than 255 characters.'
+      info_dph:
+        name: info_dph
+        description: ''
         required: false
-        example: xbajwbpilpmufinllwloa
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      custom_field_name4:
-        name: custom_field_name4
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: uydlsmsjuryvojcybzvrb
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      custom_field_name5:
-        name: custom_field_name5
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: yickznkygloigmkwxphlv
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1217,11 +1153,21 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      'items[].unit':
+        name: 'items[].unit'
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: dtdsufvyvddqamniihfqc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
       'items[].quantity':
         name: 'items[].quantity'
         description: 'Must be at least 1.'
         required: true
-        example: 13
+        example: 51
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -1231,7 +1177,7 @@ endpoints:
         name: 'items[].unit_price'
         description: 'Must be at least 0.'
         required: true
-        example: 66
+        example: 85
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -1241,7 +1187,7 @@ endpoints:
         name: 'items[].line_total'
         description: 'Must be at least 0.'
         required: true
-        example: 13
+        example: 45
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -1254,15 +1200,17 @@ endpoints:
       items:
         -
           description: 'Dolorum amet iste laborum eius est dolor.'
-          quantity: 13
-          unit_price: 66
-          line_total: 13
+          unit: dtdsufvyvddqamniihfqc
+          quantity: 51
+          unit_price: 85
+          line_total: 45
       subtotal: 73
       tax: 45
       total: 56
-      issued_at: '2025-10-12T08:48:16'
-      due_at: '2106-11-10'
-      payment_date: '2025-10-12T08:48:16'
+      issued_at: '2025-10-18T18:21:40'
+      due_at: '2106-11-17'
+      delivered_at: '2025-10-18T18:21:40'
+      payment_date: '2025-10-18T18:21:40'
       billing_year: 13
       billing_month: 8
       company_name: eopfuudtdsufvyvddqamn
@@ -1273,14 +1221,11 @@ endpoints:
       company_ico: lvazjrcnfbaqywuxhgjjm
       company_dic: zuxjubqouzswiwxtrkimf
       company_ic_dph: catbxspzmrazsroyjpxmq
-      company_bank_account: esedyghenqcopwvownkba
-      company_bank_swift: mlnfngefbeilfzsyuxoez
       invoice_text: consequatur
-      custom_field_name1: mqeopfuudtdsufvyvddqa
-      custom_field_name2: mniihfqcoynlazghdtqtq
-      custom_field_name3: xbajwbpilpmufinllwloa
-      custom_field_name4: uydlsmsjuryvojcybzvrb
-      custom_field_name5: yickznkygloigmkwxphlv
+      is_complex_billing: true
+      additional_info_1: mqeopfuudtdsufvyvddqa
+      additional_info_2: mniihfqcoynlazghdtqtq
+      info_dph: consequatur
       invoice_above_table_text: consequatur
     fileParameters: []
     responses: []
@@ -1432,7 +1377,7 @@ endpoints:
         name: issued_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-10-12T08:48:16'
+        example: '2025-10-18T18:21:40'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1442,17 +1387,27 @@ endpoints:
         name: due_at
         description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
         required: true
-        example: '2106-11-10'
+        example: '2106-11-17'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
+      delivered_at:
+        name: delivered_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-10-18T18:21:40'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
       payment_date:
         name: payment_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-10-12T08:48:16'
+        example: '2025-10-18T18:21:40'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1558,26 +1513,6 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      company_bank_account:
-        name: company_bank_account
-        description: 'Must not be greater than 100 characters.'
-        required: false
-        example: esedyghenqcopwvownkba
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      company_bank_swift:
-        name: company_bank_swift
-        description: 'Must not be greater than 50 characters.'
-        required: false
-        example: mlnfngefbeilfzsyuxoez
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
       invoice_text:
         name: invoice_text
         description: ''
@@ -1588,8 +1523,18 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      custom_field_name1:
-        name: custom_field_name1
+      is_complex_billing:
+        name: is_complex_billing
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      additional_info_1:
+        name: additional_info_1
         description: 'Must not be greater than 255 characters.'
         required: false
         example: mqeopfuudtdsufvyvddqa
@@ -1598,8 +1543,8 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      custom_field_name2:
-        name: custom_field_name2
+      additional_info_2:
+        name: additional_info_2
         description: 'Must not be greater than 255 characters.'
         required: false
         example: mniihfqcoynlazghdtqtq
@@ -1608,31 +1553,11 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      custom_field_name3:
-        name: custom_field_name3
-        description: 'Must not be greater than 255 characters.'
+      info_dph:
+        name: info_dph
+        description: ''
         required: false
-        example: xbajwbpilpmufinllwloa
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      custom_field_name4:
-        name: custom_field_name4
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: uydlsmsjuryvojcybzvrb
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      custom_field_name5:
-        name: custom_field_name5
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: yickznkygloigmkwxphlv
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1658,11 +1583,21 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      'items[].unit':
+        name: 'items[].unit'
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: dtdsufvyvddqamniihfqc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
       'items[].quantity':
         name: 'items[].quantity'
         description: 'Must be at least 1.'
         required: true
-        example: 13
+        example: 51
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -1672,7 +1607,7 @@ endpoints:
         name: 'items[].unit_price'
         description: 'Must be at least 0.'
         required: true
-        example: 66
+        example: 85
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -1682,7 +1617,7 @@ endpoints:
         name: 'items[].line_total'
         description: 'Must be at least 0.'
         required: true
-        example: 13
+        example: 45
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -1695,15 +1630,17 @@ endpoints:
       items:
         -
           description: 'Dolorum amet iste laborum eius est dolor.'
-          quantity: 13
-          unit_price: 66
-          line_total: 13
+          unit: dtdsufvyvddqamniihfqc
+          quantity: 51
+          unit_price: 85
+          line_total: 45
       subtotal: 73
       tax: 45
       total: 56
-      issued_at: '2025-10-12T08:48:16'
-      due_at: '2106-11-10'
-      payment_date: '2025-10-12T08:48:16'
+      issued_at: '2025-10-18T18:21:40'
+      due_at: '2106-11-17'
+      delivered_at: '2025-10-18T18:21:40'
+      payment_date: '2025-10-18T18:21:40'
       billing_year: 13
       billing_month: 8
       company_name: eopfuudtdsufvyvddqamn
@@ -1714,14 +1651,11 @@ endpoints:
       company_ico: lvazjrcnfbaqywuxhgjjm
       company_dic: zuxjubqouzswiwxtrkimf
       company_ic_dph: catbxspzmrazsroyjpxmq
-      company_bank_account: esedyghenqcopwvownkba
-      company_bank_swift: mlnfngefbeilfzsyuxoez
       invoice_text: consequatur
-      custom_field_name1: mqeopfuudtdsufvyvddqa
-      custom_field_name2: mniihfqcoynlazghdtqtq
-      custom_field_name3: xbajwbpilpmufinllwloa
-      custom_field_name4: uydlsmsjuryvojcybzvrb
-      custom_field_name5: yickznkygloigmkwxphlv
+      is_complex_billing: true
+      additional_info_1: mqeopfuudtdsufvyvddqa
+      additional_info_2: mniihfqcoynlazghdtqtq
+      info_dph: consequatur
       invoice_above_table_text: consequatur
     fileParameters: []
     responses: []
@@ -1771,7 +1705,7 @@ endpoints:
         name: issued_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-10-12T08:48:16'
+        example: '2025-10-18T18:21:40'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1781,7 +1715,17 @@ endpoints:
         name: due_at
         description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
         required: true
-        example: '2106-11-10'
+        example: '2106-11-17'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      delivered_at:
+        name: delivered_at
+        description: 'Must be a valid date.'
+        required: true
+        example: '2025-10-18T18:21:40'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1810,8 +1754,9 @@ endpoints:
     cleanBodyParameters:
       monthly_invoice_ids:
         - consequatur
-      issued_at: '2025-10-12T08:48:16'
-      due_at: '2106-11-10'
+      issued_at: '2025-10-18T18:21:40'
+      due_at: '2106-11-17'
+      delivered_at: '2025-10-18T18:21:40'
       billing_year: 13
       billing_month: 8
     fileParameters: []

@@ -17,6 +17,7 @@ return new class extends Migration
                   ->constrained('invoices')
                   ->cascadeOnDelete();
             $table->string('description');
+            $table->string('unit');
             $table->integer('quantity')->default(1);
             $table->decimal('unit_price',10,2);
             $table->decimal('line_total',12,2);

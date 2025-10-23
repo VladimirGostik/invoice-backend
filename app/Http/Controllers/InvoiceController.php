@@ -8,12 +8,13 @@ use App\Http\Requests\Invoice\UpdateMonthlyRequest;
 use App\Http\Requests\Invoice\CreateOneTimeFromMonthly;
 use App\Http\Resources\OneTimeInvoiceResource;
 use App\Http\Resources\MonthlyInvoiceResource;
+use App\Http\Resources\MonthlyInvoiceListResource;
+use App\Jobs\GenerateQrCodeBulkJob;
 use App\Models\Invoice;
 use App\Models\OneTimeInvoice;
 use App\Models\MonthlyInvoice;
 use App\Repositories\Interfaces\InvoiceRepositoryInterface;
 use App\Services\InvoiceService;
-use GenerateQrCodeBulkJob;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -21,6 +22,9 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\UrlParam;
+use Knuckles\Scribe\Attributes\BodyParam;
+use Knuckles\Scribe\Attributes\Header;
+use Knuckles\Scribe\Attributes\Headers;
 
 #[Group('Faktúry')]
 class InvoiceController extends Controller
@@ -67,7 +71,7 @@ class InvoiceController extends Controller
         $this->authorize('viewAny', Invoice::class);
         $filters = $request->all();
         $collection = $this->invoiceRepo->searchMonthly($filters);
-        return MonthlyInvoiceResource::collection($collection);
+        return MonthlyInvoiceListResource::collection($collection);
     }
 
     /**

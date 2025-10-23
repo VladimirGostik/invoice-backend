@@ -439,23 +439,29 @@ paths:
                         description: 'Must not be greater than 255 characters.'
                         example: 'Dolorum amet iste laborum eius est dolor.'
                         nullable: false
+                      unit:
+                        type: string
+                        description: 'Must not be greater than 50 characters.'
+                        example: dtdsufvyvddqamniihfqc
+                        nullable: false
                       quantity:
                         type: integer
                         description: 'Must be at least 1.'
-                        example: 13
+                        example: 51
                         nullable: false
                       unit_price:
                         type: number
                         description: 'Must be at least 0.'
-                        example: 66
+                        example: 85
                         nullable: false
                       line_total:
                         type: number
                         description: 'Must be at least 0.'
-                        example: 13
+                        example: 45
                         nullable: false
                     required:
                       - description
+                      - unit
                       - quantity
                       - unit_price
                       - line_total
@@ -514,47 +520,32 @@ paths:
                   description: 'Must not be greater than 50 characters.'
                   example: catbxspzmrazsroyjpxmq
                   nullable: true
-                company_bank_account:
-                  type: string
-                  description: 'Must not be greater than 100 characters.'
-                  example: esedyghenqcopwvownkba
-                  nullable: true
-                company_bank_swift:
-                  type: string
-                  description: 'Must not be greater than 50 characters.'
-                  example: mlnfngefbeilfzsyuxoez
-                  nullable: true
                 invoice_text:
                   type: string
                   description: ''
                   example: consequatur
                   nullable: true
-                custom_field_name1:
+                invoice_above_table_text:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: false
+                is_complex_billing:
+                  type: boolean
+                  description: ''
+                  example: false
+                  nullable: false
+                additional_info_1:
                   type: string
                   description: 'Must not be greater than 255 characters.'
                   example: mqeopfuudtdsufvyvddqa
                   nullable: true
-                custom_field_name2:
+                additional_info_2:
                   type: string
                   description: 'Must not be greater than 255 characters.'
                   example: mniihfqcoynlazghdtqtq
                   nullable: true
-                custom_field_name3:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: xbajwbpilpmufinllwloa
-                  nullable: true
-                custom_field_name4:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: uydlsmsjuryvojcybzvrb
-                  nullable: true
-                custom_field_name5:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: yickznkygloigmkwxphlv
-                  nullable: true
-                invoice_above_table_text:
+                info_dph:
                   type: string
                   description: ''
                   example: consequatur
@@ -566,6 +557,7 @@ paths:
                 - subtotal
                 - tax
                 - total
+                - is_complex_billing
   '/api/invoices/monthly/{invoice_id}':
     put:
       summary: 'Aktualizácia existujúcej mesačnej faktúry.'
@@ -615,23 +607,29 @@ paths:
                         description: 'Must not be greater than 255 characters.'
                         example: 'Dolorum amet iste laborum eius est dolor.'
                         nullable: false
+                      unit:
+                        type: string
+                        description: 'Must not be greater than 50 characters.'
+                        example: dtdsufvyvddqamniihfqc
+                        nullable: false
                       quantity:
                         type: integer
                         description: 'Must be at least 1.'
-                        example: 13
+                        example: 51
                         nullable: false
                       unit_price:
                         type: number
                         description: 'Must be at least 0.'
-                        example: 66
+                        example: 85
                         nullable: false
                       line_total:
                         type: number
                         description: 'Must be at least 0.'
-                        example: 13
+                        example: 45
                         nullable: false
                     required:
                       - description
+                      - unit
                       - quantity
                       - unit_price
                       - line_total
@@ -690,51 +688,36 @@ paths:
                   description: 'Must not be greater than 50 characters.'
                   example: catbxspzmrazsroyjpxmq
                   nullable: false
-                company_bank_account:
-                  type: string
-                  description: 'Must not be greater than 100 characters.'
-                  example: esedyghenqcopwvownkba
-                  nullable: false
-                company_bank_swift:
-                  type: string
-                  description: 'Must not be greater than 50 characters.'
-                  example: mlnfngefbeilfzsyuxoez
-                  nullable: false
                 invoice_text:
                   type: string
                   description: ''
                   example: consequatur
-                  nullable: false
-                custom_field_name1:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: mqeopfuudtdsufvyvddqa
-                  nullable: false
-                custom_field_name2:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: mniihfqcoynlazghdtqtq
-                  nullable: false
-                custom_field_name3:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: xbajwbpilpmufinllwloa
-                  nullable: false
-                custom_field_name4:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: uydlsmsjuryvojcybzvrb
-                  nullable: false
-                custom_field_name5:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: yickznkygloigmkwxphlv
-                  nullable: false
+                  nullable: true
                 invoice_above_table_text:
                   type: string
                   description: ''
                   example: consequatur
                   nullable: false
+                is_complex_billing:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: false
+                additional_info_1:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mqeopfuudtdsufvyvddqa
+                  nullable: true
+                additional_info_2:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: mniihfqcoynlazghdtqtq
+                  nullable: true
+                info_dph:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: true
               required:
                 - company_id
                 - invoice_name
@@ -742,6 +725,7 @@ paths:
                 - subtotal
                 - tax
                 - total
+                - is_complex_billing
     get:
       summary: 'Zobrazenie jednej mesacnej faktúry.'
       operationId: zobrazenieJednejMesacnejFaktry
@@ -937,23 +921,29 @@ paths:
                         description: 'Must not be greater than 255 characters.'
                         example: 'Dolorum amet iste laborum eius est dolor.'
                         nullable: false
+                      unit:
+                        type: string
+                        description: 'Must not be greater than 50 characters.'
+                        example: dtdsufvyvddqamniihfqc
+                        nullable: false
                       quantity:
                         type: integer
                         description: 'Must be at least 1.'
-                        example: 13
+                        example: 51
                         nullable: false
                       unit_price:
                         type: number
                         description: 'Must be at least 0.'
-                        example: 66
+                        example: 85
                         nullable: false
                       line_total:
                         type: number
                         description: 'Must be at least 0.'
-                        example: 13
+                        example: 45
                         nullable: false
                     required:
                       - description
+                      - unit
                       - quantity
                       - unit_price
                       - line_total
@@ -975,17 +965,22 @@ paths:
                 issued_at:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2025-10-12T08:48:16'
+                  example: '2025-10-18T18:21:40'
                   nullable: false
                 due_at:
                   type: string
                   description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
-                  example: '2106-11-10'
+                  example: '2106-11-17'
                   nullable: false
+                delivered_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-10-18T18:21:40'
+                  nullable: true
                 payment_date:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2025-10-12T08:48:16'
+                  example: '2025-10-18T18:21:40'
                   nullable: true
                 billing_year:
                   type: integer
@@ -1037,45 +1032,30 @@ paths:
                   description: 'Must not be greater than 50 characters.'
                   example: catbxspzmrazsroyjpxmq
                   nullable: true
-                company_bank_account:
-                  type: string
-                  description: 'Must not be greater than 100 characters.'
-                  example: esedyghenqcopwvownkba
-                  nullable: true
-                company_bank_swift:
-                  type: string
-                  description: 'Must not be greater than 50 characters.'
-                  example: mlnfngefbeilfzsyuxoez
-                  nullable: true
                 invoice_text:
                   type: string
                   description: ''
                   example: consequatur
                   nullable: true
-                custom_field_name1:
+                is_complex_billing:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: false
+                additional_info_1:
                   type: string
                   description: 'Must not be greater than 255 characters.'
                   example: mqeopfuudtdsufvyvddqa
                   nullable: true
-                custom_field_name2:
+                additional_info_2:
                   type: string
                   description: 'Must not be greater than 255 characters.'
                   example: mniihfqcoynlazghdtqtq
                   nullable: true
-                custom_field_name3:
+                info_dph:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: xbajwbpilpmufinllwloa
-                  nullable: true
-                custom_field_name4:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: uydlsmsjuryvojcybzvrb
-                  nullable: true
-                custom_field_name5:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: yickznkygloigmkwxphlv
+                  description: ''
+                  example: consequatur
                   nullable: true
                 invoice_above_table_text:
                   type: string
@@ -1093,6 +1073,7 @@ paths:
                 - due_at
                 - billing_year
                 - billing_month
+                - is_complex_billing
   '/api/invoices/one-time/{invoice_id}':
     put:
       summary: 'Aktualizácia existujúcej faktúry.'
@@ -1147,23 +1128,29 @@ paths:
                         description: 'Must not be greater than 255 characters.'
                         example: 'Dolorum amet iste laborum eius est dolor.'
                         nullable: false
+                      unit:
+                        type: string
+                        description: 'Must not be greater than 50 characters.'
+                        example: dtdsufvyvddqamniihfqc
+                        nullable: false
                       quantity:
                         type: integer
                         description: 'Must be at least 1.'
-                        example: 13
+                        example: 51
                         nullable: false
                       unit_price:
                         type: number
                         description: 'Must be at least 0.'
-                        example: 66
+                        example: 85
                         nullable: false
                       line_total:
                         type: number
                         description: 'Must be at least 0.'
-                        example: 13
+                        example: 45
                         nullable: false
                     required:
                       - description
+                      - unit
                       - quantity
                       - unit_price
                       - line_total
@@ -1185,17 +1172,22 @@ paths:
                 issued_at:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2025-10-12T08:48:16'
+                  example: '2025-10-18T18:21:40'
                   nullable: false
                 due_at:
                   type: string
                   description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
-                  example: '2106-11-10'
+                  example: '2106-11-17'
                   nullable: false
+                delivered_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-10-18T18:21:40'
+                  nullable: true
                 payment_date:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2025-10-12T08:48:16'
+                  example: '2025-10-18T18:21:40'
                   nullable: true
                 billing_year:
                   type: integer
@@ -1247,45 +1239,30 @@ paths:
                   description: 'Must not be greater than 50 characters.'
                   example: catbxspzmrazsroyjpxmq
                   nullable: true
-                company_bank_account:
-                  type: string
-                  description: 'Must not be greater than 100 characters.'
-                  example: esedyghenqcopwvownkba
-                  nullable: true
-                company_bank_swift:
-                  type: string
-                  description: 'Must not be greater than 50 characters.'
-                  example: mlnfngefbeilfzsyuxoez
-                  nullable: true
                 invoice_text:
                   type: string
                   description: ''
                   example: consequatur
                   nullable: true
-                custom_field_name1:
+                is_complex_billing:
+                  type: boolean
+                  description: ''
+                  example: true
+                  nullable: false
+                additional_info_1:
                   type: string
                   description: 'Must not be greater than 255 characters.'
                   example: mqeopfuudtdsufvyvddqa
                   nullable: true
-                custom_field_name2:
+                additional_info_2:
                   type: string
                   description: 'Must not be greater than 255 characters.'
                   example: mniihfqcoynlazghdtqtq
                   nullable: true
-                custom_field_name3:
+                info_dph:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: xbajwbpilpmufinllwloa
-                  nullable: true
-                custom_field_name4:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: uydlsmsjuryvojcybzvrb
-                  nullable: true
-                custom_field_name5:
-                  type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: yickznkygloigmkwxphlv
+                  description: ''
+                  example: consequatur
                   nullable: true
                 invoice_above_table_text:
                   type: string
@@ -1303,6 +1280,7 @@ paths:
                 - due_at
                 - billing_year
                 - billing_month
+                - is_complex_billing
     parameters:
       -
         in: path
@@ -1346,12 +1324,17 @@ paths:
                 issued_at:
                   type: string
                   description: 'Must be a valid date.'
-                  example: '2025-10-12T08:48:16'
+                  example: '2025-10-18T18:21:40'
                   nullable: false
                 due_at:
                   type: string
                   description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
-                  example: '2106-11-10'
+                  example: '2106-11-17'
+                  nullable: false
+                delivered_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2025-10-18T18:21:40'
                   nullable: false
                 billing_year:
                   type: integer
@@ -1367,6 +1350,7 @@ paths:
                 - monthly_invoice_ids
                 - issued_at
                 - due_at
+                - delivered_at
                 - billing_year
                 - billing_month
   '/api/invoices/last-number/{company_id}/{billing_year}':
@@ -1502,60 +1486,20 @@ paths:
                 example:
                   data:
                     -
-                      id: 1
-                      company_name: 'Heaney, Nicolas and Paucek'
-                      company_city: 'East Roslynton'
-                      company_state: Uruguay
-                      company_address: '46294 Renner Camp Apt. 916'
-                      company_zip: '23706'
-                      company_ico: '04163301'
-                      company_dic: '3606848855'
-                      company_ic_dph: null
-                      company_bank_account: SK0202000000005047157358
-                      company_bank_swift: VUB
-                      company_type: main
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
-                      company_customization: null
-                      signatures: null
-                      invoice_issuer_name: null
-                      invoice_issuer_email: null
-                      invoice_issuer_phone: null
-                    -
-                      id: 2
-                      company_name: Weissnat-Haag
-                      company_city: Manleyberg
-                      company_state: Cambodia
-                      company_address: '185 Sanford Inlet Apt. 239'
-                      company_zip: '84705'
-                      company_ico: '94049129'
-                      company_dic: '5581534291'
-                      company_ic_dph: null
-                      company_bank_account: SK0202000000005047157358
-                      company_bank_swift: VUB
-                      company_type: main
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
-                      company_customization: null
-                      signatures: null
-                      invoice_issuer_name: null
-                      invoice_issuer_email: null
-                      invoice_issuer_phone: null
-                    -
                       id: 3
-                      company_name: Mosciski-Muller
-                      company_city: 'East Hayden'
-                      company_state: Pakistan
-                      company_address: '30721 Legros Street Apt. 674'
-                      company_zip: 04824-5722
-                      company_ico: '05353184'
-                      company_dic: '6884911448'
+                      company_name: 'Dooley Inc'
+                      company_city: 'East Evelineville'
+                      company_state: Brazil
+                      company_address: '9455 Anderson Roads'
+                      company_zip: 12982-1891
+                      company_ico: '68499716'
+                      company_dic: '0571104548'
                       company_ic_dph: null
                       company_bank_account: SK0202000000005047157358
                       company_bank_swift: VUB
                       company_type: main
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
                       company_customization: null
                       signatures: null
                       invoice_issuer_name: null
@@ -1563,39 +1507,59 @@ paths:
                       invoice_issuer_phone: null
                     -
                       id: 5
-                      company_name: 'McDermott Group'
-                      company_city: 'South Sadyetown'
-                      company_state: Sweden
-                      company_address: '79719 Francesco Land Apt. 134'
-                      company_zip: 49979-6795
-                      company_ico: '70716146'
-                      company_dic: '4947079215'
+                      company_name: Schinner-Feest
+                      company_city: Alethatown
+                      company_state: Philippines
+                      company_address: '85010 Jakayla Harbors'
+                      company_zip: '29744'
+                      company_ico: '15966061'
+                      company_dic: '5794828703'
                       company_ic_dph: null
                       company_bank_account: SK0202000000005047157358
                       company_bank_swift: VUB
                       company_type: main
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
                       company_customization: null
                       signatures: null
                       invoice_issuer_name: null
                       invoice_issuer_email: null
                       invoice_issuer_phone: null
                     -
-                      id: 7
-                      company_name: 'Becker and Sons'
-                      company_city: 'New Gloria'
-                      company_state: 'Central African Republic'
-                      company_address: '258 Providenci Square Apt. 977'
-                      company_zip: '19660'
-                      company_ico: '31717109'
-                      company_dic: '1249415927'
+                      id: 6
+                      company_name: 'Streich Group'
+                      company_city: 'New Molly'
+                      company_state: 'French Polynesia'
+                      company_address: '4129 Morissette Green Apt. 570'
+                      company_zip: 29731-6607
+                      company_ico: '27765924'
+                      company_dic: '2688921800'
                       company_ic_dph: null
                       company_bank_account: SK0202000000005047157358
                       company_bank_swift: VUB
                       company_type: main
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
+                      company_customization: null
+                      signatures: null
+                      invoice_issuer_name: null
+                      invoice_issuer_email: null
+                      invoice_issuer_phone: null
+                    -
+                      id: 8
+                      company_name: 'Cartwright Ltd'
+                      company_city: 'New Ollieton'
+                      company_state: 'Saint Barthelemy'
+                      company_address: '59475 Sauer Squares Suite 141'
+                      company_zip: 78690-5194
+                      company_ico: '76865904'
+                      company_dic: '0516289283'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: main
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
                       company_customization: null
                       signatures: null
                       invoice_issuer_name: null
@@ -1603,39 +1567,19 @@ paths:
                       invoice_issuer_phone: null
                     -
                       id: 9
-                      company_name: 'Lind Group'
-                      company_city: Marcelfurt
-                      company_state: Turkey
-                      company_address: '2771 Rau Parkway'
-                      company_zip: 93179-1234
-                      company_ico: '45561233'
-                      company_dic: '4716717352'
+                      company_name: Kshlerin-Maggio
+                      company_city: 'Lake Shyann'
+                      company_state: 'Brunei Darussalam'
+                      company_address: '54994 Douglas Mill Apt. 048'
+                      company_zip: 80596-2612
+                      company_ico: '92721424'
+                      company_dic: '1850225215'
                       company_ic_dph: null
                       company_bank_account: SK0202000000005047157358
                       company_bank_swift: VUB
                       company_type: main
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
-                      company_customization: null
-                      signatures: null
-                      invoice_issuer_name: null
-                      invoice_issuer_email: null
-                      invoice_issuer_phone: null
-                    -
-                      id: 10
-                      company_name: Kozey-Bins
-                      company_city: Lulamouth
-                      company_state: Chad
-                      company_address: '282 Kayli Motorway Apt. 070'
-                      company_zip: '98147'
-                      company_ico: '74387718'
-                      company_dic: '8147847868'
-                      company_ic_dph: null
-                      company_bank_account: SK0202000000005047157358
-                      company_bank_swift: VUB
-                      company_type: main
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
                       company_customization: null
                       signatures: null
                       invoice_issuer_name: null
@@ -1665,67 +1609,27 @@ paths:
                         active: false
                     path: 'http://localhost:8000/api/companies/main'
                     per_page: 10
-                    to: 7
-                    total: 7
+                    to: 5
+                    total: 5
                 properties:
                   data:
                     type: array
                     example:
                       -
-                        id: 1
-                        company_name: 'Heaney, Nicolas and Paucek'
-                        company_city: 'East Roslynton'
-                        company_state: Uruguay
-                        company_address: '46294 Renner Camp Apt. 916'
-                        company_zip: '23706'
-                        company_ico: '04163301'
-                        company_dic: '3606848855'
-                        company_ic_dph: null
-                        company_bank_account: SK0202000000005047157358
-                        company_bank_swift: VUB
-                        company_type: main
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
-                        company_customization: null
-                        signatures: null
-                        invoice_issuer_name: null
-                        invoice_issuer_email: null
-                        invoice_issuer_phone: null
-                      -
-                        id: 2
-                        company_name: Weissnat-Haag
-                        company_city: Manleyberg
-                        company_state: Cambodia
-                        company_address: '185 Sanford Inlet Apt. 239'
-                        company_zip: '84705'
-                        company_ico: '94049129'
-                        company_dic: '5581534291'
-                        company_ic_dph: null
-                        company_bank_account: SK0202000000005047157358
-                        company_bank_swift: VUB
-                        company_type: main
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
-                        company_customization: null
-                        signatures: null
-                        invoice_issuer_name: null
-                        invoice_issuer_email: null
-                        invoice_issuer_phone: null
-                      -
                         id: 3
-                        company_name: Mosciski-Muller
-                        company_city: 'East Hayden'
-                        company_state: Pakistan
-                        company_address: '30721 Legros Street Apt. 674'
-                        company_zip: 04824-5722
-                        company_ico: '05353184'
-                        company_dic: '6884911448'
+                        company_name: 'Dooley Inc'
+                        company_city: 'East Evelineville'
+                        company_state: Brazil
+                        company_address: '9455 Anderson Roads'
+                        company_zip: 12982-1891
+                        company_ico: '68499716'
+                        company_dic: '0571104548'
                         company_ic_dph: null
                         company_bank_account: SK0202000000005047157358
                         company_bank_swift: VUB
                         company_type: main
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
                         company_customization: null
                         signatures: null
                         invoice_issuer_name: null
@@ -1733,39 +1637,59 @@ paths:
                         invoice_issuer_phone: null
                       -
                         id: 5
-                        company_name: 'McDermott Group'
-                        company_city: 'South Sadyetown'
-                        company_state: Sweden
-                        company_address: '79719 Francesco Land Apt. 134'
-                        company_zip: 49979-6795
-                        company_ico: '70716146'
-                        company_dic: '4947079215'
+                        company_name: Schinner-Feest
+                        company_city: Alethatown
+                        company_state: Philippines
+                        company_address: '85010 Jakayla Harbors'
+                        company_zip: '29744'
+                        company_ico: '15966061'
+                        company_dic: '5794828703'
                         company_ic_dph: null
                         company_bank_account: SK0202000000005047157358
                         company_bank_swift: VUB
                         company_type: main
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
                         company_customization: null
                         signatures: null
                         invoice_issuer_name: null
                         invoice_issuer_email: null
                         invoice_issuer_phone: null
                       -
-                        id: 7
-                        company_name: 'Becker and Sons'
-                        company_city: 'New Gloria'
-                        company_state: 'Central African Republic'
-                        company_address: '258 Providenci Square Apt. 977'
-                        company_zip: '19660'
-                        company_ico: '31717109'
-                        company_dic: '1249415927'
+                        id: 6
+                        company_name: 'Streich Group'
+                        company_city: 'New Molly'
+                        company_state: 'French Polynesia'
+                        company_address: '4129 Morissette Green Apt. 570'
+                        company_zip: 29731-6607
+                        company_ico: '27765924'
+                        company_dic: '2688921800'
                         company_ic_dph: null
                         company_bank_account: SK0202000000005047157358
                         company_bank_swift: VUB
                         company_type: main
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
+                        company_customization: null
+                        signatures: null
+                        invoice_issuer_name: null
+                        invoice_issuer_email: null
+                        invoice_issuer_phone: null
+                      -
+                        id: 8
+                        company_name: 'Cartwright Ltd'
+                        company_city: 'New Ollieton'
+                        company_state: 'Saint Barthelemy'
+                        company_address: '59475 Sauer Squares Suite 141'
+                        company_zip: 78690-5194
+                        company_ico: '76865904'
+                        company_dic: '0516289283'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: main
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
                         company_customization: null
                         signatures: null
                         invoice_issuer_name: null
@@ -1773,39 +1697,19 @@ paths:
                         invoice_issuer_phone: null
                       -
                         id: 9
-                        company_name: 'Lind Group'
-                        company_city: Marcelfurt
-                        company_state: Turkey
-                        company_address: '2771 Rau Parkway'
-                        company_zip: 93179-1234
-                        company_ico: '45561233'
-                        company_dic: '4716717352'
+                        company_name: Kshlerin-Maggio
+                        company_city: 'Lake Shyann'
+                        company_state: 'Brunei Darussalam'
+                        company_address: '54994 Douglas Mill Apt. 048'
+                        company_zip: 80596-2612
+                        company_ico: '92721424'
+                        company_dic: '1850225215'
                         company_ic_dph: null
                         company_bank_account: SK0202000000005047157358
                         company_bank_swift: VUB
                         company_type: main
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
-                        company_customization: null
-                        signatures: null
-                        invoice_issuer_name: null
-                        invoice_issuer_email: null
-                        invoice_issuer_phone: null
-                      -
-                        id: 10
-                        company_name: Kozey-Bins
-                        company_city: Lulamouth
-                        company_state: Chad
-                        company_address: '282 Kayli Motorway Apt. 070'
-                        company_zip: '98147'
-                        company_ico: '74387718'
-                        company_dic: '8147847868'
-                        company_ic_dph: null
-                        company_bank_account: SK0202000000005047157358
-                        company_bank_swift: VUB
-                        company_type: main
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
                         company_customization: null
                         signatures: null
                         invoice_issuer_name: null
@@ -1816,28 +1720,28 @@ paths:
                       properties:
                         id:
                           type: integer
-                          example: 1
+                          example: 3
                         company_name:
                           type: string
-                          example: 'Heaney, Nicolas and Paucek'
+                          example: 'Dooley Inc'
                         company_city:
                           type: string
-                          example: 'East Roslynton'
+                          example: 'East Evelineville'
                         company_state:
                           type: string
-                          example: Uruguay
+                          example: Brazil
                         company_address:
                           type: string
-                          example: '46294 Renner Camp Apt. 916'
+                          example: '9455 Anderson Roads'
                         company_zip:
                           type: string
-                          example: '23706'
+                          example: 12982-1891
                         company_ico:
                           type: string
-                          example: '04163301'
+                          example: '68499716'
                         company_dic:
                           type: string
-                          example: '3606848855'
+                          example: '0571104548'
                         company_ic_dph:
                           type: string
                           example: null
@@ -1852,10 +1756,10 @@ paths:
                           example: main
                         created_at:
                           type: string
-                          example: '2025-10-12T08:48:16.000000Z'
+                          example: '2025-10-18T18:21:40.000000Z'
                         updated_at:
                           type: string
-                          example: '2025-10-12T08:48:16.000000Z'
+                          example: '2025-10-18T18:21:40.000000Z'
                         company_customization:
                           type: string
                           example: null
@@ -1933,10 +1837,10 @@ paths:
                         example: 10
                       to:
                         type: integer
-                        example: 7
+                        example: 5
                       total:
                         type: integer
-                        example: 7
+                        example: 5
       tags:
         - Firmy
     post:
@@ -2059,62 +1963,85 @@ paths:
                 example:
                   data:
                     -
+                      id: 1
+                      company_name: 'Kuphal PLC'
+                      company_city: Hansentown
+                      company_state: Gibraltar
+                      company_address: '978 Dion Route'
+                      company_zip: '83697'
+                      company_ico: '01773889'
+                      company_dic: '1147178579'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: residential
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
+                      streets: []
+                    -
+                      id: 2
+                      company_name: 'Schinner, Bins and Auer'
+                      company_city: 'New Kassandra'
+                      company_state: 'El Salvador'
+                      company_address: "692 O'Kon Roads"
+                      company_zip: 34255-8879
+                      company_ico: '22330277'
+                      company_dic: '4829681191'
+                      company_ic_dph: null
+                      company_bank_account: SK0202000000005047157358
+                      company_bank_swift: VUB
+                      company_type: residential
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
+                      streets: []
+                    -
                       id: 4
-                      company_name: Jast-Kuhic
-                      company_city: Vickychester
-                      company_state: 'French Southern Territories'
-                      company_address: '974 Predovic Pines Apt. 822'
-                      company_zip: '09363'
-                      company_ico: '22869329'
-                      company_dic: '2109284488'
+                      company_name: West-Armstrong
+                      company_city: 'South Deangelohaven'
+                      company_state: Zambia
+                      company_address: '954 Ferry Mission Apt. 957'
+                      company_zip: 91236-0777
+                      company_ico: '48023180'
+                      company_dic: '4193080858'
                       company_ic_dph: null
                       company_bank_account: SK0202000000005047157358
                       company_bank_swift: VUB
                       company_type: residential
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
-                      invoice_issuer_name: null
-                      invoice_issuer_email: null
-                      invoice_issuer_phone: null
-                      signatures: null
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
+                      streets: []
                     -
-                      id: 6
-                      company_name: Schaefer-Rath
-                      company_city: 'South Robert'
-                      company_state: Namibia
-                      company_address: '30369 Kuvalis Motorway'
-                      company_zip: 58656-4451
-                      company_ico: '39389995'
-                      company_dic: '5882763620'
+                      id: 7
+                      company_name: Bahringer-Senger
+                      company_city: Kobefort
+                      company_state: Mexico
+                      company_address: '49263 Kunze Streets'
+                      company_zip: '52221'
+                      company_ico: '43257542'
+                      company_dic: '8698292039'
                       company_ic_dph: null
                       company_bank_account: SK0202000000005047157358
                       company_bank_swift: VUB
                       company_type: residential
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
-                      invoice_issuer_name: null
-                      invoice_issuer_email: null
-                      invoice_issuer_phone: null
-                      signatures: null
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
+                      streets: []
                     -
-                      id: 8
-                      company_name: 'Lehner, Collier and Bergnaum'
-                      company_city: 'North Ayana'
-                      company_state: Guernsey
-                      company_address: "3121 O'Hara Via"
-                      company_zip: 26830-8769
-                      company_ico: '39099168'
-                      company_dic: '1198364875'
+                      id: 10
+                      company_name: 'Hackett Ltd'
+                      company_city: Verlaville
+                      company_state: Myanmar
+                      company_address: '3501 Alexandra Park Suite 930'
+                      company_zip: '52640'
+                      company_ico: '92919708'
+                      company_dic: '7807790963'
                       company_ic_dph: null
                       company_bank_account: SK0202000000005047157358
                       company_bank_swift: VUB
                       company_type: residential
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
-                      invoice_issuer_name: null
-                      invoice_issuer_email: null
-                      invoice_issuer_phone: null
-                      signatures: null
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
+                      streets: []
                   links:
                     first: 'http://localhost:8000/api/companies/residential?page=1'
                     last: 'http://localhost:8000/api/companies/residential?page=1'
@@ -2139,96 +2066,119 @@ paths:
                         active: false
                     path: 'http://localhost:8000/api/companies/residential'
                     per_page: 10
-                    to: 3
-                    total: 3
+                    to: 5
+                    total: 5
                 properties:
                   data:
                     type: array
                     example:
                       -
+                        id: 1
+                        company_name: 'Kuphal PLC'
+                        company_city: Hansentown
+                        company_state: Gibraltar
+                        company_address: '978 Dion Route'
+                        company_zip: '83697'
+                        company_ico: '01773889'
+                        company_dic: '1147178579'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: residential
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
+                        streets: []
+                      -
+                        id: 2
+                        company_name: 'Schinner, Bins and Auer'
+                        company_city: 'New Kassandra'
+                        company_state: 'El Salvador'
+                        company_address: "692 O'Kon Roads"
+                        company_zip: 34255-8879
+                        company_ico: '22330277'
+                        company_dic: '4829681191'
+                        company_ic_dph: null
+                        company_bank_account: SK0202000000005047157358
+                        company_bank_swift: VUB
+                        company_type: residential
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
+                        streets: []
+                      -
                         id: 4
-                        company_name: Jast-Kuhic
-                        company_city: Vickychester
-                        company_state: 'French Southern Territories'
-                        company_address: '974 Predovic Pines Apt. 822'
-                        company_zip: '09363'
-                        company_ico: '22869329'
-                        company_dic: '2109284488'
+                        company_name: West-Armstrong
+                        company_city: 'South Deangelohaven'
+                        company_state: Zambia
+                        company_address: '954 Ferry Mission Apt. 957'
+                        company_zip: 91236-0777
+                        company_ico: '48023180'
+                        company_dic: '4193080858'
                         company_ic_dph: null
                         company_bank_account: SK0202000000005047157358
                         company_bank_swift: VUB
                         company_type: residential
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
-                        invoice_issuer_name: null
-                        invoice_issuer_email: null
-                        invoice_issuer_phone: null
-                        signatures: null
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
+                        streets: []
                       -
-                        id: 6
-                        company_name: Schaefer-Rath
-                        company_city: 'South Robert'
-                        company_state: Namibia
-                        company_address: '30369 Kuvalis Motorway'
-                        company_zip: 58656-4451
-                        company_ico: '39389995'
-                        company_dic: '5882763620'
+                        id: 7
+                        company_name: Bahringer-Senger
+                        company_city: Kobefort
+                        company_state: Mexico
+                        company_address: '49263 Kunze Streets'
+                        company_zip: '52221'
+                        company_ico: '43257542'
+                        company_dic: '8698292039'
                         company_ic_dph: null
                         company_bank_account: SK0202000000005047157358
                         company_bank_swift: VUB
                         company_type: residential
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
-                        invoice_issuer_name: null
-                        invoice_issuer_email: null
-                        invoice_issuer_phone: null
-                        signatures: null
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
+                        streets: []
                       -
-                        id: 8
-                        company_name: 'Lehner, Collier and Bergnaum'
-                        company_city: 'North Ayana'
-                        company_state: Guernsey
-                        company_address: "3121 O'Hara Via"
-                        company_zip: 26830-8769
-                        company_ico: '39099168'
-                        company_dic: '1198364875'
+                        id: 10
+                        company_name: 'Hackett Ltd'
+                        company_city: Verlaville
+                        company_state: Myanmar
+                        company_address: '3501 Alexandra Park Suite 930'
+                        company_zip: '52640'
+                        company_ico: '92919708'
+                        company_dic: '7807790963'
                         company_ic_dph: null
                         company_bank_account: SK0202000000005047157358
                         company_bank_swift: VUB
                         company_type: residential
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
-                        invoice_issuer_name: null
-                        invoice_issuer_email: null
-                        invoice_issuer_phone: null
-                        signatures: null
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
+                        streets: []
                     items:
                       type: object
                       properties:
                         id:
                           type: integer
-                          example: 4
+                          example: 1
                         company_name:
                           type: string
-                          example: Jast-Kuhic
+                          example: 'Kuphal PLC'
                         company_city:
                           type: string
-                          example: Vickychester
+                          example: Hansentown
                         company_state:
                           type: string
-                          example: 'French Southern Territories'
+                          example: Gibraltar
                         company_address:
                           type: string
-                          example: '974 Predovic Pines Apt. 822'
+                          example: '978 Dion Route'
                         company_zip:
                           type: string
-                          example: '09363'
+                          example: '83697'
                         company_ico:
                           type: string
-                          example: '22869329'
+                          example: '01773889'
                         company_dic:
                           type: string
-                          example: '2109284488'
+                          example: '1147178579'
                         company_ic_dph:
                           type: string
                           example: null
@@ -2243,22 +2193,13 @@ paths:
                           example: residential
                         created_at:
                           type: string
-                          example: '2025-10-12T08:48:16.000000Z'
+                          example: '2025-10-18T18:21:40.000000Z'
                         updated_at:
                           type: string
-                          example: '2025-10-12T08:48:16.000000Z'
-                        invoice_issuer_name:
-                          type: string
-                          example: null
-                        invoice_issuer_email:
-                          type: string
-                          example: null
-                        invoice_issuer_phone:
-                          type: string
-                          example: null
-                        signatures:
-                          type: string
-                          example: null
+                          example: '2025-10-18T18:21:40.000000Z'
+                        streets:
+                          type: array
+                          example: []
                   links:
                     type: object
                     properties:
@@ -2321,10 +2262,10 @@ paths:
                         example: 10
                       to:
                         type: integer
-                        example: 3
+                        example: 5
                       total:
                         type: integer
-                        example: 3
+                        example: 5
       tags:
         - Firmy
     post:
@@ -2398,6 +2339,96 @@ paths:
                 - company_state
                 - company_address
                 - company_zip
+  '/api/companies/residential/{company_id}':
+    get:
+      summary: 'Zobrazenie rezidencnej firmy.'
+      operationId: zobrazenieRezidencnejFirmy
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    company_name: 'Kuphal PLC'
+                    company_city: Hansentown
+                    company_state: Gibraltar
+                    company_address: '978 Dion Route'
+                    company_zip: '83697'
+                    company_ico: '01773889'
+                    company_dic: '1147178579'
+                    company_ic_dph: null
+                    company_bank_account: SK0202000000005047157358
+                    company_bank_swift: VUB
+                    company_type: residential
+                    created_at: '2025-10-18T18:21:40.000000Z'
+                    updated_at: '2025-10-18T18:21:40.000000Z'
+                    streets: []
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      company_name:
+                        type: string
+                        example: 'Kuphal PLC'
+                      company_city:
+                        type: string
+                        example: Hansentown
+                      company_state:
+                        type: string
+                        example: Gibraltar
+                      company_address:
+                        type: string
+                        example: '978 Dion Route'
+                      company_zip:
+                        type: string
+                        example: '83697'
+                      company_ico:
+                        type: string
+                        example: '01773889'
+                      company_dic:
+                        type: string
+                        example: '1147178579'
+                      company_ic_dph:
+                        type: string
+                        example: null
+                      company_bank_account:
+                        type: string
+                        example: SK0202000000005047157358
+                      company_bank_swift:
+                        type: string
+                        example: VUB
+                      company_type:
+                        type: string
+                        example: residential
+                      created_at:
+                        type: string
+                        example: '2025-10-18T18:21:40.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2025-10-18T18:21:40.000000Z'
+                      streets:
+                        type: array
+                        example: []
+      tags:
+        - Firmy
+    parameters:
+      -
+        in: path
+        name: company_id
+        description: 'The ID of the company.'
+        example: 1
+        required: true
+        schema:
+          type: integer
   '/api/companies/{id}':
     get:
       summary: 'Zobrazenie firmy.'
@@ -2414,19 +2445,19 @@ paths:
                 example:
                   data:
                     id: 1
-                    company_name: 'Heaney, Nicolas and Paucek'
-                    company_city: 'East Roslynton'
-                    company_state: Uruguay
-                    company_address: '46294 Renner Camp Apt. 916'
-                    company_zip: '23706'
-                    company_ico: '04163301'
-                    company_dic: '3606848855'
+                    company_name: 'Kuphal PLC'
+                    company_city: Hansentown
+                    company_state: Gibraltar
+                    company_address: '978 Dion Route'
+                    company_zip: '83697'
+                    company_ico: '01773889'
+                    company_dic: '1147178579'
                     company_ic_dph: null
                     company_bank_account: SK0202000000005047157358
                     company_bank_swift: VUB
-                    company_type: main
-                    created_at: '2025-10-12T08:48:16.000000Z'
-                    updated_at: '2025-10-12T08:48:16.000000Z'
+                    company_type: residential
+                    created_at: '2025-10-18T18:21:40.000000Z'
+                    updated_at: '2025-10-18T18:21:40.000000Z'
                     invoice_issuer_name: null
                     invoice_issuer_email: null
                     invoice_issuer_phone: null
@@ -2440,25 +2471,25 @@ paths:
                         example: 1
                       company_name:
                         type: string
-                        example: 'Heaney, Nicolas and Paucek'
+                        example: 'Kuphal PLC'
                       company_city:
                         type: string
-                        example: 'East Roslynton'
+                        example: Hansentown
                       company_state:
                         type: string
-                        example: Uruguay
+                        example: Gibraltar
                       company_address:
                         type: string
-                        example: '46294 Renner Camp Apt. 916'
+                        example: '978 Dion Route'
                       company_zip:
                         type: string
-                        example: '23706'
+                        example: '83697'
                       company_ico:
                         type: string
-                        example: '04163301'
+                        example: '01773889'
                       company_dic:
                         type: string
-                        example: '3606848855'
+                        example: '1147178579'
                       company_ic_dph:
                         type: string
                         example: null
@@ -2470,13 +2501,13 @@ paths:
                         example: VUB
                       company_type:
                         type: string
-                        example: main
+                        example: residential
                       created_at:
                         type: string
-                        example: '2025-10-12T08:48:16.000000Z'
+                        example: '2025-10-18T18:21:40.000000Z'
                       updated_at:
                         type: string
-                        example: '2025-10-12T08:48:16.000000Z'
+                        example: '2025-10-18T18:21:40.000000Z'
                       invoice_issuer_name:
                         type: string
                         example: null
@@ -2491,7 +2522,7 @@ paths:
                         example: null
       tags:
         - Firmy
-    put:
+    post:
       summary: 'Aktualizácia firmy.'
       operationId: aktualizciaFirmy
       description: ''
@@ -2659,14 +2690,14 @@ paths:
                       id: 1
                       name: superadmin
                       guard_name: api
-                      created_at: '2025-10-12T08:48:15.000000Z'
-                      updated_at: '2025-10-12T08:48:15.000000Z'
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
                     -
                       id: 2
                       name: admin
                       guard_name: api
-                      created_at: '2025-10-12T08:48:15.000000Z'
-                      updated_at: '2025-10-12T08:48:15.000000Z'
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
                 properties:
                   data:
                     type: array
@@ -2675,14 +2706,14 @@ paths:
                         id: 1
                         name: superadmin
                         guard_name: api
-                        created_at: '2025-10-12T08:48:15.000000Z'
-                        updated_at: '2025-10-12T08:48:15.000000Z'
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
                       -
                         id: 2
                         name: admin
                         guard_name: api
-                        created_at: '2025-10-12T08:48:15.000000Z'
-                        updated_at: '2025-10-12T08:48:15.000000Z'
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
                     items:
                       type: object
                       properties:
@@ -2697,10 +2728,10 @@ paths:
                           example: api
                         created_at:
                           type: string
-                          example: '2025-10-12T08:48:15.000000Z'
+                          example: '2025-10-18T18:21:40.000000Z'
                         updated_at:
                           type: string
-                          example: '2025-10-12T08:48:15.000000Z'
+                          example: '2025-10-18T18:21:40.000000Z'
       tags:
         - Role
   /api/streets:
@@ -3122,17 +3153,6 @@ paths:
                 example:
                   data:
                     -
-                      id: 2
-                      email: admin@example.com
-                      first_name: Admin
-                      last_name: Clovek
-                      phone: '1234567890'
-                      email_verified_at: null
-                      state: ACTIVE
-                      created_at: '2025-10-12T08:48:16.000000Z'
-                      updated_at: '2025-10-12T08:48:16.000000Z'
-                      role: admin
-                    -
                       id: 1
                       email: superadmin@example.com
                       first_name: Super
@@ -3140,9 +3160,20 @@ paths:
                       phone: '1234567890'
                       email_verified_at: null
                       state: ACTIVE
-                      created_at: '2025-10-12T08:48:15.000000Z'
-                      updated_at: '2025-10-12T08:48:15.000000Z'
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
                       role: superadmin
+                    -
+                      id: 2
+                      email: admin@example.com
+                      first_name: Admin
+                      last_name: Clovek
+                      phone: '1234567890'
+                      email_verified_at: null
+                      state: ACTIVE
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
+                      role: admin
                   links:
                     first: 'http://localhost:8000/api/users?page=1'
                     last: 'http://localhost:8000/api/users?page=1'
@@ -3174,17 +3205,6 @@ paths:
                     type: array
                     example:
                       -
-                        id: 2
-                        email: admin@example.com
-                        first_name: Admin
-                        last_name: Clovek
-                        phone: '1234567890'
-                        email_verified_at: null
-                        state: ACTIVE
-                        created_at: '2025-10-12T08:48:16.000000Z'
-                        updated_at: '2025-10-12T08:48:16.000000Z'
-                        role: admin
-                      -
                         id: 1
                         email: superadmin@example.com
                         first_name: Super
@@ -3192,24 +3212,35 @@ paths:
                         phone: '1234567890'
                         email_verified_at: null
                         state: ACTIVE
-                        created_at: '2025-10-12T08:48:15.000000Z'
-                        updated_at: '2025-10-12T08:48:15.000000Z'
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
                         role: superadmin
+                      -
+                        id: 2
+                        email: admin@example.com
+                        first_name: Admin
+                        last_name: Clovek
+                        phone: '1234567890'
+                        email_verified_at: null
+                        state: ACTIVE
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
+                        role: admin
                     items:
                       type: object
                       properties:
                         id:
                           type: integer
-                          example: 2
+                          example: 1
                         email:
                           type: string
-                          example: admin@example.com
+                          example: superadmin@example.com
                         first_name:
                           type: string
-                          example: Admin
+                          example: Super
                         last_name:
                           type: string
-                          example: Clovek
+                          example: Admin
                         phone:
                           type: string
                           example: '1234567890'
@@ -3221,13 +3252,13 @@ paths:
                           example: ACTIVE
                         created_at:
                           type: string
-                          example: '2025-10-12T08:48:16.000000Z'
+                          example: '2025-10-18T18:21:40.000000Z'
                         updated_at:
                           type: string
-                          example: '2025-10-12T08:48:16.000000Z'
+                          example: '2025-10-18T18:21:40.000000Z'
                         role:
                           type: string
-                          example: admin
+                          example: superadmin
                   links:
                     type: object
                     properties:
@@ -3356,105 +3387,101 @@ paths:
               schema:
                 type: object
                 example:
-                  data:
-                    id: 1
-                    email: superadmin@example.com
-                    first_name: Super
-                    last_name: Admin
-                    phone: '1234567890'
-                    email_verified_at: null
-                    state: ACTIVE
-                    created_at: '2025-10-12T08:48:15.000000Z'
-                    updated_at: '2025-10-12T08:48:15.000000Z'
-                    roles:
+                  id: 1
+                  email: superadmin@example.com
+                  first_name: Super
+                  last_name: Admin
+                  phone: '1234567890'
+                  email_verified_at: null
+                  state: ACTIVE
+                  created_at: '2025-10-18T18:21:40.000000Z'
+                  updated_at: '2025-10-18T18:21:40.000000Z'
+                  roles:
+                    -
+                      id: 1
+                      name: superadmin
+                      guard_name: api
+                      created_at: '2025-10-18T18:21:40.000000Z'
+                      updated_at: '2025-10-18T18:21:40.000000Z'
+                      pivot:
+                        model_type: App\Models\User
+                        model_id: 1
+                        role_id: 1
+                  role: superadmin
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  email:
+                    type: string
+                    example: superadmin@example.com
+                  first_name:
+                    type: string
+                    example: Super
+                  last_name:
+                    type: string
+                    example: Admin
+                  phone:
+                    type: string
+                    example: '1234567890'
+                  email_verified_at:
+                    type: string
+                    example: null
+                  state:
+                    type: string
+                    example: ACTIVE
+                  created_at:
+                    type: string
+                    example: '2025-10-18T18:21:40.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2025-10-18T18:21:40.000000Z'
+                  roles:
+                    type: array
+                    example:
                       -
                         id: 1
                         name: superadmin
                         guard_name: api
-                        created_at: '2025-10-12T08:48:15.000000Z'
-                        updated_at: '2025-10-12T08:48:15.000000Z'
+                        created_at: '2025-10-18T18:21:40.000000Z'
+                        updated_at: '2025-10-18T18:21:40.000000Z'
                         pivot:
                           model_type: App\Models\User
                           model_id: 1
                           role_id: 1
-                    role: superadmin
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        example: 1
-                      email:
-                        type: string
-                        example: superadmin@example.com
-                      first_name:
-                        type: string
-                        example: Super
-                      last_name:
-                        type: string
-                        example: Admin
-                      phone:
-                        type: string
-                        example: '1234567890'
-                      email_verified_at:
-                        type: string
-                        example: null
-                      state:
-                        type: string
-                        example: ACTIVE
-                      created_at:
-                        type: string
-                        example: '2025-10-12T08:48:15.000000Z'
-                      updated_at:
-                        type: string
-                        example: '2025-10-12T08:48:15.000000Z'
-                      roles:
-                        type: array
-                        example:
-                          -
-                            id: 1
-                            name: superadmin
-                            guard_name: api
-                            created_at: '2025-10-12T08:48:15.000000Z'
-                            updated_at: '2025-10-12T08:48:15.000000Z'
-                            pivot:
-                              model_type: App\Models\User
-                              model_id: 1
-                              role_id: 1
-                        items:
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: superadmin
+                        guard_name:
+                          type: string
+                          example: api
+                        created_at:
+                          type: string
+                          example: '2025-10-18T18:21:40.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2025-10-18T18:21:40.000000Z'
+                        pivot:
                           type: object
                           properties:
-                            id:
+                            model_type:
+                              type: string
+                              example: App\Models\User
+                            model_id:
                               type: integer
                               example: 1
-                            name:
-                              type: string
-                              example: superadmin
-                            guard_name:
-                              type: string
-                              example: api
-                            created_at:
-                              type: string
-                              example: '2025-10-12T08:48:15.000000Z'
-                            updated_at:
-                              type: string
-                              example: '2025-10-12T08:48:15.000000Z'
-                            pivot:
-                              type: object
-                              properties:
-                                model_type:
-                                  type: string
-                                  example: App\Models\User
-                                model_id:
-                                  type: integer
-                                  example: 1
-                                role_id:
-                                  type: integer
-                                  example: 1
-                      role:
-                        type: string
-                        example: superadmin
+                            role_id:
+                              type: integer
+                              example: 1
+                  role:
+                    type: string
+                    example: superadmin
       tags:
         - 'Zoznam používateľov'
     put:

@@ -95,13 +95,12 @@ class InvoiceService
 
     public function createMonthly(array $data)
     {
-        $company = Company::findOrFail($data['company_id']);
         $residentialCompany = Company::findOrFail($data['residential_company_id']);
         $data['residential_company_name'] = $residentialCompany->company_name;
 
         $data = array_merge(
             $data,
-            $company->snapshot()
+            $residentialCompany->snapshot()
         );
 
         return $this->invoiceRepo->createMonthly($data);

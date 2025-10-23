@@ -148,11 +148,14 @@
                                                                                 <li class="tocify-item level-2" data-unique="firmy-POSTapi-companies-residential">
                                 <a href="#firmy-POSTapi-companies-residential">Vytvorenie novej rezidencnej firmy.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="firmy-GETapi-companies-residential--company_id-">
+                                <a href="#firmy-GETapi-companies-residential--company_id-">Zobrazenie rezidencnej firmy.</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="firmy-GETapi-companies--id-">
                                 <a href="#firmy-GETapi-companies--id-">Zobrazenie firmy.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="firmy-PUTapi-companies--id-">
-                                <a href="#firmy-PUTapi-companies--id-">Aktualizácia firmy.</a>
+                                                                                <li class="tocify-item level-2" data-unique="firmy-POSTapi-companies--id-">
+                                <a href="#firmy-POSTapi-companies--id-">Aktualizácia firmy.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="firmy-DELETEapi-companies--id-">
                                 <a href="#firmy-DELETEapi-companies--id-">Odstránenie firmy.</a>
@@ -231,7 +234,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: October 12, 2025</li>
+        <li>Last updated: October 18, 2025</li>
     </ul>
 </div>
 
@@ -1329,9 +1332,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"items\": [
         {
             \"description\": \"Dolorum amet iste laborum eius est dolor.\",
-            \"quantity\": 13,
-            \"unit_price\": 66,
-            \"line_total\": 13
+            \"unit\": \"dtdsufvyvddqamniihfqc\",
+            \"quantity\": 51,
+            \"unit_price\": 85,
+            \"line_total\": 45
         }
     ],
     \"subtotal\": 73,
@@ -1345,15 +1349,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"company_ico\": \"lvazjrcnfbaqywuxhgjjm\",
     \"company_dic\": \"zuxjubqouzswiwxtrkimf\",
     \"company_ic_dph\": \"catbxspzmrazsroyjpxmq\",
-    \"company_bank_account\": \"esedyghenqcopwvownkba\",
-    \"company_bank_swift\": \"mlnfngefbeilfzsyuxoez\",
     \"invoice_text\": \"consequatur\",
-    \"custom_field_name1\": \"mqeopfuudtdsufvyvddqa\",
-    \"custom_field_name2\": \"mniihfqcoynlazghdtqtq\",
-    \"custom_field_name3\": \"xbajwbpilpmufinllwloa\",
-    \"custom_field_name4\": \"uydlsmsjuryvojcybzvrb\",
-    \"custom_field_name5\": \"yickznkygloigmkwxphlv\",
-    \"invoice_above_table_text\": \"consequatur\"
+    \"invoice_above_table_text\": \"consequatur\",
+    \"is_complex_billing\": false,
+    \"additional_info_1\": \"mqeopfuudtdsufvyvddqa\",
+    \"additional_info_2\": \"mniihfqcoynlazghdtqtq\",
+    \"info_dph\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -1375,9 +1376,10 @@ let body = {
     "items": [
         {
             "description": "Dolorum amet iste laborum eius est dolor.",
-            "quantity": 13,
-            "unit_price": 66,
-            "line_total": 13
+            "unit": "dtdsufvyvddqamniihfqc",
+            "quantity": 51,
+            "unit_price": 85,
+            "line_total": 45
         }
     ],
     "subtotal": 73,
@@ -1391,15 +1393,12 @@ let body = {
     "company_ico": "lvazjrcnfbaqywuxhgjjm",
     "company_dic": "zuxjubqouzswiwxtrkimf",
     "company_ic_dph": "catbxspzmrazsroyjpxmq",
-    "company_bank_account": "esedyghenqcopwvownkba",
-    "company_bank_swift": "mlnfngefbeilfzsyuxoez",
     "invoice_text": "consequatur",
-    "custom_field_name1": "mqeopfuudtdsufvyvddqa",
-    "custom_field_name2": "mniihfqcoynlazghdtqtq",
-    "custom_field_name3": "xbajwbpilpmufinllwloa",
-    "custom_field_name4": "uydlsmsjuryvojcybzvrb",
-    "custom_field_name5": "yickznkygloigmkwxphlv",
-    "invoice_above_table_text": "consequatur"
+    "invoice_above_table_text": "consequatur",
+    "is_complex_billing": false,
+    "additional_info_1": "mqeopfuudtdsufvyvddqa",
+    "additional_info_2": "mniihfqcoynlazghdtqtq",
+    "info_dph": "consequatur"
 };
 
 fetch(url, {
@@ -1558,15 +1557,26 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 255 characters. Example: <code>Dolorum amet iste laborum eius est dolor.</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>unit</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="items.0.unit"                data-endpoint="POSTapi-invoices-monthly"
+               value="dtdsufvyvddqamniihfqc"
+               data-component="body">
+    <br>
+<p>Must not be greater than 50 characters. Example: <code>dtdsufvyvddqamniihfqc</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>quantity</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.quantity"                data-endpoint="POSTapi-invoices-monthly"
-               value="13"
+               value="51"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>13</code></p>
+<p>Must be at least 1. Example: <code>51</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>unit_price</code></b>&nbsp;&nbsp;
@@ -1574,10 +1584,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.unit_price"                data-endpoint="POSTapi-invoices-monthly"
-               value="66"
+               value="85"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>66</code></p>
+<p>Must be at least 0. Example: <code>85</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>line_total</code></b>&nbsp;&nbsp;
@@ -1585,10 +1595,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.line_total"                data-endpoint="POSTapi-invoices-monthly"
-               value="13"
+               value="45"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>13</code></p>
+<p>Must be at least 0. Example: <code>45</code></p>
                     </div>
                                     </details>
         </div>
@@ -1714,28 +1724,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 50 characters. Example: <code>catbxspzmrazsroyjpxmq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>company_bank_account</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="company_bank_account"                data-endpoint="POSTapi-invoices-monthly"
-               value="esedyghenqcopwvownkba"
-               data-component="body">
-    <br>
-<p>Must not be greater than 100 characters. Example: <code>esedyghenqcopwvownkba</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>company_bank_swift</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="company_bank_swift"                data-endpoint="POSTapi-invoices-monthly"
-               value="mlnfngefbeilfzsyuxoez"
-               data-component="body">
-    <br>
-<p>Must not be greater than 50 characters. Example: <code>mlnfngefbeilfzsyuxoez</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>invoice_text</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -1747,66 +1735,65 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name1</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>invoice_above_table_text</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name1"                data-endpoint="POSTapi-invoices-monthly"
+                              name="invoice_above_table_text"                data-endpoint="POSTapi-invoices-monthly"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_complex_billing</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-invoices-monthly" style="display: none">
+            <input type="radio" name="is_complex_billing"
+                   value="true"
+                   data-endpoint="POSTapi-invoices-monthly"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-invoices-monthly" style="display: none">
+            <input type="radio" name="is_complex_billing"
+                   value="false"
+                   data-endpoint="POSTapi-invoices-monthly"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>additional_info_1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="additional_info_1"                data-endpoint="POSTapi-invoices-monthly"
                value="mqeopfuudtdsufvyvddqa"
                data-component="body">
     <br>
 <p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name2</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>additional_info_2</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name2"                data-endpoint="POSTapi-invoices-monthly"
+                              name="additional_info_2"                data-endpoint="POSTapi-invoices-monthly"
                value="mniihfqcoynlazghdtqtq"
                data-component="body">
     <br>
 <p>Must not be greater than 255 characters. Example: <code>mniihfqcoynlazghdtqtq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name3</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>info_dph</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name3"                data-endpoint="POSTapi-invoices-monthly"
-               value="xbajwbpilpmufinllwloa"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>xbajwbpilpmufinllwloa</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name4</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="custom_field_name4"                data-endpoint="POSTapi-invoices-monthly"
-               value="uydlsmsjuryvojcybzvrb"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>uydlsmsjuryvojcybzvrb</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name5</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="custom_field_name5"                data-endpoint="POSTapi-invoices-monthly"
-               value="yickznkygloigmkwxphlv"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>yickznkygloigmkwxphlv</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>invoice_above_table_text</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="invoice_above_table_text"                data-endpoint="POSTapi-invoices-monthly"
+                              name="info_dph"                data-endpoint="POSTapi-invoices-monthly"
                value="consequatur"
                data-component="body">
     <br>
@@ -1838,9 +1825,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"items\": [
         {
             \"description\": \"Dolorum amet iste laborum eius est dolor.\",
-            \"quantity\": 13,
-            \"unit_price\": 66,
-            \"line_total\": 13
+            \"unit\": \"dtdsufvyvddqamniihfqc\",
+            \"quantity\": 51,
+            \"unit_price\": 85,
+            \"line_total\": 45
         }
     ],
     \"subtotal\": 73,
@@ -1854,15 +1842,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"company_ico\": \"lvazjrcnfbaqywuxhgjjm\",
     \"company_dic\": \"zuxjubqouzswiwxtrkimf\",
     \"company_ic_dph\": \"catbxspzmrazsroyjpxmq\",
-    \"company_bank_account\": \"esedyghenqcopwvownkba\",
-    \"company_bank_swift\": \"mlnfngefbeilfzsyuxoez\",
     \"invoice_text\": \"consequatur\",
-    \"custom_field_name1\": \"mqeopfuudtdsufvyvddqa\",
-    \"custom_field_name2\": \"mniihfqcoynlazghdtqtq\",
-    \"custom_field_name3\": \"xbajwbpilpmufinllwloa\",
-    \"custom_field_name4\": \"uydlsmsjuryvojcybzvrb\",
-    \"custom_field_name5\": \"yickznkygloigmkwxphlv\",
-    \"invoice_above_table_text\": \"consequatur\"
+    \"invoice_above_table_text\": \"consequatur\",
+    \"is_complex_billing\": true,
+    \"additional_info_1\": \"mqeopfuudtdsufvyvddqa\",
+    \"additional_info_2\": \"mniihfqcoynlazghdtqtq\",
+    \"info_dph\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -1884,9 +1869,10 @@ let body = {
     "items": [
         {
             "description": "Dolorum amet iste laborum eius est dolor.",
-            "quantity": 13,
-            "unit_price": 66,
-            "line_total": 13
+            "unit": "dtdsufvyvddqamniihfqc",
+            "quantity": 51,
+            "unit_price": 85,
+            "line_total": 45
         }
     ],
     "subtotal": 73,
@@ -1900,15 +1886,12 @@ let body = {
     "company_ico": "lvazjrcnfbaqywuxhgjjm",
     "company_dic": "zuxjubqouzswiwxtrkimf",
     "company_ic_dph": "catbxspzmrazsroyjpxmq",
-    "company_bank_account": "esedyghenqcopwvownkba",
-    "company_bank_swift": "mlnfngefbeilfzsyuxoez",
     "invoice_text": "consequatur",
-    "custom_field_name1": "mqeopfuudtdsufvyvddqa",
-    "custom_field_name2": "mniihfqcoynlazghdtqtq",
-    "custom_field_name3": "xbajwbpilpmufinllwloa",
-    "custom_field_name4": "uydlsmsjuryvojcybzvrb",
-    "custom_field_name5": "yickznkygloigmkwxphlv",
-    "invoice_above_table_text": "consequatur"
+    "invoice_above_table_text": "consequatur",
+    "is_complex_billing": true,
+    "additional_info_1": "mqeopfuudtdsufvyvddqa",
+    "additional_info_2": "mniihfqcoynlazghdtqtq",
+    "info_dph": "consequatur"
 };
 
 fetch(url, {
@@ -2079,15 +2062,26 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 255 characters. Example: <code>Dolorum amet iste laborum eius est dolor.</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>unit</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="items.0.unit"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
+               value="dtdsufvyvddqamniihfqc"
+               data-component="body">
+    <br>
+<p>Must not be greater than 50 characters. Example: <code>dtdsufvyvddqamniihfqc</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>quantity</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.quantity"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
-               value="13"
+               value="51"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>13</code></p>
+<p>Must be at least 1. Example: <code>51</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>unit_price</code></b>&nbsp;&nbsp;
@@ -2095,10 +2089,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.unit_price"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
-               value="66"
+               value="85"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>66</code></p>
+<p>Must be at least 0. Example: <code>85</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>line_total</code></b>&nbsp;&nbsp;
@@ -2106,10 +2100,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.line_total"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
-               value="13"
+               value="45"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>13</code></p>
+<p>Must be at least 0. Example: <code>45</code></p>
                     </div>
                                     </details>
         </div>
@@ -2235,28 +2229,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 50 characters. Example: <code>catbxspzmrazsroyjpxmq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>company_bank_account</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="company_bank_account"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
-               value="esedyghenqcopwvownkba"
-               data-component="body">
-    <br>
-<p>Must not be greater than 100 characters. Example: <code>esedyghenqcopwvownkba</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>company_bank_swift</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="company_bank_swift"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
-               value="mlnfngefbeilfzsyuxoez"
-               data-component="body">
-    <br>
-<p>Must not be greater than 50 characters. Example: <code>mlnfngefbeilfzsyuxoez</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>invoice_text</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -2268,66 +2240,65 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name1</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>invoice_above_table_text</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name1"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
+                              name="invoice_above_table_text"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_complex_billing</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="PUTapi-invoices-monthly--invoice_id-" style="display: none">
+            <input type="radio" name="is_complex_billing"
+                   value="true"
+                   data-endpoint="PUTapi-invoices-monthly--invoice_id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-invoices-monthly--invoice_id-" style="display: none">
+            <input type="radio" name="is_complex_billing"
+                   value="false"
+                   data-endpoint="PUTapi-invoices-monthly--invoice_id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>additional_info_1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="additional_info_1"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
                value="mqeopfuudtdsufvyvddqa"
                data-component="body">
     <br>
 <p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name2</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>additional_info_2</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name2"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
+                              name="additional_info_2"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
                value="mniihfqcoynlazghdtqtq"
                data-component="body">
     <br>
 <p>Must not be greater than 255 characters. Example: <code>mniihfqcoynlazghdtqtq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name3</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>info_dph</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name3"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
-               value="xbajwbpilpmufinllwloa"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>xbajwbpilpmufinllwloa</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name4</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="custom_field_name4"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
-               value="uydlsmsjuryvojcybzvrb"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>uydlsmsjuryvojcybzvrb</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name5</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="custom_field_name5"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
-               value="yickznkygloigmkwxphlv"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>yickznkygloigmkwxphlv</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>invoice_above_table_text</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="invoice_above_table_text"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
+                              name="info_dph"                data-endpoint="PUTapi-invoices-monthly--invoice_id-"
                value="consequatur"
                data-component="body">
     <br>
@@ -2691,17 +2662,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"items\": [
         {
             \"description\": \"Dolorum amet iste laborum eius est dolor.\",
-            \"quantity\": 13,
-            \"unit_price\": 66,
-            \"line_total\": 13
+            \"unit\": \"dtdsufvyvddqamniihfqc\",
+            \"quantity\": 51,
+            \"unit_price\": 85,
+            \"line_total\": 45
         }
     ],
     \"subtotal\": 73,
     \"tax\": 45,
     \"total\": 56,
-    \"issued_at\": \"2025-10-12T08:48:16\",
-    \"due_at\": \"2106-11-10\",
-    \"payment_date\": \"2025-10-12T08:48:16\",
+    \"issued_at\": \"2025-10-18T18:21:40\",
+    \"due_at\": \"2106-11-17\",
+    \"delivered_at\": \"2025-10-18T18:21:40\",
+    \"payment_date\": \"2025-10-18T18:21:40\",
     \"billing_year\": 13,
     \"billing_month\": 8,
     \"company_name\": \"eopfuudtdsufvyvddqamn\",
@@ -2712,14 +2685,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"company_ico\": \"lvazjrcnfbaqywuxhgjjm\",
     \"company_dic\": \"zuxjubqouzswiwxtrkimf\",
     \"company_ic_dph\": \"catbxspzmrazsroyjpxmq\",
-    \"company_bank_account\": \"esedyghenqcopwvownkba\",
-    \"company_bank_swift\": \"mlnfngefbeilfzsyuxoez\",
     \"invoice_text\": \"consequatur\",
-    \"custom_field_name1\": \"mqeopfuudtdsufvyvddqa\",
-    \"custom_field_name2\": \"mniihfqcoynlazghdtqtq\",
-    \"custom_field_name3\": \"xbajwbpilpmufinllwloa\",
-    \"custom_field_name4\": \"uydlsmsjuryvojcybzvrb\",
-    \"custom_field_name5\": \"yickznkygloigmkwxphlv\",
+    \"is_complex_billing\": true,
+    \"additional_info_1\": \"mqeopfuudtdsufvyvddqa\",
+    \"additional_info_2\": \"mniihfqcoynlazghdtqtq\",
+    \"info_dph\": \"consequatur\",
     \"invoice_above_table_text\": \"consequatur\"
 }"
 </code></pre></div>
@@ -2743,17 +2713,19 @@ let body = {
     "items": [
         {
             "description": "Dolorum amet iste laborum eius est dolor.",
-            "quantity": 13,
-            "unit_price": 66,
-            "line_total": 13
+            "unit": "dtdsufvyvddqamniihfqc",
+            "quantity": 51,
+            "unit_price": 85,
+            "line_total": 45
         }
     ],
     "subtotal": 73,
     "tax": 45,
     "total": 56,
-    "issued_at": "2025-10-12T08:48:16",
-    "due_at": "2106-11-10",
-    "payment_date": "2025-10-12T08:48:16",
+    "issued_at": "2025-10-18T18:21:40",
+    "due_at": "2106-11-17",
+    "delivered_at": "2025-10-18T18:21:40",
+    "payment_date": "2025-10-18T18:21:40",
     "billing_year": 13,
     "billing_month": 8,
     "company_name": "eopfuudtdsufvyvddqamn",
@@ -2764,14 +2736,11 @@ let body = {
     "company_ico": "lvazjrcnfbaqywuxhgjjm",
     "company_dic": "zuxjubqouzswiwxtrkimf",
     "company_ic_dph": "catbxspzmrazsroyjpxmq",
-    "company_bank_account": "esedyghenqcopwvownkba",
-    "company_bank_swift": "mlnfngefbeilfzsyuxoez",
     "invoice_text": "consequatur",
-    "custom_field_name1": "mqeopfuudtdsufvyvddqa",
-    "custom_field_name2": "mniihfqcoynlazghdtqtq",
-    "custom_field_name3": "xbajwbpilpmufinllwloa",
-    "custom_field_name4": "uydlsmsjuryvojcybzvrb",
-    "custom_field_name5": "yickznkygloigmkwxphlv",
+    "is_complex_billing": true,
+    "additional_info_1": "mqeopfuudtdsufvyvddqa",
+    "additional_info_2": "mniihfqcoynlazghdtqtq",
+    "info_dph": "consequatur",
     "invoice_above_table_text": "consequatur"
 };
 
@@ -2942,15 +2911,26 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 255 characters. Example: <code>Dolorum amet iste laborum eius est dolor.</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>unit</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="items.0.unit"                data-endpoint="POSTapi-invoices-one-time"
+               value="dtdsufvyvddqamniihfqc"
+               data-component="body">
+    <br>
+<p>Must not be greater than 50 characters. Example: <code>dtdsufvyvddqamniihfqc</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>quantity</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.quantity"                data-endpoint="POSTapi-invoices-one-time"
-               value="13"
+               value="51"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>13</code></p>
+<p>Must be at least 1. Example: <code>51</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>unit_price</code></b>&nbsp;&nbsp;
@@ -2958,10 +2938,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.unit_price"                data-endpoint="POSTapi-invoices-one-time"
-               value="66"
+               value="85"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>66</code></p>
+<p>Must be at least 0. Example: <code>85</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>line_total</code></b>&nbsp;&nbsp;
@@ -2969,10 +2949,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.line_total"                data-endpoint="POSTapi-invoices-one-time"
-               value="13"
+               value="45"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>13</code></p>
+<p>Must be at least 0. Example: <code>45</code></p>
                     </div>
                                     </details>
         </div>
@@ -3015,10 +2995,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="issued_at"                data-endpoint="POSTapi-invoices-one-time"
-               value="2025-10-12T08:48:16"
+               value="2025-10-18T18:21:40"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
+<p>Must be a valid date. Example: <code>2025-10-18T18:21:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
@@ -3026,10 +3006,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="due_at"                data-endpoint="POSTapi-invoices-one-time"
-               value="2106-11-10"
+               value="2106-11-17"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-10</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>delivered_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="delivered_at"                data-endpoint="POSTapi-invoices-one-time"
+               value="2025-10-18T18:21:40"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2025-10-18T18:21:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>payment_date</code></b>&nbsp;&nbsp;
@@ -3037,10 +3028,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="payment_date"                data-endpoint="POSTapi-invoices-one-time"
-               value="2025-10-12T08:48:16"
+               value="2025-10-18T18:21:40"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
+<p>Must be a valid date. Example: <code>2025-10-18T18:21:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>billing_year</code></b>&nbsp;&nbsp;
@@ -3153,28 +3144,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 50 characters. Example: <code>catbxspzmrazsroyjpxmq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>company_bank_account</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="company_bank_account"                data-endpoint="POSTapi-invoices-one-time"
-               value="esedyghenqcopwvownkba"
-               data-component="body">
-    <br>
-<p>Must not be greater than 100 characters. Example: <code>esedyghenqcopwvownkba</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>company_bank_swift</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="company_bank_swift"                data-endpoint="POSTapi-invoices-one-time"
-               value="mlnfngefbeilfzsyuxoez"
-               data-component="body">
-    <br>
-<p>Must not be greater than 50 characters. Example: <code>mlnfngefbeilfzsyuxoez</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>invoice_text</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -3186,59 +3155,58 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name1</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>is_complex_billing</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-invoices-one-time" style="display: none">
+            <input type="radio" name="is_complex_billing"
+                   value="true"
+                   data-endpoint="POSTapi-invoices-one-time"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-invoices-one-time" style="display: none">
+            <input type="radio" name="is_complex_billing"
+                   value="false"
+                   data-endpoint="POSTapi-invoices-one-time"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>additional_info_1</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name1"                data-endpoint="POSTapi-invoices-one-time"
+                              name="additional_info_1"                data-endpoint="POSTapi-invoices-one-time"
                value="mqeopfuudtdsufvyvddqa"
                data-component="body">
     <br>
 <p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name2</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>additional_info_2</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name2"                data-endpoint="POSTapi-invoices-one-time"
+                              name="additional_info_2"                data-endpoint="POSTapi-invoices-one-time"
                value="mniihfqcoynlazghdtqtq"
                data-component="body">
     <br>
 <p>Must not be greater than 255 characters. Example: <code>mniihfqcoynlazghdtqtq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name3</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>info_dph</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name3"                data-endpoint="POSTapi-invoices-one-time"
-               value="xbajwbpilpmufinllwloa"
+                              name="info_dph"                data-endpoint="POSTapi-invoices-one-time"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>xbajwbpilpmufinllwloa</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name4</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="custom_field_name4"                data-endpoint="POSTapi-invoices-one-time"
-               value="uydlsmsjuryvojcybzvrb"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>uydlsmsjuryvojcybzvrb</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name5</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="custom_field_name5"                data-endpoint="POSTapi-invoices-one-time"
-               value="yickznkygloigmkwxphlv"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>yickznkygloigmkwxphlv</code></p>
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>invoice_above_table_text</code></b>&nbsp;&nbsp;
@@ -3278,17 +3246,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"items\": [
         {
             \"description\": \"Dolorum amet iste laborum eius est dolor.\",
-            \"quantity\": 13,
-            \"unit_price\": 66,
-            \"line_total\": 13
+            \"unit\": \"dtdsufvyvddqamniihfqc\",
+            \"quantity\": 51,
+            \"unit_price\": 85,
+            \"line_total\": 45
         }
     ],
     \"subtotal\": 73,
     \"tax\": 45,
     \"total\": 56,
-    \"issued_at\": \"2025-10-12T08:48:16\",
-    \"due_at\": \"2106-11-10\",
-    \"payment_date\": \"2025-10-12T08:48:16\",
+    \"issued_at\": \"2025-10-18T18:21:40\",
+    \"due_at\": \"2106-11-17\",
+    \"delivered_at\": \"2025-10-18T18:21:40\",
+    \"payment_date\": \"2025-10-18T18:21:40\",
     \"billing_year\": 13,
     \"billing_month\": 8,
     \"company_name\": \"eopfuudtdsufvyvddqamn\",
@@ -3299,14 +3269,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"company_ico\": \"lvazjrcnfbaqywuxhgjjm\",
     \"company_dic\": \"zuxjubqouzswiwxtrkimf\",
     \"company_ic_dph\": \"catbxspzmrazsroyjpxmq\",
-    \"company_bank_account\": \"esedyghenqcopwvownkba\",
-    \"company_bank_swift\": \"mlnfngefbeilfzsyuxoez\",
     \"invoice_text\": \"consequatur\",
-    \"custom_field_name1\": \"mqeopfuudtdsufvyvddqa\",
-    \"custom_field_name2\": \"mniihfqcoynlazghdtqtq\",
-    \"custom_field_name3\": \"xbajwbpilpmufinllwloa\",
-    \"custom_field_name4\": \"uydlsmsjuryvojcybzvrb\",
-    \"custom_field_name5\": \"yickznkygloigmkwxphlv\",
+    \"is_complex_billing\": true,
+    \"additional_info_1\": \"mqeopfuudtdsufvyvddqa\",
+    \"additional_info_2\": \"mniihfqcoynlazghdtqtq\",
+    \"info_dph\": \"consequatur\",
     \"invoice_above_table_text\": \"consequatur\"
 }"
 </code></pre></div>
@@ -3330,17 +3297,19 @@ let body = {
     "items": [
         {
             "description": "Dolorum amet iste laborum eius est dolor.",
-            "quantity": 13,
-            "unit_price": 66,
-            "line_total": 13
+            "unit": "dtdsufvyvddqamniihfqc",
+            "quantity": 51,
+            "unit_price": 85,
+            "line_total": 45
         }
     ],
     "subtotal": 73,
     "tax": 45,
     "total": 56,
-    "issued_at": "2025-10-12T08:48:16",
-    "due_at": "2106-11-10",
-    "payment_date": "2025-10-12T08:48:16",
+    "issued_at": "2025-10-18T18:21:40",
+    "due_at": "2106-11-17",
+    "delivered_at": "2025-10-18T18:21:40",
+    "payment_date": "2025-10-18T18:21:40",
     "billing_year": 13,
     "billing_month": 8,
     "company_name": "eopfuudtdsufvyvddqamn",
@@ -3351,14 +3320,11 @@ let body = {
     "company_ico": "lvazjrcnfbaqywuxhgjjm",
     "company_dic": "zuxjubqouzswiwxtrkimf",
     "company_ic_dph": "catbxspzmrazsroyjpxmq",
-    "company_bank_account": "esedyghenqcopwvownkba",
-    "company_bank_swift": "mlnfngefbeilfzsyuxoez",
     "invoice_text": "consequatur",
-    "custom_field_name1": "mqeopfuudtdsufvyvddqa",
-    "custom_field_name2": "mniihfqcoynlazghdtqtq",
-    "custom_field_name3": "xbajwbpilpmufinllwloa",
-    "custom_field_name4": "uydlsmsjuryvojcybzvrb",
-    "custom_field_name5": "yickznkygloigmkwxphlv",
+    "is_complex_billing": true,
+    "additional_info_1": "mqeopfuudtdsufvyvddqa",
+    "additional_info_2": "mniihfqcoynlazghdtqtq",
+    "info_dph": "consequatur",
     "invoice_above_table_text": "consequatur"
 };
 
@@ -3552,15 +3518,26 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 255 characters. Example: <code>Dolorum amet iste laborum eius est dolor.</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>unit</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="items.0.unit"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
+               value="dtdsufvyvddqamniihfqc"
+               data-component="body">
+    <br>
+<p>Must not be greater than 50 characters. Example: <code>dtdsufvyvddqamniihfqc</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>quantity</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.quantity"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="13"
+               value="51"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>13</code></p>
+<p>Must be at least 1. Example: <code>51</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>unit_price</code></b>&nbsp;&nbsp;
@@ -3568,10 +3545,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.unit_price"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="66"
+               value="85"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>66</code></p>
+<p>Must be at least 0. Example: <code>85</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>line_total</code></b>&nbsp;&nbsp;
@@ -3579,10 +3556,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="items.0.line_total"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="13"
+               value="45"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>13</code></p>
+<p>Must be at least 0. Example: <code>45</code></p>
                     </div>
                                     </details>
         </div>
@@ -3625,10 +3602,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="issued_at"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="2025-10-12T08:48:16"
+               value="2025-10-18T18:21:40"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
+<p>Must be a valid date. Example: <code>2025-10-18T18:21:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
@@ -3636,10 +3613,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="due_at"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="2106-11-10"
+               value="2106-11-17"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-10</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>delivered_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="delivered_at"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
+               value="2025-10-18T18:21:40"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2025-10-18T18:21:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>payment_date</code></b>&nbsp;&nbsp;
@@ -3647,10 +3635,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="payment_date"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="2025-10-12T08:48:16"
+               value="2025-10-18T18:21:40"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
+<p>Must be a valid date. Example: <code>2025-10-18T18:21:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>billing_year</code></b>&nbsp;&nbsp;
@@ -3763,28 +3751,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 50 characters. Example: <code>catbxspzmrazsroyjpxmq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>company_bank_account</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="company_bank_account"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="esedyghenqcopwvownkba"
-               data-component="body">
-    <br>
-<p>Must not be greater than 100 characters. Example: <code>esedyghenqcopwvownkba</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>company_bank_swift</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="company_bank_swift"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="mlnfngefbeilfzsyuxoez"
-               data-component="body">
-    <br>
-<p>Must not be greater than 50 characters. Example: <code>mlnfngefbeilfzsyuxoez</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>invoice_text</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -3796,59 +3762,58 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name1</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>is_complex_billing</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="PUTapi-invoices-one-time--invoice_id-" style="display: none">
+            <input type="radio" name="is_complex_billing"
+                   value="true"
+                   data-endpoint="PUTapi-invoices-one-time--invoice_id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-invoices-one-time--invoice_id-" style="display: none">
+            <input type="radio" name="is_complex_billing"
+                   value="false"
+                   data-endpoint="PUTapi-invoices-one-time--invoice_id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>additional_info_1</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name1"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
+                              name="additional_info_1"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
                value="mqeopfuudtdsufvyvddqa"
                data-component="body">
     <br>
 <p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name2</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>additional_info_2</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name2"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
+                              name="additional_info_2"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
                value="mniihfqcoynlazghdtqtq"
                data-component="body">
     <br>
 <p>Must not be greater than 255 characters. Example: <code>mniihfqcoynlazghdtqtq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name3</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>info_dph</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="custom_field_name3"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="xbajwbpilpmufinllwloa"
+                              name="info_dph"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>xbajwbpilpmufinllwloa</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name4</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="custom_field_name4"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="uydlsmsjuryvojcybzvrb"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>uydlsmsjuryvojcybzvrb</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>custom_field_name5</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="custom_field_name5"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="yickznkygloigmkwxphlv"
-               data-component="body">
-    <br>
-<p>Must not be greater than 255 characters. Example: <code>yickznkygloigmkwxphlv</code></p>
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>invoice_above_table_text</code></b>&nbsp;&nbsp;
@@ -3885,8 +3850,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"monthly_invoice_ids\": [
         \"consequatur\"
     ],
-    \"issued_at\": \"2025-10-12T08:48:16\",
-    \"due_at\": \"2106-11-10\",
+    \"issued_at\": \"2025-10-18T18:21:40\",
+    \"due_at\": \"2106-11-17\",
+    \"delivered_at\": \"2025-10-18T18:21:40\",
     \"billing_year\": 13,
     \"billing_month\": 8
 }"
@@ -3908,8 +3874,9 @@ let body = {
     "monthly_invoice_ids": [
         "consequatur"
     ],
-    "issued_at": "2025-10-12T08:48:16",
-    "due_at": "2106-11-10",
+    "issued_at": "2025-10-18T18:21:40",
+    "due_at": "2106-11-17",
+    "delivered_at": "2025-10-18T18:21:40",
     "billing_year": 13,
     "billing_month": 8
 };
@@ -4024,10 +3991,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="issued_at"                data-endpoint="POSTapi-invoices-one-time-from-monthly"
-               value="2025-10-12T08:48:16"
+               value="2025-10-18T18:21:40"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-10-12T08:48:16</code></p>
+<p>Must be a valid date. Example: <code>2025-10-18T18:21:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
@@ -4035,10 +4002,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="due_at"                data-endpoint="POSTapi-invoices-one-time-from-monthly"
-               value="2106-11-10"
+               value="2106-11-17"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-10</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>issued_at</code>. Example: <code>2106-11-17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>delivered_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="delivered_at"                data-endpoint="POSTapi-invoices-one-time-from-monthly"
+               value="2025-10-18T18:21:40"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2025-10-18T18:21:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>billing_year</code></b>&nbsp;&nbsp;
@@ -4597,62 +4575,20 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 1,
-            &quot;company_name&quot;: &quot;Heaney, Nicolas and Paucek&quot;,
-            &quot;company_city&quot;: &quot;East Roslynton&quot;,
-            &quot;company_state&quot;: &quot;Uruguay&quot;,
-            &quot;company_address&quot;: &quot;46294 Renner Camp Apt. 916&quot;,
-            &quot;company_zip&quot;: &quot;23706&quot;,
-            &quot;company_ico&quot;: &quot;04163301&quot;,
-            &quot;company_dic&quot;: &quot;3606848855&quot;,
-            &quot;company_ic_dph&quot;: null,
-            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
-            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
-            &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;company_customization&quot;: null,
-            &quot;signatures&quot;: null,
-            &quot;invoice_issuer_name&quot;: null,
-            &quot;invoice_issuer_email&quot;: null,
-            &quot;invoice_issuer_phone&quot;: null
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;company_name&quot;: &quot;Weissnat-Haag&quot;,
-            &quot;company_city&quot;: &quot;Manleyberg&quot;,
-            &quot;company_state&quot;: &quot;Cambodia&quot;,
-            &quot;company_address&quot;: &quot;185 Sanford Inlet Apt. 239&quot;,
-            &quot;company_zip&quot;: &quot;84705&quot;,
-            &quot;company_ico&quot;: &quot;94049129&quot;,
-            &quot;company_dic&quot;: &quot;5581534291&quot;,
-            &quot;company_ic_dph&quot;: null,
-            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
-            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
-            &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;company_customization&quot;: null,
-            &quot;signatures&quot;: null,
-            &quot;invoice_issuer_name&quot;: null,
-            &quot;invoice_issuer_email&quot;: null,
-            &quot;invoice_issuer_phone&quot;: null
-        },
-        {
             &quot;id&quot;: 3,
-            &quot;company_name&quot;: &quot;Mosciski-Muller&quot;,
-            &quot;company_city&quot;: &quot;East Hayden&quot;,
-            &quot;company_state&quot;: &quot;Pakistan&quot;,
-            &quot;company_address&quot;: &quot;30721 Legros Street Apt. 674&quot;,
-            &quot;company_zip&quot;: &quot;04824-5722&quot;,
-            &quot;company_ico&quot;: &quot;05353184&quot;,
-            &quot;company_dic&quot;: &quot;6884911448&quot;,
+            &quot;company_name&quot;: &quot;Dooley Inc&quot;,
+            &quot;company_city&quot;: &quot;East Evelineville&quot;,
+            &quot;company_state&quot;: &quot;Brazil&quot;,
+            &quot;company_address&quot;: &quot;9455 Anderson Roads&quot;,
+            &quot;company_zip&quot;: &quot;12982-1891&quot;,
+            &quot;company_ico&quot;: &quot;68499716&quot;,
+            &quot;company_dic&quot;: &quot;0571104548&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -4661,19 +4597,19 @@ access-control-allow-origin: *
         },
         {
             &quot;id&quot;: 5,
-            &quot;company_name&quot;: &quot;McDermott Group&quot;,
-            &quot;company_city&quot;: &quot;South Sadyetown&quot;,
-            &quot;company_state&quot;: &quot;Sweden&quot;,
-            &quot;company_address&quot;: &quot;79719 Francesco Land Apt. 134&quot;,
-            &quot;company_zip&quot;: &quot;49979-6795&quot;,
-            &quot;company_ico&quot;: &quot;70716146&quot;,
-            &quot;company_dic&quot;: &quot;4947079215&quot;,
+            &quot;company_name&quot;: &quot;Schinner-Feest&quot;,
+            &quot;company_city&quot;: &quot;Alethatown&quot;,
+            &quot;company_state&quot;: &quot;Philippines&quot;,
+            &quot;company_address&quot;: &quot;85010 Jakayla Harbors&quot;,
+            &quot;company_zip&quot;: &quot;29744&quot;,
+            &quot;company_ico&quot;: &quot;15966061&quot;,
+            &quot;company_dic&quot;: &quot;5794828703&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -4681,20 +4617,41 @@ access-control-allow-origin: *
             &quot;invoice_issuer_phone&quot;: null
         },
         {
-            &quot;id&quot;: 7,
-            &quot;company_name&quot;: &quot;Becker and Sons&quot;,
-            &quot;company_city&quot;: &quot;New Gloria&quot;,
-            &quot;company_state&quot;: &quot;Central African Republic&quot;,
-            &quot;company_address&quot;: &quot;258 Providenci Square Apt. 977&quot;,
-            &quot;company_zip&quot;: &quot;19660&quot;,
-            &quot;company_ico&quot;: &quot;31717109&quot;,
-            &quot;company_dic&quot;: &quot;1249415927&quot;,
+            &quot;id&quot;: 6,
+            &quot;company_name&quot;: &quot;Streich Group&quot;,
+            &quot;company_city&quot;: &quot;New Molly&quot;,
+            &quot;company_state&quot;: &quot;French Polynesia&quot;,
+            &quot;company_address&quot;: &quot;4129 Morissette Green Apt. 570&quot;,
+            &quot;company_zip&quot;: &quot;29731-6607&quot;,
+            &quot;company_ico&quot;: &quot;27765924&quot;,
+            &quot;company_dic&quot;: &quot;2688921800&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;company_customization&quot;: null,
+            &quot;signatures&quot;: null,
+            &quot;invoice_issuer_name&quot;: null,
+            &quot;invoice_issuer_email&quot;: null,
+            &quot;invoice_issuer_phone&quot;: null
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;company_name&quot;: &quot;Cartwright Ltd&quot;,
+            &quot;company_city&quot;: &quot;New Ollieton&quot;,
+            &quot;company_state&quot;: &quot;Saint Barthelemy&quot;,
+            &quot;company_address&quot;: &quot;59475 Sauer Squares Suite 141&quot;,
+            &quot;company_zip&quot;: &quot;78690-5194&quot;,
+            &quot;company_ico&quot;: &quot;76865904&quot;,
+            &quot;company_dic&quot;: &quot;0516289283&quot;,
+            &quot;company_ic_dph&quot;: null,
+            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
+            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
+            &quot;company_type&quot;: &quot;main&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -4703,40 +4660,19 @@ access-control-allow-origin: *
         },
         {
             &quot;id&quot;: 9,
-            &quot;company_name&quot;: &quot;Lind Group&quot;,
-            &quot;company_city&quot;: &quot;Marcelfurt&quot;,
-            &quot;company_state&quot;: &quot;Turkey&quot;,
-            &quot;company_address&quot;: &quot;2771 Rau Parkway&quot;,
-            &quot;company_zip&quot;: &quot;93179-1234&quot;,
-            &quot;company_ico&quot;: &quot;45561233&quot;,
-            &quot;company_dic&quot;: &quot;4716717352&quot;,
+            &quot;company_name&quot;: &quot;Kshlerin-Maggio&quot;,
+            &quot;company_city&quot;: &quot;Lake Shyann&quot;,
+            &quot;company_state&quot;: &quot;Brunei Darussalam&quot;,
+            &quot;company_address&quot;: &quot;54994 Douglas Mill Apt. 048&quot;,
+            &quot;company_zip&quot;: &quot;80596-2612&quot;,
+            &quot;company_ico&quot;: &quot;92721424&quot;,
+            &quot;company_dic&quot;: &quot;1850225215&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;company_customization&quot;: null,
-            &quot;signatures&quot;: null,
-            &quot;invoice_issuer_name&quot;: null,
-            &quot;invoice_issuer_email&quot;: null,
-            &quot;invoice_issuer_phone&quot;: null
-        },
-        {
-            &quot;id&quot;: 10,
-            &quot;company_name&quot;: &quot;Kozey-Bins&quot;,
-            &quot;company_city&quot;: &quot;Lulamouth&quot;,
-            &quot;company_state&quot;: &quot;Chad&quot;,
-            &quot;company_address&quot;: &quot;282 Kayli Motorway Apt. 070&quot;,
-            &quot;company_zip&quot;: &quot;98147&quot;,
-            &quot;company_ico&quot;: &quot;74387718&quot;,
-            &quot;company_dic&quot;: &quot;8147847868&quot;,
-            &quot;company_ic_dph&quot;: null,
-            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
-            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
-            &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -4773,8 +4709,8 @@ access-control-allow-origin: *
         ],
         &quot;path&quot;: &quot;http://localhost:8000/api/companies/main&quot;,
         &quot;per_page&quot;: 10,
-        &quot;to&quot;: 7,
-        &quot;total&quot;: 7
+        &quot;to&quot;: 5,
+        &quot;total&quot;: 5
     }
 }</code>
  </pre>
@@ -5217,64 +5153,89 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
+            &quot;id&quot;: 1,
+            &quot;company_name&quot;: &quot;Kuphal PLC&quot;,
+            &quot;company_city&quot;: &quot;Hansentown&quot;,
+            &quot;company_state&quot;: &quot;Gibraltar&quot;,
+            &quot;company_address&quot;: &quot;978 Dion Route&quot;,
+            &quot;company_zip&quot;: &quot;83697&quot;,
+            &quot;company_ico&quot;: &quot;01773889&quot;,
+            &quot;company_dic&quot;: &quot;1147178579&quot;,
+            &quot;company_ic_dph&quot;: null,
+            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
+            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
+            &quot;company_type&quot;: &quot;residential&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;streets&quot;: []
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;company_name&quot;: &quot;Schinner, Bins and Auer&quot;,
+            &quot;company_city&quot;: &quot;New Kassandra&quot;,
+            &quot;company_state&quot;: &quot;El Salvador&quot;,
+            &quot;company_address&quot;: &quot;692 O&#039;Kon Roads&quot;,
+            &quot;company_zip&quot;: &quot;34255-8879&quot;,
+            &quot;company_ico&quot;: &quot;22330277&quot;,
+            &quot;company_dic&quot;: &quot;4829681191&quot;,
+            &quot;company_ic_dph&quot;: null,
+            &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
+            &quot;company_bank_swift&quot;: &quot;VUB&quot;,
+            &quot;company_type&quot;: &quot;residential&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;streets&quot;: []
+        },
+        {
             &quot;id&quot;: 4,
-            &quot;company_name&quot;: &quot;Jast-Kuhic&quot;,
-            &quot;company_city&quot;: &quot;Vickychester&quot;,
-            &quot;company_state&quot;: &quot;French Southern Territories&quot;,
-            &quot;company_address&quot;: &quot;974 Predovic Pines Apt. 822&quot;,
-            &quot;company_zip&quot;: &quot;09363&quot;,
-            &quot;company_ico&quot;: &quot;22869329&quot;,
-            &quot;company_dic&quot;: &quot;2109284488&quot;,
+            &quot;company_name&quot;: &quot;West-Armstrong&quot;,
+            &quot;company_city&quot;: &quot;South Deangelohaven&quot;,
+            &quot;company_state&quot;: &quot;Zambia&quot;,
+            &quot;company_address&quot;: &quot;954 Ferry Mission Apt. 957&quot;,
+            &quot;company_zip&quot;: &quot;91236-0777&quot;,
+            &quot;company_ico&quot;: &quot;48023180&quot;,
+            &quot;company_dic&quot;: &quot;4193080858&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;invoice_issuer_name&quot;: null,
-            &quot;invoice_issuer_email&quot;: null,
-            &quot;invoice_issuer_phone&quot;: null,
-            &quot;signatures&quot;: null
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;streets&quot;: []
         },
         {
-            &quot;id&quot;: 6,
-            &quot;company_name&quot;: &quot;Schaefer-Rath&quot;,
-            &quot;company_city&quot;: &quot;South Robert&quot;,
-            &quot;company_state&quot;: &quot;Namibia&quot;,
-            &quot;company_address&quot;: &quot;30369 Kuvalis Motorway&quot;,
-            &quot;company_zip&quot;: &quot;58656-4451&quot;,
-            &quot;company_ico&quot;: &quot;39389995&quot;,
-            &quot;company_dic&quot;: &quot;5882763620&quot;,
+            &quot;id&quot;: 7,
+            &quot;company_name&quot;: &quot;Bahringer-Senger&quot;,
+            &quot;company_city&quot;: &quot;Kobefort&quot;,
+            &quot;company_state&quot;: &quot;Mexico&quot;,
+            &quot;company_address&quot;: &quot;49263 Kunze Streets&quot;,
+            &quot;company_zip&quot;: &quot;52221&quot;,
+            &quot;company_ico&quot;: &quot;43257542&quot;,
+            &quot;company_dic&quot;: &quot;8698292039&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;invoice_issuer_name&quot;: null,
-            &quot;invoice_issuer_email&quot;: null,
-            &quot;invoice_issuer_phone&quot;: null,
-            &quot;signatures&quot;: null
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;streets&quot;: []
         },
         {
-            &quot;id&quot;: 8,
-            &quot;company_name&quot;: &quot;Lehner, Collier and Bergnaum&quot;,
-            &quot;company_city&quot;: &quot;North Ayana&quot;,
-            &quot;company_state&quot;: &quot;Guernsey&quot;,
-            &quot;company_address&quot;: &quot;3121 O&#039;Hara Via&quot;,
-            &quot;company_zip&quot;: &quot;26830-8769&quot;,
-            &quot;company_ico&quot;: &quot;39099168&quot;,
-            &quot;company_dic&quot;: &quot;1198364875&quot;,
+            &quot;id&quot;: 10,
+            &quot;company_name&quot;: &quot;Hackett Ltd&quot;,
+            &quot;company_city&quot;: &quot;Verlaville&quot;,
+            &quot;company_state&quot;: &quot;Myanmar&quot;,
+            &quot;company_address&quot;: &quot;3501 Alexandra Park Suite 930&quot;,
+            &quot;company_zip&quot;: &quot;52640&quot;,
+            &quot;company_ico&quot;: &quot;92919708&quot;,
+            &quot;company_dic&quot;: &quot;7807790963&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;invoice_issuer_name&quot;: null,
-            &quot;invoice_issuer_email&quot;: null,
-            &quot;invoice_issuer_phone&quot;: null,
-            &quot;signatures&quot;: null
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;streets&quot;: []
         }
     ],
     &quot;links&quot;: {
@@ -5306,8 +5267,8 @@ access-control-allow-origin: *
         ],
         &quot;path&quot;: &quot;http://localhost:8000/api/companies/residential&quot;,
         &quot;per_page&quot;: 10,
-        &quot;to&quot;: 3,
-        &quot;total&quot;: 3
+        &quot;to&quot;: 5,
+        &quot;total&quot;: 5
     }
 }</code>
  </pre>
@@ -5688,6 +5649,172 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
+                    <h2 id="firmy-GETapi-companies-residential--company_id-">Zobrazenie rezidencnej firmy.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-companies-residential--company_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/companies/residential/1" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/companies/residential/1"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-companies-residential--company_id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;company_name&quot;: &quot;Kuphal PLC&quot;,
+        &quot;company_city&quot;: &quot;Hansentown&quot;,
+        &quot;company_state&quot;: &quot;Gibraltar&quot;,
+        &quot;company_address&quot;: &quot;978 Dion Route&quot;,
+        &quot;company_zip&quot;: &quot;83697&quot;,
+        &quot;company_ico&quot;: &quot;01773889&quot;,
+        &quot;company_dic&quot;: &quot;1147178579&quot;,
+        &quot;company_ic_dph&quot;: null,
+        &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
+        &quot;company_bank_swift&quot;: &quot;VUB&quot;,
+        &quot;company_type&quot;: &quot;residential&quot;,
+        &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+        &quot;streets&quot;: []
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-companies-residential--company_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-companies-residential--company_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-companies-residential--company_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-companies-residential--company_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-companies-residential--company_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-companies-residential--company_id-" data-method="GET"
+      data-path="api/companies/residential/{company_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-companies-residential--company_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-companies-residential--company_id-"
+                    onclick="tryItOut('GETapi-companies-residential--company_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-companies-residential--company_id-"
+                    onclick="cancelTryOut('GETapi-companies-residential--company_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-companies-residential--company_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/companies/residential/{company_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-companies-residential--company_id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-companies-residential--company_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-companies-residential--company_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>company_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="company_id"                data-endpoint="GETapi-companies-residential--company_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the company. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                     <h2 id="firmy-GETapi-companies--id-">Zobrazenie firmy.</h2>
 
 <p>
@@ -5742,19 +5869,19 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
         &quot;id&quot;: 1,
-        &quot;company_name&quot;: &quot;Heaney, Nicolas and Paucek&quot;,
-        &quot;company_city&quot;: &quot;East Roslynton&quot;,
-        &quot;company_state&quot;: &quot;Uruguay&quot;,
-        &quot;company_address&quot;: &quot;46294 Renner Camp Apt. 916&quot;,
-        &quot;company_zip&quot;: &quot;23706&quot;,
-        &quot;company_ico&quot;: &quot;04163301&quot;,
-        &quot;company_dic&quot;: &quot;3606848855&quot;,
+        &quot;company_name&quot;: &quot;Kuphal PLC&quot;,
+        &quot;company_city&quot;: &quot;Hansentown&quot;,
+        &quot;company_state&quot;: &quot;Gibraltar&quot;,
+        &quot;company_address&quot;: &quot;978 Dion Route&quot;,
+        &quot;company_zip&quot;: &quot;83697&quot;,
+        &quot;company_ico&quot;: &quot;01773889&quot;,
+        &quot;company_dic&quot;: &quot;1147178579&quot;,
         &quot;company_ic_dph&quot;: null,
         &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
         &quot;company_bank_swift&quot;: &quot;VUB&quot;,
-        &quot;company_type&quot;: &quot;main&quot;,
-        &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
+        &quot;company_type&quot;: &quot;residential&quot;,
+        &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
         &quot;invoice_issuer_name&quot;: null,
         &quot;invoice_issuer_email&quot;: null,
         &quot;invoice_issuer_phone&quot;: null,
@@ -5857,7 +5984,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="firmy-PUTapi-companies--id-">Aktualizácia firmy.</h2>
+                    <h2 id="firmy-POSTapi-companies--id-">Aktualizácia firmy.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -5865,12 +5992,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-PUTapi-companies--id-">
+<span id="example-requests-POSTapi-companies--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
+    <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/companies/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
@@ -5915,57 +6042,61 @@ let body = {
 };
 
 fetch(url, {
-    method: "PUT",
+    method: "POST",
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-PUTapi-companies--id-">
+<span id="example-responses-POSTapi-companies--id-">
 </span>
-<span id="execution-results-PUTapi-companies--id-" hidden>
+<span id="execution-results-POSTapi-companies--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-PUTapi-companies--id-"></span>:
+                id="execution-response-status-POSTapi-companies--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-companies--id-"
+    <pre class="json"><code id="execution-response-content-POSTapi-companies--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-PUTapi-companies--id-" hidden>
+<span id="execution-error-POSTapi-companies--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-companies--id-">
+    <pre><code id="execution-error-message-POSTapi-companies--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-PUTapi-companies--id-" data-method="PUT"
+<form id="form-POSTapi-companies--id-" data-method="POST"
       data-path="api/companies/{id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-companies--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-companies--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-companies--id-"
-                    onclick="tryItOut('PUTapi-companies--id-');">Try it out ⚡
+                    id="btn-tryout-POSTapi-companies--id-"
+                    onclick="tryItOut('POSTapi-companies--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-companies--id-"
-                    onclick="cancelTryOut('PUTapi-companies--id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-companies--id-"
+                    onclick="cancelTryOut('POSTapi-companies--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-companies--id-"
+                    id="btn-executetryout-POSTapi-companies--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
             </button>
             </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/companies/{id}</code></b>
+        </p>
             <p>
             <small class="badge badge-darkblue">PUT</small>
             <b><code>api/companies/{id}</code></b>
@@ -5976,7 +6107,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-companies--id-"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-companies--id-"
                value="Bearer {YOUR_AUTH_KEY}"
                data-component="header">
     <br>
@@ -5987,7 +6118,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-companies--id-"
+                              name="Content-Type"                data-endpoint="POSTapi-companies--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -5998,7 +6129,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-companies--id-"
+                              name="Accept"                data-endpoint="POSTapi-companies--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -6010,7 +6141,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-companies--id-"
+               step="any"               name="id"                data-endpoint="POSTapi-companies--id-"
                value="1"
                data-component="url">
     <br>
@@ -6021,7 +6152,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>ID of the company to update</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="company"                data-endpoint="PUTapi-companies--id-"
+                              name="company"                data-endpoint="POSTapi-companies--id-"
                value="1"
                data-component="url">
     <br>
@@ -6033,7 +6164,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="company_name"                data-endpoint="PUTapi-companies--id-"
+                              name="company_name"                data-endpoint="POSTapi-companies--id-"
                value="vmqeopfuudtdsufvyvddq"
                data-component="body">
     <br>
@@ -6044,7 +6175,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="company_city"                data-endpoint="PUTapi-companies--id-"
+                              name="company_city"                data-endpoint="POSTapi-companies--id-"
                value="amniihfqcoynlazghdtqt"
                data-component="body">
     <br>
@@ -6055,7 +6186,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="company_state"                data-endpoint="PUTapi-companies--id-"
+                              name="company_state"                data-endpoint="POSTapi-companies--id-"
                value="qxbajwbpilpmufinllwlo"
                data-component="body">
     <br>
@@ -6066,7 +6197,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="company_address"                data-endpoint="PUTapi-companies--id-"
+                              name="company_address"                data-endpoint="POSTapi-companies--id-"
                value="auydlsmsjuryvojcybzvr"
                data-component="body">
     <br>
@@ -6077,7 +6208,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="company_zip"                data-endpoint="PUTapi-companies--id-"
+                              name="company_zip"                data-endpoint="POSTapi-companies--id-"
                value="byickznkygloigmkw"
                data-component="body">
     <br>
@@ -6088,7 +6219,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="company_ico"                data-endpoint="PUTapi-companies--id-"
+                              name="company_ico"                data-endpoint="POSTapi-companies--id-"
                value="xphlvazjrcnfbaqywuxhg"
                data-component="body">
     <br>
@@ -6099,7 +6230,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="company_dic"                data-endpoint="PUTapi-companies--id-"
+                              name="company_dic"                data-endpoint="POSTapi-companies--id-"
                value="jjmzuxjubqouzswiwxtrk"
                data-component="body">
     <br>
@@ -6110,7 +6241,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="company_ic_dph"                data-endpoint="PUTapi-companies--id-"
+                              name="company_ic_dph"                data-endpoint="POSTapi-companies--id-"
                value="imfcatbxspzmrazsroyjp"
                data-component="body">
     <br>
@@ -6121,7 +6252,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="company_bank_account"                data-endpoint="PUTapi-companies--id-"
+                              name="company_bank_account"                data-endpoint="POSTapi-companies--id-"
                value="xmqesedyghenqcopwvown"
                data-component="body">
     <br>
@@ -6132,7 +6263,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="company_bank_swift"                data-endpoint="PUTapi-companies--id-"
+                              name="company_bank_swift"                data-endpoint="POSTapi-companies--id-"
                value="kbamlnfngefbeilfzsyux"
                data-component="body">
     <br>
@@ -6295,7 +6426,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "invoice_issuer_name=John Doe"\
     --form "invoice_issuer_email=john.doe@example.com"\
     --form "invoice_issuer_phone=+123456789"\
-    --form "signatures=@/tmp/phpl2C2CG" </code></pre></div>
+    --form "signatures=@/tmp/phpkPb2rZ" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6471,7 +6602,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Signature file of the invoice issuer Example: <code>/tmp/phpl2C2CG</code></p>
+<p>Signature file of the invoice issuer Example: <code>/tmp/phpkPb2rZ</code></p>
         </div>
         </form>
 
@@ -6536,15 +6667,15 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;superadmin&quot;,
             &quot;guard_name&quot;: &quot;api&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;name&quot;: &quot;admin&quot;,
             &quot;guard_name&quot;: &quot;api&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;
         }
     ]
 }</code>
@@ -7863,18 +7994,6 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 2,
-            &quot;email&quot;: &quot;admin@example.com&quot;,
-            &quot;first_name&quot;: &quot;Admin&quot;,
-            &quot;last_name&quot;: &quot;Clovek&quot;,
-            &quot;phone&quot;: &quot;1234567890&quot;,
-            &quot;email_verified_at&quot;: null,
-            &quot;state&quot;: &quot;ACTIVE&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:16.000000Z&quot;,
-            &quot;role&quot;: &quot;admin&quot;
-        },
-        {
             &quot;id&quot;: 1,
             &quot;email&quot;: &quot;superadmin@example.com&quot;,
             &quot;first_name&quot;: &quot;Super&quot;,
@@ -7882,9 +8001,21 @@ access-control-allow-origin: *
             &quot;phone&quot;: &quot;1234567890&quot;,
             &quot;email_verified_at&quot;: null,
             &quot;state&quot;: &quot;ACTIVE&quot;,
-            &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
             &quot;role&quot;: &quot;superadmin&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;email&quot;: &quot;admin@example.com&quot;,
+            &quot;first_name&quot;: &quot;Admin&quot;,
+            &quot;last_name&quot;: &quot;Clovek&quot;,
+            &quot;phone&quot;: &quot;1234567890&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;state&quot;: &quot;ACTIVE&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;role&quot;: &quot;admin&quot;
         }
     ],
     &quot;links&quot;: {
@@ -8340,32 +8471,30 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;email&quot;: &quot;superadmin@example.com&quot;,
-        &quot;first_name&quot;: &quot;Super&quot;,
-        &quot;last_name&quot;: &quot;Admin&quot;,
-        &quot;phone&quot;: &quot;1234567890&quot;,
-        &quot;email_verified_at&quot;: null,
-        &quot;state&quot;: &quot;ACTIVE&quot;,
-        &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
-        &quot;roles&quot;: [
-            {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;superadmin&quot;,
-                &quot;guard_name&quot;: &quot;api&quot;,
-                &quot;created_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-10-12T08:48:15.000000Z&quot;,
-                &quot;pivot&quot;: {
-                    &quot;model_type&quot;: &quot;App\\Models\\User&quot;,
-                    &quot;model_id&quot;: 1,
-                    &quot;role_id&quot;: 1
-                }
+    &quot;id&quot;: 1,
+    &quot;email&quot;: &quot;superadmin@example.com&quot;,
+    &quot;first_name&quot;: &quot;Super&quot;,
+    &quot;last_name&quot;: &quot;Admin&quot;,
+    &quot;phone&quot;: &quot;1234567890&quot;,
+    &quot;email_verified_at&quot;: null,
+    &quot;state&quot;: &quot;ACTIVE&quot;,
+    &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+    &quot;roles&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;superadmin&quot;,
+            &quot;guard_name&quot;: &quot;api&quot;,
+            &quot;created_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-10-18T18:21:40.000000Z&quot;,
+            &quot;pivot&quot;: {
+                &quot;model_type&quot;: &quot;App\\Models\\User&quot;,
+                &quot;model_id&quot;: 1,
+                &quot;role_id&quot;: 1
             }
-        ],
-        &quot;role&quot;: &quot;superadmin&quot;
-    }
+        }
+    ],
+    &quot;role&quot;: &quot;superadmin&quot;
 }</code>
  </pre>
     </span>
