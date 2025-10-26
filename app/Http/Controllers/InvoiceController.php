@@ -136,7 +136,7 @@ class InvoiceController extends Controller
      */
     public function updateMonthly(UpdateMonthlyRequest $request, MonthlyInvoice $invoice): JsonResponse
     {
-        $this->authorize('update',  MonthlyInvoice::class);
+        $this->authorize('update', Invoice::class);
         $data = $request->validated();
         $updatedInvoice = $this->invoiceRepo->updateMonthly($invoice, $data);
         return response()->json(['id' => $updatedInvoice->id], 200);
