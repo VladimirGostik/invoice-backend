@@ -251,7 +251,7 @@ endpoints:
         name: is_complex_billing
         description: ''
         required: true
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -360,7 +360,7 @@ endpoints:
       company_ic_dph: catbxspzmrazsroyjpxmq
       invoice_text: consequatur
       invoice_above_table_text: consequatur
-      is_complex_billing: false
+      is_complex_billing: true
       additional_info_1: mqeopfuudtdsufvyvddqa
       additional_info_2: mniihfqcoynlazghdtqtq
       info_dph: consequatur
@@ -945,7 +945,7 @@ endpoints:
         name: issued_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-10-18T18:21:40'
+        example: '2025-10-26T20:20:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -955,7 +955,7 @@ endpoints:
         name: due_at
         description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
         required: true
-        example: '2106-11-17'
+        example: '2106-11-25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -965,7 +965,7 @@ endpoints:
         name: delivered_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-10-18T18:21:40'
+        example: '2025-10-26T20:20:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -975,7 +975,7 @@ endpoints:
         name: payment_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-10-18T18:21:40'
+        example: '2025-10-26T20:20:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1205,10 +1205,10 @@ endpoints:
       subtotal: 73
       tax: 45
       total: 56
-      issued_at: '2025-10-18T18:21:40'
-      due_at: '2106-11-17'
-      delivered_at: '2025-10-18T18:21:40'
-      payment_date: '2025-10-18T18:21:40'
+      issued_at: '2025-10-26T20:20:45'
+      due_at: '2106-11-25'
+      delivered_at: '2025-10-26T20:20:45'
+      payment_date: '2025-10-26T20:20:45'
       billing_year: 13
       billing_month: 8
       company_name: eopfuudtdsufvyvddqamn
@@ -1375,7 +1375,7 @@ endpoints:
         name: issued_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-10-18T18:21:40'
+        example: '2025-10-26T20:20:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1385,7 +1385,7 @@ endpoints:
         name: due_at
         description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
         required: true
-        example: '2106-11-17'
+        example: '2106-11-25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1395,7 +1395,7 @@ endpoints:
         name: delivered_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-10-18T18:21:40'
+        example: '2025-10-26T20:20:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1405,7 +1405,7 @@ endpoints:
         name: payment_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-10-18T18:21:40'
+        example: '2025-10-26T20:20:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1635,10 +1635,10 @@ endpoints:
       subtotal: 73
       tax: 45
       total: 56
-      issued_at: '2025-10-18T18:21:40'
-      due_at: '2106-11-17'
-      delivered_at: '2025-10-18T18:21:40'
-      payment_date: '2025-10-18T18:21:40'
+      issued_at: '2025-10-26T20:20:45'
+      due_at: '2106-11-25'
+      delivered_at: '2025-10-26T20:20:45'
+      payment_date: '2025-10-26T20:20:45'
       billing_year: 13
       billing_month: 8
       company_name: eopfuudtdsufvyvddqamn
@@ -1703,7 +1703,7 @@ endpoints:
         name: issued_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-10-18T18:21:40'
+        example: '2025-10-26T20:20:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1713,7 +1713,7 @@ endpoints:
         name: due_at
         description: 'Must be a valid date. Must be a date after or equal to <code>issued_at</code>.'
         required: true
-        example: '2106-11-17'
+        example: '2106-11-25'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1723,7 +1723,7 @@ endpoints:
         name: delivered_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-10-18T18:21:40'
+        example: '2025-10-26T20:20:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1752,9 +1752,9 @@ endpoints:
     cleanBodyParameters:
       monthly_invoice_ids:
         - consequatur
-      issued_at: '2025-10-18T18:21:40'
-      due_at: '2106-11-17'
-      delivered_at: '2025-10-18T18:21:40'
+      issued_at: '2025-10-26T20:20:45'
+      due_at: '2106-11-25'
+      delivered_at: '2025-10-26T20:20:45'
       billing_year: 13
       billing_month: 8
     fileParameters: []

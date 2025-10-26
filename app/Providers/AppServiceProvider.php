@@ -6,10 +6,9 @@ use App\Models\Invoice;
 use App\Observers\InvoiceObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-use Knuckles\Camel\Extraction\ExtractedEndpointData;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Knuckles\Scribe\Scribe;
-use Tymon\JWTAuth\Facades\JWTAuth;
-use Symfony\Component\HttpFoundation\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,15 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind('token', function () {
-            $token = request()->bearerToken();
-            if ($token) {
-                $payload = JWTAuth::parseToken()->getPayload($token)->toArray();
-                return (object)$payload;
-            }
-
-            return null;
-        });
+        //
     }
 
     /**
@@ -34,9 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Scribe konfigurácia s bezpečným handling
-        if (class_exists(\Knuckles\Scribe\Scribe::class)) {
-            Scribe::beforeResponseCall(function (Request $request, ExtractedEndpointData $endpointData) {
+        // Scribe callback pre autentifikáciu pri generovaní dokumentácie
+        if ($this->app->runningInConsole() && class_exists(\Knuckles\Scribe\Scribe::class)) {
+            Scribe::beforeResponseCall(function (Request $request) {
+                // ✅ Odstránený typehint pre $endpointData - nechajte PHP aby to samo zistilo
                 try {
                     // Skontrolujeme či existuje tabuľka users a obsahuje dáta
                     if (Schema::hasTable('users')) {
@@ -45,58 +37,17 @@ class AppServiceProvider extends ServiceProvider
                         if ($user) {
                             // Použijeme JWT guard namiesto session guard
                             $token = auth('api')->login($user);
-                            if ($token) {
-                                $request->headers->add(["Authorization" => "Bearer $token"]);
-                            }
-                        } else {
-                            // Ak neexistujú používatelia, vytvoríme dočasného pre dokumentáciu
-                            $this->createTempUserForScribe($request);
+                            $request->headers->set('Authorization', 'Bearer ' . $token);
                         }
                     }
                 } catch (\Exception $e) {
-                    // Ignorujeme chyby pri generovaní dokumentácie
-                    logger()->warning('Scribe authentication failed: ' . $e->getMessage());
+                    // Ticho ignorujeme chyby pri generovaní dokumentácie
+                    logger()->warning('Scribe auth setup failed: ' . $e->getMessage());
                 }
             });
         }
 
         // Observer pre faktúry
         Invoice::observe(InvoiceObserver::class);
-    }
-
-    /**
-     * Vytvorí dočasného používateľa pre Scribe dokumentáciu
-     */
-    private function createTempUserForScribe(Request $request): void
-    {
-        try {
-            // Vytvoríme dočasného používateľa len pre generovanie dokumentácie
-            $tempUser = User::make([
-                'id' => 1,
-                'first_name' => 'Test',
-                'last_name' => 'User',
-                'email' => 'test@example.com',
-                'state' => \App\Enums\UserStateEnum::ACTIVE,
-                'email_verified_at' => now(),
-            ]);
-
-            // Vygenerujeme fake JWT token
-            $payload = [
-                'iss' => config('app.url'),
-                'iat' => time(),
-                'exp' => time() + 3600,
-                'nbf' => time(),
-                'jti' => 'fake-jwt-for-scribe',
-                'sub' => '1',
-                'prv' => 'fake'
-            ];
-
-            $fakeToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiaWF0IjoxNjk1NzEyMDUxLCJleHAiOjE2OTU3MTU2NTEsIm5iZiI6MTY5NTcxMjA1MSwianRpIjoiZmFrZS1qd3QtZm9yLXNjcmliZSIsInN1YiI6IjEiLCJwcnYiOiJmYWtlIn0.fake-signature-for-documentation';
-
-            $request->headers->add(["Authorization" => "Bearer $fakeToken"]);
-
-        } catch (\Exception $e) {
-            logger()->warning('Failed to create temp user for Scribe: ' . $e->getMessage());
-        }
     }
 }

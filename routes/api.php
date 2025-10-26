@@ -21,7 +21,7 @@ Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('reset-password', [AuthController::class, 'resetPassword'])->name('reset-password');
 });
 
-Route::group(['middleware' => ['jwt.auth', 'token.validation']], function () {
+Route::group(['middleware' => ['jwt.auth']], function () {
 
     /*
     |--------------------------------------------------------------------------
