@@ -18,8 +18,28 @@ class InvoiceRepository implements InvoiceRepositoryInterface
     {
         $query = QueryBuilder::for(OneTimeInvoice::class)
             ->OneTime()
-            ->with(['items'])
+            ->with(['items', 'company', 'residentialCompany', 'street'])
             ->allowedFilters([
+                // ✅ Textové polia - partial (case-insensitive LIKE)
+                AllowedFilter::partial('invoice_number'),
+                AllowedFilter::partial('invoice_name'),
+                AllowedFilter::partial('company_name'),
+                AllowedFilter::partial('residential_company_name'),
+                AllowedFilter::partial('status'),
+
+                // ✅ Číselné/ID polia - exact match
+                AllowedFilter::exact('company_id'),
+                AllowedFilter::exact('residential_company_id'),
+                AllowedFilter::exact('street_id'),
+
+                // ✅ Dátumové polia - exact match
+                AllowedFilter::exact('issued_at'),
+                AllowedFilter::exact('due_at'),
+
+                // ✅ Číselné polia - exact match
+                AllowedFilter::exact('total'),
+            ])
+            ->allowedSorts([
                 'invoice_number',
                 'invoice_name',
                 'company_id',
@@ -27,14 +47,6 @@ class InvoiceRepository implements InvoiceRepositoryInterface
                 'residential_company_id',
                 'residential_company_name',
                 'street_id',
-                'status',
-                'issued_at',
-                'due_at',
-                'total',
-            ])->allowedSorts([
-                'invoice_number',
-                'company_id',
-                'residential_company_id',
                 'status',
                 'issued_at',
                 'due_at',
@@ -55,13 +67,20 @@ class InvoiceRepository implements InvoiceRepositoryInterface
             ->Monthly()
             ->with(['items', 'company', 'residentialCompany', 'street'])
             ->allowedFilters([
-                AllowedFilter::scope('invoice_name'),
-                'company_id',
-                'residential_company_id',
-                'street_id',
-                'total',
-            ])->allowedSorts([
-                'invoice_name',
+                // ✅ Textové polia - partial (case-insensitive LIKE)
+                AllowedFilter::partial('invoice_name'),
+                AllowedFilter::partial('company_name'),
+                AllowedFilter::partial('residential_company_name'),
+
+                // ✅ Číselné/ID polia - exact match
+                AllowedFilter::exact('company_id'),
+                AllowedFilter::exact('residential_company_id'),
+                AllowedFilter::exact('street_id'),
+
+                // ✅ Číselné polia - exact match
+                AllowedFilter::exact('total'),
+            ])
+            ->allowedSorts([
                 'invoice_name',
                 'company_id',
                 'company_name',
@@ -69,6 +88,8 @@ class InvoiceRepository implements InvoiceRepositoryInterface
                 'residential_company_name',
                 'street_id',
                 'total',
+                'created_at',
+                'updated_at',
             ]);
 
         // Get pagination
@@ -112,7 +133,7 @@ class InvoiceRepository implements InvoiceRepositoryInterface
                 $invoice->items()->create($item);
             }
 
-            return $invoice;
+            return $invoice->fresh('items');
         });
     }
 
@@ -121,17 +142,29 @@ class InvoiceRepository implements InvoiceRepositoryInterface
         $items = $data['items'] ?? [];
         unset($data['items']);
 
-        $invoice->update($data);
+        return DB::transaction(function () use ($invoice, $data, $items) {
+            $invoice->update($data);
 
-        foreach ($items as $item) {
-            $invoice->items()->update($item);
-        }
+            // ✅ Odstráň staré items a pridaj nové
+            if (!empty($items)) {
+                $invoice->items()->delete();
 
-        return $invoice;
+                foreach ($items as $item) {
+                    $invoice->items()->create($item);
+                }
+            }
+
+            return $invoice->fresh('items');
+        });
     }
 
     public function delete(Invoice $invoice): void
     {
-        $invoice->delete();
+        DB::transaction(function () use ($invoice) {
+            // Najprv vymaž items
+            $invoice->items()->delete();
+            // Potom vymaž faktúru
+            $invoice->delete();
+        });
     }
 }
