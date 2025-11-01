@@ -32,7 +32,7 @@ class MonthlyInvoice extends Invoice
     }
 
     /**
-     * ✅ Create a new factory instance for the model.
+     * ✅ Create a new factory instance for the model
      */
     protected static function newFactory()
     {

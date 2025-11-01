@@ -90,7 +90,7 @@ class InvoiceRepository implements InvoiceRepositoryInterface
                 'updated_at',
             ]);
 
-        // Get pagination
+        // Get pagination...
         $paginate = (int)($filter['per_page'] ?? config('system.paginate'));
 
         return $paginate ?
