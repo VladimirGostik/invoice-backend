@@ -1178,7 +1178,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-invoices-monthly">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1190,7 +1190,190 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 2,
+            &quot;company_name&quot;: &quot;Blanda, Kuvalis and Miller&quot;,
+            &quot;street_id&quot;: 1,
+            &quot;street_name&quot;: &quot;Hlavn&aacute; 9&quot;,
+            &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Hlavn&aacute; 9&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;66740.66&quot;,
+            &quot;total&quot;: &quot;80088.79&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 2,
+            &quot;company_name&quot;: &quot;Blanda, Kuvalis and Miller&quot;,
+            &quot;street_id&quot;: 2,
+            &quot;street_name&quot;: &quot;Hlavn&aacute; 43&quot;,
+            &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Hlavn&aacute; 43&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;44965.72&quot;,
+            &quot;total&quot;: &quot;53958.86&quot;
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 2,
+            &quot;company_name&quot;: &quot;Blanda, Kuvalis and Miller&quot;,
+            &quot;street_id&quot;: 3,
+            &quot;street_name&quot;: &quot;Partiz&aacute;nska 6&quot;,
+            &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Partiz&aacute;nska 6&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;96597.24&quot;,
+            &quot;total&quot;: &quot;115916.69&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 2,
+            &quot;company_name&quot;: &quot;Blanda, Kuvalis and Miller&quot;,
+            &quot;street_id&quot;: 4,
+            &quot;street_name&quot;: &quot;Hlavn&aacute; 27&quot;,
+            &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Hlavn&aacute; 27&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;131347.19&quot;,
+            &quot;total&quot;: &quot;157616.63&quot;
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 2,
+            &quot;company_name&quot;: &quot;Blanda, Kuvalis and Miller&quot;,
+            &quot;street_id&quot;: 1,
+            &quot;street_name&quot;: &quot;Hlavn&aacute; 9&quot;,
+            &quot;invoice_name&quot;: &quot;Komplexn&aacute; fakt&uacute;ra - Hlavn&aacute; 9&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;100342.06&quot;,
+            &quot;total&quot;: &quot;120410.47&quot;
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 2,
+            &quot;company_name&quot;: &quot;Blanda, Kuvalis and Miller&quot;,
+            &quot;street_id&quot;: 2,
+            &quot;street_name&quot;: &quot;Hlavn&aacute; 43&quot;,
+            &quot;invoice_name&quot;: &quot;Komplexn&aacute; fakt&uacute;ra - Hlavn&aacute; 43&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;73145.67&quot;,
+            &quot;total&quot;: &quot;87774.80&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 3,
+            &quot;company_name&quot;: &quot;Collins, Mertz and Lindgren&quot;,
+            &quot;street_id&quot;: 5,
+            &quot;street_name&quot;: &quot;Dlh&aacute; 28&quot;,
+            &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Dlh&aacute; 28&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;77857.16&quot;,
+            &quot;total&quot;: &quot;93428.59&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 3,
+            &quot;company_name&quot;: &quot;Collins, Mertz and Lindgren&quot;,
+            &quot;street_id&quot;: 6,
+            &quot;street_name&quot;: &quot;Nov&aacute; 10&quot;,
+            &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Nov&aacute; 10&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;72436.66&quot;,
+            &quot;total&quot;: &quot;86923.99&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 3,
+            &quot;company_name&quot;: &quot;Collins, Mertz and Lindgren&quot;,
+            &quot;street_id&quot;: 7,
+            &quot;street_name&quot;: &quot;Z&aacute;vadsk&aacute; 11&quot;,
+            &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Z&aacute;vadsk&aacute; 11&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;21946.31&quot;,
+            &quot;total&quot;: &quot;26335.57&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;company_id&quot;: 1,
+            &quot;main_company_name&quot;: &quot;ABC s.r.o.&quot;,
+            &quot;residential_company_id&quot;: 3,
+            &quot;company_name&quot;: &quot;Collins, Mertz and Lindgren&quot;,
+            &quot;street_id&quot;: 5,
+            &quot;street_name&quot;: &quot;Dlh&aacute; 28&quot;,
+            &quot;invoice_name&quot;: &quot;Komplexn&aacute; fakt&uacute;ra - Dlh&aacute; 28&quot;,
+            &quot;type&quot;: &quot;monthly&quot;,
+            &quot;subtotal&quot;: &quot;129584.03&quot;,
+            &quot;total&quot;: &quot;155500.84&quot;
+        }
+    ],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost:8000/api/invoices/monthly?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost:8000/api/invoices/monthly?page=5&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: &quot;http://localhost:8000/api/invoices/monthly?page=2&quot;
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: 1,
+        &quot;last_page&quot;: 5,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/invoices/monthly?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/invoices/monthly?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/invoices/monthly?page=3&quot;,
+                &quot;label&quot;: &quot;3&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/invoices/monthly?page=4&quot;,
+                &quot;label&quot;: &quot;4&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/invoices/monthly?page=5&quot;,
+                &quot;label&quot;: &quot;5&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/invoices/monthly?page=2&quot;,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost:8000/api/invoices/monthly&quot;,
+        &quot;per_page&quot;: 10,
+        &quot;to&quot;: 10,
+        &quot;total&quot;: 49
+    }
 }</code>
  </pre>
     </span>
@@ -1319,7 +1502,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"company_ic_dph\": \"catbxspzmrazsroyjpxmq\",
     \"invoice_text\": \"consequatur\",
     \"invoice_above_table_text\": \"consequatur\",
-    \"is_complex_billing\": false,
+    \"is_complex_billing\": true,
     \"additional_info_1\": \"mqeopfuudtdsufvyvddqa\",
     \"additional_info_2\": \"mniihfqcoynlazghdtqtq\",
     \"info_dph\": \"consequatur\"
@@ -1363,7 +1546,7 @@ let body = {
     "company_ic_dph": "catbxspzmrazsroyjpxmq",
     "invoice_text": "consequatur",
     "invoice_above_table_text": "consequatur",
-    "is_complex_billing": false,
+    "is_complex_billing": true,
     "additional_info_1": "mqeopfuudtdsufvyvddqa",
     "additional_info_2": "mniihfqcoynlazghdtqtq",
     "info_dph": "consequatur"
@@ -1732,7 +1915,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>additional_info_1</code></b>&nbsp;&nbsp;
@@ -1812,7 +1995,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"company_ic_dph\": \"catbxspzmrazsroyjpxmq\",
     \"invoice_text\": \"consequatur\",
     \"invoice_above_table_text\": \"consequatur\",
-    \"is_complex_billing\": false,
+    \"is_complex_billing\": true,
     \"additional_info_1\": \"mqeopfuudtdsufvyvddqa\",
     \"additional_info_2\": \"mniihfqcoynlazghdtqtq\",
     \"info_dph\": \"consequatur\"
@@ -1856,7 +2039,7 @@ let body = {
     "company_ic_dph": "catbxspzmrazsroyjpxmq",
     "invoice_text": "consequatur",
     "invoice_above_table_text": "consequatur",
-    "is_complex_billing": false,
+    "is_complex_billing": true,
     "additional_info_1": "mqeopfuudtdsufvyvddqa",
     "additional_info_2": "mniihfqcoynlazghdtqtq",
     "info_dph": "consequatur"
@@ -2237,7 +2420,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>additional_info_1</code></b>&nbsp;&nbsp;
@@ -2331,65 +2514,65 @@ access-control-allow-origin: *
         &quot;company_id&quot;: 1,
         &quot;residential_company_id&quot;: 2,
         &quot;street_id&quot;: 1,
-        &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Dlh&aacute; 11&quot;,
+        &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Hlavn&aacute; 9&quot;,
         &quot;type&quot;: &quot;monthly&quot;,
         &quot;status&quot;: &quot;draft&quot;,
-        &quot;invoice_text&quot;: &quot;Sed inventore minima rerum id facere ducimus.&quot;,
-        &quot;invoice_above_table_text&quot;: null,
+        &quot;invoice_text&quot;: &quot;Aperiam mollitia laudantium occaecati.&quot;,
+        &quot;invoice_above_table_text&quot;: &quot;Repudiandae mollitia repudiandae fuga quia nesciunt quos. Sed sed illo sunt non. Possimus optio vero necessitatibus quaerat sunt natus qui. Qui odio hic dicta commodi occaecati maxime aut.&quot;,
         &quot;is_complex_billing&quot;: false,
         &quot;additional_info_1&quot;: null,
         &quot;additional_info_2&quot;: null,
         &quot;info_dph&quot;: &quot;Ceny s&uacute; uveden&eacute; s 20% DPH&quot;,
-        &quot;company_name&quot;: &quot;Lind-Bogan&quot;,
-        &quot;company_city&quot;: &quot;Lebsackport&quot;,
-        &quot;company_state&quot;: &quot;Turkmenistan&quot;,
-        &quot;company_address&quot;: &quot;8577 Elsie Island Suite 177&quot;,
-        &quot;company_zip&quot;: &quot;51101&quot;,
-        &quot;company_ico&quot;: &quot;34565661&quot;,
-        &quot;company_dic&quot;: &quot;6539383505&quot;,
+        &quot;company_name&quot;: &quot;Blanda, Kuvalis and Miller&quot;,
+        &quot;company_city&quot;: &quot;Twilabury&quot;,
+        &quot;company_state&quot;: &quot;Lebanon&quot;,
+        &quot;company_address&quot;: &quot;48001 Abel Views Apt. 934&quot;,
+        &quot;company_zip&quot;: &quot;99290&quot;,
+        &quot;company_ico&quot;: &quot;82299553&quot;,
+        &quot;company_dic&quot;: &quot;2431936861&quot;,
         &quot;company_ic_dph&quot;: null,
         &quot;company_bank_account&quot;: null,
         &quot;company_bank_swift&quot;: null,
-        &quot;invoice_issuer_name&quot;: &quot;Dovie Herzog&quot;,
-        &quot;invoice_issuer_email&quot;: &quot;samson35@funk.org&quot;,
-        &quot;invoice_issuer_phone&quot;: &quot;+1-430-237-2547&quot;,
+        &quot;invoice_issuer_name&quot;: &quot;Dr. Ima Leffler&quot;,
+        &quot;invoice_issuer_email&quot;: &quot;smcclure@konopelski.net&quot;,
+        &quot;invoice_issuer_phone&quot;: &quot;667-638-0919&quot;,
         &quot;signatures&quot;: null,
-        &quot;subtotal&quot;: &quot;36310.88&quot;,
-        &quot;tax&quot;: &quot;7262.18&quot;,
-        &quot;total&quot;: &quot;43573.06&quot;,
+        &quot;subtotal&quot;: &quot;66740.66&quot;,
+        &quot;tax&quot;: &quot;13348.13&quot;,
+        &quot;total&quot;: &quot;80088.79&quot;,
         &quot;items&quot;: [
             {
                 &quot;id&quot;: 1,
                 &quot;invoice_id&quot;: 1,
-                &quot;description&quot;: &quot;V&yacute;ťah&quot;,
-                &quot;unit&quot;: &quot;osoba&quot;,
-                &quot;quantity&quot;: 1,
-                &quot;unit_price&quot;: &quot;417.13&quot;,
-                &quot;line_total&quot;: &quot;417.13&quot;,
-                &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                &quot;description&quot;: &quot;Dod&aacute;vka plynu&quot;,
+                &quot;unit&quot;: &quot;ks&quot;,
+                &quot;quantity&quot;: 94,
+                &quot;unit_price&quot;: &quot;355.75&quot;,
+                &quot;line_total&quot;: &quot;33440.50&quot;,
+                &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
             },
             {
                 &quot;id&quot;: 2,
                 &quot;invoice_id&quot;: 1,
-                &quot;description&quot;: &quot;Spr&aacute;va budovy&quot;,
-                &quot;unit&quot;: &quot;byt&quot;,
-                &quot;quantity&quot;: 57,
-                &quot;unit_price&quot;: &quot;499.83&quot;,
-                &quot;line_total&quot;: &quot;28490.31&quot;,
-                &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                &quot;description&quot;: &quot;Poisťovne&quot;,
+                &quot;unit&quot;: &quot;pau&scaron;&aacute;l&quot;,
+                &quot;quantity&quot;: 68,
+                &quot;unit_price&quot;: &quot;452.12&quot;,
+                &quot;line_total&quot;: &quot;30744.16&quot;,
+                &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
             },
             {
                 &quot;id&quot;: 3,
                 &quot;invoice_id&quot;: 1,
-                &quot;description&quot;: &quot;Spr&aacute;va budovy&quot;,
+                &quot;description&quot;: &quot;Spotreba teplej vody&quot;,
                 &quot;unit&quot;: &quot;osoba&quot;,
-                &quot;quantity&quot;: 94,
-                &quot;unit_price&quot;: &quot;78.76&quot;,
-                &quot;line_total&quot;: &quot;7403.44&quot;,
-                &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                &quot;quantity&quot;: 80,
+                &quot;unit_price&quot;: &quot;31.95&quot;,
+                &quot;line_total&quot;: &quot;2556.00&quot;,
+                &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
             }
         ]
     }
@@ -2541,7 +2724,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-invoices-one-time">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -2553,7 +2736,39 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;data&quot;: [],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost:8000/api/invoices/one-time?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost:8000/api/invoices/one-time?page=1&quot;,
+        &quot;prev&quot;: null,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;from&quot;: null,
+        &quot;last_page&quot;: 1,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost:8000/api/invoices/one-time?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: true
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost:8000/api/invoices/one-time&quot;,
+        &quot;per_page&quot;: 10,
+        &quot;to&quot;: null,
+        &quot;total&quot;: 0
+    }
 }</code>
  </pre>
     </span>
@@ -2673,10 +2888,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"subtotal\": 73,
     \"tax\": 45,
     \"total\": 56,
-    \"issued_at\": \"2025-11-01T10:03:02\",
+    \"issued_at\": \"2025-11-01T10:09:08\",
     \"due_at\": \"2106-11-30\",
-    \"delivered_at\": \"2025-11-01T10:03:02\",
-    \"payment_date\": \"2025-11-01T10:03:02\",
+    \"delivered_at\": \"2025-11-01T10:09:08\",
+    \"payment_date\": \"2025-11-01T10:09:08\",
     \"billing_year\": 13,
     \"billing_month\": 8,
     \"company_name\": \"eopfuudtdsufvyvddqamn\",
@@ -2688,7 +2903,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"company_dic\": \"zuxjubqouzswiwxtrkimf\",
     \"company_ic_dph\": \"catbxspzmrazsroyjpxmq\",
     \"invoice_text\": \"consequatur\",
-    \"is_complex_billing\": false,
+    \"is_complex_billing\": true,
     \"additional_info_1\": \"mqeopfuudtdsufvyvddqa\",
     \"additional_info_2\": \"mniihfqcoynlazghdtqtq\",
     \"info_dph\": \"consequatur\",
@@ -2724,10 +2939,10 @@ let body = {
     "subtotal": 73,
     "tax": 45,
     "total": 56,
-    "issued_at": "2025-11-01T10:03:02",
+    "issued_at": "2025-11-01T10:09:08",
     "due_at": "2106-11-30",
-    "delivered_at": "2025-11-01T10:03:02",
-    "payment_date": "2025-11-01T10:03:02",
+    "delivered_at": "2025-11-01T10:09:08",
+    "payment_date": "2025-11-01T10:09:08",
     "billing_year": 13,
     "billing_month": 8,
     "company_name": "eopfuudtdsufvyvddqamn",
@@ -2739,7 +2954,7 @@ let body = {
     "company_dic": "zuxjubqouzswiwxtrkimf",
     "company_ic_dph": "catbxspzmrazsroyjpxmq",
     "invoice_text": "consequatur",
-    "is_complex_billing": false,
+    "is_complex_billing": true,
     "additional_info_1": "mqeopfuudtdsufvyvddqa",
     "additional_info_2": "mniihfqcoynlazghdtqtq",
     "info_dph": "consequatur",
@@ -2997,10 +3212,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="issued_at"                data-endpoint="POSTapi-invoices-one-time"
-               value="2025-11-01T10:03:02"
+               value="2025-11-01T10:09:08"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-01T10:03:02</code></p>
+<p>Must be a valid date. Example: <code>2025-11-01T10:09:08</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
@@ -3019,10 +3234,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="delivered_at"                data-endpoint="POSTapi-invoices-one-time"
-               value="2025-11-01T10:03:02"
+               value="2025-11-01T10:09:08"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-01T10:03:02</code></p>
+<p>Must be a valid date. Example: <code>2025-11-01T10:09:08</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>payment_date</code></b>&nbsp;&nbsp;
@@ -3030,10 +3245,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="payment_date"                data-endpoint="POSTapi-invoices-one-time"
-               value="2025-11-01T10:03:02"
+               value="2025-11-01T10:09:08"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-01T10:03:02</code></p>
+<p>Must be a valid date. Example: <code>2025-11-01T10:09:08</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>billing_year</code></b>&nbsp;&nbsp;
@@ -3175,7 +3390,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>additional_info_1</code></b>&nbsp;&nbsp;
@@ -3257,10 +3472,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"subtotal\": 73,
     \"tax\": 45,
     \"total\": 56,
-    \"issued_at\": \"2025-11-01T10:03:02\",
+    \"issued_at\": \"2025-11-01T10:09:08\",
     \"due_at\": \"2106-11-30\",
-    \"delivered_at\": \"2025-11-01T10:03:02\",
-    \"payment_date\": \"2025-11-01T10:03:02\",
+    \"delivered_at\": \"2025-11-01T10:09:08\",
+    \"payment_date\": \"2025-11-01T10:09:08\",
     \"billing_year\": 13,
     \"billing_month\": 8,
     \"company_name\": \"eopfuudtdsufvyvddqamn\",
@@ -3272,7 +3487,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"company_dic\": \"zuxjubqouzswiwxtrkimf\",
     \"company_ic_dph\": \"catbxspzmrazsroyjpxmq\",
     \"invoice_text\": \"consequatur\",
-    \"is_complex_billing\": false,
+    \"is_complex_billing\": true,
     \"additional_info_1\": \"mqeopfuudtdsufvyvddqa\",
     \"additional_info_2\": \"mniihfqcoynlazghdtqtq\",
     \"info_dph\": \"consequatur\",
@@ -3308,10 +3523,10 @@ let body = {
     "subtotal": 73,
     "tax": 45,
     "total": 56,
-    "issued_at": "2025-11-01T10:03:02",
+    "issued_at": "2025-11-01T10:09:08",
     "due_at": "2106-11-30",
-    "delivered_at": "2025-11-01T10:03:02",
-    "payment_date": "2025-11-01T10:03:02",
+    "delivered_at": "2025-11-01T10:09:08",
+    "payment_date": "2025-11-01T10:09:08",
     "billing_year": 13,
     "billing_month": 8,
     "company_name": "eopfuudtdsufvyvddqamn",
@@ -3323,7 +3538,7 @@ let body = {
     "company_dic": "zuxjubqouzswiwxtrkimf",
     "company_ic_dph": "catbxspzmrazsroyjpxmq",
     "invoice_text": "consequatur",
-    "is_complex_billing": false,
+    "is_complex_billing": true,
     "additional_info_1": "mqeopfuudtdsufvyvddqa",
     "additional_info_2": "mniihfqcoynlazghdtqtq",
     "info_dph": "consequatur",
@@ -3604,10 +3819,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="issued_at"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="2025-11-01T10:03:02"
+               value="2025-11-01T10:09:08"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-01T10:03:02</code></p>
+<p>Must be a valid date. Example: <code>2025-11-01T10:09:08</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
@@ -3626,10 +3841,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="delivered_at"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="2025-11-01T10:03:02"
+               value="2025-11-01T10:09:08"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-01T10:03:02</code></p>
+<p>Must be a valid date. Example: <code>2025-11-01T10:09:08</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>payment_date</code></b>&nbsp;&nbsp;
@@ -3637,10 +3852,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="payment_date"                data-endpoint="PUTapi-invoices-one-time--invoice_id-"
-               value="2025-11-01T10:03:02"
+               value="2025-11-01T10:09:08"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-01T10:03:02</code></p>
+<p>Must be a valid date. Example: <code>2025-11-01T10:09:08</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>billing_year</code></b>&nbsp;&nbsp;
@@ -3782,7 +3997,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>additional_info_1</code></b>&nbsp;&nbsp;
@@ -3852,9 +4067,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"monthly_invoice_ids\": [
         \"consequatur\"
     ],
-    \"issued_at\": \"2025-11-01T10:03:02\",
+    \"issued_at\": \"2025-11-01T10:09:08\",
     \"due_at\": \"2106-11-30\",
-    \"delivered_at\": \"2025-11-01T10:03:02\",
+    \"delivered_at\": \"2025-11-01T10:09:08\",
     \"billing_year\": 13,
     \"billing_month\": 8
 }"
@@ -3876,9 +4091,9 @@ let body = {
     "monthly_invoice_ids": [
         "consequatur"
     ],
-    "issued_at": "2025-11-01T10:03:02",
+    "issued_at": "2025-11-01T10:09:08",
     "due_at": "2106-11-30",
-    "delivered_at": "2025-11-01T10:03:02",
+    "delivered_at": "2025-11-01T10:09:08",
     "billing_year": 13,
     "billing_month": 8
 };
@@ -3993,10 +4208,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="issued_at"                data-endpoint="POSTapi-invoices-one-time-from-monthly"
-               value="2025-11-01T10:03:02"
+               value="2025-11-01T10:09:08"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-01T10:03:02</code></p>
+<p>Must be a valid date. Example: <code>2025-11-01T10:09:08</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>due_at</code></b>&nbsp;&nbsp;
@@ -4015,10 +4230,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="delivered_at"                data-endpoint="POSTapi-invoices-one-time-from-monthly"
-               value="2025-11-01T10:03:02"
+               value="2025-11-01T10:09:08"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-11-01T10:03:02</code></p>
+<p>Must be a valid date. Example: <code>2025-11-01T10:09:08</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>billing_year</code></b>&nbsp;&nbsp;
@@ -4266,75 +4481,75 @@ access-control-allow-origin: *
         &quot;billing_year&quot;: 2025,
         &quot;billing_month&quot;: 11,
         &quot;variable_symbol&quot;: null,
-        &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Dlh&aacute; 11&quot;,
+        &quot;invoice_name&quot;: &quot;Mesačn&aacute; fakt&uacute;ra - Hlavn&aacute; 9&quot;,
         &quot;type&quot;: &quot;monthly&quot;,
         &quot;status&quot;: &quot;draft&quot;,
         &quot;issued_at&quot;: null,
         &quot;due_at&quot;: null,
         &quot;payment_date&quot;: null,
-        &quot;invoice_text&quot;: &quot;Sed inventore minima rerum id facere ducimus.&quot;,
+        &quot;invoice_text&quot;: &quot;Aperiam mollitia laudantium occaecati.&quot;,
         &quot;custom_field_name1&quot;: null,
         &quot;custom_field_name2&quot;: null,
         &quot;custom_field_name3&quot;: null,
         &quot;custom_field_name4&quot;: null,
         &quot;custom_field_name5&quot;: null,
-        &quot;invoice_above_table_text&quot;: null,
+        &quot;invoice_above_table_text&quot;: &quot;Repudiandae mollitia repudiandae fuga quia nesciunt quos. Sed sed illo sunt non. Possimus optio vero necessitatibus quaerat sunt natus qui. Qui odio hic dicta commodi occaecati maxime aut.&quot;,
         &quot;residential_company_name&quot;: null,
-        &quot;company_name&quot;: &quot;Lind-Bogan&quot;,
-        &quot;company_city&quot;: &quot;Lebsackport&quot;,
-        &quot;company_state&quot;: &quot;Turkmenistan&quot;,
-        &quot;company_address&quot;: &quot;8577 Elsie Island Suite 177&quot;,
-        &quot;company_zip&quot;: &quot;51101&quot;,
-        &quot;company_ico&quot;: &quot;34565661&quot;,
-        &quot;company_dic&quot;: &quot;6539383505&quot;,
+        &quot;company_name&quot;: &quot;Blanda, Kuvalis and Miller&quot;,
+        &quot;company_city&quot;: &quot;Twilabury&quot;,
+        &quot;company_state&quot;: &quot;Lebanon&quot;,
+        &quot;company_address&quot;: &quot;48001 Abel Views Apt. 934&quot;,
+        &quot;company_zip&quot;: &quot;99290&quot;,
+        &quot;company_ico&quot;: &quot;82299553&quot;,
+        &quot;company_dic&quot;: &quot;2431936861&quot;,
         &quot;company_ic_dph&quot;: null,
         &quot;company_bank_account&quot;: null,
         &quot;company_bank_swift&quot;: null,
-        &quot;invoice_issuer_name&quot;: &quot;Dovie Herzog&quot;,
-        &quot;invoice_issuer_email&quot;: &quot;samson35@funk.org&quot;,
-        &quot;invoice_issuer_phone&quot;: &quot;+1-430-237-2547&quot;,
+        &quot;invoice_issuer_name&quot;: &quot;Dr. Ima Leffler&quot;,
+        &quot;invoice_issuer_email&quot;: &quot;smcclure@konopelski.net&quot;,
+        &quot;invoice_issuer_phone&quot;: &quot;667-638-0919&quot;,
         &quot;signatures&quot;: null,
-        &quot;subtotal&quot;: &quot;36310.88&quot;,
-        &quot;tax&quot;: &quot;7262.18&quot;,
-        &quot;total&quot;: &quot;43573.06&quot;,
+        &quot;subtotal&quot;: &quot;66740.66&quot;,
+        &quot;tax&quot;: &quot;13348.13&quot;,
+        &quot;total&quot;: &quot;80088.79&quot;,
         &quot;items&quot;: [
             {
                 &quot;id&quot;: 1,
                 &quot;invoice_id&quot;: 1,
-                &quot;description&quot;: &quot;V&yacute;ťah&quot;,
-                &quot;unit&quot;: &quot;osoba&quot;,
-                &quot;quantity&quot;: 1,
-                &quot;unit_price&quot;: &quot;417.13&quot;,
-                &quot;line_total&quot;: &quot;417.13&quot;,
-                &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                &quot;description&quot;: &quot;Dod&aacute;vka plynu&quot;,
+                &quot;unit&quot;: &quot;ks&quot;,
+                &quot;quantity&quot;: 94,
+                &quot;unit_price&quot;: &quot;355.75&quot;,
+                &quot;line_total&quot;: &quot;33440.50&quot;,
+                &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
             },
             {
                 &quot;id&quot;: 2,
                 &quot;invoice_id&quot;: 1,
-                &quot;description&quot;: &quot;Spr&aacute;va budovy&quot;,
-                &quot;unit&quot;: &quot;byt&quot;,
-                &quot;quantity&quot;: 57,
-                &quot;unit_price&quot;: &quot;499.83&quot;,
-                &quot;line_total&quot;: &quot;28490.31&quot;,
-                &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                &quot;description&quot;: &quot;Poisťovne&quot;,
+                &quot;unit&quot;: &quot;pau&scaron;&aacute;l&quot;,
+                &quot;quantity&quot;: 68,
+                &quot;unit_price&quot;: &quot;452.12&quot;,
+                &quot;line_total&quot;: &quot;30744.16&quot;,
+                &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
             },
             {
                 &quot;id&quot;: 3,
                 &quot;invoice_id&quot;: 1,
-                &quot;description&quot;: &quot;Spr&aacute;va budovy&quot;,
+                &quot;description&quot;: &quot;Spotreba teplej vody&quot;,
                 &quot;unit&quot;: &quot;osoba&quot;,
-                &quot;quantity&quot;: 94,
-                &quot;unit_price&quot;: &quot;78.76&quot;,
-                &quot;line_total&quot;: &quot;7403.44&quot;,
-                &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                &quot;quantity&quot;: 80,
+                &quot;unit_price&quot;: &quot;31.95&quot;,
+                &quot;line_total&quot;: &quot;2556.00&quot;,
+                &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
             }
         ],
         &quot;qr_code&quot;: null,
-        &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+        &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
     }
 }</code>
  </pre>
@@ -4667,8 +4882,8 @@ access-control-allow-origin: *
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;SUBASKBX&quot;,
             &quot;company_type&quot;: &quot;main&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;company_customization&quot;: null,
             &quot;signatures&quot;: null,
             &quot;invoice_issuer_name&quot;: null,
@@ -5150,349 +5365,384 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 2,
-            &quot;company_name&quot;: &quot;Lind-Bogan&quot;,
-            &quot;company_city&quot;: &quot;Lebsackport&quot;,
-            &quot;company_state&quot;: &quot;Turkmenistan&quot;,
-            &quot;company_address&quot;: &quot;8577 Elsie Island Suite 177&quot;,
-            &quot;company_zip&quot;: &quot;51101&quot;,
-            &quot;company_ico&quot;: &quot;34565661&quot;,
-            &quot;company_dic&quot;: &quot;6539383505&quot;,
+            &quot;company_name&quot;: &quot;Blanda, Kuvalis and Miller&quot;,
+            &quot;company_city&quot;: &quot;Twilabury&quot;,
+            &quot;company_state&quot;: &quot;Lebanon&quot;,
+            &quot;company_address&quot;: &quot;48001 Abel Views Apt. 934&quot;,
+            &quot;company_zip&quot;: &quot;99290&quot;,
+            &quot;company_ico&quot;: &quot;82299553&quot;,
+            &quot;company_dic&quot;: &quot;2431936861&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
                     &quot;id&quot;: 1,
-                    &quot;street_name&quot;: &quot;Dlh&aacute; 11&quot;,
+                    &quot;street_name&quot;: &quot;Hlavn&aacute; 9&quot;,
                     &quot;company_id&quot;: 2,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
                     &quot;id&quot;: 2,
-                    &quot;street_name&quot;: &quot;Slovinsk&aacute; 6&quot;,
+                    &quot;street_name&quot;: &quot;Hlavn&aacute; 43&quot;,
                     &quot;company_id&quot;: 2,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
                     &quot;id&quot;: 3,
-                    &quot;street_name&quot;: &quot;Nov&aacute; 40&quot;,
+                    &quot;street_name&quot;: &quot;Partiz&aacute;nska 6&quot;,
                     &quot;company_id&quot;: 2,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
+                },
+                {
+                    &quot;id&quot;: 4,
+                    &quot;street_name&quot;: &quot;Hlavn&aacute; 27&quot;,
+                    &quot;company_id&quot;: 2,
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         },
         {
             &quot;id&quot;: 3,
-            &quot;company_name&quot;: &quot;Reinger, Walsh and Abbott&quot;,
-            &quot;company_city&quot;: &quot;Lake Maddison&quot;,
-            &quot;company_state&quot;: &quot;Kyrgyz Republic&quot;,
-            &quot;company_address&quot;: &quot;9011 Joesph Prairie&quot;,
-            &quot;company_zip&quot;: &quot;61339-2487&quot;,
-            &quot;company_ico&quot;: &quot;50706791&quot;,
-            &quot;company_dic&quot;: &quot;1645664692&quot;,
+            &quot;company_name&quot;: &quot;Collins, Mertz and Lindgren&quot;,
+            &quot;company_city&quot;: &quot;Gerlachtown&quot;,
+            &quot;company_state&quot;: &quot;Bolivia&quot;,
+            &quot;company_address&quot;: &quot;452 Windler Falls Apt. 171&quot;,
+            &quot;company_zip&quot;: &quot;57739-2129&quot;,
+            &quot;company_ico&quot;: &quot;63138564&quot;,
+            &quot;company_dic&quot;: &quot;7402721469&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
-                    &quot;id&quot;: 4,
-                    &quot;street_name&quot;: &quot;Z&aacute;vadsk&aacute; 16&quot;,
+                    &quot;id&quot;: 5,
+                    &quot;street_name&quot;: &quot;Dlh&aacute; 28&quot;,
                     &quot;company_id&quot;: 3,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
-                    &quot;id&quot;: 5,
-                    &quot;street_name&quot;: &quot;Bytčick&aacute; 2&quot;,
+                    &quot;id&quot;: 6,
+                    &quot;street_name&quot;: &quot;Nov&aacute; 10&quot;,
                     &quot;company_id&quot;: 3,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
+                },
+                {
+                    &quot;id&quot;: 7,
+                    &quot;street_name&quot;: &quot;Z&aacute;vadsk&aacute; 11&quot;,
+                    &quot;company_id&quot;: 3,
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         },
         {
             &quot;id&quot;: 4,
-            &quot;company_name&quot;: &quot;Price-Bruen&quot;,
-            &quot;company_city&quot;: &quot;Lake Margie&quot;,
-            &quot;company_state&quot;: &quot;Guinea-Bissau&quot;,
-            &quot;company_address&quot;: &quot;8908 Kshlerin Crescent&quot;,
-            &quot;company_zip&quot;: &quot;82733&quot;,
-            &quot;company_ico&quot;: &quot;74749462&quot;,
-            &quot;company_dic&quot;: &quot;3021578990&quot;,
+            &quot;company_name&quot;: &quot;Johns, Herman and Mueller&quot;,
+            &quot;company_city&quot;: &quot;Chandlerstad&quot;,
+            &quot;company_state&quot;: &quot;Pakistan&quot;,
+            &quot;company_address&quot;: &quot;77637 Edison Villages Suite 659&quot;,
+            &quot;company_zip&quot;: &quot;04391-7725&quot;,
+            &quot;company_ico&quot;: &quot;38663058&quot;,
+            &quot;company_dic&quot;: &quot;4186364787&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
-                    &quot;id&quot;: 6,
-                    &quot;street_name&quot;: &quot;Partiz&aacute;nska 5&quot;,
-                    &quot;company_id&quot;: 4,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
-                },
-                {
-                    &quot;id&quot;: 7,
-                    &quot;street_name&quot;: &quot;Veľk&aacute; 10&quot;,
-                    &quot;company_id&quot;: 4,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
-                },
-                {
                     &quot;id&quot;: 8,
-                    &quot;street_name&quot;: &quot;Horn&aacute; 28&quot;,
+                    &quot;street_name&quot;: &quot;&Scaron;kolsk&aacute; 11&quot;,
                     &quot;company_id&quot;: 4,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
+                },
+                {
+                    &quot;id&quot;: 9,
+                    &quot;street_name&quot;: &quot;Dlh&aacute; 19&quot;,
+                    &quot;company_id&quot;: 4,
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         },
         {
             &quot;id&quot;: 5,
-            &quot;company_name&quot;: &quot;Hickle, Douglas and Rogahn&quot;,
-            &quot;company_city&quot;: &quot;South Ardith&quot;,
-            &quot;company_state&quot;: &quot;Brazil&quot;,
-            &quot;company_address&quot;: &quot;35520 Maritza Junctions Suite 510&quot;,
-            &quot;company_zip&quot;: &quot;87399&quot;,
-            &quot;company_ico&quot;: &quot;82648645&quot;,
-            &quot;company_dic&quot;: &quot;2897591777&quot;,
+            &quot;company_name&quot;: &quot;Smitham, O&#039;Hara and Hansen&quot;,
+            &quot;company_city&quot;: &quot;Lake Ludwigton&quot;,
+            &quot;company_state&quot;: &quot;Kenya&quot;,
+            &quot;company_address&quot;: &quot;948 Harber Bridge Suite 746&quot;,
+            &quot;company_zip&quot;: &quot;30012-1990&quot;,
+            &quot;company_ico&quot;: &quot;93125878&quot;,
+            &quot;company_dic&quot;: &quot;4124627176&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
-                    &quot;id&quot;: 9,
-                    &quot;street_name&quot;: &quot;Horn&aacute; 10&quot;,
+                    &quot;id&quot;: 10,
+                    &quot;street_name&quot;: &quot;Kr&aacute;tka 28&quot;,
                     &quot;company_id&quot;: 5,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
-                    &quot;id&quot;: 10,
-                    &quot;street_name&quot;: &quot;Slovinsk&aacute; 9&quot;,
+                    &quot;id&quot;: 11,
+                    &quot;street_name&quot;: &quot;Z&aacute;vadsk&aacute; 15&quot;,
                     &quot;company_id&quot;: 5,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         },
         {
             &quot;id&quot;: 6,
-            &quot;company_name&quot;: &quot;Wuckert, Murphy and Kunze&quot;,
-            &quot;company_city&quot;: &quot;Soniaborough&quot;,
-            &quot;company_state&quot;: &quot;British Indian Ocean Territory (Chagos Archipelago)&quot;,
-            &quot;company_address&quot;: &quot;41920 Turner Fort Apt. 810&quot;,
-            &quot;company_zip&quot;: &quot;60976&quot;,
-            &quot;company_ico&quot;: &quot;63009209&quot;,
-            &quot;company_dic&quot;: &quot;5209204830&quot;,
+            &quot;company_name&quot;: &quot;Lockman-Bailey&quot;,
+            &quot;company_city&quot;: &quot;Port Ofeliaberg&quot;,
+            &quot;company_state&quot;: &quot;Oman&quot;,
+            &quot;company_address&quot;: &quot;62684 Gerald Oval Suite 039&quot;,
+            &quot;company_zip&quot;: &quot;87511&quot;,
+            &quot;company_ico&quot;: &quot;76712558&quot;,
+            &quot;company_dic&quot;: &quot;1219353014&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
-                    &quot;id&quot;: 11,
-                    &quot;street_name&quot;: &quot;Horn&aacute; 31&quot;,
+                    &quot;id&quot;: 12,
+                    &quot;street_name&quot;: &quot;Mierov&aacute; 38&quot;,
                     &quot;company_id&quot;: 6,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
-                    &quot;id&quot;: 12,
-                    &quot;street_name&quot;: &quot;Kr&aacute;tka 5&quot;,
+                    &quot;id&quot;: 13,
+                    &quot;street_name&quot;: &quot;Partiz&aacute;nska 18&quot;,
                     &quot;company_id&quot;: 6,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
+                },
+                {
+                    &quot;id&quot;: 14,
+                    &quot;street_name&quot;: &quot;Nov&aacute; 7&quot;,
+                    &quot;company_id&quot;: 6,
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
+                },
+                {
+                    &quot;id&quot;: 15,
+                    &quot;street_name&quot;: &quot;Mal&aacute; 37&quot;,
+                    &quot;company_id&quot;: 6,
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         },
         {
             &quot;id&quot;: 7,
-            &quot;company_name&quot;: &quot;Dare LLC&quot;,
-            &quot;company_city&quot;: &quot;Lake Darwinport&quot;,
-            &quot;company_state&quot;: &quot;Costa Rica&quot;,
-            &quot;company_address&quot;: &quot;95486 Lia Neck&quot;,
-            &quot;company_zip&quot;: &quot;51037-5642&quot;,
-            &quot;company_ico&quot;: &quot;87210769&quot;,
-            &quot;company_dic&quot;: &quot;9333443757&quot;,
+            &quot;company_name&quot;: &quot;Weimann Group&quot;,
+            &quot;company_city&quot;: &quot;New Allenville&quot;,
+            &quot;company_state&quot;: &quot;Belize&quot;,
+            &quot;company_address&quot;: &quot;651 Lowe Street Apt. 763&quot;,
+            &quot;company_zip&quot;: &quot;35643-8834&quot;,
+            &quot;company_ico&quot;: &quot;71356832&quot;,
+            &quot;company_dic&quot;: &quot;3818795121&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
-                    &quot;id&quot;: 13,
-                    &quot;street_name&quot;: &quot;Veľk&aacute; 27&quot;,
+                    &quot;id&quot;: 16,
+                    &quot;street_name&quot;: &quot;Nov&aacute; 7&quot;,
                     &quot;company_id&quot;: 7,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
-                    &quot;id&quot;: 14,
-                    &quot;street_name&quot;: &quot;Mal&aacute; 1&quot;,
+                    &quot;id&quot;: 17,
+                    &quot;street_name&quot;: &quot;Veľk&aacute; 48&quot;,
                     &quot;company_id&quot;: 7,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
+                },
+                {
+                    &quot;id&quot;: 18,
+                    &quot;street_name&quot;: &quot;Mierov&aacute; 16&quot;,
+                    &quot;company_id&quot;: 7,
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         },
         {
             &quot;id&quot;: 8,
-            &quot;company_name&quot;: &quot;Ritchie-Kris&quot;,
-            &quot;company_city&quot;: &quot;East Madgemouth&quot;,
-            &quot;company_state&quot;: &quot;Syrian Arab Republic&quot;,
-            &quot;company_address&quot;: &quot;487 Isaias Cape Apt. 800&quot;,
-            &quot;company_zip&quot;: &quot;80033-4154&quot;,
-            &quot;company_ico&quot;: &quot;68096530&quot;,
-            &quot;company_dic&quot;: &quot;1027995597&quot;,
+            &quot;company_name&quot;: &quot;Bruen-Adams&quot;,
+            &quot;company_city&quot;: &quot;Caseystad&quot;,
+            &quot;company_state&quot;: &quot;France&quot;,
+            &quot;company_address&quot;: &quot;62166 Gerlach Locks&quot;,
+            &quot;company_zip&quot;: &quot;43354&quot;,
+            &quot;company_ico&quot;: &quot;42159279&quot;,
+            &quot;company_dic&quot;: &quot;2846904585&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
-                    &quot;id&quot;: 15,
-                    &quot;street_name&quot;: &quot;Doln&aacute; 2&quot;,
+                    &quot;id&quot;: 19,
+                    &quot;street_name&quot;: &quot;Doln&aacute; 5&quot;,
                     &quot;company_id&quot;: 8,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
-                    &quot;id&quot;: 16,
-                    &quot;street_name&quot;: &quot;Z&aacute;vadsk&aacute; 2&quot;,
+                    &quot;id&quot;: 20,
+                    &quot;street_name&quot;: &quot;Horn&aacute; 6&quot;,
                     &quot;company_id&quot;: 8,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
-                },
-                {
-                    &quot;id&quot;: 17,
-                    &quot;street_name&quot;: &quot;Bytčick&aacute; 49&quot;,
-                    &quot;company_id&quot;: 8,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
-                },
-                {
-                    &quot;id&quot;: 18,
-                    &quot;street_name&quot;: &quot;Kr&aacute;tka 17&quot;,
-                    &quot;company_id&quot;: 8,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         },
         {
             &quot;id&quot;: 9,
-            &quot;company_name&quot;: &quot;Collier, King and Nader&quot;,
-            &quot;company_city&quot;: &quot;South Stacystad&quot;,
-            &quot;company_state&quot;: &quot;Georgia&quot;,
-            &quot;company_address&quot;: &quot;6496 Crist Manor&quot;,
-            &quot;company_zip&quot;: &quot;47567-8066&quot;,
-            &quot;company_ico&quot;: &quot;53640517&quot;,
-            &quot;company_dic&quot;: &quot;1465882846&quot;,
+            &quot;company_name&quot;: &quot;Goodwin, O&#039;Reilly and Goldner&quot;,
+            &quot;company_city&quot;: &quot;New Gonzalohaven&quot;,
+            &quot;company_state&quot;: &quot;Kyrgyz Republic&quot;,
+            &quot;company_address&quot;: &quot;65164 Tromp Land Suite 584&quot;,
+            &quot;company_zip&quot;: &quot;04022&quot;,
+            &quot;company_ico&quot;: &quot;36745632&quot;,
+            &quot;company_dic&quot;: &quot;2751535458&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
-                    &quot;id&quot;: 19,
-                    &quot;street_name&quot;: &quot;Legion&aacute;rska 34&quot;,
+                    &quot;id&quot;: 21,
+                    &quot;street_name&quot;: &quot;Mal&aacute; 21&quot;,
                     &quot;company_id&quot;: 9,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
-                    &quot;id&quot;: 20,
-                    &quot;street_name&quot;: &quot;Veľk&aacute; 35&quot;,
+                    &quot;id&quot;: 22,
+                    &quot;street_name&quot;: &quot;Bytčick&aacute; 13&quot;,
                     &quot;company_id&quot;: 9,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
+                },
+                {
+                    &quot;id&quot;: 23,
+                    &quot;street_name&quot;: &quot;Mierov&aacute; 26&quot;,
+                    &quot;company_id&quot;: 9,
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
+                },
+                {
+                    &quot;id&quot;: 24,
+                    &quot;street_name&quot;: &quot;Mal&aacute; 33&quot;,
+                    &quot;company_id&quot;: 9,
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         },
         {
             &quot;id&quot;: 10,
-            &quot;company_name&quot;: &quot;Roberts, Wolff and Nolan&quot;,
-            &quot;company_city&quot;: &quot;Jaspermouth&quot;,
-            &quot;company_state&quot;: &quot;Iraq&quot;,
-            &quot;company_address&quot;: &quot;49750 Deborah Square&quot;,
-            &quot;company_zip&quot;: &quot;18810&quot;,
-            &quot;company_ico&quot;: &quot;37240827&quot;,
-            &quot;company_dic&quot;: &quot;3956976037&quot;,
+            &quot;company_name&quot;: &quot;Kirlin Group&quot;,
+            &quot;company_city&quot;: &quot;Port Madge&quot;,
+            &quot;company_state&quot;: &quot;Fiji&quot;,
+            &quot;company_address&quot;: &quot;60749 Ledner Drive&quot;,
+            &quot;company_zip&quot;: &quot;52753-9217&quot;,
+            &quot;company_ico&quot;: &quot;59152352&quot;,
+            &quot;company_dic&quot;: &quot;8175795509&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
-                    &quot;id&quot;: 21,
-                    &quot;street_name&quot;: &quot;Legion&aacute;rska 22&quot;,
+                    &quot;id&quot;: 25,
+                    &quot;street_name&quot;: &quot;&Scaron;kolsk&aacute; 39&quot;,
                     &quot;company_id&quot;: 10,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
-                    &quot;id&quot;: 22,
-                    &quot;street_name&quot;: &quot;Doln&aacute; 21&quot;,
+                    &quot;id&quot;: 26,
+                    &quot;street_name&quot;: &quot;Partiz&aacute;nska 32&quot;,
                     &quot;company_id&quot;: 10,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         },
         {
             &quot;id&quot;: 11,
-            &quot;company_name&quot;: &quot;O&#039;Keefe, Kohler and Paucek&quot;,
-            &quot;company_city&quot;: &quot;Cassinside&quot;,
-            &quot;company_state&quot;: &quot;Hungary&quot;,
-            &quot;company_address&quot;: &quot;62199 Holly River&quot;,
-            &quot;company_zip&quot;: &quot;78197&quot;,
-            &quot;company_ico&quot;: &quot;04094863&quot;,
-            &quot;company_dic&quot;: &quot;2060470876&quot;,
+            &quot;company_name&quot;: &quot;Reichert Inc&quot;,
+            &quot;company_city&quot;: &quot;East Hilbert&quot;,
+            &quot;company_state&quot;: &quot;Palau&quot;,
+            &quot;company_address&quot;: &quot;5009 Eichmann Plaza&quot;,
+            &quot;company_zip&quot;: &quot;90351-5336&quot;,
+            &quot;company_ico&quot;: &quot;54897869&quot;,
+            &quot;company_dic&quot;: &quot;5697782122&quot;,
             &quot;company_ic_dph&quot;: null,
             &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
             &quot;company_bank_swift&quot;: &quot;VUB&quot;,
             &quot;company_type&quot;: &quot;residential&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;streets&quot;: [
                 {
-                    &quot;id&quot;: 23,
-                    &quot;street_name&quot;: &quot;&Scaron;kolsk&aacute; 18&quot;,
+                    &quot;id&quot;: 27,
+                    &quot;street_name&quot;: &quot;Mierov&aacute; 16&quot;,
                     &quot;company_id&quot;: 11,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 },
                 {
-                    &quot;id&quot;: 24,
-                    &quot;street_name&quot;: &quot;Partiz&aacute;nska 32&quot;,
+                    &quot;id&quot;: 28,
+                    &quot;street_name&quot;: &quot;Horn&aacute; 20&quot;,
                     &quot;company_id&quot;: 11,
-                    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
+                },
+                {
+                    &quot;id&quot;: 29,
+                    &quot;street_name&quot;: &quot;Nov&aacute; 9&quot;,
+                    &quot;company_id&quot;: 11,
+                    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
                 }
             ]
         }
@@ -5542,7 +5792,7 @@ access-control-allow-origin: *
         &quot;path&quot;: &quot;http://localhost:8000/api/companies/residential&quot;,
         &quot;per_page&quot;: 10,
         &quot;to&quot;: 10,
-        &quot;total&quot;: 34
+        &quot;total&quot;: 39
     }
 }</code>
  </pre>
@@ -5988,8 +6238,8 @@ access-control-allow-origin: *
         &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
         &quot;company_bank_swift&quot;: &quot;SUBASKBX&quot;,
         &quot;company_type&quot;: &quot;main&quot;,
-        &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
         &quot;streets&quot;: []
     }
 }</code>
@@ -6154,8 +6404,8 @@ access-control-allow-origin: *
         &quot;company_bank_account&quot;: &quot;SK0202000000005047157358&quot;,
         &quot;company_bank_swift&quot;: &quot;SUBASKBX&quot;,
         &quot;company_type&quot;: &quot;main&quot;,
-        &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
         &quot;invoice_issuer_name&quot;: null,
         &quot;invoice_issuer_email&quot;: null,
         &quot;invoice_issuer_phone&quot;: null,
@@ -6700,7 +6950,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "invoice_issuer_name=John Doe"\
     --form "invoice_issuer_email=john.doe@example.com"\
     --form "invoice_issuer_phone=+123456789"\
-    --form "signatures=@/tmp/phpQpaFip" </code></pre></div>
+    --form "signatures=@/tmp/phpMNAaXG" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6876,7 +7126,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Signature file of the invoice issuer Example: <code>/tmp/phpQpaFip</code></p>
+<p>Signature file of the invoice issuer Example: <code>/tmp/phpMNAaXG</code></p>
         </div>
         </form>
 
@@ -6941,15 +7191,15 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;superadmin&quot;,
             &quot;guard_name&quot;: &quot;api&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:00.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:00.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;name&quot;: &quot;admin&quot;,
             &quot;guard_name&quot;: &quot;api&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:00.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:00.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         }
     ]
 }</code>
@@ -7105,108 +7355,108 @@ access-control-allow-origin: *
     &quot;data&quot;: [
         {
             &quot;id&quot;: 1,
-            &quot;street_name&quot;: &quot;Dlh&aacute; 11&quot;,
+            &quot;street_name&quot;: &quot;Hlavn&aacute; 9&quot;,
             &quot;company_id&quot;: 2,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
-            &quot;street_name&quot;: &quot;Slovinsk&aacute; 6&quot;,
+            &quot;street_name&quot;: &quot;Hlavn&aacute; 43&quot;,
             &quot;company_id&quot;: 2,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
-            &quot;street_name&quot;: &quot;Nov&aacute; 40&quot;,
+            &quot;street_name&quot;: &quot;Partiz&aacute;nska 6&quot;,
             &quot;company_id&quot;: 2,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 4,
-            &quot;street_name&quot;: &quot;Z&aacute;vadsk&aacute; 16&quot;,
-            &quot;company_id&quot;: 3,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;street_name&quot;: &quot;Hlavn&aacute; 27&quot;,
+            &quot;company_id&quot;: 2,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 5,
-            &quot;street_name&quot;: &quot;Bytčick&aacute; 2&quot;,
+            &quot;street_name&quot;: &quot;Dlh&aacute; 28&quot;,
             &quot;company_id&quot;: 3,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 6,
-            &quot;street_name&quot;: &quot;Partiz&aacute;nska 5&quot;,
-            &quot;company_id&quot;: 4,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;street_name&quot;: &quot;Nov&aacute; 10&quot;,
+            &quot;company_id&quot;: 3,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 7,
-            &quot;street_name&quot;: &quot;Veľk&aacute; 10&quot;,
-            &quot;company_id&quot;: 4,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;street_name&quot;: &quot;Z&aacute;vadsk&aacute; 11&quot;,
+            &quot;company_id&quot;: 3,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 8,
-            &quot;street_name&quot;: &quot;Horn&aacute; 28&quot;,
+            &quot;street_name&quot;: &quot;&Scaron;kolsk&aacute; 11&quot;,
             &quot;company_id&quot;: 4,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 9,
-            &quot;street_name&quot;: &quot;Horn&aacute; 10&quot;,
-            &quot;company_id&quot;: 5,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;street_name&quot;: &quot;Dlh&aacute; 19&quot;,
+            &quot;company_id&quot;: 4,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 10,
-            &quot;street_name&quot;: &quot;Slovinsk&aacute; 9&quot;,
+            &quot;street_name&quot;: &quot;Kr&aacute;tka 28&quot;,
             &quot;company_id&quot;: 5,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 11,
-            &quot;street_name&quot;: &quot;Horn&aacute; 31&quot;,
-            &quot;company_id&quot;: 6,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;street_name&quot;: &quot;Z&aacute;vadsk&aacute; 15&quot;,
+            &quot;company_id&quot;: 5,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 12,
-            &quot;street_name&quot;: &quot;Kr&aacute;tka 5&quot;,
+            &quot;street_name&quot;: &quot;Mierov&aacute; 38&quot;,
             &quot;company_id&quot;: 6,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 13,
-            &quot;street_name&quot;: &quot;Veľk&aacute; 27&quot;,
-            &quot;company_id&quot;: 7,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;street_name&quot;: &quot;Partiz&aacute;nska 18&quot;,
+            &quot;company_id&quot;: 6,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 14,
-            &quot;street_name&quot;: &quot;Mal&aacute; 1&quot;,
-            &quot;company_id&quot;: 7,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;street_name&quot;: &quot;Nov&aacute; 7&quot;,
+            &quot;company_id&quot;: 6,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 15,
-            &quot;street_name&quot;: &quot;Doln&aacute; 2&quot;,
-            &quot;company_id&quot;: 8,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+            &quot;street_name&quot;: &quot;Mal&aacute; 37&quot;,
+            &quot;company_id&quot;: 6,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
         }
     ],
     &quot;links&quot;: {
@@ -7244,7 +7494,7 @@ access-control-allow-origin: *
         &quot;path&quot;: &quot;http://localhost:8000/api/streets&quot;,
         &quot;per_page&quot;: 15,
         &quot;to&quot;: 15,
-        &quot;total&quot;: 24
+        &quot;total&quot;: 29
     }
 }</code>
  </pre>
@@ -7586,10 +7836,10 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
         &quot;id&quot;: 1,
-        &quot;street_name&quot;: &quot;Dlh&aacute; 11&quot;,
+        &quot;street_name&quot;: &quot;Hlavn&aacute; 9&quot;,
         &quot;company_id&quot;: 2,
-        &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;
+        &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;
     }
 }</code>
  </pre>
@@ -8392,8 +8642,8 @@ access-control-allow-origin: *
             &quot;phone&quot;: &quot;1234567890&quot;,
             &quot;email_verified_at&quot;: null,
             &quot;state&quot;: &quot;ACTIVE&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;role&quot;: &quot;superadmin&quot;
         },
         {
@@ -8404,8 +8654,8 @@ access-control-allow-origin: *
             &quot;phone&quot;: &quot;1234567890&quot;,
             &quot;email_verified_at&quot;: null,
             &quot;state&quot;: &quot;ACTIVE&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;role&quot;: &quot;admin&quot;
         }
     ],
@@ -8869,15 +9119,15 @@ access-control-allow-origin: *
     &quot;phone&quot;: &quot;1234567890&quot;,
     &quot;email_verified_at&quot;: null,
     &quot;state&quot;: &quot;ACTIVE&quot;,
-    &quot;created_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
-    &quot;updated_at&quot;: &quot;2025-11-01T10:03:01.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
     &quot;roles&quot;: [
         {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;superadmin&quot;,
             &quot;guard_name&quot;: &quot;api&quot;,
-            &quot;created_at&quot;: &quot;2025-11-01T10:03:00.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-11-01T10:03:00.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-11-01T10:09:07.000000Z&quot;,
             &quot;pivot&quot;: {
                 &quot;model_type&quot;: &quot;App\\Models\\User&quot;,
                 &quot;model_id&quot;: 1,

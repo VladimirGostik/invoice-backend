@@ -27,11 +27,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        status: 200
+        content: '{"data":[{"id":1,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":2,"company_name":"Blanda, Kuvalis and Miller","street_id":1,"street_name":"Hlavn\u00e1 9","invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Hlavn\u00e1 9","type":"monthly","subtotal":"66740.66","total":"80088.79"},{"id":2,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":2,"company_name":"Blanda, Kuvalis and Miller","street_id":2,"street_name":"Hlavn\u00e1 43","invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Hlavn\u00e1 43","type":"monthly","subtotal":"44965.72","total":"53958.86"},{"id":3,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":2,"company_name":"Blanda, Kuvalis and Miller","street_id":3,"street_name":"Partiz\u00e1nska 6","invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Partiz\u00e1nska 6","type":"monthly","subtotal":"96597.24","total":"115916.69"},{"id":4,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":2,"company_name":"Blanda, Kuvalis and Miller","street_id":4,"street_name":"Hlavn\u00e1 27","invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Hlavn\u00e1 27","type":"monthly","subtotal":"131347.19","total":"157616.63"},{"id":5,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":2,"company_name":"Blanda, Kuvalis and Miller","street_id":1,"street_name":"Hlavn\u00e1 9","invoice_name":"Komplexn\u00e1 fakt\u00fara - Hlavn\u00e1 9","type":"monthly","subtotal":"100342.06","total":"120410.47"},{"id":6,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":2,"company_name":"Blanda, Kuvalis and Miller","street_id":2,"street_name":"Hlavn\u00e1 43","invoice_name":"Komplexn\u00e1 fakt\u00fara - Hlavn\u00e1 43","type":"monthly","subtotal":"73145.67","total":"87774.80"},{"id":7,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":3,"company_name":"Collins, Mertz and Lindgren","street_id":5,"street_name":"Dlh\u00e1 28","invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Dlh\u00e1 28","type":"monthly","subtotal":"77857.16","total":"93428.59"},{"id":8,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":3,"company_name":"Collins, Mertz and Lindgren","street_id":6,"street_name":"Nov\u00e1 10","invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Nov\u00e1 10","type":"monthly","subtotal":"72436.66","total":"86923.99"},{"id":9,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":3,"company_name":"Collins, Mertz and Lindgren","street_id":7,"street_name":"Z\u00e1vadsk\u00e1 11","invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Z\u00e1vadsk\u00e1 11","type":"monthly","subtotal":"21946.31","total":"26335.57"},{"id":10,"company_id":1,"main_company_name":"ABC s.r.o.","residential_company_id":3,"company_name":"Collins, Mertz and Lindgren","street_id":5,"street_name":"Dlh\u00e1 28","invoice_name":"Komplexn\u00e1 fakt\u00fara - Dlh\u00e1 28","type":"monthly","subtotal":"129584.03","total":"155500.84"}],"links":{"first":"http:\/\/localhost:8000\/api\/invoices\/monthly?page=1","last":"http:\/\/localhost:8000\/api\/invoices\/monthly?page=5","prev":null,"next":"http:\/\/localhost:8000\/api\/invoices\/monthly?page=2"},"meta":{"current_page":1,"from":1,"last_page":5,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost:8000\/api\/invoices\/monthly?page=1","label":"1","active":true},{"url":"http:\/\/localhost:8000\/api\/invoices\/monthly?page=2","label":"2","active":false},{"url":"http:\/\/localhost:8000\/api\/invoices\/monthly?page=3","label":"3","active":false},{"url":"http:\/\/localhost:8000\/api\/invoices\/monthly?page=4","label":"4","active":false},{"url":"http:\/\/localhost:8000\/api\/invoices\/monthly?page=5","label":"5","active":false},{"url":"http:\/\/localhost:8000\/api\/invoices\/monthly?page=2","label":"Next &raquo;","active":false}],"path":"http:\/\/localhost:8000\/api\/invoices\/monthly","per_page":10,"to":10,"total":49}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -254,7 +251,7 @@ endpoints:
         name: is_complex_billing
         description: ''
         required: true
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -363,7 +360,7 @@ endpoints:
       company_ic_dph: catbxspzmrazsroyjpxmq
       invoice_text: consequatur
       invoice_above_table_text: consequatur
-      is_complex_billing: false
+      is_complex_billing: true
       additional_info_1: mqeopfuudtdsufvyvddqa
       additional_info_2: mniihfqcoynlazghdtqtq
       info_dph: consequatur
@@ -596,7 +593,7 @@ endpoints:
         name: is_complex_billing
         description: ''
         required: true
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -705,7 +702,7 @@ endpoints:
       company_ic_dph: catbxspzmrazsroyjpxmq
       invoice_text: consequatur
       invoice_above_table_text: consequatur
-      is_complex_billing: false
+      is_complex_billing: true
       additional_info_1: mqeopfuudtdsufvyvddqa
       additional_info_2: mniihfqcoynlazghdtqtq
       info_dph: consequatur
@@ -769,7 +766,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":1,"company_id":1,"residential_company_id":2,"street_id":1,"invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Dlh\u00e1 11","type":"monthly","status":"draft","invoice_text":"Sed inventore minima rerum id facere ducimus.","invoice_above_table_text":null,"is_complex_billing":false,"additional_info_1":null,"additional_info_2":null,"info_dph":"Ceny s\u00fa uveden\u00e9 s 20% DPH","company_name":"Lind-Bogan","company_city":"Lebsackport","company_state":"Turkmenistan","company_address":"8577 Elsie Island Suite 177","company_zip":"51101","company_ico":"34565661","company_dic":"6539383505","company_ic_dph":null,"company_bank_account":null,"company_bank_swift":null,"invoice_issuer_name":"Dovie Herzog","invoice_issuer_email":"samson35@funk.org","invoice_issuer_phone":"+1-430-237-2547","signatures":null,"subtotal":"36310.88","tax":"7262.18","total":"43573.06","items":[{"id":1,"invoice_id":1,"description":"V\u00fd\u0165ah","unit":"osoba","quantity":1,"unit_price":"417.13","line_total":"417.13","created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":2,"invoice_id":1,"description":"Spr\u00e1va budovy","unit":"byt","quantity":57,"unit_price":"499.83","line_total":"28490.31","created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":3,"invoice_id":1,"description":"Spr\u00e1va budovy","unit":"osoba","quantity":94,"unit_price":"78.76","line_total":"7403.44","created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"}]}}'
+        content: '{"data":{"id":1,"company_id":1,"residential_company_id":2,"street_id":1,"invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Hlavn\u00e1 9","type":"monthly","status":"draft","invoice_text":"Aperiam mollitia laudantium occaecati.","invoice_above_table_text":"Repudiandae mollitia repudiandae fuga quia nesciunt quos. Sed sed illo sunt non. Possimus optio vero necessitatibus quaerat sunt natus qui. Qui odio hic dicta commodi occaecati maxime aut.","is_complex_billing":false,"additional_info_1":null,"additional_info_2":null,"info_dph":"Ceny s\u00fa uveden\u00e9 s 20% DPH","company_name":"Blanda, Kuvalis and Miller","company_city":"Twilabury","company_state":"Lebanon","company_address":"48001 Abel Views Apt. 934","company_zip":"99290","company_ico":"82299553","company_dic":"2431936861","company_ic_dph":null,"company_bank_account":null,"company_bank_swift":null,"invoice_issuer_name":"Dr. Ima Leffler","invoice_issuer_email":"smcclure@konopelski.net","invoice_issuer_phone":"667-638-0919","signatures":null,"subtotal":"66740.66","tax":"13348.13","total":"80088.79","items":[{"id":1,"invoice_id":1,"description":"Dod\u00e1vka plynu","unit":"ks","quantity":94,"unit_price":"355.75","line_total":"33440.50","created_at":"2025-11-01T10:09:07.000000Z","updated_at":"2025-11-01T10:09:07.000000Z"},{"id":2,"invoice_id":1,"description":"Pois\u0165ovne","unit":"pau\u0161\u00e1l","quantity":68,"unit_price":"452.12","line_total":"30744.16","created_at":"2025-11-01T10:09:07.000000Z","updated_at":"2025-11-01T10:09:07.000000Z"},{"id":3,"invoice_id":1,"description":"Spotreba teplej vody","unit":"osoba","quantity":80,"unit_price":"31.95","line_total":"2556.00","created_at":"2025-11-01T10:09:07.000000Z","updated_at":"2025-11-01T10:09:07.000000Z"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -811,11 +808,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 500
-        content: |-
-          {
-              "message": "Server Error"
-          }
+        status: 200
+        content: '{"data":[],"links":{"first":"http:\/\/localhost:8000\/api\/invoices\/one-time?page=1","last":"http:\/\/localhost:8000\/api\/invoices\/one-time?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost:8000\/api\/invoices\/one-time?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost:8000\/api\/invoices\/one-time","per_page":10,"to":null,"total":0}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -948,7 +942,7 @@ endpoints:
         name: issued_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-11-01T10:03:02'
+        example: '2025-11-01T10:09:08'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -968,7 +962,7 @@ endpoints:
         name: delivered_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-01T10:03:02'
+        example: '2025-11-01T10:09:08'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -978,7 +972,7 @@ endpoints:
         name: payment_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-01T10:03:02'
+        example: '2025-11-01T10:09:08'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1098,7 +1092,7 @@ endpoints:
         name: is_complex_billing
         description: ''
         required: true
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1208,10 +1202,10 @@ endpoints:
       subtotal: 73
       tax: 45
       total: 56
-      issued_at: '2025-11-01T10:03:02'
+      issued_at: '2025-11-01T10:09:08'
       due_at: '2106-11-30'
-      delivered_at: '2025-11-01T10:03:02'
-      payment_date: '2025-11-01T10:03:02'
+      delivered_at: '2025-11-01T10:09:08'
+      payment_date: '2025-11-01T10:09:08'
       billing_year: 13
       billing_month: 8
       company_name: eopfuudtdsufvyvddqamn
@@ -1223,7 +1217,7 @@ endpoints:
       company_dic: zuxjubqouzswiwxtrkimf
       company_ic_dph: catbxspzmrazsroyjpxmq
       invoice_text: consequatur
-      is_complex_billing: false
+      is_complex_billing: true
       additional_info_1: mqeopfuudtdsufvyvddqa
       additional_info_2: mniihfqcoynlazghdtqtq
       info_dph: consequatur
@@ -1378,7 +1372,7 @@ endpoints:
         name: issued_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-11-01T10:03:02'
+        example: '2025-11-01T10:09:08'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1398,7 +1392,7 @@ endpoints:
         name: delivered_at
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-01T10:03:02'
+        example: '2025-11-01T10:09:08'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1408,7 +1402,7 @@ endpoints:
         name: payment_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-11-01T10:03:02'
+        example: '2025-11-01T10:09:08'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1528,7 +1522,7 @@ endpoints:
         name: is_complex_billing
         description: ''
         required: true
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1638,10 +1632,10 @@ endpoints:
       subtotal: 73
       tax: 45
       total: 56
-      issued_at: '2025-11-01T10:03:02'
+      issued_at: '2025-11-01T10:09:08'
       due_at: '2106-11-30'
-      delivered_at: '2025-11-01T10:03:02'
-      payment_date: '2025-11-01T10:03:02'
+      delivered_at: '2025-11-01T10:09:08'
+      payment_date: '2025-11-01T10:09:08'
       billing_year: 13
       billing_month: 8
       company_name: eopfuudtdsufvyvddqamn
@@ -1653,7 +1647,7 @@ endpoints:
       company_dic: zuxjubqouzswiwxtrkimf
       company_ic_dph: catbxspzmrazsroyjpxmq
       invoice_text: consequatur
-      is_complex_billing: false
+      is_complex_billing: true
       additional_info_1: mqeopfuudtdsufvyvddqa
       additional_info_2: mniihfqcoynlazghdtqtq
       info_dph: consequatur
@@ -1706,7 +1700,7 @@ endpoints:
         name: issued_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-11-01T10:03:02'
+        example: '2025-11-01T10:09:08'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1726,7 +1720,7 @@ endpoints:
         name: delivered_at
         description: 'Must be a valid date.'
         required: true
-        example: '2025-11-01T10:03:02'
+        example: '2025-11-01T10:09:08'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1755,9 +1749,9 @@ endpoints:
     cleanBodyParameters:
       monthly_invoice_ids:
         - consequatur
-      issued_at: '2025-11-01T10:03:02'
+      issued_at: '2025-11-01T10:09:08'
       due_at: '2106-11-30'
-      delivered_at: '2025-11-01T10:03:02'
+      delivered_at: '2025-11-01T10:09:08'
       billing_year: 13
       billing_month: 8
     fileParameters: []
@@ -1888,7 +1882,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":1,"company_id":1,"residential_company_id":2,"street_id":1,"invoice_number":null,"billing_year":2025,"billing_month":11,"variable_symbol":null,"invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Dlh\u00e1 11","type":"monthly","status":"draft","issued_at":null,"due_at":null,"payment_date":null,"invoice_text":"Sed inventore minima rerum id facere ducimus.","custom_field_name1":null,"custom_field_name2":null,"custom_field_name3":null,"custom_field_name4":null,"custom_field_name5":null,"invoice_above_table_text":null,"residential_company_name":null,"company_name":"Lind-Bogan","company_city":"Lebsackport","company_state":"Turkmenistan","company_address":"8577 Elsie Island Suite 177","company_zip":"51101","company_ico":"34565661","company_dic":"6539383505","company_ic_dph":null,"company_bank_account":null,"company_bank_swift":null,"invoice_issuer_name":"Dovie Herzog","invoice_issuer_email":"samson35@funk.org","invoice_issuer_phone":"+1-430-237-2547","signatures":null,"subtotal":"36310.88","tax":"7262.18","total":"43573.06","items":[{"id":1,"invoice_id":1,"description":"V\u00fd\u0165ah","unit":"osoba","quantity":1,"unit_price":"417.13","line_total":"417.13","created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":2,"invoice_id":1,"description":"Spr\u00e1va budovy","unit":"byt","quantity":57,"unit_price":"499.83","line_total":"28490.31","created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":3,"invoice_id":1,"description":"Spr\u00e1va budovy","unit":"osoba","quantity":94,"unit_price":"78.76","line_total":"7403.44","created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"}],"qr_code":null,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"}}'
+        content: '{"data":{"id":1,"company_id":1,"residential_company_id":2,"street_id":1,"invoice_number":null,"billing_year":2025,"billing_month":11,"variable_symbol":null,"invoice_name":"Mesa\u010dn\u00e1 fakt\u00fara - Hlavn\u00e1 9","type":"monthly","status":"draft","issued_at":null,"due_at":null,"payment_date":null,"invoice_text":"Aperiam mollitia laudantium occaecati.","custom_field_name1":null,"custom_field_name2":null,"custom_field_name3":null,"custom_field_name4":null,"custom_field_name5":null,"invoice_above_table_text":"Repudiandae mollitia repudiandae fuga quia nesciunt quos. Sed sed illo sunt non. Possimus optio vero necessitatibus quaerat sunt natus qui. Qui odio hic dicta commodi occaecati maxime aut.","residential_company_name":null,"company_name":"Blanda, Kuvalis and Miller","company_city":"Twilabury","company_state":"Lebanon","company_address":"48001 Abel Views Apt. 934","company_zip":"99290","company_ico":"82299553","company_dic":"2431936861","company_ic_dph":null,"company_bank_account":null,"company_bank_swift":null,"invoice_issuer_name":"Dr. Ima Leffler","invoice_issuer_email":"smcclure@konopelski.net","invoice_issuer_phone":"667-638-0919","signatures":null,"subtotal":"66740.66","tax":"13348.13","total":"80088.79","items":[{"id":1,"invoice_id":1,"description":"Dod\u00e1vka plynu","unit":"ks","quantity":94,"unit_price":"355.75","line_total":"33440.50","created_at":"2025-11-01T10:09:07.000000Z","updated_at":"2025-11-01T10:09:07.000000Z"},{"id":2,"invoice_id":1,"description":"Pois\u0165ovne","unit":"pau\u0161\u00e1l","quantity":68,"unit_price":"452.12","line_total":"30744.16","created_at":"2025-11-01T10:09:07.000000Z","updated_at":"2025-11-01T10:09:07.000000Z"},{"id":3,"invoice_id":1,"description":"Spotreba teplej vody","unit":"osoba","quantity":80,"unit_price":"31.95","line_total":"2556.00","created_at":"2025-11-01T10:09:07.000000Z","updated_at":"2025-11-01T10:09:07.000000Z"}],"qr_code":null,"created_at":"2025-11-01T10:09:07.000000Z","updated_at":"2025-11-01T10:09:07.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

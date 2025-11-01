@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        config(['scribe.enabled' => false]);
+
         $this->call([
             PermissionSeeder::class,      // Používatelia a práva
             UserSeeder::class,             // Používatelia
