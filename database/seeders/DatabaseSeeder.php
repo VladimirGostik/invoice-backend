@@ -11,15 +11,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        config(['scribe.enabled' => false]);
+        // ✅ Spúšťaj seedery jeden po druhom s výpisom
+        $this->command->info('1️⃣ Seeding permissions...');
+        $this->call(PermissionSeeder::class);
 
-        $this->call([
-            PermissionSeeder::class,      // Používatelia a práva
-            UserSeeder::class,             // Používatelia
-            CompanySeeder::class,          // Spoločnosti (MAIN + RESIDENTIAL)
-            StreetSeeder::class,           // Ulice pre bytové spoločnosti
-            MonthlyInvoiceSeeder::class,   // Mesačné faktúry
-            //OneTimeInvoiceSeeder::class,   // ✅ Jednorazové faktúry (voliteľné)
-        ]);
+        $this->command->info('2️⃣ Seeding users...');
+        $this->call(UserSeeder::class);
+
+        $this->command->info('3️⃣ Seeding companies...');
+        $this->call(CompanySeeder::class);
+
+        $this->command->info('4️⃣ Seeding streets...');
+        $this->call(StreetSeeder::class);
+
+        $this->command->info('5️⃣ Seeding monthly invoices...');
+        $this->call(MonthlyInvoiceSeeder::class);
+
+        // $this->command->info('6️⃣ Seeding one-time invoices...');
+        // $this->call(OneTimeInvoiceSeeder::class);
+
+        $this->command->info('✅ Database seeding completed successfully!');
     }
 }
