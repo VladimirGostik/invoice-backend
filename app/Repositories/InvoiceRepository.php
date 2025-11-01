@@ -17,7 +17,6 @@ class InvoiceRepository implements InvoiceRepositoryInterface
     public function searchOneTime(array $filter): Collection|LengthAwarePaginator|array
     {
         $query = QueryBuilder::for(OneTimeInvoice::class)
-            ->OneTime()
             ->with(['items', 'company', 'residentialCompany', 'street'])
             ->allowedFilters([
                 // ✅ Textové polia - partial (case-insensitive LIKE)
@@ -64,7 +63,6 @@ class InvoiceRepository implements InvoiceRepositoryInterface
     public function searchMonthly(array $filter): Collection|LengthAwarePaginator|array
     {
         $query = QueryBuilder::for(MonthlyInvoice::class)
-            ->Monthly()
             ->with(['items', 'company', 'residentialCompany', 'street'])
             ->allowedFilters([
                 // ✅ Textové polia - partial (case-insensitive LIKE)

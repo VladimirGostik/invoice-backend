@@ -15,7 +15,7 @@ class MonthlyInvoice extends Invoice
     protected $table = 'invoices';
 
     protected $attributes = [
-        'type' => 'monthly',
+        'type' => InvoiceTypeEnum::MONTHLY->value,
     ];
 
     public static function boot()
