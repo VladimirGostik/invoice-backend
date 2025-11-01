@@ -23,7 +23,6 @@ class InvoiceRepository implements InvoiceRepositoryInterface
                 AllowedFilter::partial('invoice_number'),
                 AllowedFilter::partial('invoice_name'),
                 AllowedFilter::partial('company_name'),
-                AllowedFilter::partial('residential_company_name'),
                 AllowedFilter::partial('status'),
 
                 // ✅ Číselné/ID polia - exact match
@@ -68,7 +67,6 @@ class InvoiceRepository implements InvoiceRepositoryInterface
                 // ✅ Textové polia - partial (case-insensitive LIKE)
                 AllowedFilter::partial('invoice_name'),
                 AllowedFilter::partial('company_name'),
-                AllowedFilter::partial('residential_company_name'),
 
                 // ✅ Číselné/ID polia - exact match
                 AllowedFilter::exact('company_id'),
@@ -83,7 +81,6 @@ class InvoiceRepository implements InvoiceRepositoryInterface
                 'company_id',
                 'company_name',
                 'residential_company_id',
-                'residential_company_name',
                 'street_id',
                 'total',
                 'created_at',
