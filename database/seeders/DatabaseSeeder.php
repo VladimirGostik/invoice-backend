@@ -2,9 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,8 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(PermissionSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(CompanySeeder::class);
+        $this->call([
+            PermissionSeeder::class,      // Používatelia a práva
+            UserSeeder::class,             // Používatelia
+            CompanySeeder::class,          // Spoločnosti (MAIN + RESIDENTIAL)
+            StreetSeeder::class,           // Ulice pre bytové spoločnosti
+            MonthlyInvoiceSeeder::class,   // Mesačné faktúry
+            //OneTimeInvoiceSeeder::class,   // ✅ Jednorazové faktúry (voliteľné)
+        ]);
     }
 }

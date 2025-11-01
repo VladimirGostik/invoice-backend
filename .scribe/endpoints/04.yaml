@@ -72,7 +72,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[],"links":{"first":"http:\/\/localhost:8000\/api\/streets?page=1","last":"http:\/\/localhost:8000\/api\/streets?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost:8000\/api\/streets?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost:8000\/api\/streets","per_page":15,"to":null,"total":0}}'
+        content: '{"data":[{"id":1,"street_name":"Dlh\u00e1 11","company_id":2,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":2,"street_name":"Slovinsk\u00e1 6","company_id":2,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":3,"street_name":"Nov\u00e1 40","company_id":2,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":4,"street_name":"Z\u00e1vadsk\u00e1 16","company_id":3,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":5,"street_name":"Byt\u010dick\u00e1 2","company_id":3,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":6,"street_name":"Partiz\u00e1nska 5","company_id":4,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":7,"street_name":"Ve\u013ek\u00e1 10","company_id":4,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":8,"street_name":"Horn\u00e1 28","company_id":4,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":9,"street_name":"Horn\u00e1 10","company_id":5,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":10,"street_name":"Slovinsk\u00e1 9","company_id":5,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":11,"street_name":"Horn\u00e1 31","company_id":6,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":12,"street_name":"Kr\u00e1tka 5","company_id":6,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":13,"street_name":"Ve\u013ek\u00e1 27","company_id":7,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":14,"street_name":"Mal\u00e1 1","company_id":7,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"},{"id":15,"street_name":"Doln\u00e1 2","company_id":8,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"}],"links":{"first":"http:\/\/localhost:8000\/api\/streets?page=1","last":"http:\/\/localhost:8000\/api\/streets?page=2","prev":null,"next":"http:\/\/localhost:8000\/api\/streets?page=2"},"meta":{"current_page":1,"from":1,"last_page":2,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost:8000\/api\/streets?page=1","label":"1","active":true},{"url":"http:\/\/localhost:8000\/api\/streets?page=2","label":"2","active":false},{"url":"http:\/\/localhost:8000\/api\/streets?page=2","label":"Next &raquo;","active":false}],"path":"http:\/\/localhost:8000\/api\/streets","per_page":15,"to":15,"total":24}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -166,14 +166,14 @@ endpoints:
         name: id
         description: 'The ID of the street.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -181,11 +181,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 404
-        content: |-
-          {
-              "message": "No query results for model [App\\Models\\Street] 17"
-          }
+        status: 200
+        content: '{"data":{"id":1,"street_name":"Dlh\u00e1 11","company_id":2,"created_at":"2025-11-01T10:03:01.000000Z","updated_at":"2025-11-01T10:03:01.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -223,14 +220,14 @@ endpoints:
         name: id
         description: 'The ID of the street.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -290,14 +287,14 @@ endpoints:
         name: id
         description: 'The ID of the street.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

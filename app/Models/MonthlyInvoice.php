@@ -4,29 +4,39 @@ namespace App\Models;
 
 use App\Enums\InvoiceTypeEnum;
 use App\Enums\InvoiceStatusEnum;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Database\Factories\InvoiceFactory;
 
 class MonthlyInvoice extends Invoice
 {
+    use HasFactory;
+
     protected $type = InvoiceTypeEnum::MONTHLY->value;
     protected $table = 'invoices';
 
     protected $attributes = [
-        'type' => InvoiceTypeEnum::MONTHLY->value,
-        'status' => InvoiceStatusEnum::DRAFT->value,
+        'type' => 'monthly',
     ];
 
     public static function boot()
     {
         parent::boot();
+
+        static::addGlobalScope('monthly', function ($query) {
+            $query->where('type', InvoiceTypeEnum::MONTHLY->value);
+        });
+
         static::creating(function ($model) {
             $model->type = InvoiceTypeEnum::MONTHLY->value;
-            $model->status = InvoiceStatusEnum::DRAFT->value;
         });
     }
 
-    public function scopeMonthly($query)
+    /**
+     * ✅ Create a new factory instance for the model.
+     */
+    protected static function newFactory()
     {
-        return $query->where('type', InvoiceTypeEnum::MONTHLY->value);
+        return InvoiceFactory::new()->monthly();
     }
 
     public function snapshot(): array
