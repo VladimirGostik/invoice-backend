@@ -84,9 +84,10 @@ class InvoiceService
         $data['variable_symbol'] = $this->generateVariableSymbol($data['invoice_number']);
         $data['residential_company_name'] = $residentialCompany->company_name;
 
+        // ✅ Merge customization (vrátane podpisu) + company snapshot
         $data = array_merge(
             $data,
-            $companyCustomization ? $companyCustomization->snapshot() : [],
+            $companyCustomization ? $companyCustomization->snapshot() : [], // obsahuje signature_base64
             $company->snapshot()
         );
 

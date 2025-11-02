@@ -119,22 +119,14 @@ class CompanyController extends Controller
     #[BodyParam('invoice_issuer_name', 'string', 'Name of the invoice issuer', example: 'John Doe')]
     #[BodyParam('invoice_issuer_email', 'string', 'Email of the invoice issuer', example: 'john.doe@example.com')]
     #[BodyParam('invoice_issuer_phone', 'string', 'Phone number of the invoice issuer', example: '+123456789')]
-    #[BodyParam('signatures', 'file', 'Signature file of the invoice issuer')]
+    #[BodyParam('signature_base64', 'string', 'Base64 encoded signature image (PNG/JPG)', example: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==')]
     public function updateCustomization(UpdateCustomizationRequest $request, Company $company): JsonResponse
     {
         $this->authorize('updateCustomization', $company);
 
         $this->companyRepo->updateCustomization($company, $request->validated());
 
-        $this->fileService->handleUpload(
-            $request,
-            $company,
-            'signatures',
-            'signatures',
-            'signatures'
-        );
-
-         return response()->json([
+        return response()->json([
             'message' => 'Interface customization updated successfully'
         ]);
     }

@@ -45,7 +45,6 @@ class MonthlyInvoice extends Invoice
             'company_id',
             'residential_company_id',
             'street_id',
-            'street_id',
             'invoice_name',
             // company fields
             'company_name',
@@ -65,6 +64,13 @@ class MonthlyInvoice extends Invoice
             'additional_info_2',
             'info_dph',
             'invoice_above_table_text',
+
+            // customization fields
+            'invoice_issuer_name',
+            'invoice_issuer_email',
+            'invoice_issuer_phone',
+            'signature_base64',
+
             //totals
             'subtotal',
             'tax',

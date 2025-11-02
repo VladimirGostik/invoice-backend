@@ -27,11 +27,6 @@ class Company extends Model
         return $this->hasOne(CompanyCustomization::class);
     }
 
-    public function signatures(): MorphOne
-    {
-        return $this->morphOne(File::class, 'fileable')->where('collection', 'signatures');
-    }
-
     public function scopeMainCompany($query)
     {
         return $query->where('company_type', CompanyTypeEnum::MAIN->value);

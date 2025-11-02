@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('invoice_issuer_name')->nullable();
             $table->string('invoice_issuer_email')->nullable();
             $table->string('invoice_issuer_phone')->nullable();
+            $table->longText('signature_base64')->nullable();
             $table->timestamps();
         });
     }

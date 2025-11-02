@@ -17,7 +17,7 @@ class InvoiceFactory extends Factory
      */
     public function definition(): array
     {
-        $subtotal = $this->faker->randomFloat(2, 50, 5000);
+        $subtotal = $this->faker->randomFloat(2, 50, 500);
         $tax = $subtotal * 0.20; // 20% DPH
         $total = $subtotal + $tax;
 
@@ -63,7 +63,7 @@ class InvoiceFactory extends Factory
             'invoice_issuer_name' => $this->faker->name(),
             'invoice_issuer_email' => $this->faker->companyEmail(),
             'invoice_issuer_phone' => $this->faker->phoneNumber(),
-            'signatures' => null,
+            'signature_base64' => null,
             'qr_code' => null,
         ];
     }

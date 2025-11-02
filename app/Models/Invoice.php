@@ -32,4 +32,33 @@ class Invoice extends Model
     {
         return $this->hasMany(InvoiceItem::class, 'invoice_id');
     }
+
+    /**
+     * Get signature as data URI for PDF/frontend
+     */
+    public function getSignatureDataUriAttribute(): ?string
+    {
+        if (!$this->signature_base64) {
+            return null;
+        }
+
+        // Zisti MIME type z base64
+        $decoded = base64_decode($this->signature_base64);
+        if ($decoded === false) {
+            return null;
+        }
+
+        $finfo = new \finfo(FILEINFO_MIME_TYPE);
+        $mimeType = $finfo->buffer($decoded);
+
+        return "data:{$mimeType};base64,{$this->signature_base64}";
+    }
+
+    /**
+     * Check if invoice has signature
+     */
+    public function hasSignature(): bool
+    {
+        return !empty($this->signature_base64);
+    }
 }
