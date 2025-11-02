@@ -33,7 +33,7 @@ class CompanyRepository implements CompanyRepositoryInterface
     {
         $query = QueryBuilder::for(Company::class)
             ->MainCompany()
-            ->with(['companyCustomization', 'signatures'])
+            ->with(['companyCustomization'])
             ->allowedFilters([
                 AllowedFilter::scope('company_name'),
             ])
