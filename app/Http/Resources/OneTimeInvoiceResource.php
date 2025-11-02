@@ -44,7 +44,7 @@ class OneTimeInvoiceResource extends JsonResource
             'invoice_issuer_name' => $this->invoice_issuer_name,
             'invoice_issuer_email' => $this->invoice_issuer_email,
             'invoice_issuer_phone' => $this->invoice_issuer_phone,
-            'signatures' => $this->signatures,
+            'signature_base64' => $this->signature_base64,
             'subtotal' => $this->subtotal,
             'tax' => $this->tax,
             'total' => $this->total,
