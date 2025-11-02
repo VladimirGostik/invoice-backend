@@ -19,7 +19,7 @@ class CompanyResource extends JsonResource
             'invoice_issuer_name'  => $this->companyCustomization->invoice_issuer_name ?? null,
             'invoice_issuer_email' => $this->companyCustomization->invoice_issuer_email ?? null,
             'invoice_issuer_phone' => $this->companyCustomization->invoice_issuer_phone ?? null,
-            'signature_data_uri' => $this->companyCustomization->signature_data_uri,
+            'signature_data_uri' => $this->companyCustomization->signature_data_uri ?? null,
         ]);
     }
 }
