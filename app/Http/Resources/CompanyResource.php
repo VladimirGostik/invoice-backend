@@ -16,10 +16,10 @@ class CompanyResource extends JsonResource
     {
        return array_merge(parent::toArray($request), [
             //'streets' => $this->streets,
-            'invoice_issuer_name'  => $this->companyCustomization->invoice_issuer_name ?? null,
-            'invoice_issuer_email' => $this->companyCustomization->invoice_issuer_email ?? null,
-            'invoice_issuer_phone' => $this->companyCustomization->invoice_issuer_phone ?? null,
-            'signature_data_uri' => $this->companyCustomization->signature_data_uri ?? null,
+            'invoice_issuer_name'  => $this->companyCustomization?->invoice_issuer_name,
+            'invoice_issuer_email' => $this->companyCustomization?->invoice_issuer_email,
+            'invoice_issuer_phone' => $this->companyCustomization?->invoice_issuer_phone,
+            'signature_data_uri' => $this->companyCustomization?->getSignatureDataUriAttribute(),
         ]);
     }
 }
