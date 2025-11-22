@@ -33,4 +33,17 @@ return [
     'logo_uploaded_successfully' => 'Logo uploaded successfully',
     'logo_deleted_successfully' => 'Logo deleted successfully',
     'no_logo_to_delete' => 'No logo to delete',
+
+    // Invoice messages
+    'invoice_created' => 'Invoice created successfully.',
+    'invoice_updated' => 'Invoice updated successfully.',
+    'invoice_deleted' => 'Invoice deleted successfully.',
+    'invoice_not_found' => 'Invoice not found.',
+
+    'last_invoice_number' => 'Last invoice number',
+    'no_invoice_found' => 'No invoice found',
+
+    // Authorization
+    'unauthorized' => 'You are not authorized to perform this action.',
+    'forbidden' => 'Access denied.',
 ];

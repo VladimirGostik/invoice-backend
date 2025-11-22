@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -191,6 +190,57 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        // Invoice fields
+        'company_id' => 'company',
+        'residential_company_id' => 'residential company',
+        'street_id' => 'street',
+        'monthly_invoice_id' => 'monthly invoice',
+        'invoice_name' => 'invoice name',
+        'invoice_number' => 'invoice number',
+        'variable_symbol' => 'variable symbol',
+        'status' => 'status',
 
+        // Items
+        'items' => 'invoice items',
+        'items.*.id' => 'item ID',
+        'items.*.description' => 'item description',
+        'items.*.unit' => 'unit',
+        'items.*.quantity' => 'quantity',
+        'items.*.unit_price' => 'unit price',
+        'items.*.line_total' => 'line total',
+
+        // Amounts
+        'subtotal' => 'subtotal',
+        'tax' => 'tax',
+        'total' => 'total',
+
+        // Dates
+        'issued_at' => 'issue date',
+        'due_at' => 'due date',
+        'delivered_at' => 'delivery date',
+        'payment_date' => 'payment date',
+        'billing_year' => 'billing year',
+        'billing_month' => 'billing month',
+
+        // Residential company snapshot
+        'residential_company_name' => 'residential company name',
+        'residential_company_city' => 'city',
+        'residential_company_state' => 'state',
+        'residential_company_address' => 'address',
+        'residential_company_zip' => 'ZIP code',
+        'residential_company_ico' => 'ICO',
+        'residential_company_dic' => 'DIC',
+        'residential_company_ic_dph' => 'VAT number',
+        'residential_company_bank_account' => 'bank account',
+        'residential_company_bank_swift' => 'SWIFT code',
+
+        // Additional info
+        'invoice_text' => 'invoice text',
+        'is_complex_billing' => 'complex billing',
+        'additional_info_1' => 'additional info 1',
+        'additional_info_2' => 'additional info 2',
+        'info_dph' => 'VAT info',
+        'invoice_above_table_text' => 'text above table',
+    ],
 ];

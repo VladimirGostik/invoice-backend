@@ -39,8 +39,9 @@ class InvoiceController extends Controller
     public function index(Request $request): AnonymousResourceCollection
     {
         if (!$this->isUserSuperadmin()) {
-            abort(403, 'Unauthorized');
+            abort(403, __('messages.unauthorized'));
         }
+
         $filters = $request->all();
         $collection = $this->invoiceRepo->search($filters);
         return OneTimeInvoiceListResource::collection($collection);
@@ -53,11 +54,10 @@ class InvoiceController extends Controller
     public function show(Invoice $invoice): OneTimeInvoiceResource
     {
         if (!$this->isUserSuperadmin()) {
-            abort(403, 'Unauthorized');
+            abort(403, __('messages.unauthorized'));
         }
 
         $invoice->load('items');
-
         return new OneTimeInvoiceResource($invoice);
     }
 
@@ -68,11 +68,14 @@ class InvoiceController extends Controller
     public function getLastInvoiceNumber(int $company_id, int $billing_year): JsonResponse
     {
         if (!$this->isUserSuperadmin()) {
-            abort(403, 'Unauthorized');
+            abort(403, __('messages.unauthorized'));
         }
 
         $lastNumber = $this->invoiceService->getLastInvoiceNumber($company_id, $billing_year);
-        return response()->json(['last_invoice_number' => $lastNumber ?? 'Žiadna faktúra']);
+
+        return response()->json([
+            'last_invoice_number' => $lastNumber ?? __('messages.no_invoice_found')
+        ]);
     }
 
     /**
@@ -81,12 +84,16 @@ class InvoiceController extends Controller
     public function store(StoreRequest $request): JsonResponse
     {
         if (!$this->isUserSuperadmin()) {
-            abort(403, 'Unauthorized');
+            abort(403, __('messages.unauthorized'));
         }
 
         $data = $request->validated();
         $invoice = $this->invoiceService->createInvoice($data);
-        return response()->json(['id' => $invoice->id], 201);
+
+        return response()->json([
+            'id' => $invoice->id,
+            'message' => __('messages.invoice_created')
+        ], 201);
     }
 
     /**
@@ -96,41 +103,17 @@ class InvoiceController extends Controller
     public function update(UpdateRequest $request, Invoice $invoice): JsonResponse
     {
         if (!$this->isUserSuperadmin()) {
-            abort(403, 'Unauthorized');
+            abort(403, __('messages.unauthorized'));
         }
 
         $data = $request->validated();
-
-        // ✅ Použij service pre biznis logiku
         $updatedInvoice = $this->invoiceService->updateInvoice($invoice, $data);
 
-        return response()->json(['id' => $updatedInvoice->id], 200);
+        return response()->json([
+            'id' => $updatedInvoice->id,
+            'message' => __('messages.invoice_updated')
+        ], 200);
     }
-
-    // /**
-    //  *   Vytvorenie novej faktúry z mesačnej faktúry.
-    //  */
-    // public function createOneTimeFromMonthly(CreateOneTimeFromMonthly $request): Response
-    // {
-    //     $this->authorize('create', Invoice::class);
-    //     $data = $request->validated();
-
-    //     $this->invoiceService->createOneTimeFromMonthly($data);
-
-    //     // Asynchrónne generovanie QR kódov pre novovytvorené faktúry
-    //     $newInvoiceIds = OneTimeInvoice::where('billing_year', $data['billing_year'])
-    //         ->where('billing_month', $data['billing_month'])
-    //         ->whereNull('qr_code')
-    //         ->pluck('id')
-    //         ->toArray();
-
-    //     if (!empty($newInvoiceIds)) {
-    //         // Pre bulk operácie použijeme asynchrónne generovanie
-    //         GenerateQrCodeBulkJob::dispatch($newInvoiceIds);
-    //     }
-
-    //     return response()->noContent();
-    // }
 
     /**
      * Vymazanie faktúry.
@@ -139,10 +122,13 @@ class InvoiceController extends Controller
     public function delete(Invoice $invoice): JsonResponse
     {
         if (!$this->isUserSuperadmin()) {
-            abort(403, 'Unauthorized');
+            abort(403, __('messages.unauthorized'));
         }
 
         $this->invoiceRepo->delete($invoice);
-        return response()->json(null, 204);
+
+        return response()->json([
+            'message' => __('messages.invoice_deleted')
+        ], 204);
     }
 }

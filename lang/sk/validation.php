@@ -3,7 +3,6 @@
 // filepath: /Users/vladimirgostik/osobne_projekty/invoice-backend/lang/sk/validation.php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -180,35 +179,54 @@ return [
         'company_id' => 'spoločnosť',
         'residential_company_id' => 'bytová spoločnosť',
         'street_id' => 'ulica',
+        'monthly_invoice_id' => 'mesačná faktúra',
+
+        // Invoice fields
         'invoice_name' => 'názov faktúry',
-        'items' => 'položky',
+        'invoice_number' => 'číslo faktúry',
+        'variable_symbol' => 'variabilný symbol',
+        'status' => 'stav',
+
+        // Items
+        'items' => 'položky faktúry',
+        'items.*.id' => 'ID položky',
         'items.*.description' => 'popis položky',
         'items.*.unit' => 'jednotka',
         'items.*.quantity' => 'množstvo',
         'items.*.unit_price' => 'jednotková cena',
-        'items.*.line_total' => 'celkom za riadok',
+        'items.*.line_total' => 'celková suma',
+
+        // Amounts
         'subtotal' => 'medzisúčet',
         'tax' => 'daň',
-        'total' => 'celkom',
-        'company_name' => 'názov spoločnosti',
-        'company_city' => 'mesto spoločnosti',
-        'company_state' => 'štát spoločnosti',
-        'company_address' => 'adresa spoločnosti',
-        'company_zip' => 'PSČ spoločnosti',
-        'company_ico' => 'IČO spoločnosti',
-        'company_dic' => 'DIČ spoločnosti',
-        'company_ic_dph' => 'IČ DPH spoločnosti',
+        'total' => 'celková suma',
+
+        // Dates
+        'issued_at' => 'dátum vystavenia',
+        'due_at' => 'dátum splatnosti',
+        'delivered_at' => 'dátum dodania',
+        'payment_date' => 'dátum úhrady',
+        'billing_year' => 'rok fakturácie',
+        'billing_month' => 'mesiac fakturácie',
+
+        // Residential company snapshot
+        'residential_company_name' => 'názov bytovej spoločnosti',
+        'residential_company_city' => 'mesto',
+        'residential_company_state' => 'štát',
+        'residential_company_address' => 'adresa',
+        'residential_company_zip' => 'PSČ',
+        'residential_company_ico' => 'IČO',
+        'residential_company_dic' => 'DIČ',
+        'residential_company_ic_dph' => 'IČ DPH',
+        'residential_company_bank_account' => 'bankový účet',
+        'residential_company_bank_swift' => 'SWIFT kód',
+
+        // Additional info
         'invoice_text' => 'text faktúry',
-        'invoice_above_table_text' => 'text nad tabuľkou',
-        'is_complex_billing' => 'komplexné fakturovanie',
+        'is_complex_billing' => 'komplexná fakturácia',
         'additional_info_1' => 'doplnková informácia 1',
         'additional_info_2' => 'doplnková informácia 2',
         'info_dph' => 'informácia o DPH',
-        'email' => 'emailová adresa',
-        'password' => 'heslo',
-        'first_name' => 'meno',
-        'last_name' => 'priezvisko',
-        'phone' => 'telefónne číslo',
+        'invoice_above_table_text' => 'text nad tabuľkou',
     ],
-
 ];

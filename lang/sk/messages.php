@@ -33,4 +33,17 @@ return [
     'logo_uploaded_successfully' => 'Logo úspešne nahraté',
     'logo_deleted_successfully' => 'Logo úspešne vymazané',
     'no_logo_to_delete' => 'Žiadne logo na vymazanie',
+
+    // Invoice messages
+    'invoice_created' => 'Faktúra bola úspešne vytvorená.',
+    'invoice_updated' => 'Faktúra bola úspešne aktualizovaná.',
+    'invoice_deleted' => 'Faktúra bola úspešne vymazaná.',
+    'invoice_not_found' => 'Faktúra nebola nájdená.',
+
+    'last_invoice_number' => 'Posledné číslo faktúry',
+    'no_invoice_found' => 'Žiadna faktúra',
+
+    // Authorization
+    'unauthorized' => 'Nemáte oprávnenie vykonať túto akciu.',
+    'forbidden' => 'Prístup zamietnutý.',
 ];
