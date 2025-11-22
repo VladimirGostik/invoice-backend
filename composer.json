@@ -31,14 +31,14 @@
         "phpunit/phpunit": "^11.5.3"
     },
     "autoload": {
-        "files": [
-            "app/Helpers/CustomHelpers.php"
-        ],
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helpers/CustomHelpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

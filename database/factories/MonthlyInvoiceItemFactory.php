@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Invoice;
+use App\Models\MonthlyInvoice;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class InvoiceItemFactory extends Factory
+class MonthlyInvoiceItemFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -45,7 +45,7 @@ class InvoiceItemFactory extends Factory
         ];
 
         return [
-            'invoice_id' => Invoice::factory(),
+            'monthly_invoice_id' => MonthlyInvoice::factory(),
             'description' => $this->faker->randomElement($descriptions),
             'unit' => $this->faker->randomElement($units),
             'quantity' => $quantity,

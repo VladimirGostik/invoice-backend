@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\Interfaces\InvoiceRepositoryInterface;
-use App\Models\OneTimeInvoice;
+use App\Models\Invoice;
 use App\Models\Company;
 use App\Models\MonthlyInvoice;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +24,7 @@ class InvoiceService
     public function generateInvoiceNumber(int $company_id, int $billing_year): string
     {
         return DB::transaction(function () use ($company_id, $billing_year) {
-            $lastInvoice = OneTimeInvoice::where('company_id', $company_id)
+            $lastInvoice = Invoice::where('company_id', $company_id)
                 ->where('billing_year', $billing_year)
                 ->whereNotNull('invoice_number')
                 ->lockForUpdate()
@@ -44,12 +44,12 @@ class InvoiceService
                 }
             }
 
-            $newInvoiceNumber = sprintf('%s%05d', $currentYear, $nextSequence);
+            $newInvoiceNumber = sprintf('%s%03d', $currentYear, $nextSequence);
 
             // Double-check na unikátnosť
-            while (OneTimeInvoice::where('invoice_number', $newInvoiceNumber)->exists()) {
+            while (Invoice::where('invoice_number', $newInvoiceNumber)->exists()) {
                 $nextSequence++;
-                $newInvoiceNumber = sprintf('%s%05d', $currentYear, $nextSequence);
+                $newInvoiceNumber = sprintf('%s%03d', $currentYear, $nextSequence);
             }
 
             return $newInvoiceNumber;
@@ -58,7 +58,7 @@ class InvoiceService
 
     public function getLastInvoiceNumber(int $company_id, int $billing_year): ?string
     {
-        $lastInvoice = OneTimeInvoice::where('company_id', $company_id)
+        $lastInvoice = Invoice::where('company_id', $company_id)
             ->where('billing_year', $billing_year)
             ->orderBy('invoice_number', 'desc')
             ->first();
@@ -69,42 +69,41 @@ class InvoiceService
     public function generateVariableSymbol(string $invoiceNumber): string
     {
         // Extrahujeme posledných 5 číslic z čísla faktúry
-        $numberPart = substr($invoiceNumber, -5);
+        $numberPart = substr($invoiceNumber, -3);
         // Kombinujeme s rokom (max. 10 číslic pre variabilný symbol)
-        return sprintf('%s%s', date('Y'), $numberPart); // ex. "202500001"
+        return sprintf('%s%s', date('Y'), $numberPart); // ex. "2025001"
     }
 
     public function createInvoice($data)
     {
-        $company = Company::with('companyCustomization')->findOrFail($data['company_id']);
-        $residentialCompany = Company::findOrFail($data['residential_company_id']);
+        // ✅ Eager load company s customization v JEDNOM query
+        $company = Company::with('companyCustomization')
+            ->findOrFail($data['company_id']);
+
         $companyCustomization = $company->companyCustomization;
 
-        $data['invoice_number'] = $this->generateInvoiceNumber($data['company_id'], $data['billing_year']);
-        $data['variable_symbol'] = $this->generateVariableSymbol($data['invoice_number']);
-        $data['residential_company_name'] = $residentialCompany->company_name;
-
-        // ✅ Merge customization (vrátane podpisu) + company snapshot
-        $data = array_merge(
-            $data,
-            $companyCustomization ? $companyCustomization->snapshot() : [], // obsahuje signature_base64
-            $company->snapshot()
+        $data['invoice_number'] = $this->generateInvoiceNumber(
+            $data['company_id'],
+            $data['billing_year']
         );
 
-        return $this->invoiceRepo->createOneTime($data);
-    }
-
-    public function createMonthly(array $data)
-    {
-        $residentialCompany = Company::findOrFail($data['residential_company_id']);
-        $data['residential_company_name'] = $residentialCompany->company_name;
-
-        $data = array_merge(
-            $data,
-            $residentialCompany->snapshot()
+        $data['variable_symbol'] = $this->generateVariableSymbol(
+            $data['invoice_number']
         );
 
-        return $this->invoiceRepo->createMonthly($data);
+        // ✅ Vyčisti complex billing PRED vytvorením
+        if (empty($data['is_complex_billing'])) {
+            $data['additional_info_1'] = null;
+            $data['additional_info_2'] = null;
+        }
+
+        // ✅ Merge snapshot
+        $data = array_merge(
+            $data,
+            $companyCustomization ? $companyCustomization->snapshot() : [],
+        );
+
+        return $this->invoiceRepo->create($data);
     }
 
     /**
@@ -134,7 +133,7 @@ class InvoiceService
                 $company = $companies[$companyId];
 
                 // Získame aktuálny počítač pre firmu
-                $lastInvoice = OneTimeInvoice::where('company_id', $companyId)
+                $lastInvoice = Invoice::where('company_id', $companyId)
                     ->where('billing_year', $data['billing_year'])
                     ->whereNotNull('invoice_number')
                     ->orderBy('invoice_number', 'desc')
@@ -175,7 +174,7 @@ class InvoiceService
 
             // Bulk vytvorenie bez triggerov
             foreach ($invoicesData as $invoiceData) {
-                $this->invoiceRepo->createOneTime($invoiceData);
+                $this->invoiceRepo->create($invoiceData);
             }
 
             Log::info('Bulk created ' . count($invoicesData) . ' invoices from monthly invoices');
@@ -189,7 +188,7 @@ class InvoiceService
     {
         $qrService = app(QrCodeGenerationService::class);
 
-        $invoices = OneTimeInvoice::whereIn('id', $invoiceIds)
+        $invoices = Invoice::whereIn('id', $invoiceIds)
             ->whereNull('qr_code')
             ->get();
 
@@ -218,5 +217,28 @@ class InvoiceService
         }
 
         Log::info('Bulk generated QR codes for ' . $invoices->count() . ' invoices');
+    }
+
+    public function updateInvoice(Invoice $invoice, array $data): Invoice
+    {
+        // ✅ Vyčisti complex billing PRED update
+        if (isset($data['is_complex_billing']) && $data['is_complex_billing'] === false) {
+            $data['additional_info_1'] = null;
+            $data['additional_info_2'] = null;
+        }
+
+        // ✅ Ak sa mení company, preload customization
+        if (isset($data['company_id']) && $data['company_id'] !== $invoice->company_id) {
+            $company = Company::with('companyCustomization')
+                ->findOrFail($data['company_id']);
+
+            $companyCustomization = $company->companyCustomization;
+
+            if ($companyCustomization) {
+                $data = array_merge($data, $companyCustomization->snapshot());
+            }
+        }
+
+        return $this->invoiceRepo->update($invoice, $data);
     }
 }

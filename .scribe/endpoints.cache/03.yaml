@@ -62,12 +62,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 500
+        status: 401
         content: |-
           {
-              "message": "Server Error"
+              "message": "Wrong number of segments"
           }
         headers:
+          www-authenticate: jwt-auth
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
@@ -285,9 +286,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"data":[{"id":2,"company_name":"Ledner-Mante","company_city":"Sashashire","company_state":"Nauru","company_address":"872 Reichert Shores","company_zip":"07139-8277","company_ico":"56886653","company_dic":"0155248878","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":1,"street_name":"Legion\u00e1rska 11","company_id":2,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":2,"street_name":"\u0160kolsk\u00e1 23","company_id":2,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]},{"id":3,"company_name":"Medhurst, Lynch and Johnson","company_city":"Reichertberg","company_state":"Tonga","company_address":"9803 Carter Islands Apt. 793","company_zip":"82921-6105","company_ico":"87141893","company_dic":"8704805806","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":3,"street_name":"Legion\u00e1rska 20","company_id":3,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":4,"street_name":"\u0160kolsk\u00e1 35","company_id":3,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]},{"id":4,"company_name":"Dickinson, Wisozk and Stehr","company_city":"New Lonnie","company_state":"Ghana","company_address":"671 Sanford Keys","company_zip":"77464-7202","company_ico":"53496278","company_dic":"1406640065","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":5,"street_name":"\u0160kolsk\u00e1 8","company_id":4,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":6,"street_name":"Byt\u010dick\u00e1 20","company_id":4,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":7,"street_name":"Partiz\u00e1nska 22","company_id":4,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":8,"street_name":"Mierov\u00e1 50","company_id":4,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]},{"id":5,"company_name":"Schaefer Group","company_city":"Turnerfort","company_state":"Argentina","company_address":"2923 Welch Spring","company_zip":"29266","company_ico":"10024687","company_dic":"0036551564","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":9,"street_name":"Horn\u00e1 32","company_id":5,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":10,"street_name":"Mal\u00e1 10","company_id":5,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":11,"street_name":"Kr\u00e1tka 36","company_id":5,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":12,"street_name":"Legion\u00e1rska 38","company_id":5,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]},{"id":6,"company_name":"Jacobs and Sons","company_city":"Darleneton","company_state":"Italy","company_address":"74403 Schulist Run Suite 539","company_zip":"55206-5937","company_ico":"40681254","company_dic":"5033309283","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":13,"street_name":"Mierov\u00e1 8","company_id":6,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":14,"street_name":"Mal\u00e1 24","company_id":6,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":15,"street_name":"Partiz\u00e1nska 35","company_id":6,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]},{"id":7,"company_name":"Keebler-Rau","company_city":"North Eudoraborough","company_state":"Niue","company_address":"816 Howell Mountain Suite 790","company_zip":"15306","company_ico":"47990145","company_dic":"8615998986","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":16,"street_name":"Dlh\u00e1 23","company_id":7,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":17,"street_name":"Kr\u00e1tka 37","company_id":7,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":18,"street_name":"\u0160kolsk\u00e1 41","company_id":7,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]},{"id":8,"company_name":"Prohaska Ltd","company_city":"Jarrodberg","company_state":"Sierra Leone","company_address":"581 O''Hara Walk Suite 255","company_zip":"55433","company_ico":"77462180","company_dic":"0708402374","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":19,"street_name":"Mierov\u00e1 20","company_id":8,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":20,"street_name":"Ve\u013ek\u00e1 44","company_id":8,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":21,"street_name":"Partiz\u00e1nska 40","company_id":8,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]},{"id":9,"company_name":"O''Kon Ltd","company_city":"South Mervin","company_state":"Albania","company_address":"13174 Aisha Path","company_zip":"75245","company_ico":"39312168","company_dic":"9681554944","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":22,"street_name":"Hlavn\u00e1 16","company_id":9,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":23,"street_name":"Kr\u00e1tka 48","company_id":9,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":24,"street_name":"Z\u00e1vadsk\u00e1 15","company_id":9,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]},{"id":10,"company_name":"Waelchi LLC","company_city":"East Rebeccaville","company_state":"Kenya","company_address":"112 Mosciski Lights","company_zip":"43430","company_ico":"10337130","company_dic":"7259142614","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":25,"street_name":"Ve\u013ek\u00e1 48","company_id":10,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":26,"street_name":"Slovinsk\u00e1 25","company_id":10,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]},{"id":11,"company_name":"Barton, Osinski and Volkman","company_city":"Bechtelarton","company_state":"Northern Mariana Islands","company_address":"872 Bayer Mall Apt. 343","company_zip":"20562","company_ico":"59782559","company_dic":"9876055589","company_ic_dph":null,"company_bank_account":"SK0202000000005047157358","company_bank_swift":"VUB","company_type":"residential","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[{"id":27,"street_name":"\u0160kolsk\u00e1 39","company_id":11,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":28,"street_name":"Byt\u010dick\u00e1 34","company_id":11,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":29,"street_name":"Hlavn\u00e1 12","company_id":11,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"},{"id":30,"street_name":"Kr\u00e1tka 34","company_id":11,"created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z"}]}],"links":{"first":"http:\/\/localhost:8000\/api\/companies\/residential?page=1","last":"http:\/\/localhost:8000\/api\/companies\/residential?page=4","prev":null,"next":"http:\/\/localhost:8000\/api\/companies\/residential?page=2"},"meta":{"current_page":1,"from":1,"last_page":4,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost:8000\/api\/companies\/residential?page=1","label":"1","active":true},{"url":"http:\/\/localhost:8000\/api\/companies\/residential?page=2","label":"2","active":false},{"url":"http:\/\/localhost:8000\/api\/companies\/residential?page=3","label":"3","active":false},{"url":"http:\/\/localhost:8000\/api\/companies\/residential?page=4","label":"4","active":false},{"url":"http:\/\/localhost:8000\/api\/companies\/residential?page=2","label":"Next &raquo;","active":false}],"path":"http:\/\/localhost:8000\/api\/companies\/residential","per_page":10,"to":10,"total":40}}'
+        status: 401
+        content: |-
+          {
+              "message": "Wrong number of segments"
+          }
         headers:
+          www-authenticate: jwt-auth
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
@@ -483,9 +488,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"data":{"id":1,"company_name":"ABC s.r.o.","company_city":"Bratislava","company_state":"Slovensko","company_address":"Hlavn\u00e1 123","company_zip":"81101","company_ico":"12345678","company_dic":"1234567890","company_ic_dph":"SK1234567890","company_bank_account":"SK0202000000005047157358","company_bank_swift":"SUBASKBX","company_type":"main","created_at":"2025-11-02T10:16:29.000000Z","updated_at":"2025-11-02T10:16:29.000000Z","streets":[]}}'
+        status: 401
+        content: |-
+          {
+              "message": "Wrong number of segments"
+          }
         headers:
+          www-authenticate: jwt-auth
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
@@ -537,12 +546,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 500
+        status: 401
         content: |-
           {
-              "message": "Server Error"
+              "message": "Wrong number of segments"
           }
         headers:
+          www-authenticate: jwt-auth
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'

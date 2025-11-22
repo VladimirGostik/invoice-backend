@@ -32,7 +32,7 @@ class CompanySeeder extends Seeder
 
         // 10 bytových spoločností
         Company::factory()
-            ->count(10)
+            ->count(20)
             ->create([
                 'company_type' => CompanyTypeEnum::RESIDENTIAL->value,
             ]);

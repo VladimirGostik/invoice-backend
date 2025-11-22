@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\MonthlyInvoiceController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StreetController;
@@ -79,28 +80,24 @@ Route::group(['middleware' => ['jwt.auth']], function () {
         Route::delete('/{street}', [StreetController::class, 'destroy'])->name('destroy');
     });
 
-    Route::prefix('invoices')->group(function () {
+    // ✅ Mesačné faktúry
+    Route::prefix('invoices/monthly')->name('monthly-invoices.')->group(function () {
+        Route::get('/', [MonthlyInvoiceController::class, 'index'])->name('index');
+        Route::post('/', [MonthlyInvoiceController::class, 'store'])->name('store');
+        Route::get('/{monthlyInvoice}', [MonthlyInvoiceController::class, 'show'])->name('show');
+        Route::put('/{monthlyInvoice}', [MonthlyInvoiceController::class, 'update'])->name('update');
+        Route::delete('/{monthlyInvoice}', [MonthlyInvoiceController::class, 'destroy'])->name('destroy');
+        //Route::post('/create-one-time', [MonthlyInvoiceController::class, 'createOneTimeInvoices'])->name('create-one-time');
+    });
 
-        // Mesačné faktúry
-        Route::prefix('monthly')->group(function () {
-            Route::get('/', [InvoiceController::class, 'searchMonthly'])->name('invoices.searchMonthly');
-            Route::post('/', [InvoiceController::class, 'storeMonthly'])->name('invoices.storeMonthly');
-            Route::put('/{invoice}', [InvoiceController::class, 'updateMonthly'])->name('invoices.updateMonthly');
-            Route::get('/{invoice}', [InvoiceController::class, 'viewMonthly'])->name('invoices.viewMonthly');
-        });
-
-        // Jednorazové faktúry
-        Route::prefix('one-time')->group(function () {
-            Route::get('/', [InvoiceController::class, 'searchOneTime'])->name('invoices.searchOneTime');
-            Route::post('/', [InvoiceController::class, 'storeOneTime'])->name('invoices.storeOneTime');
-            Route::put('/{invoice}', [InvoiceController::class, 'updateOneTime'])->name('invoices.updateOneTime');
-            Route::post('/from-monthly', [InvoiceController::class, 'createOneTimeFromMonthly'])->name('invoices.createOneTimeFromMonthly');
-        });
-
-        // Všeobecné endpointy pre faktúry
-        Route::get('/last-number/{company_id}/{billing_year}', [InvoiceController::class, 'getLastInvoiceNumber'])->name('invoices.last-number');
-        Route::get('/{invoice}', [InvoiceController::class, 'view'])->name('invoices.view');
-        Route::delete('/{invoice}', [InvoiceController::class, 'delete'])->name('invoices.delete');
+    // ✅ Jednorazové faktúry
+    Route::prefix('invoices/one-time')->name('one-time-invoices.')->group(function () {
+        Route::get('/', [InvoiceController::class, 'index'])->name('index');
+        Route::post('/', [InvoiceController::class, 'store'])->name('store');
+        Route::get('/{invoice}', [InvoiceController::class, 'show'])->name('show');
+        Route::put('/{invoice}', [InvoiceController::class, 'update'])->name('update');
+        Route::delete('/{invoice}', [InvoiceController::class, 'destroy'])->name('destroy');
+        // Route::get('/last-number/{company_id}/{billing_year}', [InvoiceController::class, 'getLastInvoiceNumber'])->name('last-number');
     });
 
 });

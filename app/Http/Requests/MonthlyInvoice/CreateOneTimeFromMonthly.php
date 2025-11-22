@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Invoice;
+namespace App\Http\Requests\MonthlyInvoice;
 
-
-use App\Models\Invoice;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateOneTimeFromMonthly extends FormRequest
+class CreateOneTimeFromMonthlyRequest extends FormRequest
 {
-
     public function authorize(): bool
     {
         return true;
@@ -18,12 +15,10 @@ class CreateOneTimeFromMonthly extends FormRequest
     {
         return [
             'monthly_invoice_ids' => ['required', 'array', 'min:1'],
-            'monthly_invoice_ids.*' => ['required', 'exists:invoices,id'],
+            'monthly_invoice_ids.*' => ['required', 'exists:monthly_invoices,id'],
             'issued_at' => ['required', 'date'],
             'due_at' => ['required', 'date', 'after_or_equal:issued_at'],
             'delivered_at' => ['required', 'date'],
-            'billing_year' => ['required', 'integer', 'min:2000', 'max:2100'],
-            'billing_month' => ['required', 'integer', 'min:1', 'max:12'],
         ];
     }
 }

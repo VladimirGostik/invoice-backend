@@ -14,19 +14,27 @@ class CompanyRepository implements CompanyRepositoryInterface
 {
     public function searchResidential(array $filter): Collection|LengthAwarePaginator|array
     {
-        // Log the $type value
         $query = QueryBuilder::for(Company::class)
             ->with(['streets'])
             ->ResidentialCompany()
             ->allowedFilters([
-            'company_name',
+                'company_name',
             ]);
-        // Get pagination
-        $paginate = (int)($filter['per_page'] ?? config('system.paginate'));
 
-        return $paginate ?
-            $query->paginate($paginate) :
-            $query->get();
+        $perPage = $filter['per_page'] ?? null;
+
+        if ($perPage === null || $perPage === '' || $perPage === 'all') {
+            return $query->get(); // ✅ Žiadna pagination
+        }
+
+        $paginate = (int)$perPage;
+
+        if ($paginate <= 0) {
+            return $query->get(); // ✅ Žiadna pagination
+        }
+
+        // ✅ DÔLEŽITÉ: simplePaginate namiesto paginate
+        return $query->simplePaginate($paginate); // NIE paginate($paginate)!
     }
 
     public function searchMain(array $filter): Collection|LengthAwarePaginator|array

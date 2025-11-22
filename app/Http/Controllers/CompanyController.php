@@ -36,29 +36,36 @@ class CompanyController extends Controller
     }
 
     /**
-     * Zoznam všetkých firiem.
-     */
-    #[QueryParam('page', 'int', 'Set the page number for pagination. Default: 1', example: 1)]
-    #[QueryParam('per_page', 'int', 'Set the number of records per page. Default: 10', example: 10)]
-    #[QueryParam('filter[company_name]', 'string', 'Filter records by company_name.', example: 'Kegos s.r.o.')]
-    public function indexMain(Request $request): AnonymousResourceCollection   {
-        $this->authorize('viewAny', Company::class);
-        $filters = $request->all();
-        $collection = $this->companyRepo->searchMain($filters);
-        return CompanyResource::collection($collection);
-    }
-
-    /**
      * Zoznam všetkých rezidencných firiem.
      */
     #[QueryParam('page', 'int', 'Set the page number for pagination. Default: 1', example: 1)]
     #[QueryParam('per_page', 'int', 'Set the number of records per page. Default: 10', example: 10)]
     #[QueryParam('filter[company_name]', 'string', 'Filter records by company_name.', example: 'Kegos s.r.o.')]
     public function indexResidential(Request $request): AnonymousResourceCollection   {
-        $this->authorize('viewAny', Company::class);
+
+        if (!$this->isUserSuperadmin()) {
+            abort(403, 'Unauthorized');
+        }
         $filters = $request->all();
         $collection = $this->companyRepo->searchResidential($filters);
         return ResidentialCompanyResource::collection($collection);
+    }
+
+    /**
+     * Zoznam všetkých firiem.
+     */
+    #[QueryParam('page', 'int', 'Set the page number for pagination. Default: 1', example: 1)]
+    #[QueryParam('per_page', 'int', 'Set the number of records per page. Default: 10', example: 10)]
+    #[QueryParam('filter[company_name]', 'string', 'Filter records by company_name.', example: 'Kegos s.r.o.')]
+    public function indexMain(Request $request): AnonymousResourceCollection   {
+        // ✅ Bez DB dotazu na role kontrolu
+        if (!$this->isUserSuperadmin()) {
+            abort(403, 'Unauthorized');
+        }
+
+        $filters = $request->all();
+        $collection = $this->companyRepo->searchMain($filters);
+        return CompanyResource::collection($collection);
     }
 
     /**
@@ -88,6 +95,9 @@ class CompanyController extends Controller
     public function show(Company $company): CompanyResource
     {
         $this->authorize('view', $company);
+
+        $company->load('companyCustomization');
+
         return new CompanyResource($company);
     }
 
@@ -97,7 +107,9 @@ class CompanyController extends Controller
     public function showResidential(Company $company): ResidentialCompanyResource
     {
         $this->authorize('view', $company);
-        $company->load('streets');
+
+        $company->load(['streets', 'companyCustomization']);
+
         return new ResidentialCompanyResource($company);
     }
 
@@ -114,7 +126,7 @@ class CompanyController extends Controller
 
     /**
      * Aktualizácia interfacu firmy.
-    */
+     */
     #[UrlParam('company', 'ID of the company to update customization', example: 1)]
     #[BodyParam('invoice_issuer_name', 'string', 'Name of the invoice issuer', example: 'John Doe')]
     #[BodyParam('invoice_issuer_email', 'string', 'Email of the invoice issuer', example: 'john.doe@example.com')]
@@ -124,11 +136,9 @@ class CompanyController extends Controller
     {
         $this->authorize('updateCustomization', $company);
 
-        $this->companyRepo->updateCustomization($company, $request->validated());
-
-        return response()->json([
-            'message' => 'Interface customization updated successfully'
-        ]);
+        $data = $request->validated();
+        $this->companyRepo->updateCustomization($company, $data);
+        return response()->json(['message' => 'Company customization updated successfully']);
     }
 
     /**

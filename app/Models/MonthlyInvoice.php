@@ -2,41 +2,71 @@
 
 namespace App\Models;
 
-use App\Enums\InvoiceTypeEnum;
-use App\Enums\InvoiceStatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Database\Factories\InvoiceFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class MonthlyInvoice extends Invoice
+class MonthlyInvoice extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    protected $type = InvoiceTypeEnum::MONTHLY->value;
-    protected $table = 'invoices';
+    protected $table = 'monthly_invoices';
+    protected $guarded = ['id'];
 
-    protected $attributes = [
-        'type' => InvoiceTypeEnum::MONTHLY->value,
-    ];
-
-    public static function boot()
+    protected function casts(): array
     {
-        parent::boot();
-
-        static::addGlobalScope('monthly', function ($query) {
-            $query->where('type', InvoiceTypeEnum::MONTHLY->value);
-        });
-
-        static::creating(function ($model) {
-            $model->type = InvoiceTypeEnum::MONTHLY->value;
-        });
+        return [
+            'is_complex_billing' => 'boolean',
+            'subtotal' => 'decimal:2',
+            'tax' => 'decimal:2',
+            'total' => 'decimal:2',
+        ];
     }
 
-    /**
-     * ✅ Create a new factory instance for the model
-     */
-    protected static function newFactory()
+    // Relationships
+    public function company(): BelongsTo
     {
-        return InvoiceFactory::new()->monthly();
+        return $this->belongsTo(Company::class, 'company_id');
+    }
+
+    public function residentialCompany(): BelongsTo
+    {
+        return $this->belongsTo(Company::class, 'residential_company_id');
+    }
+
+    public function street(): BelongsTo
+    {
+        return $this->belongsTo(Street::class);
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(MonthlyInvoiceItem::class);
+    }
+
+    // Helpers
+    public function getSignatureDataUriAttribute(): ?string
+    {
+        if (!$this->signature_base64) {
+            return null;
+        }
+
+        $decoded = base64_decode($this->signature_base64);
+        if ($decoded === false) {
+            return null;
+        }
+
+        $finfo = new \finfo(FILEINFO_MIME_TYPE);
+        $mimeType = $finfo->buffer($decoded);
+
+        return "data:{$mimeType};base64,{$this->signature_base64}";
+    }
+
+    public function hasSignature(): bool
+    {
+        return !empty($this->signature_base64);
     }
 
     public function snapshot(): array
@@ -46,32 +76,22 @@ class MonthlyInvoice extends Invoice
             'residential_company_id',
             'street_id',
             'invoice_name',
-            // company fields
-            'company_name',
-            'company_city',
-            'company_state',
-            'company_address',
-            'company_zip',
-            'company_ico',
-            'company_dic',
-            'company_ic_dph',
-            'company_bank_account',
-            'company_bank_swift',
-            // custom fields
+            'residential_company_name',
+            'residential_company_city',
+            'residential_company_state',
+            'residential_company_address',
+            'residential_company_zip',
+            'residential_company_ico',
+            'residential_company_dic',
+            'residential_company_ic_dph',
+            'residential_company_bank_account',
+            'residential_company_bank_swift',
             'invoice_text',
             'is_complex_billing',
             'additional_info_1',
             'additional_info_2',
             'info_dph',
             'invoice_above_table_text',
-
-            // customization fields
-            'invoice_issuer_name',
-            'invoice_issuer_email',
-            'invoice_issuer_phone',
-            'signature_base64',
-
-            //totals
             'subtotal',
             'tax',
             'total',

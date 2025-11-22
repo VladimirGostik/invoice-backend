@@ -25,25 +25,43 @@ class UserSeeder extends Seeder
 //
 //        Schema::enableForeignKeyConstraints();
 
-       $superAdmin = User::create([
-            'first_name' => 'Super',
-            'last_name' => 'Admin',
-            'phone' => '1234567890',
-            'password' => Hash::make('password'),
-            'email' => 'superadmin@example.com',
-            'state' => UserStateEnum::ACTIVE,
-        ]);
-       $superAdmin->assignRole(UserRoleEnum::SUPER_ADMIN);
+        User::updateOrCreate(
+            ['email' => 'superadmin@example.com'],
+            [
+                'first_name' => 'Super',
+                'last_name' => 'Admin',
+                'phone' => '1234567890',
+                'password' => Hash::make('password'),
+                'state' => UserStateEnum::ACTIVE,
+                'role' => UserRoleEnum::SUPER_ADMIN,
+                'email_verified_at' => now(),
+            ]
+        );
 
-        $admin = User::create([
-            'first_name' => 'Admin',
-            'last_name' => 'Clovek',
-            'phone' => '1234567890',
-            'password' => Hash::make('password'),
-            'email' => 'admin@example.com',
-            'state' => UserStateEnum::ACTIVE,
-        ]);
+        User::updateOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'first_name' => 'Admin',
+                'last_name' => 'Clovek',
+                'phone' => '1234567890',
+                'password' => Hash::make('password'),
+                'state' => UserStateEnum::ACTIVE,
+                'role' => UserRoleEnum::ADMIN,
+                'email_verified_at' => now(),
+            ]
+        );
 
-        $admin->assignRole(UserRoleEnum::ADMIN);
+        User::updateOrCreate(
+            ['email' => 'user@example.com'],
+            [
+                'first_name' => 'Regular',
+                'last_name' => 'User',
+                'phone' => '5555555555',
+                'password' => Hash::make('password'),
+                'state' => UserStateEnum::ACTIVE,
+                'role' => UserRoleEnum::USER,
+                'email_verified_at' => now(),
+            ]
+        );
     }
 }

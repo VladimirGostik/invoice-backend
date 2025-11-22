@@ -2,13 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Enums\InvoiceStatusEnum;
-use App\Enums\InvoiceTypeEnum;
 use App\Models\Company;
 use App\Models\Street;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class InvoiceFactory extends Factory
+class MonthlyInvoiceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -25,27 +23,17 @@ class InvoiceFactory extends Factory
             'company_id' => Company::factory(),
             'residential_company_id' => null,
             'street_id' => null,
-            'invoice_number' => null,
-            'variable_symbol' => null,
             'invoice_name' => $this->faker->words(3, true),
-            'type' => InvoiceTypeEnum::MONTHLY->value,
-            'status' => InvoiceStatusEnum::DRAFT->value,
-            'billing_year' => now()->year,
-            'billing_month' => now()->month,
-            'issued_at' => null,
-            'due_at' => null,
-            'delivered_at' => null,
-            'payment_date' => null,
 
             // Company snapshot
-            'company_name' => $this->faker->company(),
-            'company_city' => $this->faker->city(),
-            'company_state' => 'Slovensko',
-            'company_address' => $this->faker->streetAddress(),
-            'company_zip' => $this->faker->numerify('#####'),
-            'company_ico' => $this->faker->numerify('########'),
-            'company_dic' => $this->faker->numerify('##########'),
-            'company_ic_dph' => $this->faker->optional(0.7)->numerify('SK##########'),
+            'residential_company_name' => $this->faker->company(),
+            'residential_company_city' => $this->faker->city(),
+            'residential_company_state' => 'Slovensko',
+            'residential_company_address' => $this->faker->streetAddress(),
+            'residential_company_zip' => $this->faker->numerify('#####'),
+            'residential_company_ico' => $this->faker->numerify('########'),
+            'residential_company_dic' => $this->faker->numerify('##########'),
+            'residential_company_ic_dph' => $this->faker->optional(0.7)->numerify('SK##########'),
 
             // Customization
             'invoice_text' => $this->faker->optional()->sentence(),
@@ -60,11 +48,6 @@ class InvoiceFactory extends Factory
             'total' => $total,
 
             'info_dph' => 'Ceny sú uvedené s 20% DPH',
-            'invoice_issuer_name' => $this->faker->name(),
-            'invoice_issuer_email' => $this->faker->companyEmail(),
-            'invoice_issuer_phone' => $this->faker->phoneNumber(),
-            'signature_base64' => null,
-            'qr_code' => null,
         ];
     }
 
@@ -74,7 +57,6 @@ class InvoiceFactory extends Factory
     public function monthly(): static
     {
         return $this->state(fn (array $attributes) => [
-            'type' => InvoiceTypeEnum::MONTHLY->value,
             'invoice_number' => null,
             'issued_at' => null,
             'due_at' => null,

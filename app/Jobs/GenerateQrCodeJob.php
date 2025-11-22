@@ -31,8 +31,13 @@ class GenerateQrCodeJob implements ShouldQueue
         try {
             Log::info('Starting QR code generation for invoice: ' . $this->invoice->id);
 
-            // Validácia potrebných dát
-            if (empty($this->invoice->company_bank_account)) {
+            // Eager load relationships
+            $this->invoice->load(['company', 'residentialCompany']);
+
+            // Validácia - údaje z main company (issuer)
+            $bankAccount = $this->invoice->company->company_bank_account;
+
+            if (empty($bankAccount)) {
                 Log::warning('Missing bank account for invoice: ' . $this->invoice->id);
                 return;
             }
@@ -47,17 +52,22 @@ class GenerateQrCodeJob implements ShouldQueue
                 return;
             }
 
-            if (empty($this->invoice->residential_company_name)) {
-                Log::warning('Missing residential company name for invoice: ' . $this->invoice->id);
+            // Payee name - z residential company snapshot alebo relationship
+            $payeeName = $this->invoice->residential_company_name
+                      ?? $this->invoice->residentialCompany?->company_name;
+
+            if (empty($payeeName)) {
+                Log::warning('Missing payee name for invoice: ' . $this->invoice->id);
                 return;
             }
 
+            // Vygeneruj QR kód
             $qrCodeBase64 = $qrCodeGenerationService->generate(
-                iban: $this->invoice->company_bank_account,
+                iban: $bankAccount,
                 amount: $this->invoice->total,
                 variableSymbol: $this->invoice->variable_symbol,
                 dueDate: $this->invoice->due_at,
-                payeeName: $this->invoice->residential_company_name,
+                payeeName: $payeeName,
             );
 
             // Použijeme updateQuietly pre zabránenie triggerovania Observer-a

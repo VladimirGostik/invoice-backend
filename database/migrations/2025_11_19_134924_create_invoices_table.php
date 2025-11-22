@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Enums\InvoiceTypeEnum;
 use App\Enums\InvoiceStatusEnum;
 
 return new class extends Migration
@@ -33,11 +32,14 @@ return new class extends Migration
                   ->constrained('streets')
                   ->cascadeOnDelete();
 
+            $table->foreignId('monthly_invoice_id')
+                  ->nullable()
+                  ->constrained('monthly_invoices');
+
             // Invoice metadata
             $table->string('invoice_number')->nullable();
             $table->string('variable_symbol')->nullable();
             $table->string('invoice_name');
-            $table->enum('type', array_column(InvoiceTypeEnum::cases(), 'value'));
             $table->enum('status', array_column(InvoiceStatusEnum::cases(), 'value'))->default(InvoiceStatusEnum::DRAFT->value);
 
             $table->unsignedSmallInteger('billing_year')->nullable();
@@ -48,14 +50,16 @@ return new class extends Migration
             $table->date('payment_date')->nullable();
 
             // Company fields
-            $table->string('company_name')->nullable();
-            $table->string('company_city')->nullable();
-            $table->string('company_state')->nullable();
-            $table->string('company_address')->nullable();
-            $table->string('company_zip')->nullable();
-            $table->string('company_ico')->nullable();
-            $table->string('company_dic')->nullable();
-            $table->string('company_ic_dph')->nullable();
+            $table->string('residential_company_name')->nullable();
+            $table->string('residential_company_city')->nullable();
+            $table->string('residential_company_state')->nullable();
+            $table->string('residential_company_address')->nullable();
+            $table->string('residential_company_zip')->nullable();
+            $table->string('residential_company_ico')->nullable();
+            $table->string('residential_company_dic')->nullable();
+            $table->string('residential_company_ic_dph')->nullable();
+            $table->string('residential_company_bank_account')->nullable();
+            $table->string('residential_company_bank_swift')->nullable();
 
             // Customization options
             $table->string('invoice_text')->nullable();
@@ -80,10 +84,11 @@ return new class extends Migration
             $table->timestamps();
 
             // Indexes
-            $table->index(['type','issued_at']);
+            $table->index(['status']);
             $table->index('company_id');
             $table->index('residential_company_id');
             $table->index('street_id');
+            $table->softDeletes();
         });
     }
 
